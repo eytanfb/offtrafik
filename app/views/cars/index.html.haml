@@ -1,0 +1,21 @@
+%h2 Listing Cars
+
+%table
+  %thead
+    %tr
+      %th Owner
+      %th Capacity
+      %th
+      %th
+      %th
+  %tbody
+    - @cars.each do |car|
+      %tr
+        %td= car.owner
+        %td= car.capacity
+        %td= link_to 'Edit', edit_car_paath(car)
+        %td= link_to 'Delete', car, method :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Car', new_car_path

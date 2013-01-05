@@ -1,0 +1,22 @@
+= form_for(@person) do |f|
+
+  - if @car.errors.any?
+    .error_explanation
+      %h2= pluralize(@car.error.count, "error")
+      
+      %ul
+        - @car.errors.full_messages.each do |msg|
+          %li= msg
+      
+  .field
+    = f.label :owner
+    %br
+    = f.number_field :owner
+    
+  .field
+    = f.label :capacity
+    %br
+    = f.text_field :capacity
+    
+  .actions
+    = f.submit

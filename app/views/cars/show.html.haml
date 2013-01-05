@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Owner:
+  = @car.owner
+  
+%p
+  %b Capacity:
+  = @car.capacity
+  
+= link_to 'Edit', edit_car_path(@car) |
+= link_to 'Back', cars_path
