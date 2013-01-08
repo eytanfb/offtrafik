@@ -3,7 +3,7 @@
 %table
   %thead
     %tr
-      %th Owner
+      %th Owner Id
       %th Capacity
       %th
       %th
@@ -11,10 +11,10 @@
   %tbody
     - @cars.each do |car|
       %tr
-        %td= car.owner
+        %td= car.person_id
         %td= car.capacity
-        %td= link_to 'Edit', edit_car_paath(car)
-        %td= link_to 'Delete', car, method :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Edit', edit_car_path(car)
+        %td= link_to "Delete", car, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 

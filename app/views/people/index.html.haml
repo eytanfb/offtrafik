@@ -6,12 +6,14 @@
       %th First Name
       %th Last Name
       %th Email
+      %th Car
   %tbody
     - @people.each do |person|
       %tr
         %td= link_to "#{person.first_name}", person_path(person)
         %td= link_to "#{person.last_name}", person_path(person)
         %td= link_to "#{person.email}", person_path(person)
+        %td= person.car_id
         %td= link_to "Delete", person, method: :delete, data: { confirm: 'Are you sure?' }
         %td= link_to "Edit", edit_person_path(person)
         
