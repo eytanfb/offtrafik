@@ -11,6 +11,10 @@
 %p
   %b Email:
   = @person.email
+ 
+%p
+  %b Car:
+  = @person.car.id
   
 = link_to 'Edit', edit_person_path(@person)
 = link_to 'Back', people_path
