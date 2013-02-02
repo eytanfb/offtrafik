@@ -1,15 +1,19 @@
 RelearningRails::Application.routes.draw do
   
-  match '/signup', to: 'users#new'
-
+  root :to => 'static_pages#home'
+  
+  # Matching static_pages
   match '/', to: 'static_pages#home'
   match '/help', to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
-  root :to => 'static_pages#home'
+  
+  # Matching users
+  match '/signup', to: 'users#new'
 
   resources :cars
   resources :people
+  resources :users
 
 
   # The priority is based upon order of creation:
