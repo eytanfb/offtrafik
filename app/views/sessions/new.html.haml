@@ -1,0 +1,16 @@
+= provide(:title, "Giriş")
+%h1 Giriş
+.row
+  .span6.offset3
+    = form_for(:session, url: sessions_path) do |session| # the argument for form_for is like this because there is no Session model
+      = session.label :email
+      = session.text_field :email
+      
+      = session.label :password, "Şifre"
+      = session.password_field :password
+      
+      = session.submit "Giriş", class: "btn btn-large btn-primary"
+      
+    %p 
+      Yeni Kullanıcı:
+      = link_to "Bize Katıl", signup_path
