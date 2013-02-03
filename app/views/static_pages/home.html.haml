@@ -1,5 +1,12 @@
 .center.hero-unit  
   %h1 Koç Carpool Projesi
-  %p Bu sayfaya gelerek İstanbul'daki trafik sorunundan sıkıldığını gösterdin. Şimdi üye ol, ve araba paylaşmaya başla!
+  .row
+    .span4.offset1
+      %input{ type: "search", value: "Nereden", readonly: "true", style: "background: white" }
+    .span4
+      %input{ type: "search", value: "Nereye", readonly: "true", style: "background: white" }
+  %p 
+    Bu sayfaya gelerek İstanbul'daki trafik sorunundan sıkıldığını gösterdin. Şimdi üye ol, ve araba paylaşmaya başla!
   
   = link_to "Üye ol!", signup_path, class: "btn btn-large btn-primary", style: "color: white"
+  = link_to "Neden?", why_path, class: "btn btn-large btn-primary", style: "color: white; background: green"
