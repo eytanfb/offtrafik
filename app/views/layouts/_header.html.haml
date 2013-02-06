@@ -9,13 +9,12 @@
           - if signed_in?
             %li= link_to "Uyeler", '#' # users
             %li#fat-menu.dropdown
-              <a href='#' class="dropdown-toggle" data-toggle="dropdown"> Profil <b class="caret"></b></a> # account
+              <a href='#' class="dropdown-toggle" data-toggle="dropdown"> Profil <b class="caret"></b></a>
               %ul.dropdown-menu
-                %li= link_to "Profil", current_user # account
+                %li= link_to "Profil", current_user
                 %li= link_to "Ayarlar", '#' # settings
                 %li.divider
                   %li= link_to "Çıkış", signout_path, method: "delete" # signout
           - else
             %li= link_to "Neden?", why_path # why
             %li= link_to "Giriş", signin_path #signin
-            
