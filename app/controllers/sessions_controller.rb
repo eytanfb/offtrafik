@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   
   def new
-
   end
 
   def create
@@ -9,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # Sign In successful message and redirect to user profile
       sign_in user
-      redirect_to user
+      redirect_back_or user
     else
       # Error message and show signin page again
       flash.now[:error] = 'Invalid email/password combination' # .now added to flash to make it appear only on the rendered page

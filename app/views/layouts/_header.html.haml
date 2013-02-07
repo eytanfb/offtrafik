@@ -7,12 +7,12 @@
           %li= link_to "Ana Sayfa", root_path # home
           %li= link_to "Hakkimizda", about_path # about
           - if signed_in?
-            %li= link_to "Uyeler", '#' # users
+            %li= link_to "Uyeler", users_path # users
             %li#fat-menu.dropdown
               <a href='#' class="dropdown-toggle" data-toggle="dropdown"> Profil <b class="caret"></b></a>
               %ul.dropdown-menu
                 %li= link_to "Profil", current_user
-                %li= link_to "Ayarlar", '#' # settings
+                %li= link_to "Ayarlar", edit_user_path(current_user) # settings
                 %li.divider
                   %li= link_to "Çıkış", signout_path, method: "delete" # signout
           - else
