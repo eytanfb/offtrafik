@@ -2,9 +2,11 @@
   %h1 Koç Carpool Projesi
   .row
     .span4.offset1
-      %input{ type: "search", value: "Nereden", readonly: "true", style: "background: white" }
+      %input.search-query{ placeholder: "Nereden", style: "background: white" }
     .span4
-      %input{ type: "search", value: "Nereye", readonly: "true", style: "background: white" }
+      %input.search-query{ placeholder: "Nereye", style: "background: white" }
+    .offset1
+      = link_to 'Yoldas Ara', '#', class: "btn btn-large", style: "color: white; background: navy"
   %p 
     Bu sayfaya gelerek İstanbul'daki trafik sorunundan sıkıldığını gösterdin. Şimdi üye ol, ve araba paylaşmaya başla!
   

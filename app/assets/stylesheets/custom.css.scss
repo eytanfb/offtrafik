@@ -99,8 +99,9 @@ p {
   font-weight: bold;
   line-height: 1;
   &:hover{
-    color: #fff;
+    color: white;
     text-decoration: none;
+    background: none;
   }
 }
 
