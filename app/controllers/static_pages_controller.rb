@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @car =  current_user.cars.build if signed_in?
   end
 
   def help

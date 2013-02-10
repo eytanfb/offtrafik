@@ -5,4 +5,14 @@ FactoryGirl.define do
     password              "foobar"
     password_confirmation "foobar"
   end
+  
+  factory :admin do
+    admin true
+  end
+  
+  factory :car do
+    capacity 4
+    smoking false
+    user
+  end
 end

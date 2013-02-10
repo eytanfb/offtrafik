@@ -14,9 +14,9 @@ RelearningRails::Application.routes.draw do
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete # via: delete means it should be called at HTTP DELETE
 
-  resources :cars
-  resources :people
-  resources :users
+  # Resources
+  resources :cars, only: [:create, :destroy]
+  resources :users, member: [rate: :post]
   resources :sessions, only: [:new, :create, :destroy] # Specifying the only necessary actions
 
 

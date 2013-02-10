@@ -1,0 +1,11 @@
+= form_for(@car) do |f|
+  = render 'shared/error_messages', object: f.object  
+  .span1= f.label :capacity
+  .span1= f.number_field :capacity, in: 0..4
+  <br />
+  .span1= f.label :smoking
+  = f.radio_button :smoking, false, checked: true
+  = f.label "Hayir"
+  = f.radio_button :smoking, true
+  = f.label "Evet"
+  = f.submit "Kaydet", class: "btn btn-large btn-primary"

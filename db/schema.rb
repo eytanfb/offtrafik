@@ -11,11 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207182254) do
+ActiveRecord::Schema.define(:version => 20130210075244) do
 
   create_table "cars", :force => true do |t|
-    t.integer  "person_id"
     t.integer  "capacity"
+    t.boolean  "smoking"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -37,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20130207182254) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           :default => false
+    t.decimal  "driver_rating"
+    t.decimal  "person_rating"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

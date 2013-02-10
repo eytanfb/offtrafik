@@ -1,14 +1,20 @@
-.center.hero-unit  
-  %h1 Koç Carpool Projesi
+- if signed_in?
   .row
-    .span4.offset1
-      %input.search-query{ placeholder: "Nereden", style: "background: white" }
-    .span4
-      %input.search-query{ placeholder: "Nereye", style: "background: white" }
-    .offset1
-      = link_to 'Yoldas Ara', '#', class: "btn btn-large", style: "color: white; background: navy"
-  %p 
-    Bu sayfaya gelerek İstanbul'daki trafik sorunundan sıkıldığını gösterdin. Şimdi üye ol, ve araba paylaşmaya başla!
-  
-  = link_to "Üye ol!", signup_path, class: "btn btn-large btn-primary", style: "color: white"
-  = link_to "Neden?", why_path, class: "btn btn-large btn-primary", style: "color: white; background: green"
+    %aside.span4
+      %section
+        = render 'shared/user_info'
+- else  
+  .center.hero-unit  
+    %h1 Koç Carpool Projesi
+    .row
+      .span4.offset1
+        %input.search-query{ placeholder: "Nereden", style: "background: white" }
+      .span4
+        %input.search-query{ placeholder: "Nereye", style: "background: white" }
+      .offset1
+        = link_to 'Yoldas Ara', '#', class: "btn btn-large", style: "color: white; background: navy"
+    %p 
+      Bu sayfaya gelerek İstanbul'daki trafik sorunundan sıkıldığını gösterdin. Şimdi üye ol, ve araba paylaşmaya başla!
+    
+    = link_to "Üye ol!", signup_path, class: "btn btn-large btn-primary", style: "color: white"
+    = link_to "Neden?", why_path, class: "btn btn-large btn-primary", style: "color: white; background: green"
