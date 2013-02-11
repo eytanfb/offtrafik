@@ -1,5 +1,7 @@
 RelearningRails::Application.routes.draw do
   
+  match '/rate' => 'rater#create', :as => 'rate'
+
   root :to => 'static_pages#home'
   
   # Matching static_pages

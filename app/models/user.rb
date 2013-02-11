@@ -26,8 +26,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
-  validates :driver_rating, numericality: { less_than_or_equal_to: 5 }
-  validates :person_rating, numericality: { less_than_or_equal_to: 5 }
+  validates :driver_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
+  validates :person_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
+  validates :smoking, default: false
   
   private
     def before_save_stuff

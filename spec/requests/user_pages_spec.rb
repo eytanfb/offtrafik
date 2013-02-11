@@ -76,19 +76,18 @@ describe "UserPages" do
         
     end
     
-    describe "with valid information" do
-      let(:user) { FactoryGirl.create(:user) }
+    describe "with valid information" do      
       before do
-        fill_in "Isim", with: user.name
-        fill_in "Email", with: user.email
-        fill_in "Şifre", with: user.password
-        fill_in "Şifre Onaylama", with: user.password_confirmation
+        fill_in "Isim", with: "Michael Hartl"
+        fill_in "Email", with: "michael@hartl.org"
+        fill_in "Şifre", with: "foobar"
+        fill_in "Şifre Onaylama", with: "foobar"
       end
       
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
         should have_content('Hoşgeldin')
-        should have_link('Çıkış')
+        should have_link('Çıkış')        
       end
     end
   end # end of signing up test

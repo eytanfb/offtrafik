@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210211908) do
+ActiveRecord::Schema.define(:version => 20130211043937038) do
 
   create_table "cars", :force => true do |t|
     t.integer  "capacity"
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(:version => 20130210211908) do
   add_index "rates", ["rateable_id", "rateable_type"], :name => "index_rates_on_rateable_id_and_rateable_type"
   add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
 
+  create_table "rating_caches", :force => true do |t|
+    t.integer  "cacheable_id"
+    t.string   "cacheable_type"
+    t.float    "avg",            :null => false
+    t.integer  "qty",            :null => false
+    t.string   "dimension"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "rating_caches", ["cacheable_id", "cacheable_type"], :name => "index_rating_caches_on_cacheable_id_and_cacheable_type"
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -53,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130210211908) do
     t.boolean  "admin",                        :default => false
     t.integer  "driver_rating",   :limit => 2
     t.integer  "person_rating",   :limit => 2
+    t.boolean  "smoking"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -33,6 +33,7 @@ describe User do
   it { should respond_to(:cars) }
   it { should respond_to(:driver_rating) }
   it { should respond_to(:person_rating) }
+  it { should respond_to(:smoking) }
   
   it { should be_valid }
   it { should_not be_admin }
