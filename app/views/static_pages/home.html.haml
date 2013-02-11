@@ -6,6 +6,15 @@
 - else  
   .center.hero-unit  
     %h1 Koç Carpool Projesi
+    -# .carousel#myCarousel{ "interval" => 1000 }
+      -# .carousel-inner
+        -# %center
+          -# .item.active
+            -# = image_tag "driving_statistics.jpeg"
+          -# .item
+            -# = image_tag "istanbul_traffic.jpeg"
+        -# %a.carousel-control.left{ href: "#myCarousel", "data-slide" => "prev" } &lsaquo;
+        -# %a.carousel-control.right{ href: "#myCarousel", "data-slide" => "next" } &rsaquo;
     .row
       .span4.offset1
         %input.search-query{ placeholder: "Nereden", style: "background: white" }
