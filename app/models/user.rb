@@ -28,7 +28,6 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :driver_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
   validates :person_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
-  validates :smoking, default: false
   
   private
     def before_save_stuff
