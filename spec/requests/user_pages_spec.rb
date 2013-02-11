@@ -33,8 +33,8 @@ describe "UserPages" do
   describe "signup page" do
     before { visit signup_path }
 
-    it { should have_selector('h1',    text: 'Sign up') }
-    it { should have_selector('title', text: full_title('Sign up')) }
+    it { should have_selector('h1',    text: 'Üye Ol') }
+    it { should have_selector('title', text: full_title('Üye Ol')) }
   end
   
   describe "user show page" do
@@ -60,7 +60,7 @@ describe "UserPages" do
     
     before { visit signup_path }
     
-    let(:submit) { "Create My Account" }
+    let(:submit) { "Kayıt Ol" }
     
     describe "with invalid information" do
       it "should not create a user" do
@@ -70,26 +70,27 @@ describe "UserPages" do
       describe "after submission" do
           before { click_button submit }
           
-          it { should have_selector('title', text: 'Sign up') }
+          it { should have_selector('title', text: 'Üye Ol') }
           it { should have_content('error') }
         end
         
     end
     
     describe "with valid information" do
+      let(:user) { FactoryGirl.create(:user) }
       before do
-        fill_in "Name", with: "Example User"
-        fill_in "Email", with: "user@example.com"
-        fill_in "Password", with: "foobar"
-        fill_in "Confirmation", with: "foobar"
+        fill_in "Isim", with: user.name
+        fill_in "Email", with: user.email
+        fill_in "Şifre", with: user.password
+        fill_in "Şifre Onaylama", with: user.password_confirmation
       end
       
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
         should have_content('Hoşgeldin')
         should have_link('Çıkış')
-      end      
-    end    
+      end
+    end
   end # end of signing up test
   
   describe "editing profile" do
@@ -100,13 +101,13 @@ describe "UserPages" do
     end
     
     describe "page when opened" do
-      it { should have_selector('h1', text: "Update Your Profile") }
-      it { should have_selector('title', text: "Edit User") }
+      it { should have_selector('h1', text: "Profil Güncelle") }
+      it { should have_selector('title', text: "Profil Güncelle") }
       it { should have_link('change', href: 'http://gravatar.com/emails') }
     end
     
     describe "with invalid information" do
-      before { click_button "Save Changes" }
+      before { click_button "Değişiklikleri Kaydet" }
       
       it { should have_content('error') }
     end
@@ -118,8 +119,8 @@ describe "UserPages" do
         fill_in "Isim", with: new_name
         fill_in "Email", with: new_email
         fill_in "Şifre", with: user.password
-        fill_in "Confirmation", with: user.password
-        click_button "Save Changes"
+        fill_in "Şifre Onaylama", with: user.password
+        click_button "Değişiklikleri Kaydet"
       end
       
       it { should have_selector('title', text: new_name) }

@@ -100,7 +100,7 @@ describe "AuthenticationPages" do
         end
         
         describe "after signing in" do
-          it { should have_selector('title', text: 'Edit User') }
+          it { should have_selector('title', text: 'Profil Güncelle') }
         end
       end
     end
@@ -112,7 +112,7 @@ describe "AuthenticationPages" do
       
       describe "visiting Users#edit page" do
         before { visit edit_user_path(wrong_user) }
-        it { should_not have_selector('title', text: full_title("Edit User")) }
+        it { should_not have_selector('title', text: full_title("Profil Güncelle")) }
       end
       
       describe "submitting a put request to the Users#update action" do

@@ -6,9 +6,9 @@
       = gravatar_for @user
       = "#{@user.name}"  
       </h1>
-  .span8
-    - if @user.cars.any? 
-      %h3 Kayıtlı Arabalar
-      = will_paginate @cars
-      %ol.cars
-        = render @cars
+    .span8
+      - if @user.cars.any? 
+        %h3 Kayıtlı Arabalar
+        = will_paginate @cars
+        %ol.cars
+          = render @cars

@@ -3,8 +3,9 @@
 # Table name: cars
 #
 #  id         :integer          not null, primary key
-#  person_id  :integer
 #  capacity   :integer
+#  smoking    :boolean
+#  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

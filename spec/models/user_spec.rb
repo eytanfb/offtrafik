@@ -8,12 +8,17 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
+#  driver_rating   :integer
+#  person_rating   :integer
 #
 
 require 'spec_helper'
 
 describe User do
-  before { @user = User.new(name: 'Example User', email: 'user@example.com', password: 'foobar', password_confirmation: 'foobar') }
+  before { @user = User.new(name: 'Example User', email: 'user@example.com', password: 'foobar', password_confirmation: 'foobar', 
+    driver_rating: 5, person_rating: 5) }
 
   subject { @user }
 
@@ -124,6 +129,16 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+  
+  describe "driver rating can't be more than 5" do
+    before { @user.driver_rating = 6 }
+    it { should_not be_valid }
+  end
+  
+  describe "person rating can't be more than 5" do
+    before { @user.person_rating = 6 }
+    it { should_not be_valid }
   end
   
 end

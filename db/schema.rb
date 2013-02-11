@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210075244) do
+ActiveRecord::Schema.define(:version => 20130210211908) do
 
   create_table "cars", :force => true do |t|
     t.integer  "capacity"
@@ -30,16 +30,29 @@ ActiveRecord::Schema.define(:version => 20130210075244) do
     t.integer  "car_id"
   end
 
+  create_table "rates", :force => true do |t|
+    t.integer  "rater_id"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.integer  "stars",         :null => false
+    t.string   "dimension"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "rates", ["rateable_id", "rateable_type"], :name => "index_rates_on_rateable_id_and_rateable_type"
+  add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
-    t.decimal  "driver_rating"
-    t.decimal  "person_rating"
+    t.boolean  "admin",                        :default => false
+    t.integer  "driver_rating",   :limit => 2
+    t.integer  "person_rating",   :limit => 2
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

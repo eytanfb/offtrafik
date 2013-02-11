@@ -16,7 +16,7 @@ RelearningRails::Application.routes.draw do
 
   # Resources
   resources :cars, only: [:create, :destroy]
-  resources :users, member: [rate: :post]
+  resources :users
   resources :sessions, only: [:new, :create, :destroy] # Specifying the only necessary actions
 
 
