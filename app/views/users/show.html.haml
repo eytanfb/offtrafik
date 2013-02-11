@@ -6,15 +6,9 @@
       = gravatar_for @user
       = "#{@user.name}"  
       </h1>
-      %section
+      %span
         Sürücü Puanı: #{@user.driver_rating}/5      
         <br />
         Kişilik Puanı: #{@user.person_rating}/5  
         <br />
-        Sigara: #{@user.smoking?}    
-  -# .span8
-    -# - if @user.cars.any? 
-      -# %h3 Kayıtlı Arabalar
-      -# = will_paginate @cars
-      -# %ol.cars
-        -# = render @cars
+        Sigara: #{@user.smoking? ? "Evet" : "Hayır"}

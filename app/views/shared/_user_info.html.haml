@@ -1,6 +1,10 @@
 %a{ href: user_path(current_user) }
   = gravatar_for current_user, size: 52
 %h1
-  = current_user.name
-%span
-  = link_to "Profilim", current_user
+  = link_to current_user.name, user_path(current_user)
+%span  
+  Sürücü Puanı: #{current_user.driver_rating}/5      
+  <br />
+  Kişilik Puanı: #{current_user.person_rating}/5  
+  <br />
+  Sigara: #{current_user.smoking? ? "Evet" : "Hayır"}

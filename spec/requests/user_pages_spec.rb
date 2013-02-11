@@ -47,13 +47,9 @@ describe "UserPages" do
     it { should have_selector('h1', text: user.name) }
     it { should have_selector('title', text: user.name) }
     
-    describe "cars" do
-      it { should have_content(car1.capacity) }
-      #it { should have_content("Hayır") }
-      it { should have_content(car2.capacity) }
-      #it { should have_content("Evet") }
-    end
-    
+    it { should have_content("Sürücü Puanı") }
+    it { should have_content("Kişilik Puanı") }
+    it { should have_content("Sigara") }    
   end
     
   describe "signing up" do
