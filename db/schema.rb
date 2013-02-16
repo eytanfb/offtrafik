@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(:version => 20130211043937038) do
     t.integer  "car_id"
   end
 
+  create_table "postings", :force => true do |t|
+    t.string   "from_address"
+    t.string   "to_address"
+    t.integer  "price"
+    t.integer  "user_id"
+    t.date     "date"
+    t.time     "starting_time"
+    t.time     "ending_time"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "rates", :force => true do |t|
     t.integer  "rater_id"
     t.integer  "rateable_id"

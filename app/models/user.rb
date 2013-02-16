@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :driver_rating, :person_rating
   has_secure_password
   has_many :cars
+  has_many :postings
   
   before_save :before_save_stuff
   

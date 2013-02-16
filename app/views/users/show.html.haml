@@ -1,14 +1,8 @@
 = provide(:title, @user.name)
 .row
   %aside.span4
-    %section
-      <h1>
-      = gravatar_for @user
-      = "#{@user.name}"  
-      </h1>
-      %span
-        Sürücü Puanı: #{@user.driver_rating}/5      
-        <br />
-        Kişilik Puanı: #{@user.person_rating}/5  
-        <br />
-        Sigara: #{@user.smoking? ? "Evet" : "Hayır"}
+    %section      
+      = render 'shared/user_info'
+  -# %h2 Yeni Ilan
+  -# %section
+    -# = render 'shared/posting_form'

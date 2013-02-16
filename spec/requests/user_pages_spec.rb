@@ -39,9 +39,7 @@ describe "UserPages" do
   
   describe "user show page" do
     let(:user) { FactoryGirl.create(:user) }
-    let!(:car1) { FactoryGirl.create(:car, user: user, capacity: 4, smoking: false) }
-    let!(:car2) { FactoryGirl.create(:car, user: user, capacity: 4, smoking: true) }
-    # before { sign_in user }
+    before { sign_in user }
     before { visit user_path(user) }
     
     it { should have_selector('h1', text: user.name) }

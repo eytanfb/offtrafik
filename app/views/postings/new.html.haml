@@ -1,0 +1,33 @@
+%ul.nav.nav-tabs
+  %li.active
+    = link_to "Yolculuk", '#'     
+  %li
+    = link_to "Tarih/Saat", '#'
+  %li
+    = link_to "Fiyat", '#'
+
+= form_for(@posting) do |f|
+  = render 'shared/error_messages', object: f.object
+  .row
+    .span4
+      = f.label :from_address
+      = f.text_field :from_address
+    .span4
+      = f.label :to_address
+      = f.text_field :to_address
+    .span4
+      = f.label :date
+      = f.datepicker :date, default: Date.today, minDate: 0, placeholder: Date.today.strftime("%d/%m/%y")
+  .row
+    .span4
+      = f.label :starting_time
+      = f.time_select :starting_time , default: Time.now.localtime
+    .span4
+      = f.label :ending_time
+      = f.time_select :ending_time, default: Time.now.localtime + 30.minutes
+  .row
+    .span1
+      = f.label :price
+      = f.number_field :price, placeholder: 0, min: 0
+  
+  = f.submit 'Kaydet', class: "btn btn-primary btn-large"
