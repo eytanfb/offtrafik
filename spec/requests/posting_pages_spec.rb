@@ -10,7 +10,7 @@ describe "PostingPages" do
   describe "post creation" do
     
     before { visit new_posting_path }
-    let(:submit) { 'Kaydet' }
+    let(:submit) { 'Devam' }
     
     describe "with invalid information" do
       it "should not create a posting" do

@@ -1,10 +1,26 @@
+# == Schema Information
+#
+# Table name: postings
+#
+#  id            :integer          not null, primary key
+#  from_address  :string(255)
+#  to_address    :string(255)
+#  price         :integer
+#  user_id       :integer
+#  date          :date
+#  starting_time :time
+#  ending_time   :time
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Posting do
   
   let(:user) { FactoryGirl.create(:user) }
   before { @posting = user.postings.build(from_address: "Ortakoy, Istanbul", to_address: "Koc University", price: 5, 
-    date: '07/11/2011', starting_time: "#{Time.now}", ending_time: "#{Time.now + 1.hour}" ) }
+    date: '07-11-2011', starting_time: Time.now, ending_time: Time.now + 1.hour ) }
 
   subject { @posting }
   
@@ -30,9 +46,18 @@ describe Posting do
     it { should_not be_valid }
   end
   
+  # describe "if current_step is trip_address and addresses are empty it should not be valid" do
+#     before do
+#       @posting.from_address = nil
+#       @posting.to_address = nil
+#       @posting.current_step = "address"
+#     end
+#     it { should_not be_valid }
+#   end
+  
   describe "if it doesn't have a price it should not be valid" do
     before { @posting.price = nil }
-    it { should_not be_valid }
+    it { should_not be_valid}
   end
   
   describe "if it doesn't have a starting_time it should not be valid" do
@@ -42,6 +67,15 @@ describe Posting do
   
   describe "if it doesn't have a ending_time it should not be valid" do
     before { @posting.ending_time = nil }
+    it { should_not be_valid }
+  end
+  
+  describe "if starting_time is later than ending_time it should not be valid" do
+    before do
+      @posting.ending_time = Time.now
+      @posting.starting_time = Time.now + 1.hour
+    end
+    
     it { should_not be_valid }
   end
   

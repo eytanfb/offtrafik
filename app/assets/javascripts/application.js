@@ -17,3 +17,9 @@
 // ADDED LATER
 //= require bootstrap
 //= require jquery-ui
+
+$(function() {
+	$("#posting_date").datepicker({ 
+			dateFormat: 'dd-mm-yy' 
+		});
+});

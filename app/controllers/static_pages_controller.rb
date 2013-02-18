@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @car =  current_user.cars.build if signed_in?
+    session[:posting_params] = session[:posting_step] = nil
   end
 
   def help

@@ -24,6 +24,7 @@ module SessionsHelper
   def sign_out
     self.current_user = nil
     cookies.delete(:remember_token)
+    session[:posting_params] = session[:posting_step] = nil
   end
   
   def redirect_back_or(default)

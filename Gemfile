@@ -10,6 +10,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'haml'
 gem 'cucumber'
 gem 'haml-rails'
+gem 'gmaps4rails'
 
 # JQuery
 gem 'jquery_datepicker'

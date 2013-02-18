@@ -12,6 +12,7 @@
 #  admin           :boolean          default(FALSE)
 #  driver_rating   :integer
 #  person_rating   :integer
+#  smoking         :boolean
 #
 
 class User < ActiveRecord::Base
