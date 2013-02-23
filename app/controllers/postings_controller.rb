@@ -4,6 +4,7 @@ class PostingsController < ApplicationController
     session[:posting_params] ||= {}
     @posting = current_user.postings.build(session[:posting_params])
     @posting.current_step = session[:posting_step]
+    # @json = Posting.all.to_gmaps4rails
   end
   
   def create

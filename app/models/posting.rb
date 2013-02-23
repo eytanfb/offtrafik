@@ -15,7 +15,7 @@
 #
 
 class Posting < ActiveRecord::Base
-  attr_accessible :date, :ending_time, :from_address, :price, :starting_time, :to_address
+  attr_accessible :date, :ending_time, :from_address, :price, :starting_time, :to_address, :longitude, :latitude, :gmaps
   attr_writer :current_step
   
   belongs_to :user
@@ -25,6 +25,8 @@ class Posting < ActiveRecord::Base
   validates_presence_of :date, :starting_time, :ending_time, if: lambda { |posting| posting.current_step == "date_time" }
   validates_presence_of :price, if: lambda { |posting| posting.current_step == "price" || posting.current_step == steps.last }
   validate :ending_time_is_later_than_starting_time?
+  
+  acts_as_gmappable validate: :validate_both_addresses
   
   def current_step
     @current_step || steps.first
@@ -57,10 +59,22 @@ class Posting < ActiveRecord::Base
     end
   end
   
+  def gmaps4rails_address
+    "#{from_address} to #{to_address}"
+  end
+  
   private
     def ending_time_is_later_than_starting_time?
       if self.starting_time && self.ending_time
         errors.add(:starting_time, "bitis zamanindan daha once olmali") unless self.starting_time < self.ending_time
+      end
+    end
+    
+    def validate_both_addresses
+      if Gmaps4rails.geocode(self.from_address) != nil && Gmaps4rails.geocode(self.to_address) != nil
+        return true
+      else
+        return false
       end
     end
   

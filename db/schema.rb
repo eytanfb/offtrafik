@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(:version => 20130211043937038) do
     t.time     "ending_time"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.float    "longitude"
+    t.float    "latitude"
+    t.boolean  "gmaps"
   end
 
   create_table "rates", :force => true do |t|

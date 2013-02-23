@@ -30,6 +30,9 @@ describe Posting do
   it { should respond_to(:starting_time) }
   it { should respond_to(:ending_time) }
   it { should respond_to(:price) }
+  it { should respond_to(:longitude) }
+  it { should respond_to(:latitude) }
+  it { should respond_to(:gmaps) }
 
   describe "if it doesn't have an owner it should not be valid" do
     before { @posting.user_id = nil }
@@ -45,15 +48,6 @@ describe Posting do
     before { @posting.to_address = nil }
     it { should_not be_valid }
   end
-  
-  # describe "if current_step is trip_address and addresses are empty it should not be valid" do
-#     before do
-#       @posting.from_address = nil
-#       @posting.to_address = nil
-#       @posting.current_step = "address"
-#     end
-#     it { should_not be_valid }
-#   end
   
   describe "if it doesn't have a price it should not be valid" do
     before { @posting.price = nil }
@@ -86,4 +80,15 @@ describe Posting do
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
+  
+  describe "if from_address not valid shouldn't be valid" do
+    before { @posting.from_address = "ajkdhfkajshdfkajhdsf" }
+    it { should_not be_valid }
+  end
+  
+  describe "if to_address not valid shouldn't be valid" do
+    before { @posting.to_address = "ajkdhfkajshdfkajhdsf" }
+    it { should_not be_valid }
+  end
+  
 end

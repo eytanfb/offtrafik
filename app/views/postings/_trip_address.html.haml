@@ -1,9 +1,7 @@
 .row
   .span3
     = f.label :from_address, "Nereden"
-    = f.text_field :from_address
-  .span3
+    = f.text_field :from_address, class: "span3 search-query", type: "search"
+  .span3.offset1
     = f.label :to_address, "Nereye"
-    = f.text_field :to_address
-  .span3
-    = link_to "Ara", '#', class: "btn btn-primary btn-medium", style: "align: middle; color: white"
+    = f.text_field :to_address, class: "span3 search-query", type: "search"
