@@ -26,7 +26,7 @@ class Posting < ActiveRecord::Base
   validates_presence_of :price, if: lambda { |posting| posting.current_step == "price" || posting.current_step == steps.last }
   validate :ending_time_is_later_than_starting_time?
   
-  acts_as_gmappable validate: :validate_both_addresses
+  acts_as_gmappable validate: :validate_both_addresses, msg: 'Verilen adres Google\' da bulunamadi'
   
   default_scope order: 'postings.date ASC'
   
