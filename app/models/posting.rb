@@ -28,6 +28,8 @@ class Posting < ActiveRecord::Base
   
   acts_as_gmappable validate: :validate_both_addresses
   
+  default_scope order: 'postings.date ASC'
+  
   def current_step
     @current_step || steps.first
   end 

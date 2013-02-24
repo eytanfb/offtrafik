@@ -29,6 +29,18 @@ describe "UserPages" do
     end
     end    
   end
+  
+  describe "user home page" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in user
+      visit root_path
+    end
+    
+    it { should have_selector("div.pagination") }
+    it { should have_selector('h3', text: 'Güncel Ilanlar')}
+    it { should have_selector('h3', text: 'Geçmiş Ilanlar')}
+  end
 
   describe "signup page" do
     before { visit signup_path }

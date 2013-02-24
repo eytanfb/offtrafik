@@ -20,7 +20,7 @@ RelearningRails::Application.routes.draw do
   resources :cars, only: [:create, :destroy]
   resources :users
   resources :sessions, only: [:new, :create, :destroy] # Specifying the only necessary actions
-  resources :postings, only: [:new, :create, :destroy]
+  resources :postings, only: [:new, :create, :destroy, :show]
 
 
   # The priority is based upon order of creation:

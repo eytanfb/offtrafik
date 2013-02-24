@@ -1,0 +1,13 @@
+.row
+  %aside.span4
+    %section
+      = render 'shared/user_info'
+  %section.span8
+    %h3{ style: "text-decoration: underline" } Ilan Detaylari
+    
+    = label_tag "Nereden: #{@posting.from_address}"
+    = label_tag "Nereye: #{@posting.to_address}"
+    = label_tag "Tarih: #{@posting.date.strftime('%d/%B/%y')}"
+    = label_tag "Cikis Zamani: #{@posting.starting_time.to_s(:time)}"
+    = label_tag "Varis Zamani: #{@posting.ending_time.to_s(:time)}"
+    = gmaps({"direction"   => { "data" => { "from" => "#{@posting.from_address}", "to" => "#{@posting.to_address}" } }})

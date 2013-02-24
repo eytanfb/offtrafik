@@ -3,8 +3,8 @@
     %aside.span4
       %section
         = render 'shared/user_info'
-    -# %section
-      -# = render 'shared/posting_form'
+    %section.span8
+      = render 'users/user_postings', live_postings: @live_postings
 - else  
   .center.hero-unit  
     %h1 Koç Carpool Projesi

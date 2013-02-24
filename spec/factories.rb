@@ -17,4 +17,22 @@ FactoryGirl.define do
     smoking false
     user
   end
+  
+  factory :posting do
+    from_address "Ortakoy, Istanbul"
+    to_address "Koc University"
+    date Date.today.to_s
+    starting_time Time.now
+    ending_time Time.now + 30.minutes
+    price 4
+  end
+  
+  factory :old_posting do
+    from_address "Ortakoy, Istanbul"
+    to_address "Koc University"
+    date Date.today.to_s
+    starting_time Time.now - 1.day
+    ending_time Time.now + 30.minutes - 1.day
+    price 4
+  end    
 end

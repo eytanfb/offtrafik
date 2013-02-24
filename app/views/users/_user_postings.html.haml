@@ -1,0 +1,10 @@
+%h3 Güncel Ilanlar
+
+= will_paginate @live_postings
+
+= render 'users/posting_table', posting_list: @live_postings
+
+%h3 Gecmis Ilanlar
+- if @past_postings
+  = will_paginate @past_postings
+  = render 'users/posting_table', posting_list: @past_postings

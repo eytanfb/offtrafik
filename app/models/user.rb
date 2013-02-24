@@ -31,10 +31,19 @@ class User < ActiveRecord::Base
   validates :driver_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
   validates :person_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
   
+  
+  def live_postings
+    self.postings.select { |posting| posting.date > Date.today }  
+  end
+  
+  def past_postings
+    self.postings.select { |posting| posting.date < Date.today }  
+  end
+  
   private
     def before_save_stuff
       self.remember_token = SecureRandom.urlsafe_base64
-      self.driver_rating = 0
-      self.person_rating = 0
+      self.driver_rating ||= 0
+      self.person_rating ||= 0
     end
 end

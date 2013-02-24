@@ -142,5 +142,4 @@ describe User do
     before { @user.person_rating = 6 }
     it { should_not be_valid }
   end
-  
 end

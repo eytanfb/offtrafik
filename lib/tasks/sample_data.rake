@@ -22,10 +22,25 @@ namespace :db do
                    person_rating: person_rating)
     end
     users = User.all(limit: 6)
-    2.times do
-      capacity = rand(1...4)
-      smoking = [true, false].sample
-      users.each { |user| user.cars.create!(capacity: capacity, smoking: smoking) }
+    4.times do
+      from_address = 'Ortakoy, Istanbul'
+      to_address = 'Koc University, Istanbul'
+      date = Date.today + 1.week
+      starting_time = Time.now
+      ending_time = Time.now + rand(30...60).minutes
+      price = rand(1...5)
+      users.each { |user| user.postings.create!(from_address: from_address, to_address: to_address, date: date, 
+        starting_time: starting_time, ending_time: ending_time, price: price) }
+    end
+    4.times do
+      from_address = 'Koc University, Istanbul'
+      to_address = 'Ortakoy, Istanbul'
+      date = Date.today - 1.week
+      starting_time = Time.now
+      ending_time = Time.now + rand(30...60).minutes
+      price = rand(1...5)
+      users.each { |user| user.postings.create!(from_address: from_address, to_address: to_address, date: date, 
+        starting_time: starting_time, ending_time: ending_time, price: price) }
     end
   end
 end

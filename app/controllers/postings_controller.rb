@@ -29,4 +29,9 @@ class PostingsController < ApplicationController
       redirect_to root_path
     end
   end
+  
+  def show
+    @posting = Posting.find(params[:id])
+  end
+  
 end
