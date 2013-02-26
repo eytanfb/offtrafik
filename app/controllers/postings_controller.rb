@@ -34,4 +34,8 @@ class PostingsController < ApplicationController
     @posting = Posting.find(params[:id])
   end
   
+  def find
+    @postings = Posting.all.paginate(page: params[:page], per_page: 10, order: "date ASC")
+  end
+  
 end

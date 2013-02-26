@@ -15,12 +15,15 @@ RelearningRails::Application.routes.draw do
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete # via: delete means it should be called at HTTP DELETE
+  
+  # Matching postings
+  match '/find_posting', to: 'postings#find'
 
   # Resources
   resources :cars, only: [:create, :destroy]
   resources :users
   resources :sessions, only: [:new, :create, :destroy] # Specifying the only necessary actions
-  resources :postings, only: [:new, :create, :destroy, :show]
+  resources :postings
 
 
   # The priority is based upon order of creation:

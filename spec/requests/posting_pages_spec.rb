@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'will_paginate/array'
 
 describe "PostingPages" do
   
@@ -22,5 +23,25 @@ describe "PostingPages" do
       before { click_button submit }
       it { should have_content('error') }
     end
+  end
+  
+  describe "new post should be displayed on the home page" do
+    before do
+      user.postings.create(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul", price: 5, 
+        date: '07-11-2011', starting_time: Time.now, ending_time: Time.now + 1.hour )
+      visit root_path
+    end
+    
+    it { should have_selector('div', class: 'pagination') }    
+    it { should have_content("Ortakoy, Istanbul") }
+    it { should have_content("Koc University, Istanbul") }
+  end
+  
+  describe "post searching" do
+    before { visit find_posting_path }
+    
+    it { should have_selector('title', text: 'Ilan Ara')}
+    it { should have_selector('h3', text: 'Ilan Ara')}
+    it { should have_selector('div', class: 'pagination') }
   end
 end
