@@ -37,9 +37,8 @@ describe "UserPages" do
       visit root_path
     end
     
-    it { should have_selector("div.pagination") }
+    it { should have_selector('div', class: "pagination" ) }
     it { should have_selector('h3', text: 'Güncel Ilanlar')}
-    it { should have_selector('h3', text: 'Geçmiş Ilanlar')}
   end
 
   describe "signup page" do

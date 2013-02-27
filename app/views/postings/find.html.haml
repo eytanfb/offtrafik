@@ -1,0 +1,21 @@
+= provide(:title, 'Ilan Ara')
+.row
+  %aside.span4
+    %section
+      = render 'shared/user_info'
+  %section.span8
+    %h3 Ilan Ara
+    %section
+      = form_tag find_posting_path, method: "get" do
+        .row
+          .span3
+            = label_tag :from_address, "Nereden"
+            = text_field_tag :from_address, params[:from_address]
+          .span3.offset1
+            = label_tag :to_address, "Nereye"
+            = text_field_tag :to_address, params[:to_address]
+        .span2.offset3
+          = submit_tag "Ara", name: nil, class: 'btn btn-primary btn-medium'
+      <br />
+      = will_paginate @postings
+      = render 'shared/posting_table', posting_list: @postings

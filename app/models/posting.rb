@@ -61,6 +61,14 @@ class Posting < ActiveRecord::Base
     end
   end
   
+  def self.search(from_address, to_address)
+    if from_address && to_address
+      where 'from_address LIKE ? AND to_address LIKE ?', "%#{from_address}%", "%#{to_address}"
+    else
+      scoped
+    end
+  end
+  
   def gmaps4rails_address
     "#{from_address} to #{to_address}"
   end

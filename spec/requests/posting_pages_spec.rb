@@ -44,4 +44,6 @@ describe "PostingPages" do
     it { should have_selector('h3', text: 'Ilan Ara')}
     it { should have_selector('div', class: 'pagination') }
   end
+  
+  
 end
