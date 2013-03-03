@@ -1,12 +1,14 @@
-.span4
-  = f.label :date
-  = f.text_field :date
-<br /> 
 .row
-  .span4
+  .span3
+    = f.label :date
+    = f.text_field :date
+<br />
+.row
+  .span3
     = f.label :starting_time
-    = f.time_select :starting_time , default: Time.now.localtime
+    = f.time_select :starting_time, time_separator: "", default: Time.now.localtime
+<br />
 .row
-  .span4
+  .span3
     = f.label :ending_time
-    = f.time_select :ending_time, default: Time.now.localtime + 30.minutes
+    = f.time_select :ending_time, time_separator: "", default: Time.now.localtime + 30.minutes

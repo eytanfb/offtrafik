@@ -209,6 +209,17 @@ input{
   margin-top: 5px;
 }
 
+.btn.btn-primary.btn-small.nav-button{
+  width: 56px;
+  height: 26px;
+}
+
+.btn.btn-primary.btn-small.nav-button-right{
+  width: 56px;
+  height: 26px;
+  float: right;
+}
+
 /* Miscellaneous */
 
 .debug_dump{

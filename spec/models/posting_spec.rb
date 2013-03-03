@@ -50,17 +50,26 @@ describe Posting do
   end
   
   describe "if it doesn't have a price it should not be valid" do
-    before { @posting.price = nil }
+    before do
+      @posting.price = nil
+      @posting.current_step = 'price'
+    end
     it { should_not be_valid}
   end
   
   describe "if it doesn't have a starting_time it should not be valid" do
-    before { @posting.starting_time = nil }
+    before do
+      @posting.starting_time = nil
+      @posting.current_step = 'date_time'
+    end
     it { should_not be_valid }
   end
   
   describe "if it doesn't have a ending_time it should not be valid" do
-    before { @posting.ending_time = nil }
+    before do
+      @posting.ending_time = nil
+      @posting.current_step = 'date_time'
+    end
     it { should_not be_valid }
   end
   
@@ -69,7 +78,6 @@ describe Posting do
       @posting.ending_time = Time.now
       @posting.starting_time = Time.now + 1.hour
     end
-    
     it { should_not be_valid }
   end
   
@@ -82,12 +90,18 @@ describe Posting do
   end
   
   describe "if from_address not valid shouldn't be valid" do
-    before { @posting.from_address = "ajkdhfkajshdfkajhdsf" }
+    before do
+      @posting.from_address = "ajkdhfkajshdfkajhdsf"
+      @posting.current_step = 'address'
+    end
     it { should_not be_valid }
   end
   
   describe "if to_address not valid shouldn't be valid" do
-    before { @posting.to_address = "ajkdhfkajshdfkajhdsf" }
+    before do
+      @posting.to_address = "ajkdhfkajshdfkajhdsf"
+      @posting.current_step = 'address'
+    end
     it { should_not be_valid }
   end
   

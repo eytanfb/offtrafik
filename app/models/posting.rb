@@ -24,9 +24,10 @@ class Posting < ActiveRecord::Base
   validates_presence_of :from_address, :to_address, if: lambda { |posting| posting.current_step == "address" }
   validates_presence_of :date, :starting_time, :ending_time, if: lambda { |posting| posting.current_step == "date_time" }
   validates_presence_of :price, if: lambda { |posting| posting.current_step == "price" || posting.current_step == steps.last }
+  validates_numericality_of :price, max: 5, if: lambda { |posting| posting.current_step == "price" || posting.current_step == steps.last }
   validate :ending_time_is_later_than_starting_time?
   
-  acts_as_gmappable validate: :validate_both_addresses, msg: 'Verilen adres Google\' da bulunamadi'
+  acts_as_gmappable validate: :validate_both_addresses, msg: 'Verilen adres Google\'da bulunamadi'
   
   default_scope order: 'postings.date ASC'
   
@@ -81,7 +82,7 @@ class Posting < ActiveRecord::Base
     end
     
     def validate_both_addresses
-      if Gmaps4rails.geocode(self.from_address) != nil && Gmaps4rails.geocode(self.to_address) != nil
+      if Gmaps4rails.geocode(self.from_address) && Gmaps4rails.geocode(self.to_address)
         return true
       else
         return false
