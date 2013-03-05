@@ -9,6 +9,8 @@
   <br />
   Sigara: #{current_user.smoking? ? "Evet" : "Hayır"}
   <br />
+  #{current_user.preferred_contact_method}: #{current_user.preferred_contact_content}
+  <br />
   %a{ class: "btn btn-primary btn-mini", style: "color:white; width: 40%", href: new_posting_path }
     %i.icon-edit.icon-white
     Yeni Ilan
