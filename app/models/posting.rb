@@ -18,7 +18,7 @@
 #
 
 class Posting < ActiveRecord::Base
-  attr_accessible :date, :ending_time, :from_address, :price, :starting_time, :to_address, :longitude, :latitude, :gmaps
+  attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :longitude, :latitude, :gmaps
   attr_writer :current_step
   
   belongs_to :user
@@ -26,9 +26,6 @@ class Posting < ActiveRecord::Base
   validates_presence_of :user_id
   validates_presence_of :from_address, :to_address, if: lambda { |posting| posting.current_step == "address" }
   validates_presence_of :date, :starting_time, :ending_time, if: lambda { |posting| posting.current_step == "date_time" }
-  validates_presence_of :price, if: lambda { |posting| posting.current_step == "price" || posting.current_step == steps.last }
-  # these lines a left in so if ever price is 
-  # validates_numericality_of :price, max: 5, if: lambda { |posting| posting.current_step == "price" || posting.current_step == steps.last }
   validate :ending_time_is_later_than_starting_time?
   
   acts_as_gmappable validate: :validate_both_addresses, msg: 'Verilen adres Google\'da bulunamadi'
@@ -40,7 +37,7 @@ class Posting < ActiveRecord::Base
   end 
   
   def steps
-    %w[address date_time price]
+    %w[address date_time]
   end
   
   def next_step

@@ -27,7 +27,7 @@ describe "PostingPages" do
   
   describe "new post should be displayed on the home page" do
     before do
-      user.postings.create(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul", price: 5, 
+      user.postings.create(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul",
         date: '07-11-2011', starting_time: Time.now, ending_time: Time.now + 1.hour )
       visit root_path
     end

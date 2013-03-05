@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20130211043937038) do
   create_table "postings", :force => true do |t|
     t.string   "from_address"
     t.string   "to_address"
-    t.integer  "price"
     t.integer  "user_id"
     t.date     "date"
     t.time     "starting_time"

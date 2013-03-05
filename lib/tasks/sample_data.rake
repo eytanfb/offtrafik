@@ -28,7 +28,6 @@ namespace :db do
       date = Date.today + 1.week
       starting_time = Time.now
       ending_time = Time.now + rand(30...60).minutes
-      price = rand(1...5)
       users.each { |user| user.postings.create!(from_address: from_address, to_address: to_address, date: date, 
         starting_time: starting_time, ending_time: ending_time, price: price) }
     end
@@ -38,7 +37,6 @@ namespace :db do
       date = Date.today - 1.week
       starting_time = Time.now
       ending_time = Time.now + rand(30...60).minutes
-      price = rand(1...5)
       users.each { |user| user.postings.create!(from_address: from_address, to_address: to_address, date: date, 
         starting_time: starting_time, ending_time: ending_time, price: price) }
     end
