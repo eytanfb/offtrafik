@@ -22,12 +22,14 @@ class UsersController < ApplicationController
       flash[:success] = "Koç Carpool Projesine Hoşgeldin!" # Welcome to The Koc Carpool Project      
       redirect_to @user
     else
+      @communication_options = { "Email" => "email", "Telefon" => "phone", "BBM" => "bbm" }
       render 'new'
     end
   end
   
   def new
     @user = User.new
+    @communication_options = { "Email" => "email", "Telefon" => "phone", "BBM" => "bbm" }
   end
   
   def edit

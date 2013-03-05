@@ -6,6 +6,8 @@ FactoryGirl.define do
     password_confirmation "foobar"
     driver_rating 5
     person_rating 5
+    preferred_contact_method "email"
+    sequence(:preferred_contact_content) { |n| "person_#{n}@example.com" }
   end
   
   factory :admin do

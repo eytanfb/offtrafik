@@ -12,6 +12,9 @@
 #  ending_time   :time
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  longitude     :float
+#  latitude      :float
+#  gmaps         :boolean
 #
 
 require 'spec_helper'

@@ -2,24 +2,26 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  name            :string(255)
-#  email           :string(255)
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string(255)
-#  remember_token  :string(255)
-#  admin           :boolean          default(FALSE)
-#  driver_rating   :integer
-#  person_rating   :integer
-#  smoking         :boolean
+#  id                        :integer          not null, primary key
+#  name                      :string(255)
+#  email                     :string(255)
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
+#  password_digest           :string(255)
+#  remember_token            :string(255)
+#  admin                     :boolean          default(FALSE)
+#  driver_rating             :integer
+#  person_rating             :integer
+#  smoking                   :boolean
+#  preferred_contact_method  :string(255)
+#  preferred_contact_content :string(255)
 #
 
 require 'spec_helper'
 
 describe User do
   before { @user = User.new(name: 'Example User', email: 'user@example.com', password: 'foobar', password_confirmation: 'foobar', 
-    driver_rating: 5, person_rating: 5) }
+    driver_rating: 5, person_rating: 5, preferred_contact_method: 'email', preferred_contact_content: 'user@example.com') }
 
   subject { @user }
 
@@ -35,6 +37,8 @@ describe User do
   it { should respond_to(:driver_rating) }
   it { should respond_to(:person_rating) }
   it { should respond_to(:smoking) }
+  it { should respond_to(:preferred_contact_method) }
+  it { should respond_to(:preferred_contact_content) }
   
   it { should be_valid }
   it { should_not be_admin }
@@ -141,5 +145,66 @@ describe User do
   describe "person rating can't be more than 5" do
     before { @user.person_rating = 6 }
     it { should_not be_valid }
+  end
+  
+  describe "preferred_contact_method is in the given array" do
+    describe "method should not be empty" do
+      before { @user.preferred_contact_method = nil }
+      it { should_not be_valid }
+    end
+    describe "method is email" do
+      before { @user.preferred_contact_method = 'email' }
+      it { should be_valid }
+    end
+    describe "method is phone" do
+      before do
+        @user.preferred_contact_method = 'phone'
+        @user.preferred_contact_content = '05322974710'
+      end
+      it { should be_valid }
+    end
+    describe "method is bbm" do
+      before do
+        @user.preferred_contact_method = 'bbm'
+        @user.preferred_contact_content = '12345678'
+      end
+      it { should be_valid }
+    end
+  end
+  
+  describe "preferred_contact_content is matching the method" do
+    describe "content should not be empty" do
+      before { @user.preferred_contact_content = nil }
+      it { should_not be_valid }      
+    end
+    describe "if method is email" do
+      before { @user.preferred_contact_method = 'email' }
+      describe "should not be a valid if content is not a valid email" do
+        before { @user.preferred_contact_content = 'uadjfkahdkj' }
+        it { should_not be_valid }
+      end
+    end
+    describe "if method is phone" do
+      before { @user.preferred_contact_method = 'phone' }
+      describe "should be 11 digits" do
+        before { @user.preferred_contact_content = '12352344' }
+        it { should_not be_valid }
+      end
+      describe "should be valid turkish cell phone" do
+        before { @user.preferred_contact_content = '12345678901' }
+        it { should_not be_valid }
+      end
+    end
+    describe "if method is bbm" do
+      before { @user.preferred_contact_method = 'bbm' }
+      describe "should be 8 characters" do
+        before { @user.preferred_contact_content = '123456' }
+        it { should_not be_valid }
+      end
+      describe "should be hex characters" do
+        before { @user.preferred_contact_content = '1234567N' }
+        it { should_not be_valid }
+      end
+    end
   end
 end

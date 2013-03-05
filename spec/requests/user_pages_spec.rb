@@ -87,6 +87,8 @@ describe "UserPages" do
         fill_in "Email", with: "michael@hartl.org"
         fill_in "Şifre", with: "foobar"
         fill_in "Şifre Onaylama", with: "foobar"
+        select "Email"
+        fill_in "Iletişim Bilgisi", with: "micahel@hartl.org"
       end
       
       it "should create a user" do

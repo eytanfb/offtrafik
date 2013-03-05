@@ -16,4 +16,10 @@
       = f.label :password_confirmation, "Şifre Onaylama"
       = f.password_field :password_confirmation
       
+      = f.label :preferred_contact_method, "Iletişim Tercihi"
+      = f.select :preferred_contact_method, @communication_options.map { |option| [option[0], option[1].downcase]}
+      
+      = f.label :preferred_contact_content, "Iletişim Bilgisi"
+      = f.text_field :preferred_contact_content
+      
       = f.submit "Kayıt Ol", class: "btn btn-large btn-primary"
