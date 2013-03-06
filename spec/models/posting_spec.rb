@@ -5,7 +5,6 @@
 #  id            :integer          not null, primary key
 #  from_address  :string(255)
 #  to_address    :string(255)
-#  price         :integer
 #  user_id       :integer
 #  date          :date
 #  starting_time :time
@@ -15,6 +14,7 @@
 #  longitude     :float
 #  latitude      :float
 #  gmaps         :boolean
+#  comments      :text
 #
 
 require 'spec_helper'
@@ -35,6 +35,7 @@ describe Posting do
   it { should respond_to(:longitude) }
   it { should respond_to(:latitude) }
   it { should respond_to(:gmaps) }
+  it { should respond_to(:comments) }
 
   describe "if it doesn't have an owner it should not be valid" do
     before { @posting.user_id = nil }

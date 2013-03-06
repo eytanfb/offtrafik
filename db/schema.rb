@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20130211043937038) do
     t.float    "longitude"
     t.float    "latitude"
     t.boolean  "gmaps"
+    t.text     "comments"
   end
 
   create_table "rates", :force => true do |t|

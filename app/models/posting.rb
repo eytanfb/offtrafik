@@ -5,7 +5,6 @@
 #  id            :integer          not null, primary key
 #  from_address  :string(255)
 #  to_address    :string(255)
-#  price         :integer
 #  user_id       :integer
 #  date          :date
 #  starting_time :time
@@ -15,10 +14,11 @@
 #  longitude     :float
 #  latitude      :float
 #  gmaps         :boolean
+#  comments      :text
 #
 
 class Posting < ActiveRecord::Base
-  attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :longitude, :latitude, :gmaps
+  attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :longitude, :latitude, :gmaps, :comments
   attr_writer :current_step
   
   belongs_to :user
@@ -37,7 +37,7 @@ class Posting < ActiveRecord::Base
   end 
   
   def steps
-    %w[address date_time]
+    %w[address date_time comments]
   end
   
   def next_step
