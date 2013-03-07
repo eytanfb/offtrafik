@@ -11,6 +11,8 @@ gem 'haml'
 gem 'cucumber'
 gem 'haml-rails'
 gem 'gmaps4rails'
+gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails',
+                              :git => 'git://github.com/tispratik/bootstrap-timepicker-rails.git'
 
 # JQuery
 gem 'jquery_datepicker'

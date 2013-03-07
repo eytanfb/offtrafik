@@ -17,6 +17,7 @@
 // ADDED LATER
 //= require bootstrap
 //= require jquery-ui
+//= require bootstrap-timepicker
 
 $(function() {
 	$("#posting_date").datepicker({ 
