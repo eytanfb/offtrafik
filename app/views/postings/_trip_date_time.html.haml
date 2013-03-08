@@ -9,6 +9,6 @@
     = f.time_select :starting_time, time_separator: "", default: Time.now.localtime
 <br />
 .row
-  .span3.input-append
+  .span3.input-append.timepicker    
     = f.label :ending_time
-    = f.time_select :ending_time, time_separator: "", default: Time.now.localtime + 30.minutes
+    = f.time_select :ending_time, time_separator: "", default: Time.now.localtime + 30.minutes, class: "timepicker"

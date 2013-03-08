@@ -24,3 +24,9 @@ $(function() {
 			dateFormat: 'dd-mm-yy' 
 		});
 });
+
+$(function(){
+    $(".timepicker").timepicker();
+    $('.timepicker').timepicker("setTime", "12.45 PM")
+});
+
