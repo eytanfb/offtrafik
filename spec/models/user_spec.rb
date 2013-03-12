@@ -33,7 +33,6 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
-  it { should respond_to(:cars) }
   it { should respond_to(:driver_rating) }
   it { should respond_to(:person_rating) }
   it { should respond_to(:smoking) }

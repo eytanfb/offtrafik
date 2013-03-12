@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @cars = @user.cars.paginate(page: params[:page], per_page: 2)
     @postings = @user.postings.paginate(page: params[:page], per_page: 2, order: "date ASC")
   end
   
