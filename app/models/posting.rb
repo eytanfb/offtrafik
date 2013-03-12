@@ -27,7 +27,6 @@ class Posting < ActiveRecord::Base
   validates_presence_of :user_id
   validates_presence_of :from_address, :to_address, if: lambda { |posting| posting.current_step == "address" }
   validates_presence_of :date, :starting_time, :ending_time, if: lambda { |posting| posting.current_step == "date_time" }
-  validates_presence_of :smoking, if: lambda { |posting| posting.current_step = 'comments' }
   validate :ending_time_is_later_than_starting_time?
   
   acts_as_gmappable validate: :validate_both_addresses, msg: 'Verilen adres Google\'da bulunamadi'
@@ -90,6 +89,10 @@ class Posting < ActiveRecord::Base
       else
         return false
       end
+    end
+    
+    def before_save_stuff
+      self.smoking == 'Evet' ? true : false
     end
   
 end
