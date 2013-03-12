@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130211043937038) do
 
-  create_table "cars", :force => true do |t|
-    t.integer  "capacity"
-    t.boolean  "smoking"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "people", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
