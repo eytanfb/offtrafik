@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130211043937038) do
     t.float    "latitude"
     t.boolean  "gmaps"
     t.text     "comments"
+    t.boolean  "smoking"
   end
 
   create_table "rates", :force => true do |t|
@@ -72,7 +73,6 @@ ActiveRecord::Schema.define(:version => 20130211043937038) do
     t.boolean  "admin",                                  :default => false
     t.integer  "driver_rating",             :limit => 2
     t.integer  "person_rating",             :limit => 2
-    t.boolean  "smoking"
     t.string   "preferred_contact_method"
     t.string   "preferred_contact_content"
   end

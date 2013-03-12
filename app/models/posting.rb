@@ -15,10 +15,11 @@
 #  latitude      :float
 #  gmaps         :boolean
 #  comments      :text
+#  smoking       :boolean
 #
 
 class Posting < ActiveRecord::Base
-  attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :longitude, :latitude, :gmaps, :comments
+  attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :longitude, :latitude, :gmaps, :comments, :smoking
   attr_writer :current_step
   
   belongs_to :user
@@ -26,6 +27,7 @@ class Posting < ActiveRecord::Base
   validates_presence_of :user_id
   validates_presence_of :from_address, :to_address, if: lambda { |posting| posting.current_step == "address" }
   validates_presence_of :date, :starting_time, :ending_time, if: lambda { |posting| posting.current_step == "date_time" }
+  validates_presence_of :smoking, if: lambda { |posting| posting.current_step = 'comments' }
   validate :ending_time_is_later_than_starting_time?
   
   acts_as_gmappable validate: :validate_both_addresses, msg: 'Verilen adres Google\'da bulunamadi'

@@ -12,7 +12,6 @@
 #  admin                     :boolean          default(FALSE)
 #  driver_rating             :integer
 #  person_rating             :integer
-#  smoking                   :boolean
 #  preferred_contact_method  :string(255)
 #  preferred_contact_content :string(255)
 #
@@ -35,7 +34,6 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:driver_rating) }
   it { should respond_to(:person_rating) }
-  it { should respond_to(:smoking) }
   it { should respond_to(:preferred_contact_method) }
   it { should respond_to(:preferred_contact_content) }
   

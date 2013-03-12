@@ -1,4 +1,8 @@
 .row
   .span4
+    = f.label :smoking
+    = f.select :smoking, ["Evet", "Hayır"].map { |option| [option] }
+.row
+  .span4
     = f.label :comments
     = f.text_area :comments, cols: 30, rows: 10

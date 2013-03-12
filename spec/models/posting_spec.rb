@@ -15,6 +15,7 @@
 #  latitude      :float
 #  gmaps         :boolean
 #  comments      :text
+#  smoking       :boolean
 #
 
 require 'spec_helper'
@@ -23,7 +24,7 @@ describe Posting do
   
   let(:user) { FactoryGirl.create(:user) }
   before { @posting = user.postings.build(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
-    date: '07-11-2011', starting_time: Time.now, ending_time: Time.now + 1.hour ) }
+    date: '07-11-2011', starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false ) }
 
   subject { @posting }
   
@@ -36,6 +37,7 @@ describe Posting do
   it { should respond_to(:latitude) }
   it { should respond_to(:gmaps) }
   it { should respond_to(:comments) }
+  it { should respond_to(:smoking)}
 
   describe "if it doesn't have an owner it should not be valid" do
     before { @posting.user_id = nil }
@@ -96,6 +98,14 @@ describe Posting do
     before do
       @posting.to_address = "ajkdhfkajshdfkajhdsf"
       @posting.current_step = 'address'
+    end
+    it { should_not be_valid }
+  end
+  
+  describe "not valid if smoking is nil" do
+    before do
+      @posting.current_step = 'comments'
+      @posting.smoking = nil
     end
     it { should_not be_valid }
   end

@@ -12,7 +12,6 @@
 #  admin                     :boolean          default(FALSE)
 #  driver_rating             :integer
 #  person_rating             :integer
-#  smoking                   :boolean
 #  preferred_contact_method  :string(255)
 #  preferred_contact_content :string(255)
 #
