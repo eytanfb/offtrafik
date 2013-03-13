@@ -6,11 +6,10 @@
     %h3 Yeni Ilan
     = form_for(@posting) do |f|
       = render "shared/error_messages", object: f.object      
-      = render "trip_#{@posting.current_step}", f: f
+      = render "trip_#{@posting.current_step}", f: f, object: @posting
       <br />
       .row
         .span2{ style: 'float: left' }
           = f.submit 'Geri', class: "btn btn-primary btn-small nav-button", name: "back_button" unless @posting.first_step?      
         .span2{ style: 'float: right' }
           = f.submit 'Devam', class: "btn btn-primary btn-small nav-button-right"
-          
