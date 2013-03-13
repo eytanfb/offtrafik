@@ -58,7 +58,6 @@ describe "UserPages" do
     
     it { should have_content("Sürücü Puanı") }
     it { should have_content("Kişilik Puanı") }
-    it { should have_content("Sigara") }    
   end
     
   describe "signing up" do

@@ -1,7 +1,6 @@
 .row
   .span4
-    = f.label :smoking
-    = f.select :smoking, ["Evet", "Hayır"].map { |option| [option] }
+    = f.select :smoking, collection: ["Evet", "Hayır"].map { |option| [option] }
 .row
   .span4
     = f.label :comments

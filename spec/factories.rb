@@ -26,7 +26,8 @@ FactoryGirl.define do
     date Date.today.to_s
     starting_time Time.now
     ending_time (Time.now + 30.minutes)
-    price 4
+    driving false
+    smoking true
   end
   
   factory :old_posting do
@@ -35,6 +36,7 @@ FactoryGirl.define do
     date Date.today.to_s
     starting_time Time.now - 1.day
     ending_time Time.now + 30.minutes - 1.day
-    price 4
+    driving true
+    smoking false
   end    
 end

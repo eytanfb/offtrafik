@@ -16,6 +16,7 @@
 #  gmaps         :boolean
 #  comments      :text
 #  smoking       :boolean
+#  driving       :boolean
 #
 
 require 'spec_helper'
@@ -38,6 +39,7 @@ describe Posting do
   it { should respond_to(:gmaps) }
   it { should respond_to(:comments) }
   it { should respond_to(:smoking)}
+  it { should respond_to(:driving)}
 
   describe "if it doesn't have an owner it should not be valid" do
     before { @posting.user_id = nil }
@@ -98,14 +100,6 @@ describe Posting do
     before do
       @posting.to_address = "ajkdhfkajshdfkajhdsf"
       @posting.current_step = 'address'
-    end
-    it { should_not be_valid }
-  end
-  
-  describe "not valid if smoking is nil" do
-    before do
-      @posting.current_step = 'comments'
-      @posting.smoking = nil
     end
     it { should_not be_valid }
   end
