@@ -6,6 +6,7 @@
     %td Cikis Zamani
     %td Varis Zamani
     %td Sigara
+    %td Surucu
   %tbody
     - posting_list.each do |posting|
       %tr
@@ -14,5 +15,6 @@
         %td= link_to posting.date.strftime("%d/%b/%y"), posting
         %td= link_to posting.starting_time.to_s(:time), posting
         %td= link_to posting.ending_time.to_s(:time), posting
-        %td= link_to posting.smoking ? "Evet" : "Hayir"
+        %td= link_to posting.smoking?, posting
+        %td= link_to posting.driving?, posting
         

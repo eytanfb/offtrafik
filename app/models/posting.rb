@@ -26,7 +26,6 @@ class Posting < ActiveRecord::Base
   belongs_to :user
   
   validates_presence_of :user_id
-  validates_presence_of :driving, if: lambda { |posting| posting.current_step == "driving" }, msg: "Bos Olamaz"
   validates_presence_of :from_address, :to_address, if: lambda { |posting| posting.current_step == "address" }
   validates_presence_of :date, :starting_time, :ending_time, if: lambda { |posting| posting.current_step == "date_time" }
   validate :ending_time_is_later_than_starting_time?
@@ -48,6 +47,7 @@ class Posting < ActiveRecord::Base
   end
   
   def previous_step
+    do_not_validate
     self.current_step = steps[steps.index(current_step) - 1]
   end
   
@@ -68,7 +68,7 @@ class Posting < ActiveRecord::Base
   
   def self.search(from_address, to_address)
     if from_address && to_address
-      where 'from_address LIKE ? AND to_address LIKE ?', "%#{from_address}%", "%#{to_address}"
+      where 'from_address LIKE ? AND to_address LIKE ? AND date > ?', "%#{from_address}%", "%#{to_address}", "%Date.today"
     else
       scoped
     end
@@ -76,6 +76,14 @@ class Posting < ActiveRecord::Base
   
   def gmaps4rails_address
     "#{from_address} to #{to_address}"
+  end
+  
+  def smoking?
+    self.smoking ? 'Evet' : 'Hayir'
+  end
+  
+  def driving?
+    self.driving ? 'Evet' : 'Hayir'
   end
   
   private
