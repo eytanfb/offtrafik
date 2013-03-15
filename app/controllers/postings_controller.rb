@@ -35,7 +35,7 @@ class PostingsController < ApplicationController
   end
   
   def find
-    @postings = Posting.search(params[:from_address], params[:to_address]).paginate(page: params[:page], per_page: 10, order: "date ASC")
+    @postings = Posting.search(params[:from_address], params[:to_address], Date.today).paginate(page: params[:page], per_page: 10, order: "date ASC")
   end
   
 end

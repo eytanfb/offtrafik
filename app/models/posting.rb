@@ -47,7 +47,6 @@ class Posting < ActiveRecord::Base
   end
   
   def previous_step
-    do_not_validate
     self.current_step = steps[steps.index(current_step) - 1]
   end
   
@@ -66,11 +65,11 @@ class Posting < ActiveRecord::Base
     end
   end
   
-  def self.search(from_address, to_address)
-    if from_address && to_address
-      where 'from_address LIKE ? AND to_address LIKE ? AND date > ?', "%#{from_address}%", "%#{to_address}", "%Date.today"
+  def self.search(from_address, to_address, date)
+    if from_address && to_address && date
+      where 'from_address LIKE ? AND to_address LIKE ? and date > ?', "%#{from_address}%", "%#{to_address}%", date
     else
-      scoped
+      where 'date > ?', Time.now
     end
   end
   
