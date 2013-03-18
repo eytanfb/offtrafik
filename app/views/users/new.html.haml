@@ -22,4 +22,9 @@
       = f.label :preferred_contact_content, "Iletişim Bilgisi"
       = f.text_field :preferred_contact_content
       
+      = f.label :agreed_to_terms_and_conditions, "Kullanım Koşulları ve Şartları", id: "terms_and_conditions_label"
+      .terms-and-conditions
+        = f.check_box :agreed_to_terms_and_conditions
+        == Devam etmek icin #{link_to 'Kullanım Koşulları ve Şartlarını', why_path} kabul etmeniz gerekmektedir
+      
       = f.submit "Kayıt Ol", class: "btn btn-large btn-primary"

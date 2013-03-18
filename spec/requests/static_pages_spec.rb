@@ -42,4 +42,10 @@ describe "Static pages" do
     it { should have_selector('title', text: full_title('Neden')) }
   end
   
+  describe "Terms and Conditions page" do
+    before { visit terms_and_conditions_path }
+    it { should have_selector('h1', text: 'Kullanım Koşulları ve Şartları') }
+    it { should have_selector('title', text: full_title('Kullanım Koşulları ve Şartları')) }
+  end
+  
 end

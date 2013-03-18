@@ -2,23 +2,24 @@
 #
 # Table name: users
 #
-#  id                        :integer          not null, primary key
-#  name                      :string(255)
-#  email                     :string(255)
-#  created_at                :datetime         not null
-#  updated_at                :datetime         not null
-#  password_digest           :string(255)
-#  remember_token            :string(255)
-#  admin                     :boolean          default(FALSE)
-#  driver_rating             :integer
-#  person_rating             :integer
-#  preferred_contact_method  :string(255)
-#  preferred_contact_content :string(255)
+#  id                             :integer          not null, primary key
+#  name                           :string(255)
+#  email                          :string(255)
+#  created_at                     :datetime         not null
+#  updated_at                     :datetime         not null
+#  password_digest                :string(255)
+#  remember_token                 :string(255)
+#  admin                          :boolean          default(FALSE)
+#  driver_rating                  :integer
+#  person_rating                  :integer
+#  preferred_contact_method       :string(255)
+#  preferred_contact_content      :string(255)
+#  agreed_to_terms_and_conditions :boolean
 #
 
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :driver_rating, :person_rating, 
-    :preferred_contact_method, :preferred_contact_content
+    :preferred_contact_method, :preferred_contact_content, :agreed_to_terms_and_conditions
   has_secure_password
   has_many :postings
   
@@ -40,6 +41,7 @@ class User < ActiveRecord::Base
   VALID_BBM_REGEX = /[0-9A-F]{8}/
   validates :preferred_contact_content, presence: true, format: { with: VALID_BBM_REGEX}, 
   if: lambda { |user| user.preferred_contact_method == 'bbm' }
+  validates_inclusion_of :agreed_to_terms_and_conditions, in: [true]
   
   def live_postings
     self.postings.select { |posting| posting.date > Date.today }

@@ -2,25 +2,27 @@
 #
 # Table name: users
 #
-#  id                        :integer          not null, primary key
-#  name                      :string(255)
-#  email                     :string(255)
-#  created_at                :datetime         not null
-#  updated_at                :datetime         not null
-#  password_digest           :string(255)
-#  remember_token            :string(255)
-#  admin                     :boolean          default(FALSE)
-#  driver_rating             :integer
-#  person_rating             :integer
-#  preferred_contact_method  :string(255)
-#  preferred_contact_content :string(255)
+#  id                             :integer          not null, primary key
+#  name                           :string(255)
+#  email                          :string(255)
+#  created_at                     :datetime         not null
+#  updated_at                     :datetime         not null
+#  password_digest                :string(255)
+#  remember_token                 :string(255)
+#  admin                          :boolean          default(FALSE)
+#  driver_rating                  :integer
+#  person_rating                  :integer
+#  preferred_contact_method       :string(255)
+#  preferred_contact_content      :string(255)
+#  agreed_to_terms_and_conditions :boolean
 #
 
 require 'spec_helper'
 
 describe User do
   before { @user = User.new(name: 'Example User', email: 'eyanjel@ku.edu.tr', password: 'foobar', password_confirmation: 'foobar', 
-    driver_rating: 5, person_rating: 5, preferred_contact_method: 'email', preferred_contact_content: 'eyanjel@ku.edu.tr') }
+    driver_rating: 5, person_rating: 5, preferred_contact_method: 'email', preferred_contact_content: 'eyanjel@ku.edu.tr',
+    agreed_to_terms_and_conditions: true) }
 
   subject { @user }
 
@@ -66,7 +68,7 @@ describe User do
   
   describe "when email is not a valid format" do
     it "should not be valid" do
-      addresses = %w[user@foo,com user_at_foo.org example.user@foo. foo@bar_baz.com foo@bar+baz.com eytanfb@gmail.com]
+      addresses = %w[user@foo,com user_at_foo.org example.user@foo. foo@bar_baz.com foo@bar+baz.com something@gmail.com anything@yahoo.com]
       addresses.each do |invalid_address|
         @user.email = invalid_address
         @user.should_not be_valid
@@ -76,7 +78,7 @@ describe User do
   
   describe "when email is  a valid format" do
     it "should  be valid" do
-      addresses = %w[user@ku.edu.tr a+b@baz.cn]
+      addresses = %w[user@ku.edu.tr]
       addresses.each do |valid_address|
         @user.email = valid_address
         @user.should be_valid
@@ -204,4 +206,10 @@ describe User do
       end
     end
   end
+  
+  describe "terms and conditions should be agreed" do
+    before { @user.agreed_to_terms_and_conditions = false }
+    it { should_not be_valid }
+  end
+  
 end

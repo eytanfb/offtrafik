@@ -8,6 +8,7 @@ FactoryGirl.define do
     person_rating 5
     preferred_contact_method "email"
     sequence(:preferred_contact_content) { |n| "person_#{n}@ku.edu.tr" }
+    agreed_to_terms_and_conditions true
   end
   
   factory :admin do

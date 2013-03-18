@@ -88,6 +88,7 @@ describe "UserPages" do
         fill_in "Şifre Onaylama", with: "foobar"
         select "Email"
         fill_in "Iletişim Bilgisi", with: "micahel@ku.edu.tr"
+        check "user_agreed_to_terms_and_conditions"
       end
       
       it "should create a user" do
