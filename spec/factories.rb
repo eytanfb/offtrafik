@@ -1,23 +1,17 @@
 FactoryGirl.define do
   factory :user do
     sequence(:name) { |n| "Person #{n}" }
-    sequence(:email) { |n| "person_#{n}@example.com" }
+    sequence(:email) { |n| "person_#{n}@ku.edu.tr" }
     password              "foobar"
     password_confirmation "foobar"
     driver_rating 5
     person_rating 5
     preferred_contact_method "email"
-    sequence(:preferred_contact_content) { |n| "person_#{n}@example.com" }
+    sequence(:preferred_contact_content) { |n| "person_#{n}@ku.edu.tr" }
   end
   
   factory :admin do
     admin true
-  end
-  
-  factory :car do
-    capacity 4
-    smoking false
-    user
   end
   
   factory :posting do

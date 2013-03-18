@@ -83,11 +83,11 @@ describe "UserPages" do
     describe "with valid information" do      
       before do
         fill_in "Isim", with: "Michael Hartl"
-        fill_in "Email", with: "michael@hartl.org"
+        fill_in "Email", with: "michael@ku.edu.tr"
         fill_in "Şifre", with: "foobar"
         fill_in "Şifre Onaylama", with: "foobar"
         select "Email"
-        fill_in "Iletişim Bilgisi", with: "micahel@hartl.org"
+        fill_in "Iletişim Bilgisi", with: "micahel@ku.edu.tr"
       end
       
       it "should create a user" do
@@ -119,7 +119,7 @@ describe "UserPages" do
     
     describe "with valid information" do
       let(:new_name) { "New Name" }
-      let(:new_email) { "new@example.com" }
+      let(:new_email) { "new@ku.edu.tr" }
       before do
         fill_in "Isim", with: new_name
         fill_in "Email", with: new_email

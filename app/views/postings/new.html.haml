@@ -6,7 +6,7 @@
     %h3 Yeni Ilan
     = form_for(@posting) do |f|
       = render "shared/error_messages", object: f.object      
-      = render "trip_#{@posting.current_step}", f: f, object: @posting
+      = render "trip_#{@posting.current_step}", f: f
       <br />
       .row
         .span2{ style: 'float: left' }

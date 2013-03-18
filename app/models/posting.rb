@@ -20,7 +20,8 @@
 #
 
 class Posting < ActiveRecord::Base
-  attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :longitude, :latitude, :gmaps, :comments, :smoking, :driving
+  attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :longitude, :latitude, :gmaps, 
+    :comments, :smoking, :driving
   attr_writer :current_step
   
   belongs_to :user
@@ -33,6 +34,8 @@ class Posting < ActiveRecord::Base
   acts_as_gmappable validate: :validate_both_addresses, msg: 'Verilen adres Google\'da bulunamadi'
   
   default_scope order: 'postings.date ASC'
+  
+  # before_validation :before_save_stuff
   
   def current_step
     @current_step || steps.first
@@ -98,10 +101,6 @@ class Posting < ActiveRecord::Base
       else
         return false
       end
-    end
-    
-    def before_save_stuff
-      self.smoking == 'Evet' ? true : false
     end
   
 end

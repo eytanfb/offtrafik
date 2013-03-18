@@ -20,7 +20,9 @@ describe "PostingPages" do
     end
     
     describe "display error messages" do
-      before { click_button submit }
+      before do 
+        2.times { click_button submit }
+      end
       it { should have_content('error') }
     end
   end

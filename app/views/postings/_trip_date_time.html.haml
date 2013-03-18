@@ -1,14 +1,14 @@
 .row
   .span3
-    = f.label :date
+    = f.label :date, "Tarih"
     = f.text_field :date, default: Date.today
 <br />
 .row
   .span3.input-append
-    = f.label :starting_time
+    = f.label :starting_time, "Cıkış Zamanı"
     = f.time_select :starting_time, time_separator: "", default: Time.now.localtime
 <br />
 .row
-  .span3.input-append.timepicker    
-    = f.label :ending_time
+  .span3.input-append.timepicker
+    = f.label :ending_time, "Varış Zamanı"
     = f.time_select :ending_time, time_separator: "", default: Time.now.localtime + 30.minutes, class: "timepicker"

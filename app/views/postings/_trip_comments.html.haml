@@ -1,7 +1,8 @@
 .row
   .span4
-    = f.select :smoking, collection: ["Evet", "Hayır"].map { |option| [option] }
+    = f.label :smoking, "Sigara"
+    = f.select :smoking, ["Evet", "Hayır"].map { |option| [option] }
 .row
   .span4
-    = f.label :comments
-    = f.text_area :comments, cols: 30, rows: 10
+    = f.label :comments, "Ekstra Bilgiler"
+    = f.text_area :comments, cols: 30, rows: 10, resizable: false

@@ -1,6 +1,5 @@
-.row
-  .span8
-    = f.radio_button :driving, "Evet"
-    = f.label :driving, "Surucuyum"
-    = f.radio_button :driving, "Hayir"
-    = f.label :driving, "Yolcuyum"
+.span7
+  = f.radio_button :driving, true, checked: true
+  = f.label :driving, "Sürücüyüm"
+  = f.radio_button :driving, false
+  = f.label :driving, "Yolcuyum"
