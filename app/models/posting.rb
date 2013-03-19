@@ -72,7 +72,7 @@ class Posting < ActiveRecord::Base
     if from_address && to_address && date
       where 'from_address LIKE ? AND to_address LIKE ? and date > ?', "%#{from_address}%", "%#{to_address}%", date
     else
-      where 'date > ?', Time.now
+      where "from_address LIKE '%%' AND to_address LIKE '%%' and date > ?", Time.now.localtime
     end
   end
   
