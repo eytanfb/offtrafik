@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 # == Schema Information
 #
 # Table name: postings
@@ -35,8 +38,6 @@ class Posting < ActiveRecord::Base
   
   default_scope order: 'postings.date ASC'
   
-  # before_validation :before_save_stuff
-  
   def current_step
     @current_step || steps.first
   end 
@@ -70,9 +71,9 @@ class Posting < ActiveRecord::Base
   
   def self.search(from_address, to_address, date)
     if from_address && to_address && date
-      where 'from_address LIKE ? AND to_address LIKE ? and date > ?', "%#{from_address}%", "%#{to_address}%", date
+      where 'from_address LIKE ? AND to_address LIKE ? and date >= ?', "%#{from_address}%", "%#{to_address}%", date
     else
-      where "from_address LIKE '%%' AND to_address LIKE '%%' and date > ?", Time.now.localtime
+      where "from_address LIKE '%%' AND to_address LIKE '%%' and date >= ?", Date.today
     end
   end
   
@@ -81,11 +82,11 @@ class Posting < ActiveRecord::Base
   end
   
   def smoking?
-    self.smoking ? 'Evet' : 'Hayir'
+    self.smoking ? 'Evet' : 'Hayır'
   end
   
   def driving?
-    self.driving ? 'Evet' : 'Hayir'
+    self.driving ? 'Evet' : 'Hayır'
   end
   
   private

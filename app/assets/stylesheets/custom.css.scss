@@ -54,6 +54,14 @@ label#terms_and_conditions_label{
   background-color: $grayLighter;
 }
 
+/* Navbar */
+
+.navbar-tab{
+  color: white;
+  &:hover{
+    color: yellow;
+  };
+}
 /* footer */
 
 footer {

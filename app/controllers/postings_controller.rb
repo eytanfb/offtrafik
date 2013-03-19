@@ -32,6 +32,7 @@ class PostingsController < ApplicationController
   
   def show
     @posting = Posting.find(params[:id])
+    @user = User.find_by_id @posting.user_id
   end
   
   def find

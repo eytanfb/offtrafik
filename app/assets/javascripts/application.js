@@ -27,6 +27,5 @@ $(function() {
 
 $(function(){
     $(".timepicker").timepicker();
-    $('.timepicker').timepicker("setTime", "12.45 PM")
 });
 

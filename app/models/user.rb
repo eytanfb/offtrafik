@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   validates_inclusion_of :agreed_to_terms_and_conditions, in: [true]
   
   def live_postings
-    self.postings.select { |posting| posting.date > Date.today }
+    self.postings.select { |posting| posting.date >= Date.today }
   end
   
   def past_postings
