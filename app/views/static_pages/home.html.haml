@@ -17,13 +17,14 @@
             -# = image_tag "istanbul_traffic.jpeg"
         -# %a.carousel-control.left{ href: "#myCarousel", "data-slide" => "prev" } &lsaquo;
         -# %a.carousel-control.right{ href: "#myCarousel", "data-slide" => "next" } &rsaquo;
-    .row
-      .span4.offset1
-        = search_field_tag :from_address, params[:from_address], class: "span3 search-query", placeholder: "Nereden"
-      .span4
-        = search_field_tag :to_address, params[:to_address], class: "span3 search-query", placeholder: "Nereye"
-      .offset1
-        = link_to 'Ara', find_posting_path, class: "btn btn-medium btn-primary", style: "color: white;"
+    = form_tag find_posting_path, method: "get" do
+      .row
+        .span4.offset1
+          = search_field_tag :from_address, params[:from_address], class: "span3 search-query", placeholder: "Nereden"
+        .span4
+          = search_field_tag :to_address, params[:to_address], class: "span3 search-query", placeholder: "Nereye"
+        .offset1
+          = submit_tag "Ara", name: nil, class: 'btn btn-primary btn-medium', style: "color: white;"
     %p 
       Bu sayfaya gelerek İstanbul'daki trafik sorunundan sıkıldığını gösterdin. Şimdi üye ol, ve araba paylaşmaya başla!
     

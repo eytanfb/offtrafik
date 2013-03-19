@@ -2,17 +2,18 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     admin = User.create!(name: "Example User",
-                 email: "example@railstutorial.org",
+                 email: "example@ku.edu.tr",
                  password: "foobar",
                  password_confirmation: "foobar",
                  driver_rating: 5,
                  person_rating: 5,
                  preferred_contact_method: 'bbm',
-                 preferred_contact_content: '1234ABCD')
+                 preferred_contact_content: '1234ABCD',
+                 agreed_to_terms_and_conditions: true)
     admin.toggle!(:admin)
     99.times do |n|
       name = Faker::Name.name
-      email = "example-#{n+1}@railstutorial.org"
+      email = "example-#{n+1}@ku.edu.tr"
       password = "password"
       driver_rating = rand(0...5)
       person_rating = rand(0...5)
@@ -23,7 +24,8 @@ namespace :db do
                    driver_rating: driver_rating,
                    person_rating: person_rating,
                    preferred_contact_method: 'email',
-                   preferred_contact_content: email)
+                   preferred_contact_content: email,
+                   agreed_to_terms_and_conditions: true)
     end
     users = User.all(limit: 6)
     4.times do
