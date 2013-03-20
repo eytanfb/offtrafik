@@ -4,7 +4,7 @@
       = render 'shared/user_info'
   %section.span8
     %h3{ style: "text-decoration: underline" } Ilan Detaylari
-    %h4== Ilan Sahibi: #{@user.name}
+    %h4== Ilan Sahibi: #{link_to @user.name}
     - if @user.preferred_contact_method == 'email'
       %h6== Iletisim(#{@user.preferred_contact_method}): #{ mail_to @user.preferred_contact_content}
     - else
