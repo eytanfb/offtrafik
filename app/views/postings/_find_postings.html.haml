@@ -6,12 +6,12 @@
         = text_field_tag :from_address, params[:from_address], class: "span3 search-query", placeholder: "Nereden"
       .span3
         = text_field_tag :to_address, params[:to_address], class: "span3 search-query", placeholder: "Nereye"
-      .span2
-        = submit_tag "Ara", name: nil, class: 'btn btn-primary btn-medium'
     <br />
     .row
       .span3
-        = select_tag :driving, options_for_select(["Sürücü", "Yolcu", "Farketmez"]), prompt: "Yolculuk Tarzı"
+        = select_tag :driving , options_for_select(["Sürücü", "Yolcu", "Farketmez"]), include_blank: "Yolculuk Tarzı"
+      .span2
+        = submit_tag "Ara", name: nil, class: 'btn btn-primary btn-medium'
   <br />
   = will_paginate @postings
   = render 'shared/posting_table', posting_list: @postings

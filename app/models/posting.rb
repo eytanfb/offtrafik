@@ -69,9 +69,12 @@ class Posting < ActiveRecord::Base
     end
   end
   
-  def self.search(from_address, to_address, date)
+  def self.search(from_address, to_address, date, driving)
     if from_address && to_address && date
       where 'from_address LIKE ? AND to_address LIKE ? and date >= ?', "%#{from_address}%", "%#{to_address}%", date
+      if driving && driving != "Yolculuk Tarzı"
+        where 'from_address LIKE ? AND to_address LIKE ? and date >= ? and driving = ?', "%#{from_address}%", "%#{to_address}%", date, driving
+      end
     else
       where "from_address LIKE '%%' AND to_address LIKE '%%' and date >= ?", Date.today
     end
