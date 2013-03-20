@@ -1,6 +1,4 @@
-#!/bin/env ruby
 # encoding: utf-8
-
 # == Schema Information
 #
 # Table name: postings
@@ -19,9 +17,10 @@
 #  gmaps         :boolean
 #  comments      :text
 #  smoking       :boolean
-#  driving       :boolean
+#  driving       :string(255)
 #
 
+#!/bin/env ruby
 class Posting < ActiveRecord::Base
   attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :longitude, :latitude, :gmaps, 
     :comments, :smoking, :driving
@@ -32,6 +31,7 @@ class Posting < ActiveRecord::Base
   validates_presence_of :user_id
   validates_presence_of :from_address, :to_address, if: lambda { |posting| posting.current_step == "address" }
   validates_presence_of :date, :starting_time, :ending_time, if: lambda { |posting| posting.current_step == "date_time" }
+  validates_inclusion_of :driving, :in => %w(Sürücü Yolcu Farketmez)
   validate :ending_time_is_later_than_starting_time?
   
   acts_as_gmappable validate: :validate_both_addresses, msg: 'Verilen adres Google\'da bulunamadi'
@@ -83,10 +83,6 @@ class Posting < ActiveRecord::Base
   
   def smoking?
     self.smoking ? 'Evet' : 'Hayır'
-  end
-  
-  def driving?
-    self.driving ? 'Evet' : 'Hayır'
   end
   
   private

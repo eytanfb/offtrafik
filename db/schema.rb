@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20130211043937038) do
     t.boolean  "gmaps"
     t.text     "comments"
     t.boolean  "smoking"
-    t.boolean  "driving"
+    t.string   "driving"
   end
 
   create_table "rates", :force => true do |t|
