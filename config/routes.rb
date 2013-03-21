@@ -21,10 +21,10 @@ RelearningRails::Application.routes.draw do
   match '/find_posting', to: 'postings#find'
 
   # Resources
-  resources :cars, only: [:create, :destroy]
   resources :users
   resources :sessions, only: [:new, :create, :destroy] # Specifying the only necessary actions
   resources :postings
+  resources :comments
 
 
   # The priority is based upon order of creation:

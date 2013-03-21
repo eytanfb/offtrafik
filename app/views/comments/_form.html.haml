@@ -1,0 +1,14 @@
+.span4
+  = form_for @comment do |f|
+    = render 'shared/error_messages', object: f.object
+
+    = f.label :rating, "Puan"
+    = f.select :rating, [0, 1, 2, 3, 4, 5].collect { |option| option }
+
+    = f.label :text, "Yorum"
+    = f.text_area :text, cols: 40, rows: 10
+    
+    = f.label :is_about, "Hakkinda"
+    = f.select :is_about, (1...15).collect { |option| option }
+
+    = f.submit "Kaydet", class: "btn btn-primary"
