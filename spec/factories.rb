@@ -34,4 +34,11 @@ FactoryGirl.define do
     driving "Yolcu"
     smoking false
   end    
+  
+  factory :comment do
+    text "This is a sample comment"
+    rating 4
+    is_about 1
+  end
+  
 end

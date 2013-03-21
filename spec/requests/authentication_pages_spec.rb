@@ -36,7 +36,6 @@ describe "AuthenticationPages" do
       
       it { should have_selector('title', text: user.name) }
       
-      it { should have_link('Uyeler', href: users_path) }
       it { should have_link('Profil', href: user_path(user)) }
       it { should have_link('Ayarlar', href: edit_user_path(user)) }
       it { should have_link('Çıkış', href: signout_path) }
