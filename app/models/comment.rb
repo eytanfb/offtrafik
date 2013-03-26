@@ -16,6 +16,8 @@ class Comment < ActiveRecord::Base
   
   belongs_to :user, :class_name => "User", :foreign_key => "user_id"
   
+  default_scope order: 'comments.created_at DESC'
+  
   validates_presence_of :text, :rating, :is_about
   validates_length_of :text, within: 0..140
   validates_numericality_of :rating, greater_than_or_equal_to: 0, 

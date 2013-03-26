@@ -59,6 +59,17 @@ describe "UserPages" do
     it { should have_content("Sürücü Puanı") }
     it { should have_content("Kişilik Puanı") }
   end
+  
+  describe "user can see other users" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:user2) { FactoryGirl.create(:user) }
+    before { sign_in user }
+    before { visit user_path(user2) }
+    
+    it { should have_selector('h1', text: user2.name) }
+    it { should have_selector('title', text: user2.name) }
+    
+  end
     
   describe "signing up" do
     

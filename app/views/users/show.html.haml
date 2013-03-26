@@ -3,3 +3,9 @@
   %aside.span4
     %section      
       = render 'shared/user_info'
+  %section
+    %h1= @user.name
+    %section
+      %h4== Iletişim(#{@user.preferred_contact_method}): #{@user.preferred_contact_content}
+      %h4== Sürücü Puanı: #{@user.driver_rating}
+    = render 'display_comments', comments: @comments, user: @user
