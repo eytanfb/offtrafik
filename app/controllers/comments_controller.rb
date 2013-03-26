@@ -15,10 +15,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     if @comment.save
       flash[:success] = "Yorum Yapildi"
-      redirect_to current_user
+      redirect_to User.find(params[:comment][:is_about])
     else
       render 'new'
     end
   end
-  
 end
