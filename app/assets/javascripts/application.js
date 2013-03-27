@@ -28,4 +28,3 @@ $(function() {
 $(function(){
     $(".timepicker").timepicker();
 });
-
