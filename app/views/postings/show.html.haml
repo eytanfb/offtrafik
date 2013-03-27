@@ -6,9 +6,9 @@
     %h3{ style: "text-decoration: underline" } Ilan Detaylari
     %h4== Ilan Sahibi: #{link_to @user.name}
     - if @user.preferred_contact_method == 'email'
-      %h6== Iletisim(#{@user.preferred_contact_method}): #{ mail_to @user.preferred_contact_content}
+      %h6== Iletişim(#{@user.preferred_contact_method}): #{ mail_to @user.preferred_contact_content}
     - else
-      %h6== Iletisim(#{@user.preferred_contact_method}): #{@user.preferred_contact_content}  
+      %h6== Iletişim(#{@user.preferred_contact_method}): #{@user.preferred_contact_content}  
     
     = label_tag "from_address", "Nereden: #{@posting.from_address}"
     = label_tag "to_address", "Nereye: #{@posting.to_address}"
