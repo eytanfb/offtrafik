@@ -11,35 +11,35 @@ en:
         user:
           attributes:
             name:
-              blank: "Isim alani bos olamaz"
+              blank: "Isim alanı boş olamaz"
               too_long: "Isim 50 karakterden fazla olamaz"
             email:
-              blank: "Email alani bos olamaz"
-              uniqueness: "Bu email daha once alinmistir"
-              invalid: "Email ******@ku.edu.tr formatini tasimamaktadir"
+              blank: "Email alanı boş olamaz"
+              uniqueness: "Bu email daha once alınmıştır"
+              invalid: "Email ******@ku.edu.tr formatını taşımamaktadır"
             password:
-              blank: "Sifre bos olamaz"
-              too_short: "Sifre 6 karakterden uzun olmali"
+              blank: "Şifre boş olamaz"
+              too_short: "Şifre 6 karakterden uzun olmalı"
             password_digest:
-              blank: "Sifre bos olamaz"
+              blank: "Şifre boş olamaz"
             password_confirmation:
-              blank: "Sifre dogrulama bos olamaz"
+              blank: "Şifre doğrulama boş olamaz"
             preferred_contact_content:
-              blank: "Iletisim bilgisi bos olamaz"
-              invalid: "Iletisim bilgisi dogru formatta degil"
+              blank: "Iletişim bilgisi boş olamaz"
+              invalid: "Iletişim bilgisi doğru formatta değil"
             agreed_to_terms_and_conditions:
-              inclusion: "Kullanim Kosullari ve Sartlari'ni kabul etmeniz gerekmektedir"
+              inclusion: "Kullanım Koşuları ve Şartları'nı kabul etmeniz gerekmektedir"
         posting:
           attributes:
             from_address:
-              blank: "Nereden alani bos olamaz"
+              blank: "Nereden alanı boş olamaz"
             to_address:
-              blank: "Nereye alani bos olamaz"
+              blank: "Nereye alanı boş olamaz"
             date:
-              blank: "Tarih alani bos olamaz"
+              blank: "Tarih alanı boş olamaz"
         comment:
           attributes:
             text:
-              blank: "Yorum bos olamaz"
+              blank: "Yorum alanı boş"
               too_long: "Yorum 140 karakterden fazla olamaz"
                 
