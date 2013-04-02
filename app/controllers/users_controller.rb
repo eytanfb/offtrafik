@@ -47,6 +47,10 @@ class UsersController < ApplicationController
     end
   end
   
+  def find
+    @users = User.find_all_by_name(params[:search_user])
+  end
+  
   private
     def correct_user
       @user = User.find(params[:id])

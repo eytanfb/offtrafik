@@ -98,7 +98,7 @@ describe "UserPages" do
         fill_in "Şifre", with: "foobar"
         fill_in "Şifre Onaylama", with: "foobar"
         select "Email"
-        fill_in "Iletişim Bilgisi", with: "micahel@ku.edu.tr"
+        fill_in "Iletişim Bilgisi", with: "michael@ku.edu.tr"
         check "user_agreed_to_terms_and_conditions"
       end
       
@@ -147,5 +147,19 @@ describe "UserPages" do
       specify { user.reload.email.should == new_email }
     end
   end # end of editing profile test
+
+  describe "user search page" do
+    let(:user) { FactoryGirl.create(:user)}
+    before do
+      sign_in user
+      visit root_path
+      fill_in "search_user", with: user.name
+      click_button "user-search-button"
+    end
+    
+    it { should have_selector('h3', text: "Kullanici Ara")}
+    it { should have_content(user.name) }
+    
+  end
   
 end

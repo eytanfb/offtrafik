@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @user_names = User.find(:all, select: "name").collect(&:name)
     session[:posting_params] = session[:posting_step] = nil
     if signed_in?
       @live_postings = current_user.live_postings.paginate(page: params[:live_postings_page], per_page: 2)

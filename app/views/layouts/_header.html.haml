@@ -13,7 +13,14 @@
                 %li= link_to "Profil", current_user
                 %li= link_to "Ayarlar", edit_user_path(current_user) # settings
                 %li.divider
-                  %li= link_to "Çıkış", signout_path, method: "delete" # signout
+                  %li= link_to "Çıkış", signout_path, method: "delete" # signouton
+            %li.span3.nav-user-search
+              = form_tag find_user_path, method: "get" do
+                .user-search.input-append
+                  = text_field_tag :search_user, nil, placeholder: "Kullanici Ara", class: "span2", data: {provide: "typeahead", source: @user_names}, autocomplete: "off"
+                  %button.btn.btn-primary{type:"submit", id: "user-search-button"}
+                    %i.icon-search.icon-white
+                  
           - else
             %li= link_to "Neden?", why_path, class: "navbar-tab", style: "color: white" # why
-            %li= link_to "Giriş", signin_path, class: "navbar-tab", style: "color: white" #signin
+            %li= link_to "Giriş", signin_path, class: "navbar-tab", style: "color: white" #signin        
