@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 def full_title(page_title)
-  base_title = "Koç Carpool Projesi"
+  base_title = "Offtrafik"
   if page_title.empty?
     base_title
   else
