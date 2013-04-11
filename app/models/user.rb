@@ -10,16 +10,15 @@
 #  password_digest                :string(255)
 #  remember_token                 :string(255)
 #  admin                          :boolean          default(FALSE)
-#  driver_rating                  :integer
-#  person_rating                  :integer
 #  preferred_contact_method       :string(255)
 #  preferred_contact_content      :string(255)
 #  agreed_to_terms_and_conditions :boolean
+#  trip_rating                    :integer
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :driver_rating, :person_rating, 
-    :preferred_contact_method, :preferred_contact_content, :agreed_to_terms_and_conditions
+  attr_accessible :email, :name, :password, :password_confirmation, :preferred_contact_method, 
+    :preferred_contact_content, :agreed_to_terms_and_conditions, :trip_rating
   has_secure_password
   has_many :postings
   has_many :comments
@@ -31,8 +30,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
-  validates :driver_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
-  validates :person_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
+  validates :trip_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
   validates_inclusion_of :preferred_contact_method, in: %w[email phone bbm]
   validates :preferred_contact_content, presence: true, format: { with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: false },
   if: lambda { |user| user.preferred_contact_method == 'email' }
@@ -55,8 +53,7 @@ class User < ActiveRecord::Base
   private
     def before_save_stuff
       self.remember_token = SecureRandom.urlsafe_base64
-      self.driver_rating ||= 0
-      self.person_rating ||= 0
+      self.trip_rating ||= 0
       if self.preferred_contact_method == 'email'
         self.preferred_contact_content ||= self.email
       end

@@ -56,8 +56,7 @@ describe "UserPages" do
     it { should have_selector('h1', text: user.name) }
     it { should have_selector('title', text: user.name) }
     
-    it { should have_content("Sürücü Puanı") }
-    it { should have_content("Kişilik Puanı") }
+    it { should have_content("Yolculuk Puanı") }
   end
   
   describe "user can see other users" do

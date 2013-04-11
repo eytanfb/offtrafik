@@ -4,8 +4,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "person_#{n}@ku.edu.tr" }
     password              "foobar"
     password_confirmation "foobar"
-    driver_rating 5
-    person_rating 5
+    trip_rating 5
     preferred_contact_method "email"
     sequence(:preferred_contact_content) { |n| "person_#{n}@ku.edu.tr" }
     agreed_to_terms_and_conditions true
@@ -26,7 +25,7 @@ FactoryGirl.define do
   end
   
   factory :old_posting do
-    from_address "Ortakoy, Istanbul"
+    from_address "Nisantasi, Istanbul"
     to_address "Koc University, Istanbul"
     date Date.today.to_s
     starting_time Time.now - 1.day
@@ -38,6 +37,12 @@ FactoryGirl.define do
   factory :comment do
     text "This is a sample comment"
     rating 4
+    is_about 1
+  end
+  
+  factory :random_comment do
+    text Faker::Lorem.sentence(4)
+    rating rand(0...5)
     is_about 1
   end
   

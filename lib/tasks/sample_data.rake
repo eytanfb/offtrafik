@@ -8,8 +8,7 @@ namespace :db do
                  email: "example@ku.edu.tr",
                  password: "foobar",
                  password_confirmation: "foobar",
-                 driver_rating: rand(0...5),
-                 person_rating: rand(0...5),
+                 trip_rating: rand(0...5),
                  preferred_contact_method: 'bbm',
                  preferred_contact_content: '1234ABCD',
                  agreed_to_terms_and_conditions: true)
@@ -18,14 +17,12 @@ namespace :db do
       name = Faker::Name.name
       email = "example-#{n+1}@ku.edu.tr"
       password = "password"
-      driver_rating = rand(0...5)
-      person_rating = rand(0...5)
+      trip_rating = rand(0...5)
       User.create!(name: name,
                    email: email,
                    password: password,
                    password_confirmation: password,
-                   driver_rating: driver_rating,
-                   person_rating: person_rating,
+                   trip_rating: trip_rating,
                    preferred_contact_method: 'email',
                    preferred_contact_content: email,
                    agreed_to_terms_and_conditions: true)
@@ -50,6 +47,13 @@ namespace :db do
       driving = ["Sürücü", "Yolcu", "Farketmez"].sample
       users.each { |user| user.postings.create!(from_address: from_address, to_address: to_address, date: date, 
         starting_time: starting_time, ending_time: ending_time, smoking: false, driving: driving) }
+    end
+    
+    4.times do
+      is_about = rand(0...5)
+      text = Faker::Lorem.sentence(4)
+      rating = rand(0...5)
+      users.each { |user| user.comments.create!(is_about: is_about, text: text, rating: rating) }
     end
   end
 end

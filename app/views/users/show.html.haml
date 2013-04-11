@@ -7,5 +7,5 @@
     %h1= @user.name
     %section
       %h4== Iletişim(#{@user.preferred_contact_method}): #{@user.preferred_contact_content}
-      %h4== Sürücü Puanı: #{@user.driver_rating}
+      %h4== Yolculuk Puanı: #{@user.trip_rating}
     = render 'display_comments', comments: @comments, user: @user

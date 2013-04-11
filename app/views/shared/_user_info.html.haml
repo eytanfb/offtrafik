@@ -3,9 +3,7 @@
 %h1
   = link_to current_user.name, user_path(current_user)
 %section
-  Sürücü Puanı: #{current_user.driver_rating}/5      
-  <br />
-  Kişilik Puanı: #{current_user.person_rating}/5
+  Yolculuk Puanı: #{current_user.trip_rating}/5      
   <br />
   #{current_user.preferred_contact_method}: #{current_user.preferred_contact_content}
   <br />

@@ -10,18 +10,17 @@
 #  password_digest                :string(255)
 #  remember_token                 :string(255)
 #  admin                          :boolean          default(FALSE)
-#  driver_rating                  :integer
-#  person_rating                  :integer
 #  preferred_contact_method       :string(255)
 #  preferred_contact_content      :string(255)
 #  agreed_to_terms_and_conditions :boolean
+#  trip_rating                    :integer
 #
 
 require 'spec_helper'
 
 describe User do
   before { @user = User.new(name: 'Example User', email: 'eyanjel@ku.edu.tr', password: 'foobar', password_confirmation: 'foobar', 
-    driver_rating: 5, person_rating: 5, preferred_contact_method: 'email', preferred_contact_content: 'eyanjel@ku.edu.tr',
+    trip_rating: 5, preferred_contact_method: 'email', preferred_contact_content: 'eyanjel@ku.edu.tr',
     agreed_to_terms_and_conditions: true) }
 
   subject { @user }
@@ -34,10 +33,9 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
-  it { should respond_to(:driver_rating) }
-  it { should respond_to(:person_rating) }
   it { should respond_to(:preferred_contact_method) }
   it { should respond_to(:preferred_contact_content) }
+  it { should respond_to{:trip_rating}}
   
   it { should be_valid }
   it { should_not be_admin }
@@ -136,13 +134,8 @@ describe User do
     its(:remember_token) { should_not be_blank }
   end
   
-  describe "driver rating can't be more than 5" do
-    before { @user.driver_rating = 6 }
-    it { should_not be_valid }
-  end
-  
-  describe "person rating can't be more than 5" do
-    before { @user.person_rating = 6 }
+  describe "trip rating can't be more than 5" do
+    before { @user.trip_rating = 6 }
     it { should_not be_valid }
   end
   

@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   end
   
   def create
-    @comment = Comment.new(params[:comment])
+    @comment = current_user.comments.new(params[:comment])
     if @comment.save
       flash[:success] = "Yorum Yapildi"
       redirect_to User.find(params[:comment][:is_about])
