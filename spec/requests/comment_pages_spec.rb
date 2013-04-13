@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 require 'spec_helper'
 
 describe "CommentPages" do
@@ -32,8 +35,9 @@ describe "CommentPages" do
     describe "with valid information" do
       before do
         visit user_path(user2)
-        select "3"
-        fill_in "Yorum", with: "Gercekten egelenceli bir yolculuktu"
+        click_link "write_comment"
+        select "3", from: "comment_rating"
+        fill_in "comment_text", with: "Gercekten egelenceli bir yolculuktu"
       end
       it "should create a comment" do
         expect { click_button submit }.to change(Comment , :count).by(1)

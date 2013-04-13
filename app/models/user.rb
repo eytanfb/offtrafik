@@ -50,6 +50,14 @@ class User < ActiveRecord::Base
     self.postings.select { |posting| posting.date < Date.today }
   end
   
+  def calculate_rating
+    comments_sum = Comment.find_all_by_is_about(self.id).collect { |comment| comment.rating }.sum
+    total_comments = Comment.find_all_by_is_about(self.id).count
+    if total_comments > 0
+      self.trip_rating = comments_sum / total_comments
+    end
+  end
+  
   private
     def before_save_stuff
       self.remember_token = SecureRandom.urlsafe_base64
