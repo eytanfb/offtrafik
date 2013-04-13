@@ -2,6 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  date:
+    month_names: [~, Ocak, Subat, Mart, Nisan, Mayis, Haziran, Temmuz, Agustos, Eylul, Ekim, Kasim, Aralik]
+    abbr_month_names: [~, Oca, Sub, Mar, Nis, May, Haz, Tem, Agu, Eyl, Eki, Kas, Araå]
+    formats:
+      default: ! '%d/%B/%Y'
+      short: ! '%e/%b/%Y'
   activerecord:
     attributes:
       user:
@@ -42,4 +48,3 @@ en:
             text:
               blank: "Yorum alanı boş"
               too_long: "Yorum 140 karakterden fazla olamaz"
-                

@@ -12,7 +12,7 @@
     
     = label_tag "from_address", "Nereden: #{@posting.from_address}"
     = label_tag "to_address", "Nereye: #{@posting.to_address}"
-    = label_tag "date", "Tarih: #{@posting.date.strftime('%d/%B/%y')}"
+    = label_tag "date", "Tarih: #{l @posting.date, format: :default}"
     = label_tag "starting_time", "Cıkış Zamani: #{@posting.starting_time.to_s(:time)}"
     = label_tag "ending_time", "Varış Zamani: #{@posting.ending_time.to_s(:time)}"
     = label_tag "smoking", "Sigara: #{@posting.smoking?}"
