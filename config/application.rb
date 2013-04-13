@@ -59,5 +59,9 @@ module RelearningRails
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    # Rotate log files
+    #log_pipe = IO.popen("/usr/sbin/rotatelogs #{Rails.root}/log/#{Rails.env}.%Y%m%d.log 86400", 'a')
+    #config.logger = Logger.new(log_pipe)
   end
 end

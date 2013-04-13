@@ -42,16 +42,6 @@ describe Comment do
       it { should_not be_valid }    
     end
     
-    describe "can be 5" do
-      before { @comment.rating = 5 }
-      it { should be_valid }
-    end
-    
-    describe "can be 0" do
-      before { @comment.rating = 0 }
-      it { should be_valid }
-    end
-    
     describe "shouldn't exceed 5" do
       before { @comment.rating = 6 }
       it { should_not be_valid }
