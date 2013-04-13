@@ -8,7 +8,7 @@ namespace :db do
                  email: "example@ku.edu.tr",
                  password: "foobar",
                  password_confirmation: "foobar",
-                 trip_rating: rand(0...5),
+                 trip_rating: 0,
                  preferred_contact_method: 'bbm',
                  preferred_contact_content: '1234ABCD',
                  agreed_to_terms_and_conditions: true)
@@ -17,7 +17,7 @@ namespace :db do
       name = Faker::Name.name
       email = "example-#{n+1}@ku.edu.tr"
       password = "password"
-      trip_rating = rand(0...5)
+      trip_rating = 0
       User.create!(name: name,
                    email: email,
                    password: password,
