@@ -6,7 +6,7 @@
     %td Cıkış Zamanı
     %td Varış Zamanı
     %td Sigara
-    %td Sürücü
+    %td Ihtiyaç
   %tbody
     - posting_list.each do |posting|
       %tr
@@ -17,4 +17,3 @@
         %td= link_to posting.ending_time.to_s(:time), posting
         %td= link_to posting.smoking?, posting
         %td= link_to posting.driving, posting
-        
