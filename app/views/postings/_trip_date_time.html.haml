@@ -6,9 +6,9 @@
 .row
   .span3.input-append
     = f.label :starting_time, "Cıkış Zamanı"
-    = f.time_select :starting_time, time_separator: "", default: Time.now.localtime
+    = f.time_select :starting_time, time_separator: "", default: Time.now.localtime, minute_step: 5
 <br />
 .row
   .span3.input-append
     = f.label :ending_time, "Varış Zamanı"
-    = f.time_select :ending_time, time_separator: "", default: Time.now.localtime + 30.minutes, class: "timepicker"
+    = f.time_select :ending_time, time_separator: "", default: Time.now.localtime + 30.minutes, minute_step: 5
