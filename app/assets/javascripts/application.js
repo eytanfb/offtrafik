@@ -21,7 +21,7 @@
 
 $(function() {
 	$("#posting_date").datepicker({ 
-			dateFormat: 'dd-mm-yy' 
+			dateFormat: 'dd-mm-yy', minDate: 0
 		});
 });
 
