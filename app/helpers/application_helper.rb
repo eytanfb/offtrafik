@@ -12,4 +12,8 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+  
+  def populate_typeahead
+      @user_names = User.find(:all, select: "name").collect(&:name)
+  end
 end
