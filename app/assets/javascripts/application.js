@@ -25,6 +25,8 @@ jQuery(function($) {
 		});
 });
 
+$('#ui-datepicker-div').css('clip', 'auto');
+
 $(function(){
     $(".timepicker").timepicker();
 });
