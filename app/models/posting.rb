@@ -38,6 +38,8 @@ class Posting < ActiveRecord::Base
   
   default_scope order: 'postings.date ASC'
   
+  scope :active, lambda { where('date >= ?', Time.now) }
+  
   def current_step
     @current_step || steps.first
   end 

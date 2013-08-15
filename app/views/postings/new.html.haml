@@ -1,15 +1,16 @@
-.row
-  %aside.span4
-    %section      
-      = render 'shared/user_info'
-  %section.span8
-    %h3 Yeni Ilan
-    = form_for(@posting) do |f|
-      = render "shared/error_messages", object: f.object      
-      = render "trip_#{@posting.current_step}", f: f
-      <br />
-      .row
-        .span2{ style: 'float: left' }
-          = f.submit 'Geri', class: "btn btn-primary btn-small nav-button", name: "back_button" unless @posting.first_step?      
-        .span2{ style: 'float: right' }
-          = f.submit 'Devam', class: "btn btn-primary btn-small nav-button-right"
+%h3.center Yeni Ilan
+#posting.row
+  = simple_form_for @posting, html: { class: "form-horizontal" } do |f|
+    = render "shared/error_messages", object: f.object
+    .span6
+      = f.input :from_address, label: "Nereden", class: "search-query", type: "search", placeholder:  "Semt, Şehir", input_html: { onchange: "dropFromMarker()" }
+      = f.input :to_address, label: "Nereye", class: "search-query", type: "search", placeholder:  "Semt, Şehir", input_html: { onchange: "dropToMarker()" }
+      = f.input :starting_time, label: "Cıkış Zamanı", as: :string, time_separator: "", default: Time.now.localtime, minute_step: 5, item_wrapper_class: "inline"
+      = f.input :ending_time, label: "Varış Zamanı", as: :string, time_separator: "", default: Time.now.localtime + 30.minutes, minute_step: 5, item_wrapper_class: "inline"
+      #map.pull-right
+    .span6
+      = f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline"
+      = f.input :driving, label: "Ne Arıyorum", as: :radio, collection: ["Sürücü", "Yolcu", "Farketmez"], item_wrapper_class: "inline"
+      = f.input :smoking, label: "Sigara", as: :radio, collection: ["Evet", "Hayır"], item_wrapper_class: "inline"
+      = f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planinizi ve taleplerinizi yaziniz (Orn. Resitpasa'dan gidecegim. Yolculuk karsiliginda bir kahve getirirseniz sevinirim.)"
+      = f.submit "Ilan Ver", class: "btn btn-primary pull-right span4", Fromstyle: "height: 50px"
