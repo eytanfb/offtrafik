@@ -3,10 +3,10 @@
   = simple_form_for @posting, html: { class: "form-horizontal" } do |f|
     = render "shared/error_messages", object: f.object
     .span6
-      = f.input :from_address, label: "Nereden", class: "search-query", type: "search", placeholder:  "Semt, Şehir", input_html: { onchange: "dropFromMarker()" }
-      = f.input :to_address, label: "Nereye", class: "search-query", type: "search", placeholder:  "Semt, Şehir", input_html: { onchange: "dropToMarker()" }
-      = f.input :starting_time, label: "Cıkış Zamanı", as: :string, time_separator: "", default: Time.now.localtime, minute_step: 5, item_wrapper_class: "inline"
-      = f.input :ending_time, label: "Varış Zamanı", as: :string, time_separator: "", default: Time.now.localtime + 30.minutes, minute_step: 5, item_wrapper_class: "inline"
+      = f.input :from_address, label: "Nereden", class: "search-query", type: "search", placeholder:  "Semt, Şehir", input_html: { onchange: "dropFromMarker()", id: "from_address" }
+      = f.input :to_address, label: "Nereye", class: "search-query", type: "search", placeholder:  "Semt, Şehir", input_html: { onchange: "dropToMarker()", id: "to_address" }
+      = f.input :starting_time, label: "Cıkış Zamanı", as: :string, time_separator: "", default: Time.now.localtime, item_wrapper_class: "inline", input_html: { id: "starting_time" }
+      = f.input :ending_time, label: "Varış Zamanı", as: :string, time_separator: "", default: Time.now.localtime + 30.minutes, item_wrapper_class: "inline", input_html: { id: "ending_time" }
       #map.pull-right
     .span6
       = f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline"

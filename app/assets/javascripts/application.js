@@ -18,15 +18,3 @@
 //= require bootstrap
 //= require jquery-ui
 //= require bootstrap-timepicker
-
-jQuery(function($) {
-	$("#posting_date").datepicker({ 
-			dateFormat: 'dd-mm-yy', minDate: 0
-		});
-});
-
-$('#ui-datepicker-div').css('clip', 'auto');
-
-$(function(){
-    $(".timepicker").timepicker();
-});
