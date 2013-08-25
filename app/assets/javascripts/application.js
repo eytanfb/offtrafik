@@ -10,11 +10,9 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-
-// ADDED LATER
-//= require bootstrap
 //= require jquery-ui
 //= require bootstrap-timepicker
+//= require_tree .
