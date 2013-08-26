@@ -14,6 +14,7 @@ gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails',
                               :git => 'git://github.com/tispratik/bootstrap-timepicker-rails.git'
 gem 'thin'
 gem 'simple_form'
+gem 'font-awesome-rails'
 
 # JQuery
 gem 'jquery_datepicker'

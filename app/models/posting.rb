@@ -28,48 +28,15 @@ class Posting < ActiveRecord::Base
   
   belongs_to :user
   
-  validates_presence_of :user_id
-  validates_presence_of :from_address, :to_address, if: lambda { |posting| posting.current_step == "address" }
-  validates_presence_of :date, :starting_time, :ending_time, if: lambda { |posting| posting.current_step == "date_time" }
+  validates_presence_of :user_id, :from_address, :to_address, :date, :starting_time, :ending_time
   validates_inclusion_of :driving, :in => %w(Sürücü Yolcu Farketmez)
   validate :ending_time_is_later_than_starting_time?
   
-  acts_as_gmappable validate: :validate_both_addresses, msg: 'Verilen adres Google\'da bulunamadi'
+  acts_as_gmappable validate: :validate_both_addresses, msg: "Verilen adres Google'da bulunamadi"
   
   default_scope order: 'postings.date ASC'
   
   scope :active, lambda { where('date >= ?', Time.now) }
-  
-  def current_step
-    @current_step || steps.first
-  end 
-  
-  def steps
-    %w[driving address date_time comments]
-  end
-  
-  def next_step
-    self.current_step = steps[steps.index(current_step) + 1]    
-  end
-  
-  def previous_step
-    self.current_step = steps[steps.index(current_step) - 1]
-  end
-  
-  def first_step?
-    self.current_step == steps.first
-  end
-  
-  def last_step?
-    self.current_step == steps.last
-  end
-  
-  def all_valid?
-    steps.all? do |step|
-      self.current_step = step
-      valid?
-    end
-  end
   
   def self.search(from_address, to_address, date, driving)
     if from_address && to_address && date

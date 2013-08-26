@@ -1,32 +1,18 @@
 class PostingsController < ApplicationController
-  before_filter :signed_in_user, only: [:show]
+  before_filter :signed_in_user, only: [:show, :share_posting]
   
   def new
-    session[:posting_params] ||= {}
-    @posting = current_user.postings.build(session[:posting_params])
-    @posting.current_step = session[:posting_step]
+    @posting = current_user.postings.new params[:posting]
   end
   
   def create
-    session[:posting_params].deep_merge!(params[:posting]) if params[:posting]
-    @posting = current_user.postings.build(session[:posting_params])
-    @posting.current_step = session[:posting_step]
-    if @posting.valid?
-      if params[:back_button]
-        @posting.previous_step
-      elsif @posting.last_step?
-        @posting.save if @posting.all_valid?
-      else
-        @posting.next_step
-      end    
-      session[:posting_step] = @posting.current_step
-    end
-    if @posting.new_record?
-      render 'new'
-    else
-      session[:posting_params] = session[:posting_step] = nil
+    @posting = current_user.postings.new params[:posting]
+    if @posting.save
       flash[:success] = "Ilan verildi"
-      redirect_to root_path
+      redirect_to share_posting_path
+    else
+      flash[:warning] = "Ilan Verilemedi"
+      redirect_to share_posting_path
     end
   end
   
@@ -37,6 +23,10 @@ class PostingsController < ApplicationController
   
   def find
     @postings = Posting.search(params[:from_address], params[:to_address], Date.today, params[:driving]).paginate(page: params[:page], per_page: 10, order: "date ASC")
+  end
+  
+  def share_posting
+    @posting = current_user.postings.last
   end
   
 end

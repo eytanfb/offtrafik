@@ -20,6 +20,7 @@ RelearningRails::Application.routes.draw do
   # Matching postings
   match '/find_posting', to: 'postings#find'
   match '/find_user', to: 'users#find'
+  match '/share_posting', to: 'postings#share_posting'
 
   # Resources
   resources :users
