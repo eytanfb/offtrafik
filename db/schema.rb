@@ -85,6 +85,9 @@ ActiveRecord::Schema.define(:version => 20130211043937038) do
     t.string   "preferred_contact_content"
     t.boolean  "agreed_to_terms_and_conditions"
     t.integer  "trip_rating"
+    t.string   "neighborhood"
+    t.integer  "total_kms"
+    t.string   "summary"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

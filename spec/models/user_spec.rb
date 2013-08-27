@@ -14,6 +14,9 @@
 #  preferred_contact_content      :string(255)
 #  agreed_to_terms_and_conditions :boolean
 #  trip_rating                    :integer
+#  neighborhood                   :string(255)
+#  total_kms                      :integer
+#  summary                        :string(255)
 #
 
 require 'spec_helper'
