@@ -2,29 +2,22 @@
 %h1 Üye Ol
 .row
   .span6.offset3
-    = form_for @user do |f|
+    = simple_form_for @user do |f|
       = render 'shared/error_messages', object: f.object
-      = f.label :name, "Isim"
-      = f.text_field :name
       
-      = f.label :email
-      = f.text_field :email
+      = f.input :name, label: "Isim"
       
-      = f.label :password, "Şifre"
-      = f.password_field :password
+      = f.input :email
       
-      = f.label :password_confirmation, "Şifre Onaylama"
-      = f.password_field :password_confirmation
+      = f.input :password, label: "Şifre"
       
-      = f.label :preferred_contact_method, "Iletişim Tercihi"
-      = f.select :preferred_contact_method, @communication_options.map { |option| [option[0], option[1].downcase]}
+      = f.input :password_confirmation, label: "Şifre Onaylama"
       
-      = f.label :preferred_contact_content, "Iletişim Bilgisi"
-      = f.text_field :preferred_contact_content
+      = f.input :preferred_contact_method, label: "Iletişim Tercihi", as: :select, collection: @communication_options.map { |option| [option[0], option[1].downcase]}, include_blank: false
       
-      = f.label :agreed_to_terms_and_conditions, "Kullanım Koşulları ve Şartları", id: "terms_and_conditions_label"
-      .terms-and-conditions
-        = f.check_box :agreed_to_terms_and_conditions
-        == Devam etmek icin #{link_to 'Kullanım Koşulları ve Şartlarını', terms_and_conditions_path} kabul etmeniz gerekmektedir
+      = f.input :preferred_contact_content, label: "Iletişim Bilgisi"
+      
+      = f.input :agreed_to_terms_and_conditions, label: "Kullanım Koşulları ve Şartları", id: "terms_and_conditions_label", as: :boolean, input_html: { class: "terms-and-conditions" }
+      %div Devam etmek icin #{link_to 'Kullanım Koşulları ve Şartlarını', terms_and_conditions_path} kabul etmeniz gerekmektedir
       
       = f.submit "Kayıt Ol", class: "btn btn-large btn-primary"
