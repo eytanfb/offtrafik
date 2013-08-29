@@ -7,6 +7,7 @@ var map;
 
 function initialize()
 {
+	var hometown = document.getElementById("neighborhood").innerHTML;
 	geocoder = new google.maps.Geocoder();
 
 	var latlng = new google.maps.LatLng(52.40, -3.61);
@@ -17,7 +18,7 @@ function initialize()
 	}
 	map = new google.maps.Map(document.getElementById("map"), myOptions);
 	setCenterToAddress('Istanbul');
-	addHomeTownMarker(hometown, avatar);
+	addHomeTownMarker(hometown);
 }
 
 function addHomeTownMarker(hometown)
