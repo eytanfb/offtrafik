@@ -11,6 +11,9 @@ namespace :db do
                  trip_rating: 0,
                  preferred_contact_method: 'bbm',
                  preferred_contact_content: '1234ABCD',
+                 neighborhood: "Ortakoy",
+                 total_kms: 100,
+                 summary: "Icinden Gecicem",
                  agreed_to_terms_and_conditions: true)
     admin.toggle!(:admin)
     99.times do |n|
@@ -25,6 +28,9 @@ namespace :db do
                    trip_rating: trip_rating,
                    preferred_contact_method: 'email',
                    preferred_contact_content: email,
+                   neighborhood: "Ortakoy",
+                   total_kms: 1000,
+                   summary: "Dunyayi Kurtarmaca",
                    agreed_to_terms_and_conditions: true)
     end
     users = User.all(limit: 6)

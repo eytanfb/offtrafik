@@ -4,7 +4,8 @@
     %section      
       = render 'shared/user_info'
   %section
-    %h1= @user.name
+    %h1#user-name-heading= @user.name
+    #map
     %section
       %h4== Iletişim(#{@user.preferred_contact_method}): #{@user.preferred_contact_content}
       %h4== Yolculuk Puanı: #{@user.trip_rating}
