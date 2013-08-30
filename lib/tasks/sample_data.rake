@@ -13,7 +13,7 @@ namespace :db do
                  preferred_contact_content: "example@ku.edu.tr",
                  neighborhood: "Ortakoy",
                  total_kms: 100,
-                 summary: "Icinden Gecicem",
+                 summary: "Koc Universiteli bir Doga Severim",
                  agreed_to_terms_and_conditions: true)
     admin.toggle!(:admin)
     99.times do |n|
@@ -30,7 +30,7 @@ namespace :db do
                    preferred_contact_content: email,
                    neighborhood: "Ortakoy",
                    total_kms: 1000,
-                   summary: "Dunyayi Kurtarmaca",
+                   summary: Faker::Lorem.sentence(6),
                    agreed_to_terms_and_conditions: true)
     end
     users = User.all(limit: 6)
