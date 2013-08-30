@@ -4,11 +4,11 @@
       = render 'shared/user_info'
   %section.span8
     %h3{ style: "text-decoration: underline" } Ilan Detaylari
-    %h4== Ilan Sahibi: #{link_to @user.name}
-    %h6== Iletişim(#{@user.preferred_contact_method}): #{ mail_to @user.preferred_contact_content}
+    %h4== Ilan Sahibi: #{link_to @user.name, user_path(@user)}
+    %h6== Iletişim: #{ mail_to @user.preferred_contact_content}
     
-    = label_tag "from_address", "Nereden: #{@posting.from_address}"
-    = label_tag "to_address", "Nereye: #{@posting.to_address}"
+    = label_tag "from_address", "Nereden: <span id='from_address'>#{@posting.from_address}</span>".html_safe
+    = label_tag "to_address", "Nereye: <span id='to_address'>#{@posting.to_address}</span>".html_safe
     = label_tag "date", "Tarih: #{l @posting.date, format: :default}"
     = label_tag "starting_time", "Cıkış Zamani: #{@posting.starting_time.to_s(:time)}"
     = label_tag "ending_time", "Varış Zamani: #{@posting.ending_time.to_s(:time)}"

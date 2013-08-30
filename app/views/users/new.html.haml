@@ -13,6 +13,7 @@
       
       = f.input :password_confirmation, label: "Şifre Onaylama"
       
-      = f.input :agreed_to_terms_and_conditions, as: :boolean, label: "Devam etmek icin #{link_to 'Kullanım Koşulları ve Şartlarını', terms_and_conditions_path} kabul etmeniz gerekmektedir", item_wrapper_class: "inline"
+      #terms_and_conditions
+        = f.input :agreed_to_terms_and_conditions, as: :boolean, label: "Devam etmek icin #{link_to 'Kullanım Koşulları ve Şartlarını', terms_and_conditions_path} kabul etmeniz gerekmektedir", item_wrapper_class: "inline"
       
       = f.submit "Kayıt Ol", class: "btn btn-large btn-primary"    

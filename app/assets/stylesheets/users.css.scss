@@ -24,3 +24,16 @@
 	}
 	
 }
+
+#terms_and_conditions {
+	a {
+	  color: #0000FF;
+	  &:visited {
+	    color: #666;
+	  }
+	  &:hover {
+	    color: #000;
+	    background-color: #fff;
+	  }
+	}
+}

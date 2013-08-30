@@ -12,7 +12,7 @@ function initialize()
 	var name = document.getElementById("user-name-heading").innerHTML;
 	geocoder = new google.maps.Geocoder();
 
-	var latlng = new google.maps.LatLng(41.055408, 28.995667);
+	var latlng = new google.maps.LatLng(41.055408, 29.995667);
 	var myOptions = {
 	  zoom: 3,
 	  center: latlng,
