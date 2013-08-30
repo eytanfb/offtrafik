@@ -4,10 +4,11 @@
     %section      
       = render 'shared/user_info'
   %section
-    %h1#user-name-heading= @user.name
+    %h1#user-name-heading= @user.name 
+    <span style="font-size: 14px">#{@user.summary}</span>
     #map
     %section
-      <h4>Semt: <span id="neighborhood">#{@user.neighborhood}</span></h4>
+      <h4 style="display: none">Semt: <span id="neighborhood">#{@user.neighborhood}</span></h4>
       %h4== Iletişim(#{@user.preferred_contact_method}): #{@user.preferred_contact_content}
       %h4== Yolculuk Puanı: #{@user.trip_rating}
     = render 'display_comments', comments: @comments, user: @user

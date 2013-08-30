@@ -4,13 +4,15 @@
 
 var geocoder;
 var map;
+var infowindow = new google.maps.InfoWindow();
 
 function initialize()
 {
 	var hometown = document.getElementById("neighborhood").innerHTML;
+	var name = document.getElementById("user-name-heading").innerHTML;
 	geocoder = new google.maps.Geocoder();
 
-	var latlng = new google.maps.LatLng(52.40, -3.61);
+	var latlng = new google.maps.LatLng(41.055408, 28.995667);
 	var myOptions = {
 	  zoom: 3,
 	  center: latlng,
@@ -18,10 +20,10 @@ function initialize()
 	}
 	map = new google.maps.Map(document.getElementById("map"), myOptions);
 	setCenterToAddress('Istanbul');
-	addHomeTownMarker(hometown);
+	addHomeTownMarker(hometown, name);
 }
 
-function addHomeTownMarker(hometown)
+function addHomeTownMarker(hometown, name)
 {
   geocoder.geocode({'address': hometown}, function(results, status)
   {
@@ -31,6 +33,13 @@ function addHomeTownMarker(hometown)
               map: map,
 							icon: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
           });
+          google.maps.event.addListener(marker, 'click', function() {
+              if (!infowindow) {
+                  infowindow = new google.maps.InfoWindow();
+              }
+              infowindow.setContent(name);
+              infowindow.open(map, marker);
+          });					
       }
   });
 }
@@ -41,6 +50,7 @@ function setCenterToAddress(address)
 	{
 		if (status == google.maps.GeocoderStatus.OK) {
 			map.setCenter(results[0].geometry.location);
+			map.setZoom(9);
 		}
 	});
 }

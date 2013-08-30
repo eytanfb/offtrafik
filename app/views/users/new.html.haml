@@ -13,10 +13,6 @@
       
       = f.input :password_confirmation, label: "Şifre Onaylama"
       
-      = f.input :preferred_contact_method, label: "Iletişim Tercihi", as: :select, collection: @communication_options.map { |option| [option[0], option[1].downcase]}, include_blank: false
-      
-      = f.input :preferred_contact_content, label: "Iletişim Bilgisi"
-      
       = f.input :agreed_to_terms_and_conditions, label: "Kullanım Koşulları ve Şartları", id: "terms_and_conditions_label", as: :boolean, input_html: { class: "terms-and-conditions" }
       %div Devam etmek icin #{link_to 'Kullanım Koşulları ve Şartlarını', terms_and_conditions_path} kabul etmeniz gerekmektedir
       

@@ -34,15 +34,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
   validates :trip_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
-  validates_inclusion_of :preferred_contact_method, in: %w[email phone bbm]
-  validates :preferred_contact_content, presence: true, format: { with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: false },
-  if: lambda { |user| user.preferred_contact_method == 'email' }
-  VALID_PHONE_REGEX = /05\d{9}/
-  validates :preferred_contact_content, presence: true, format: { with: VALID_PHONE_REGEX}, 
-  if: lambda { |user| user.preferred_contact_method == 'phone' }
-  VALID_BBM_REGEX = /[0-9A-F]{8}/
-  validates :preferred_contact_content, presence: true, format: { with: VALID_BBM_REGEX}, 
-  if: lambda { |user| user.preferred_contact_method == 'bbm' }
+  validates_inclusion_of :preferred_contact_method, in: %w[email]
+  validates :preferred_contact_content, presence: true, format: { with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: false }, if: lambda { |user| user.preferred_contact_method == 'email' }
   validates_inclusion_of :agreed_to_terms_and_conditions, in: [true]
   
   def live_postings

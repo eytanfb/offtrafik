@@ -31,7 +31,6 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
-    @communication_options = { "Email" => "email", "Telefon" => "phone", "BBM" => "bbm" }
   end
   
   def edit
