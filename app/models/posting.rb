@@ -32,8 +32,6 @@ class Posting < ActiveRecord::Base
   validates_inclusion_of :driving, :in => %w(Sürücü Yolcu Farketmez)
   validate :ending_time_is_later_than_starting_time?
   
-  acts_as_gmappable validate: :validate_both_addresses, msg: "Verilen adres Google'da bulunamadi"
-  
   default_scope order: 'postings.date ASC'
   
   scope :active, lambda { where('date >= ?', Time.now) }
@@ -49,10 +47,6 @@ class Posting < ActiveRecord::Base
     end
   end
   
-  def gmaps4rails_address
-    "#{from_address} to #{to_address}"
-  end
-  
   def smoking?
     self.smoking ? 'Evet' : 'Hayır'
   end
@@ -61,14 +55,6 @@ class Posting < ActiveRecord::Base
     def ending_time_is_later_than_starting_time?
       if self.starting_time && self.ending_time
         errors.add(:starting_time, "Baslangic zamani bitis zamanindan daha once olmali") unless self.starting_time < self.ending_time
-      end
-    end
-    
-    def validate_both_addresses
-      if Gmaps4rails.geocode(self.from_address) && Gmaps4rails.geocode(self.to_address)
-        return true
-      else
-        return false
       end
     end
   

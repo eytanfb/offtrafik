@@ -36,7 +36,7 @@ namespace :db do
     users = User.all(limit: 6)
     4.times do
       from_address = 'Ortakoy, Istanbul'
-      to_address = 'Koc University, Istanbul'
+      to_address = 'Koc Universitesi, Istanbul'
       date = Date.today + 1.week
       starting_time = Time.now
       ending_time = Time.now + rand(30...60).minutes
@@ -45,7 +45,7 @@ namespace :db do
         starting_time: starting_time, ending_time: ending_time, smoking: true, driving: driving) }
     end
     4.times do
-      from_address = 'Koc University, Istanbul'
+      from_address = 'Koc Universitesi, Istanbul'
       to_address = 'Ortakoy, Istanbul'
       date = Date.today - 1.week
       starting_time = Time.now
@@ -55,11 +55,11 @@ namespace :db do
         starting_time: starting_time, ending_time: ending_time, smoking: false, driving: driving) }
     end
     
-    4.times do
-      is_about = rand(0...5)
-      text = Faker::Lorem.sentence(4)
-      rating = rand(0...5)
-      users.each { |user| user.comments.create!(is_about: is_about, text: text, rating: rating) }
-    end
+    # 4.times do
+#       is_about = rand(0...5)
+#       text = Faker::Lorem.sentence(4)
+#       rating = rand(0...5)
+#       users.each { |user| user.comments.create!(is_about: is_about, text: text, rating: rating) }
+#     end
   end
 end
