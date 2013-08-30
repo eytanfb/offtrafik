@@ -34,8 +34,6 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
   validates :trip_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
-  validates_inclusion_of :preferred_contact_method, in: %w[email]
-  validates :preferred_contact_content, presence: true, format: { with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: false }, if: lambda { |user| user.preferred_contact_method == 'email' }
   validates_inclusion_of :agreed_to_terms_and_conditions, in: [true]
   
   def live_postings
@@ -58,8 +56,7 @@ class User < ActiveRecord::Base
     def before_save_stuff
       self.remember_token = SecureRandom.urlsafe_base64
       self.trip_rating ||= 0
-      if self.preferred_contact_method == 'email'
-        self.preferred_contact_content ||= self.email
-      end
+      self.preferred_contact_method = 'email'
+      self.preferred_contact_content = self.email
     end
 end

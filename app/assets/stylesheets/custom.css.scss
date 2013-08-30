@@ -35,25 +35,6 @@ textarea {
   }
 }
 
-/* Terms and Conditions */
-
-label#terms_and_conditions_label{
-  color: red;
-}
-
-.terms-and-conditions{
-  display: block;
-  border: 1px solid red;
-  color: red;
-}
-
-.terms_and_conditions_sections{
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  background-color: $grayLighter;
-}
-
 /* comments */
 
 .comments {
