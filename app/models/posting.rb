@@ -35,6 +35,8 @@ class Posting < ActiveRecord::Base
   default_scope order: 'postings.date ASC'
   
   scope :active, lambda { where('date >= ?', Time.now) }
+  scope :live_postings, lambda { where("date >= ?", Date.today) }
+  scope :past_postings, lambda { where("date < ?", Date.today) }
   
   def self.search(from_address, to_address, date, driving)
     if from_address && to_address && date

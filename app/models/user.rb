@@ -37,14 +37,6 @@ class User < ActiveRecord::Base
   validates :trip_rating, numericality: { less_than_or_equal_to: 5 }, allow_nil: true
   validates_inclusion_of :agreed_to_terms_and_conditions, in: [true]
   
-  def live_postings
-    self.postings.select { |posting| posting.date >= Date.today }
-  end
-  
-  def past_postings
-    self.postings.select { |posting| posting.date < Date.today }
-  end
-  
   def calculate_rating
     comments_sum = Comment.find_all_by_is_about(self.id).collect { |comment| comment.rating }.sum
     total_comments = Comment.find_all_by_is_about(self.id).count
