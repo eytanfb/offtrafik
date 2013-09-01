@@ -11,8 +11,7 @@ class PostingsController < ApplicationController
       flash[:success] = "Ilan verildi"
       redirect_to share_posting_path
     else
-      flash[:warning] = "Ilan Verilemedi"
-      redirect_to share_posting_path
+      render 'new'
     end
   end
   

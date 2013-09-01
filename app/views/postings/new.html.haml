@@ -1,7 +1,6 @@
 %h3.center Yeni Ilan
 #posting.row
   = simple_form_for @posting, html: { class: "form-horizontal" } do |f|
-    = render "shared/error_messages", object: f.object
     .span6
       = f.input :from_address, label: "Nereden", as: :select, collection: REGIONS, include_blank: false, input_html: { onchange: "calcRoute()", id: "from_address" }
       = f.input :to_address, label: "Nereye", as: :select, collection: REGIONS, include_blank: false, input_html: { onchange: "calcRoute()", id: "to_address" }
@@ -10,7 +9,7 @@
       #map.pull-right
     .span6
       = f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline"
-      = f.input :driving, label: "Ne Arıyorum", as: :radio, collection: ["Sürücü", "Yolcu", "Farketmez"], item_wrapper_class: "inline"
+      = f.input :driving, label: "Ne Arıyorum", as: :radio, collection: ["Farketmez", "Sürücü", "Yolcu"], checked: "Farketmez", item_wrapper_class: "inline"
       = f.input :smoking, label: "Sigara", as: :radio, collection: ["Evet", "Hayır"], item_wrapper_class: "inline"
       = f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planinizi ve taleplerinizi yaziniz (Orn. Resitpasa'dan gidecegim. Yolculuk karsiliginda bir kahve getirirseniz sevinirim.)"
       = f.submit "Ilan Ver", class: "btn btn-primary pull-right span4", Fromstyle: "height: 50px"
