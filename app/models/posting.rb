@@ -54,7 +54,7 @@ class Posting < ActiveRecord::Base
   private
     def ending_time_is_later_than_starting_time?
       if self.starting_time && self.ending_time
-        errors.add(:starting_time, "Baslangic zamani bitis zamanindan daha once olmali") unless self.starting_time < self.ending_time
+        errors.add(:starting_time, "Baslangıç zamanı bitiş zamanından daha önce olmalı") unless self.starting_time < self.ending_time
       end
     end
   
