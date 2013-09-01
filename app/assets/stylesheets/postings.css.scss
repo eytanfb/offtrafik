@@ -90,3 +90,20 @@
 	margin-left: -0.6em;
 	color:white;
 }		
+
+#posting-details{
+	
+	.detail {
+		width: 200px;
+		text-align: right;
+		float: left;
+		font-size: 15px;
+		font-weight: bold;
+	}
+	.answer {
+		width: 200px;
+		text-align: left;
+		margin-left: 20px;
+		font-size: 15px;
+	}
+}

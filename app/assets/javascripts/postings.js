@@ -1,12 +1,16 @@
 var geocoder;
 var map;
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var fromMarker;
+var toMarker;
 
 function initialize(){
 	
 	var myOptions;
-	
 	var address = "Istanbul";
 	geocoder = new google.maps.Geocoder();
+	directionsDisplay = new google.maps.DirectionsRenderer();
 	
 	geocoder.geocode({'address': address}, function(results, status)
 	{
@@ -21,37 +25,56 @@ function initialize(){
     }
 	});
 	map = new google.maps.Map(document.getElementById("map"), myOptions);
+	directionsDisplay.setMap(map);
+	
+	if(document.getElementById("from_address").innerHTML != null)
+	{
+		calcRouteForShow();
+	}
 }
+
 google.maps.event.addDomListener(window, 'load', initialize);
 
-function dropFromMarker()
-{
-	var address = document.getElementById("from_address").value;
+function calcRoute() {
+		
+  var start = document.getElementById('from_address').value + ", Istanbul";
+  var end = document.getElementById('to_address').value + ", Istanbul";
 	
-	geocoder.geocode({'address': address}, function(results, status)
-	{
-    if (status == google.maps.GeocoderStatus.OK) {
-      var marker = new google.maps.Marker({
-          position: results[0].geometry.location,
-          map: map
-      });
+  var request = {
+      origin:start,
+      destination:end,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
     }
-	});
+  });
 }
 
-function dropToMarker()
-{
-	var address = document.getElementById("to_address").value;
+function calcRouteForShow() {
 	
-	geocoder.geocode({'address': address}, function(results, status)
-	{
-    if (status == google.maps.GeocoderStatus.OK) {
-      var marker = new google.maps.Marker({
-          position: results[0].geometry.location,
-          map: map
-      });
+  var start = document.getElementById('from_address').innerHTML;
+  var end = document.getElementById('to_address').innerHTML;
+	
+  var request = {
+      origin:start,
+      destination:end,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
     }
-	});
+  });
+}
+
+function setMarkerOptions(marker, map, position, icon)
+{
+	marker.setMap(map);
+	marker.setPosition(position);
+	marker.setAnimation(google.maps.Animation.DROP);
+	marker.setIcon(icon);
 }
 
 jQuery(function($) {
@@ -60,11 +83,13 @@ jQuery(function($) {
 		});
 		$("#starting_time").timepicker({
 			minuteStep: 5,
-			showMeridian: false
+			showMeridian: false,
+			defaultTime: 'value'
 		});
 		$("#ending_time").timepicker({
 			minuteStep: 5,
-			showMeridian: false
+			showMeridian: false,
+			defaultTime: 'value'
 		});
 });
 

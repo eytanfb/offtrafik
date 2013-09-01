@@ -2,17 +2,21 @@
   %aside.span4
     %section
       = render 'shared/user_info'
-  %section.span8
-    %h3{ style: "text-decoration: underline" } Ilan Detaylari
-    %h4== Ilan Sahibi: #{link_to @user.name, user_path(@user)}
-    %h6== Iletişim: #{ mail_to @user.preferred_contact_content}
-    
-    = label_tag "from_address", "Nereden: <span id='from_address'>#{@posting.from_address}</span>".html_safe
-    = label_tag "to_address", "Nereye: <span id='to_address'>#{@posting.to_address}</span>".html_safe
-    = label_tag "date", "Tarih: #{l @posting.date, format: :default}"
-    = label_tag "starting_time", "Cıkış Zamani: #{@posting.starting_time.to_s(:time)}"
-    = label_tag "ending_time", "Varış Zamani: #{@posting.ending_time.to_s(:time)}"
-    = label_tag "smoking", "Sigara: #{@posting.smoking?}"
-    = label_tag "driving", "Ihtiyaç: #{@posting.driving}"
-    #posting-map
-    = label_tag "comments", "Ekstra: #{@posting.comments}" unless @posting.comments.blank?
+  
+  .div#posting-show
+    .span8
+      #map{ style: "margin-top:20px" }
+    .span8#posting-details{ style: "margin-left: 340px", onload: "calcRouteForShow()" }
+      %h3.center{ style: "text-decoration: underline" } Ilan Detaylari
+      %p== <span class='detail'>Ilan Sahibi:</span> <span class='answer'>#{link_to @user.name, user_path(@user)}</span>
+      %p== <span class='detail'>Iletişim:</span> <span class='answer'>#{ mail_to @user.preferred_contact_content}</span>
+  
+      %p==<span class='detail'>Nereden:</span> <span class='answer' id='from_address'>#{@posting.from_address}</span>
+      %p==<span class='detail'>Nereye:</span> <span class='answer' id='to_address'>#{@posting.to_address}</span>
+      %p==<span class='detail'>Tarih:</span>         <span class='answer'>#{l @posting.date, format: :default}</span>
+      %p==<span class='detail'>Cıkış Zamani:</span>  <span class='answer'>#{@posting.starting_time.to_s(:time)}</span>
+      %p==<span class='detail'>Varış Zamani:</span>  <span class='answer'>#{@posting.ending_time.to_s(:time)}</span>
+      %p==<span class='detail'>Sigara:</span>        <span class='answer'>#{@posting.smoking?}</span>
+      %p==<span class='detail'>Ihtiyaç:</span>       <span class='answer'>#{@posting.driving}</span>
+      - if @posting.comments.present?
+        %p==<span class='detail'>Ekstra:</span>        <span class='answer'>#{@posting.comments}</span>
