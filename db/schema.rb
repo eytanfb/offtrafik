@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20130211043937038) do
     t.integer  "user_id"
   end
 
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "location"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "people", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
