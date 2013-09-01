@@ -49,6 +49,8 @@ class User < ActiveRecord::Base
     total_comments = Comment.find_all_by_is_about(self.id).count
     if total_comments > 0
       self.trip_rating = comments_sum / total_comments
+    else
+      0
     end
   end
   
