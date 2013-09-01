@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :postings
   has_many :comments
+  has_many :favorites
   
   before_save :before_save_stuff
   
