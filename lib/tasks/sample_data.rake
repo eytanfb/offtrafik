@@ -56,7 +56,7 @@ namespace :db do
     end
     
     4.times do
-      location = ["Kanyon, Istanbul", "Istinye Park, Istanbul", "Koc Universitesi, Istanbul", "Taksim, Istanbul", "Besiktas KafePi, Istanbul", "Anjelique, Istanbul".sample]
+      location = SAMPLE_FAVORITES.sample
       users.each { |user| user.favorites.create!(user_id: user.id, location: location) }
     end
     
