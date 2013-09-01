@@ -10,7 +10,14 @@ function initialize()
 {
 	var hometown = document.getElementById("neighborhood").innerHTML;
 	var name = document.getElementById("user-name-heading").innerHTML;
+	var favoritesElements = document.getElementsByClassName("favorite");
+	var favorites = [];
 	geocoder = new google.maps.Geocoder();
+	
+	for(var i = 0; i < favoritesElements.length; i++)
+	{
+		favorites[i] = favoritesElements[i].innerHTML;
+	}
 
 	var latlng = new google.maps.LatLng(41.055408, 29.995667);
 	var myOptions = {
@@ -21,6 +28,10 @@ function initialize()
 	map = new google.maps.Map(document.getElementById("map"), myOptions);
 	setCenterToAddress('Istanbul');
 	addHomeTownMarker(hometown, name);
+	for(var i = 0; i < favorites.length; i++)
+	{
+		addFavoritesMarker(favorites[i]);
+	}
 }
 
 function addHomeTownMarker(hometown, name)
@@ -38,6 +49,26 @@ function addHomeTownMarker(hometown, name)
                   infowindow = new google.maps.InfoWindow();
               }
               infowindow.setContent(name);
+              infowindow.open(map, marker);
+          });					
+      }
+  });
+}
+
+function addFavoritesMarker(favorite)
+{
+  geocoder.geocode({'address': favorite}, function(results, status)
+  {
+      if (status == google.maps.GeocoderStatus.OK) {
+          var marker = new google.maps.Marker({
+              position: results[0].geometry.location,
+              map: map
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+              if (!infowindow) {
+                  infowindow = new google.maps.InfoWindow();
+              }
+              infowindow.setContent(favorite);
               infowindow.open(map, marker);
           });					
       }

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user.calculate_rating
     @postings = @user.postings.paginate(page: params[:page], per_page: 2, order: "date ASC")
     @comments = Comment.find_all_by_is_about(@user.id).paginate(page: params[:page], per_page: 5)
-    
+    @favorites = @user.favorites
   end
   
   def create
