@@ -9,7 +9,7 @@ class PostingsController < ApplicationController
     @posting = current_user.postings.new params[:posting]
     if @posting.save
       flash[:success] = "Ilan verildi"
-      redirect_to share_posting_path
+      redirect_to share_posting_path(posting_id: @posting.id)
     else
       render 'new'
     end
@@ -25,7 +25,7 @@ class PostingsController < ApplicationController
   end
   
   def share_posting
-    @posting = current_user.postings.last
+    @posting = Posting.find params[:posting_id]
   end
   
   def respond
