@@ -9,8 +9,6 @@
     .span8#posting-details{ style: "margin-left: 340px", onload: "calcRouteForShow()" }
       %h3.center{ style: "text-decoration: underline" } Ilan Detaylari
       %p== <span class='detail'>Ilan Sahibi:</span> <span class='answer'>#{link_to @user.name, user_path(@user)}</span>
-      %p== <span class='detail'>Iletişim:</span> <span class='answer'>#{ mail_to @user.preferred_contact_content}</span>
-  
       %p==<span class='detail'>Nereden:</span> <span class='answer' id='from_address'>#{@posting.from_address}</span>
       %p==<span class='detail'>Nereye:</span> <span class='answer' id='to_address'>#{@posting.to_address}</span>
       %p==<span class='detail'>Tarih:</span>         <span class='answer'>#{l @posting.date, format: :default}</span>
@@ -20,6 +18,7 @@
       %p==<span class='detail'>Ihtiyaç:</span>       <span class='answer'>#{@posting.driving}</span>
       - if @posting.comments.present?
         %p==<span class='detail'>Ekstra:</span>        <span class='answer'>#{@posting.comments}</span>
+      %p= link_to "Iletisime Gec", "#", class: "btn btn-primary btn-warning answer", style: "margin-left: 220px; width: 100px"
         
 - content_for :javascripts do
   = javascript_include_tag "postings.js"        
