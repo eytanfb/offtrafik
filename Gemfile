@@ -35,6 +35,7 @@ group :development, :test do
   gem 'spork', '0.9.2'
   gem 'factory_girl_rails', '4.1.0'
   gem 'annotate', '2.5.0'
+  gem 'letter_opener'
 end
 
 group :production do
