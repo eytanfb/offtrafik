@@ -20,3 +20,6 @@
       %p==<span class='detail'>Ihtiyaç:</span>       <span class='answer'>#{@posting.driving}</span>
       - if @posting.comments.present?
         %p==<span class='detail'>Ekstra:</span>        <span class='answer'>#{@posting.comments}</span>
+        
+- content_for :javascripts do
+  = javascript_include_tag "postings.js"        

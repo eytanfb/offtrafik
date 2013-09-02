@@ -13,3 +13,6 @@
       = f.input :smoking, label: "Sigara", as: :radio, collection: ["Evet", "Hayır"], item_wrapper_class: "inline"
       = f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planinizi ve taleplerinizi yaziniz (Orn. Resitpasa'dan gidecegim. Yolculuk karsiliginda bir kahve getirirseniz sevinirim.)"
       = f.submit "Ilan Ver", class: "btn btn-primary pull-right span4", Fromstyle: "height: 50px"
+      
+- content_for :javascripts do
+  = javascript_include_tag "postings.js"

@@ -13,6 +13,6 @@
         .alert{:class => "alert-#{key}"}
           = value
       = yield
-      = yield(:scripts)
   = render 'layouts/footer'
+  = yield(:javascripts)
   = debug(params) if Rails.env.development?

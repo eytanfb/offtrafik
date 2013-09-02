@@ -13,3 +13,7 @@
         <span class="favorite" style="display:none">#{f.location}</span>
       %h4== Yolculuk Puanı: #{@user.trip_rating}
     = render 'display_comments', comments: @comments, user: @user
+    
+    
+- content_for :javascripts do
+  = javascript_include_tag "users.js"    
