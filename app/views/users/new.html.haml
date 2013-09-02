@@ -9,6 +9,8 @@
       
       = f.input :email
       
+      = f.input :neighborhood, label: "Ilceniz", as: :select, collection: REGIONS, include_blank: false
+      
       = f.input :password, label: "Şifre"
       
       = f.input :password_confirmation, label: "Şifre Onaylama"
