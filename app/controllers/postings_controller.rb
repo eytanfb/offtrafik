@@ -28,4 +28,11 @@ class PostingsController < ApplicationController
     @posting = current_user.postings.last
   end
   
+  def respond
+    @posting = Posting.find params[:posting_id]
+    PostingMailer.posting_contact(@posting.user_id, current_user.id, @posting.id).deliver
+    flash[:success] = "Email yollandi"
+    redirect_to root_path
+  end
+  
 end

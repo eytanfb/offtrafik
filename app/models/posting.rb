@@ -53,6 +53,14 @@ class Posting < ActiveRecord::Base
     self.smoking ? 'Evet' : 'Hayır'
   end
   
+  def active?
+    self.date >= Time.current.to_date
+  end
+  
+  def format(address)
+    address.chomp(", Istanbul")
+  end
+  
   private
     def ending_time_is_later_than_starting_time?
       if self.starting_time && self.ending_time

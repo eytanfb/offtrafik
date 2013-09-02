@@ -1,0 +1,9 @@
+%meta{'http-equiv' => 'Content-Type', :content => 'text/html'}/
+
+%p== #{@owner.name},
+
+%p== #{@responder.name} seninle #{@posting.date} tarihinde yapacagin #{@to_from} yolculugu icin irtibata gecmek istiyor. 
+
+%p== Eger hala trafikten kurtulacak birini ariyorsan #{mail_to @responder.email, "tikla", subject: "#{@to_from} -- #{@posting.date}", body: "#{@responder.name}, beraber gitmeye varim. #{@posting.date} tarihinde gorusuruz."}.
+
+%p== Eger yol arkadaslarini bulduysan, lutfen #{link_to 'buraya tikla', '#'}
