@@ -6,4 +6,6 @@
 
 %p== Eger hala trafikten kurtulacak birini ariyorsan #{mail_to @responder.email, "tikla", subject: "#{@to_from} -- #{@posting.date}", body: "#{@responder.name}, beraber gitmeye varim. #{@posting.date} tarihinde gorusuruz."}.
 
-%p== Eger yol arkadaslarini bulduysan, lutfen #{link_to 'buraya tikla', '#'}
+%p== Eger yol arkadaslarini bulduysan, lutfen #{link_to 'buraya tikla', posting_full_path(@posting.id)}
+
+%p== #{@responder.name}

@@ -31,8 +31,15 @@ class PostingsController < ApplicationController
   def respond
     @posting = Posting.find params[:posting_id]
     PostingMailer.posting_contact(@posting.user_id, current_user.id, @posting.id).deliver
-    flash[:success] = "Email yollandi"
+    flash[:success] = "Yanit isteginiz yollandi"
     redirect_to root_path
+  end
+  
+  def full
+    @posting = Posting.find params[:posting_id]
+    PostingMailer.posting_full(@posting.user_id, current_user.id, @posting.id).deliver
+    flash[:success] = "Ilan dolu emaili yollandi"
+    redirect_to user_path(current_user)
   end
   
 end

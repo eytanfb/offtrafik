@@ -27,6 +27,7 @@ RelearningRails::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy] # Specifying the only necessary actions
   resources :postings do
     get 'respond', as: :respond
+    get 'full', as: :full
   end
   resources :comments
 
