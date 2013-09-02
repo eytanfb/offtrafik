@@ -20,7 +20,7 @@ class PostingMailer < ActionMailer::Base
     from_address = @posting.format(@posting.from_address)
     @to_from = "#{to_address} - #{from_address}"
     
-    mail to: @responder.email, subject: "#{@to_from} -- #{@posting.date}"
+    mail to: @responder.email, subject: "#{@to_from} -- #{@posting.formatted_date}"
   end
   
 end
