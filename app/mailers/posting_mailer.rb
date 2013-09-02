@@ -1,5 +1,5 @@
 class PostingMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "ilan@offtrafik.com"
   
   def posting_contact(owner_id, responder_id, posting_id)
     @owner = User.find owner_id
