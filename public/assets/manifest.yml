@@ -23,10 +23,10 @@ star-on.png: star-on-5f1bbca2093b22e1d0a6f907600c106b.png
 star-on/index.png: star-on-5f1bbca2093b22e1d0a6f907600c106b.png
 tasarruf.jpg: tasarruf-54feac9311b3d81d20e8439f0ea22b85.jpg
 tasarruf/index.jpg: tasarruf-54feac9311b3d81d20e8439f0ea22b85.jpg
-application.js: application-40318a901d647506f859b85bef5d1538.js
-application/index.js: application-40318a901d647506f859b85bef5d1538.js
-application.css: application-27dad9a5e347bf1d83f7802f5b8c678a.css
-application/index.css: application-27dad9a5e347bf1d83f7802f5b8c678a.css
+application.js: application-b1497734e9ac25fdfa3da7b14f273424.js
+application/index.js: application-b1497734e9ac25fdfa3da7b14f273424.js
+application.css: application-7424ec56b2ca3762ed9cfa3d84890347.css
+application/index.css: application-7424ec56b2ca3762ed9cfa3d84890347.css
 jquery.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
 jquery/index.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
 jquery-ui/animated-overlay.gif: jquery-ui/animated-overlay-602eee4c79a4796b02bb6442948c9e28.gif
