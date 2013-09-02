@@ -6,4 +6,4 @@
     #facebook
       = link_to "<i class='icon-facebook'></i>Facebook'ta Paylas".html_safe, "#", class: "btn btn-large facebook", onclick: "return !window.open(this.href, 'Facebook', 'width=640,height=300')", href:"http://www.facebook.com/sharer/sharer.php"
     #twitter
-      = link_to "<i class='icon-twitter-sign'></i>Twitter'da Paylas".html_safe, "#", class: "btn btn-large twitter", onclick: "return !window.open(this.href, 'Facebook', 'width=640,height=300')", href:"http://www.twitter.com/intent/tweet?text=Offtrafik'te Ilan Verdim. #{@posting.from_address}-#{@posting.to_address} arasi #{@posting.date.strftime("%d/%m/%Y")} gununde yolculuk paylasacak insan ariyorum."
+      = link_to "<i class='icon-twitter-sign'></i>Twitter'da Paylas".html_safe, "#", class: "btn btn-large twitter", onclick: "return !window.open(this.href, 'Facebook', 'width=640,height=300')", href:"http://www.twitter.com/intent/tweet?text=@Offtrafik'te ilan verdim. #{@posting.format(@posting.from_address)}-#{@posting.format(@posting.to_address)} arasi #{@posting.date.strftime("%d/%m/%Y")} gununde yolculuk paylasacak insan ariyorum."
