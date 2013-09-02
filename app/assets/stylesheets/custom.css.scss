@@ -198,7 +198,7 @@ input, textarea, select, .uneditable-input{
   @include box_sizing;
 }
 
-input[type="text"]{
+input[type="text"], input[type="password"]{
 	height: 30px;
 }
 
