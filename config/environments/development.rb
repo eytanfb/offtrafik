@@ -35,4 +35,13 @@ RelearningRails::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
+  # Don't care if the mailer can't send
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.asset_host = "http://localhost:3000"
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :letter_opener
+  
+  
 end
