@@ -448,7 +448,7 @@ NEIGHBORHOODS =
   ["Eminönü",	"Şehzabaşı"],
   ["Eminönü",	"Şişhane"],
   ["Eminönü",	"Tahtakale"],
-  ["Eminönü",	"Taya Hatun]",
+  ["Eminönü",	"Taya Hatun"],
   ["Eminönü",	"Vefa"],
   ["Eminönü",	"Yavuz Sinan"],
   ["Eminönü",	"Yenikapı"],
@@ -1048,7 +1048,6 @@ NEIGHBORHOODS =
   ["Zeytinburnu",	"Yeni Doğan"],
   ["Zeytinburnu",	"Yeşiltepe"],
   ["Zeytinburnu",	"Zeytinburnu Olivium"]
-  ]
 ]
 
 SAMPLE_FAVORITES = ["Kanyon, Istanbul", "Istinye Park, Istanbul", "Koc Universitesi, Istanbul", "Taksim, Istanbul", "Besiktas KafePi, Istanbul", "Anjelique, Istanbul", "Garipce, Istanbul", "Benzin Cafe, Kadikoy, Istanbul"]
