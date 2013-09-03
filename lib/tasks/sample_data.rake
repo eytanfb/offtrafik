@@ -67,8 +67,12 @@ namespace :db do
       users.each { |user| user.comments.create!(is_about: is_about, text: text, rating: rating) }
     end
     
-    DISTRICTS.each do |d|
+    DISTRICTS.each_with_index do |d|
       District.create!(name: d)
+      d.neighborhoods.each do |n|
+        d.neighborhoods.create!(district_id: d.id, name: n)
+      end
     end
+    
   end
 end
