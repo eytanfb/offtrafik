@@ -61,16 +61,16 @@ namespace :db do
     end
     
     4.times do
-      is_about = rand(0...5)
+      is_about = rand(1...5)
       text = Faker::Lorem.sentence(4)
       rating = rand(0...5)
       users.each { |user| user.comments.create!(is_about: is_about, text: text, rating: rating) }
     end
     
     DISTRICTS.each_with_index do |d|
-      District.create!(name: d)
-      d.neighborhoods.each do |n|
-        d.neighborhoods.create!(district_id: d.id, name: n)
+      district = District.create!(name: d)
+      NEIGHBORHOODS.each do |n|
+        district.neighborhoods.create!(name: n[1])
       end
     end
     
