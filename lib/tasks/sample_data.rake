@@ -60,11 +60,15 @@ namespace :db do
       users.each { |user| user.favorites.create!(user_id: user.id, location: location) }
     end
     
-    # 4.times do
-#       is_about = rand(0...5)
-#       text = Faker::Lorem.sentence(4)
-#       rating = rand(0...5)
-#       users.each { |user| user.comments.create!(is_about: is_about, text: text, rating: rating) }
-#     end
+    4.times do
+      is_about = rand(0...5)
+      text = Faker::Lorem.sentence(4)
+      rating = rand(0...5)
+      users.each { |user| user.comments.create!(is_about: is_about, text: text, rating: rating) }
+    end
+    
+    DISTRICTS.each do |d|
+      District.create!(name: d)
+    end
   end
 end

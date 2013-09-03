@@ -1,7 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-REGIONS = ["Koç Üniversitesi",
+DISTRICTS = ["Koç Üniversitesi",
 "Adalar",
 "Arnavutköy",
 "Ataşehir",
