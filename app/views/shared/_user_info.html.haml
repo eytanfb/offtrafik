@@ -3,7 +3,7 @@
 %h1
   = link_to current_user.name, user_path(current_user)
 %section
-  %p Yolculuk Puanı: #{current_user.calculate_rating != 0 ? "#{current_user.trip_rating}"/5 : "N/A"} 
+  %p Yolculuk Puanı: #{current_user.calculate_rating != 0 ? "#{current_user.trip_rating}/5" : "N/A"} 
   %a{ class: "btn btn-primary btn-mini", style: "color:white; width: 40%", href: new_posting_path }
     %i.icon-edit.icon-white
     Yeni Ilan
