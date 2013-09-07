@@ -9,3 +9,7 @@
   - else
     %section.span8.offset2
       = render 'find_postings'
+      
+      
+- content_for :javascripts do
+  = javascript_include_tag "postings.js"

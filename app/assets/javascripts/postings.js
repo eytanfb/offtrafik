@@ -1,7 +1,11 @@
 jQuery(function($) {
-	alert("here");
+
 	$("#from_address_district").change(function(){
-		alert("ITS A TRAP");
+		// fill from_address_neighborhood
+	});
+	
+	$("#to_address_district").change(function(){
+		// fill from_address_neighborhood
 	});
 	
 	$("#posting_date").datepicker({ 
