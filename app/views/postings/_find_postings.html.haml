@@ -1,17 +1,20 @@
 %h3 Ilan Ara
-%section
-  = simple_form_for find_posting_path, method: "get" do |f|
+%section#posting-find
+  = simple_form_for find_posting_path, method: "get", html: { class: "form-horizontal" } do |f|
     .row
       .span3
-        = f.input :from_address, label: "Nereden", as: :select, collection: DISTRICTS << "Koc Universitesi", input_html: { value: params[:from_address] }
+        = f.fields_for :from_address, label: "Nereden", id: "from_address" do |from|
+          = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.all, include_blank: false, input_html: { id: "from_address_district" }
+          = from.input :neighborhoods, label: "Semt", as: :select, collection: Neighborhood.where("district_id = ?", 1), include_blank: false, input_html: { id: "from_address_neighborhood" }
       .span3
-        = f.input :to_address, label: "Nereye", as: :select, collection: DISTRICTS << "Koc Universitesi", input_html: { value: params[:to_address] }
-    <br />
+        = f.fields_for :to_address, label: "Nereye", id: "to_address", class: "fields_for" do |from|
+          = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.all, include_blank: false, input_html: { id: "to_address_district" }
+          = from.input :neighborhoods, label: "Semt", as: :select, collection: Neighborhood.where("district_id = ?", 1), include_blank: false, input_html: { id: "to_address_neighborhood" }
     .row
       .span3
         = f.input :driving , label: "Aranan",  collection: ["Farketmez", "Sürücü", "Yolcu"], include_blank: false, input_html: { value: params[:driving] }
-      .span2
-        = f.submit "Ara", name: nil, class: 'btn btn-primary btn-medium'
+    .span6
+      = f.submit "Ara", class: 'btn btn-primary btn-medium center'
   <br />
   = will_paginate @postings
   = render 'shared/posting_table', posting_list: @postings

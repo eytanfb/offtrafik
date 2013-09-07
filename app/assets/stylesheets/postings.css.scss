@@ -107,3 +107,20 @@
 		font-size: 15px;
 	}
 }
+
+#posting-find {
+	
+	.field-part {
+		margin-bottom: 5px;
+	}
+	
+	.control-label {
+		margin-left: 0px;
+		width: 70px;
+	}
+	.controls {		
+		width: 140px;
+		margin-left: 10px;
+		float: left;
+	}
+}
