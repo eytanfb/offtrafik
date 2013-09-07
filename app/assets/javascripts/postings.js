@@ -11,17 +11,18 @@ jQuery(function($) {
 	$("#posting_date").datepicker({ 
 			dateFormat: 'dd-mm-yy', minDate: 0
 		});
-		$("#starting_time").timepicker({
-			minuteStep: 5,
-			showMeridian: false,
-			defaultTime: 'value'
-		});
-		$("#ending_time").timepicker({
-			minuteStep: 5,
-			showMeridian: false,
-			defaultTime: 'value'
-		});
+		
+		makeTimepicker("#starting_time");
+		makeTimepicker("#ending_time");
 });
+
+function makeTimepicker(divId){
+	$(divId).timepicker({
+		minuteStep: 5,
+		showMeridian: false,
+		defaultTime: 'value'
+	});
+}
 
 // script take from twitter for the share button
 !function(d,s,id){
