@@ -21,6 +21,7 @@ class PostingsController < ApplicationController
   end
   
   def find
+    params[:driving] = "" if params[:driving] == "Farketmez"
     @postings = Posting.search(params[:from_address], params[:to_address], Date.today, params[:driving]).paginate(page: params[:page], per_page: 10, order: "date ASC")
   end
   

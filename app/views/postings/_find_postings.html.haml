@@ -1,17 +1,17 @@
 %h3 Ilan Ara
 %section
-  = form_tag find_posting_path, method: "get" do
+  = simple_form_for find_posting_path, method: "get" do |f|
     .row
       .span3
-        = text_field_tag :from_address, params[:from_address], class: "span3 search-query", placeholder: "Nereden"
+        = f.input :from_address, label: "Nereden", as: :select, collection: DISTRICTS << "Koc Universitesi", input_html: { value: params[:from_address] }
       .span3
-        = text_field_tag :to_address, params[:to_address], class: "span3 search-query", placeholder: "Nereye"
+        = f.input :to_address, label: "Nereye", as: :select, collection: DISTRICTS << "Koc Universitesi", input_html: { value: params[:to_address] }
     <br />
     .row
       .span3
-        = select_tag :driving , options_for_select(["Sürücü", "Yolcu", "Farketmez"]), prompt: "Aranan"
+        = f.input :driving , label: "Aranan",  collection: ["Farketmez", "Sürücü", "Yolcu"], include_blank: false, input_html: { value: params[:driving] }
       .span2
-        = submit_tag "Ara", name: nil, class: 'btn btn-primary btn-medium'
+        = f.submit "Ara", name: nil, class: 'btn btn-primary btn-medium'
   <br />
   = will_paginate @postings
   = render 'shared/posting_table', posting_list: @postings
