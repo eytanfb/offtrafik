@@ -13,8 +13,8 @@
     .row
       .span3
         = f.input :driving , label: "Aranan",  collection: ["Farketmez", "Sürücü", "Yolcu"], include_blank: false, input_html: { value: params[:driving] }
-    .span6
-      = f.submit "Ara", class: 'btn btn-primary btn-medium center'
-  <br />
-  = will_paginate @postings
-  = render 'shared/posting_table', posting_list: @postings
+    .row.span6
+      = f.submit "Ara", class: 'btn btn-primary btn-medium', style: "width: 120px; height: 40px; left: 45%; position: relative; font-size: large"
+  #show-results
+    = will_paginate @postings
+    = render 'shared/posting_table', posting_list: @postings
