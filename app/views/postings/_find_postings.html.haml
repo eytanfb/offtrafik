@@ -1,11 +1,11 @@
 %h3 Ilan Ara
-%section#posting-find
+#posting-find
   = simple_form_for find_posting_path, method: "get", html: { class: "form-horizontal" } do |f|
     .row
       .span3
         = f.fields_for :from_address, label: "Nereden", id: "from_address" do |from|
           = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.all, include_blank: false, input_html: { id: "from_address_district" }
-          = from.input :neighborhoods, label: "Semt", as: :select, collection: Neighborhood.where("district_id = ?", 1).pluck(:name), include_blank: false, input_html: { id: "from_address_neighborhood" }
+          = from.input :neighborhoods, label: "Semt", as: :select, include_blank: false, style: "display: none", input_html: { id: "from_address_neighborhood" }
       .span3
         = f.fields_for :to_address, label: "Nereye", id: "to_address", class: "fields_for" do |from|
           = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.all, include_blank: false, input_html: { id: "to_address_district" }
@@ -13,8 +13,8 @@
     .row
       .span3
         = f.input :driving , label: "Aranan",  collection: ["Farketmez", "Sürücü", "Yolcu"], include_blank: false, input_html: { value: params[:driving] }
-    .row.span6
-      = f.submit "Ara", class: 'btn btn-primary btn-medium', style: "width: 120px; height: 40px; left: 45%; position: relative; font-size: large"
+    .row
+      = f.button :submit, "Ara", class: 'btn btn-primary btn-medium', style: "width: 120px; height: 40px; left: 40%; position: relative; font-size: large"
   #show-results
     = will_paginate @postings
     = render 'shared/posting_table', posting_list: @postings
