@@ -22,7 +22,14 @@ class PostingsController < ApplicationController
   
   def find
     params[:driving] = "" if params[:driving] == "Farketmez"
-    @postings = Posting.search(params[:from_address], params[:to_address], Date.today, params[:driving]).paginate(page: params[:page], per_page: 10, order: "date ASC")
+    params["/find_posting"][:from_address] = address_parameter_for_search("from_address") if params["/find_posting"].present?
+    params["/find_posting"][:to_address] = address_parameter_for_search("to_address")     if params["/find_posting"].present?
+    @postings = if params["/find_posting"].present?
+      Posting.live_postings.search(params["/find_posting"][:from_address], params["/find_posting"][:to_address], Date.today, params[:driving])
+    else
+      Posting.live_postings
+    end
+    @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
   end
   
   def share_posting
@@ -41,6 +48,12 @@ class PostingsController < ApplicationController
     PostingMailer.posting_full(@posting.user_id, current_user.id, @posting.id).deliver
     flash[:success] = "Ilan dolu emaili yollandi"
     redirect_to user_path(current_user)
+  end
+  
+  private
+  
+  def address_parameter_for_search(address)
+        "#{params['/find_posting']["#{address}"][:neighborhood]}, #{params['/find_posting']["#{address}"][:district]}, Istanbul" if params["/find_posting"]["#{address}"].present?
   end
   
 end
