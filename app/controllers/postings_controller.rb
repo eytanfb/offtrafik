@@ -29,7 +29,7 @@ class PostingsController < ApplicationController
     else
       Posting.live_postings
     end
-    @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
+    @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
   end
   
   def share_posting
