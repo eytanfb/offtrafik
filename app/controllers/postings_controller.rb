@@ -29,7 +29,7 @@ class PostingsController < ApplicationController
     else
       Posting.live_postings
     end
-    @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
+    @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
   end
   
   def share_posting
@@ -53,7 +53,11 @@ class PostingsController < ApplicationController
   private
   
   def address_parameter_for_search(address)
-        "#{params['/find_posting']["#{address}"][:neighborhood]}, #{params['/find_posting']["#{address}"][:district]}, Istanbul" if params["/find_posting"]["#{address}"].present?
+    result = ""
+    result += "#{params['/find_posting']["#{address}"][:neighborhood]}," if params['/find_posting']["#{address}"][:neighborhood].present?
+    result += "#{params['/find_posting']["#{address}"][:district]}," if params['/find_posting']["#{address}"][:district].present?
+    result += "Istanbul" if params['/find_posting']["#{address}"][:neighborhood].present? || params['/find_posting']["#{address}"][:district].present?
+    result
   end
   
 end

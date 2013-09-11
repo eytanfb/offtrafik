@@ -1,11 +1,22 @@
 jQuery(function($) {
-
+				
+	neighborhoods = $("#_find_posting_from_address_neighborhood").html();
 	$("#from_address_district").change(function(){
-		// fill from_address_neighborhood
+		district = $("#from_address_district :selected").text();
+		options = $(neighborhoods).filter("optgroup[label='" + district + "']");
+		if(options){
+			$("#_find_posting_from_address_neighborhood").html(options);		
+		}
+		
 	});
 	
 	$("#to_address_district").change(function(){
-		// fill from_address_neighborhood
+		district = $("#to_address_district :selected").text();
+		options = $(neighborhoods).filter("optgroup[label='" + district + "']");
+		if(options){
+			$("#_find_posting_to_address_neighborhood").html(options);		
+		}
+				
 	});
 	
 	$("#posting_date").datepicker({ 

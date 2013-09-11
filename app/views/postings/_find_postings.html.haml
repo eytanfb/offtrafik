@@ -4,12 +4,15 @@
     .row
       .span3
         = f.fields_for :from_address, label: "Nereden", id: "from_address" do |from|
-          = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name), include_blank: false, input_html: { id: "from_address_district" }
-          = from.input :neighborhood, label: "Semt", as: :select, collection: Neighborhood.where("district_id = 1").pluck(:name), include_blank: false, input_html: { id: "from_address_neighborhood" }
+          = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name) << "Koc Universitesi", prompt: "Seciniz", input_html: { id: "from_address_district" } 
+          = from.input :neighborhood, label: "Semt", input_html: { id: "from_address_neighborhood" } do
+            = from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true
       .span3
         = f.fields_for :to_address, label: "Nereye", id: "to_address", class: "fields_for" do |from|
-          = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name), include_blank: false, input_html: { id: "to_address_district" }
-          = from.input :neighborhood, label: "Semt", as: :select, collection: Neighborhood.where("district_id = ?", 1).pluck(:name), include_blank: false, input_html: { id: "to_address_neighborhood" }
+          = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name) << "Koc Universitesi", prompt: "Seciniz", input_html: { id: "to_address_district" }
+          = from.input :neighborhood, label: "Semt", input_html: { id: "to_address_neighborhood" } do
+            = from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true
+          
     .row
       .span3
         = f.input :driving , label: "Aranan",  collection: ["Farketmez", "Sürücü", "Yolcu"], include_blank: false, input_html: { value: params[:driving] }
