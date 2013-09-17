@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(:version => 20130211043937038) do
     t.string   "neighborhood"
     t.integer  "total_kms"
     t.string   "summary"
+    t.integer  "active"
+    t.string   "activation_guid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

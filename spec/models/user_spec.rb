@@ -17,6 +17,8 @@
 #  neighborhood                   :string(255)
 #  total_kms                      :integer
 #  summary                        :string(255)
+#  active                         :integer
+#  activation_guid                :string(255)
 #
 
 require 'spec_helper'

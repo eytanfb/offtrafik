@@ -11,9 +11,7 @@
 #  ending_time   :time
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  longitude     :float
 #  latitude      :float
-#  gmaps         :boolean
 #  comments      :text
 #  smoking       :boolean
 #  driving       :string(255)

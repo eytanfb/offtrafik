@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
+    @user.activation_guid = SecureRandom.urlsafe_base64
     if @user.save
       sign_in @user
       flash[:success] = "Offtrafik'e Hoşgeldin!"
