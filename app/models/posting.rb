@@ -38,14 +38,14 @@ class Posting < ActiveRecord::Base
   scope :live_postings, lambda { where("date >= ?", Date.today) }
   scope :past_postings, lambda { where("date < ?", Date.today) }
   
-  def self.search(from_address, to_address, date, driving)
-    if from_address && to_address && date
-      where 'from_address LIKE ? AND to_address LIKE ? and date >= ?', "%#{from_address}%", "%#{to_address}%", date
+  def self.search(from_address, to_address, driving)
+    if from_address && to_address
+      where 'from_address LIKE ? AND to_address LIKE ?', "%#{from_address}%", "%#{to_address}%"
       if driving
-        where 'from_address LIKE ? AND to_address LIKE ? and date >= ? and driving LIKE ?', "%#{from_address}%", "%#{to_address}%", date, "%#{driving}%"
+        where 'from_address LIKE ? AND to_address LIKE ? and driving LIKE ?', "%#{from_address}%", "%#{to_address}%", "%#{driving}%"
       end
     else
-      where "from_address LIKE '%%' AND to_address LIKE '%%' and date >= ?", Date.today
+      where "from_address LIKE '%%' AND to_address LIKE '%%'"
     end
   end
   
