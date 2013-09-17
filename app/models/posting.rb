@@ -55,10 +55,6 @@ class Posting < ActiveRecord::Base
     self.date >= Time.current.to_date
   end
   
-  def format(address)
-    address.chomp(", Istanbul")
-  end
-  
   def formatted_date
     self.date.strftime("%b %d")
   end
