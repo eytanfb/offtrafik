@@ -27,18 +27,36 @@ function initialize(){
 	map = new google.maps.Map(document.getElementById("map"), myOptions);
 	directionsDisplay.setMap(map);
 	
-	if(document.getElementById("from_address").innerHTML != null)
-	{
-		calcRouteForShow();
-	}
+	// if(document.getElementById("from_address_district").innerHTML != null)
+	// {
+	// 	calcRouteForShow();
+	// }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
 function calcRoute() {
 		
-  var start = document.getElementById('from_address').value + ", Istanbul";
-  var end = document.getElementById('to_address').value + ", Istanbul";
+  var start = document.getElementById('from_address_district').value;
+  var end = document.getElementById('to_address_district').value + ", Istanbul";
+	
+	from_neighborhood = document.getElementById('posting_from_address_neighborhood').value;
+	to_neighborhood = document.getElementById('posting_to_address_neighborhood').value;
+	
+	if(from_neighborhood != "")
+	{
+		start += from_neighborhood;
+	} else
+	{
+		start += ", Istanbul";
+	}
+	
+	if(to_neighborhood != "")
+	{
+		end += to_neighborhood;
+	} else {
+		end += to_neighborhood;
+	}
 	
   var request = {
       origin:start,

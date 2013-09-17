@@ -2,14 +2,13 @@
 #posting.row
   = simple_form_for @posting, html: { class: "form-horizontal" } do |f|
     .span6
-      / = f.input :from_address, label: "Nereden", as: :select, collection: DISTRICTS, include_blank: false, input_html: { onchange: "calcRoute()", id: "from_address" }
       = f.fields_for :from_address, id: "from_address" do |from|
-        = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.all, include_blank: false, input_html: { id: "from_address_district" }
+        = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name) << "Koc Universitesi",  selected: "Koc Universitesi", include_blank: false, input_html: { id: "from_address_district", onchange: "calcRoute()" }
         = from.input :neighborhoods, label: "Semt", input_html: { id: "from_address_neighborhood" } do
           = from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true
       
       = f.fields_for :to_address, id: "to_address", class: "fields_for" do |from|
-        = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.all, include_blank: false, input_html: { id: "to_address_district" }
+        = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name) << "Koc Universitesi", selected: "Koc Universitesi", include_blank: false, input_html: { id: "to_address_district", onchange: "calcRoute()" }
         = from.input :neighborhoods, label: "Semt", input_html: { id: "to_address_neighborhood" } do
           = from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true
         
@@ -24,5 +23,5 @@
       = f.submit "Ilan Ver", class: "btn btn-primary pull-right span4", Fromstyle: "height: 50px"
       
 - content_for :javascripts do
-  = javascript_include_tag "postings.js"
+  = javascript_include_tag "new_posting.js"
   = javascript_include_tag "maps.js"
