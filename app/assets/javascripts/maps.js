@@ -37,8 +37,26 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 function calcRoute() {
 		
-  var start = document.getElementById('from_address').value + ", Istanbul";
-  var end = document.getElementById('to_address').value + ", Istanbul";
+  var start = document.getElementById('from_address_district').value;
+  var end = document.getElementById('to_address_district').value + ", Istanbul";
+	
+	from_neighborhood = document.getElementById('posting_from_address_neighborhood').value;
+	to_neighborhood = document.getElementById('posting_to_address_neighborhood').value;
+	
+	if(from_neighborhood != "")
+	{
+		start += from_neighborhood;
+	} else
+	{
+		start += ", Istanbul";
+	}
+	
+	if(to_neighborhood != "")
+	{
+		end += to_neighborhood;
+	} else {
+		end += to_neighborhood;
+	}
 	
   var request = {
       origin:start,
@@ -54,8 +72,8 @@ function calcRoute() {
 
 function calcRouteForShow() {
 	
-  var start = document.getElementById('from_address').innerHTML;
-  var end = document.getElementById('to_address').innerHTML;
+  var start = document.getElementById('from_address').innerHTML + ", Istanbul";
+  var end = document.getElementById('to_address').innerHTML + ", Istanbul";
 	
   var request = {
       origin:start,

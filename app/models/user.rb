@@ -17,11 +17,13 @@
 #  neighborhood                   :string(255)
 #  total_kms                      :integer
 #  summary                        :string(255)
+#  active                         :integer
+#  activation_guid                :string(255)
 #
 
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :preferred_contact_method, 
-    :preferred_contact_content, :agreed_to_terms_and_conditions, :trip_rating, :neighborhood, :total_kms, :summary
+    :preferred_contact_content, :agreed_to_terms_and_conditions, :trip_rating, :neighborhood, :total_kms, :summary, :activation_guid
   has_secure_password
   has_many :postings
   has_many :comments
@@ -53,5 +55,6 @@ class User < ActiveRecord::Base
       self.trip_rating ||= 0
       self.preferred_contact_method = 'email'
       self.preferred_contact_content = self.email
+      self.active = 0
     end
 end

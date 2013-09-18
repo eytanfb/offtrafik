@@ -14,7 +14,8 @@ namespace :db do
                  neighborhood: "Ortakoy",
                  total_kms: 100,
                  summary: "Koc Universiteli bir Doga Severim",
-                 agreed_to_terms_and_conditions: true)
+                 agreed_to_terms_and_conditions: true,
+                 active: 1)
     admin.toggle!(:admin)
     99.times do |n|
       name = Faker::Name.name
@@ -31,12 +32,13 @@ namespace :db do
                    neighborhood: "Ortakoy",
                    total_kms: 1000,
                    summary: Faker::Lorem.sentence(6),
-                   agreed_to_terms_and_conditions: true)
+                   agreed_to_terms_and_conditions: true,
+                   active: 1)
     end
     users = User.all(limit: 6)
     4.times do
-      from_address = 'Ortakoy, Istanbul'
-      to_address = 'Koc Universitesi, Istanbul'
+      from_address = 'Ortaköy, Beşiktaş'
+      to_address = 'Koc Universitesi'
       date = Date.today + 1.week
       starting_time = Time.now
       ending_time = Time.now + rand(30...60).minutes
@@ -45,8 +47,8 @@ namespace :db do
         starting_time: starting_time, ending_time: ending_time, smoking: true, driving: driving) }
     end
     4.times do
-      from_address = 'Koc Universitesi, Istanbul'
-      to_address = 'Ortakoy, Istanbul'
+      from_address = 'Koc Universitesi'
+      to_address = 'Ortaköy, Beşiktaş'
       date = Date.today - 1.week
       starting_time = Time.now
       ending_time = Time.now + rand(30...60).minutes

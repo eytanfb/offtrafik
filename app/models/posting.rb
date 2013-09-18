@@ -12,9 +12,7 @@
 #  ending_time   :time
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  longitude     :float
 #  latitude      :float
-#  gmaps         :boolean
 #  comments      :text
 #  smoking       :boolean
 #  driving       :string(255)
@@ -38,14 +36,14 @@ class Posting < ActiveRecord::Base
   scope :live_postings, lambda { where("date >= ?", Date.today) }
   scope :past_postings, lambda { where("date < ?", Date.today) }
   
-  def self.search(from_address, to_address, date, driving)
-    if from_address && to_address && date
-      where 'from_address LIKE ? AND to_address LIKE ? and date >= ?', "%#{from_address}%", "%#{to_address}%", date
+  def self.search(from_address, to_address, driving)
+    if from_address && to_address
+      where 'from_address LIKE ? AND to_address LIKE ?', "%#{from_address}%", "%#{to_address}%"
       if driving
-        where 'from_address LIKE ? AND to_address LIKE ? and date >= ? and driving LIKE ?', "%#{from_address}%", "%#{to_address}%", date, "%#{driving}%"
+        where 'from_address LIKE ? AND to_address LIKE ? and driving LIKE ?', "%#{from_address}%", "%#{to_address}%", "%#{driving}%"
       end
     else
-      where "from_address LIKE '%%' AND to_address LIKE '%%' and date >= ?", Date.today
+      where "from_address LIKE '%%' AND to_address LIKE '%%'"
     end
   end
   
@@ -55,10 +53,6 @@ class Posting < ActiveRecord::Base
   
   def active?
     self.date >= Time.current.to_date
-  end
-  
-  def format(address)
-    address.chomp(", Istanbul")
   end
   
   def formatted_date

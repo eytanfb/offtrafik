@@ -6,8 +6,11 @@ class PostingsController < ApplicationController
   end
   
   def create
+    params[:posting][:from_address] = address_parameter_for_new("from_address")
+    params[:posting][:to_address] = address_parameter_for_new("to_address")
+
     @posting = current_user.postings.new params[:posting]
-    if @posting.save
+    if @posting.save    
       flash[:success] = "Ilan verildi"
       redirect_to share_posting_path(posting_id: @posting.id)
     else
@@ -21,11 +24,11 @@ class PostingsController < ApplicationController
   end
   
   def find
-    params[:driving] = "" if params[:driving] == "Farketmez"
-    params["/find_posting"][:from_address] = address_parameter_for_search("from_address") if params["/find_posting"].present?
-    params["/find_posting"][:to_address] = address_parameter_for_search("to_address")     if params["/find_posting"].present?
+    @driving = "" if params["/find_posting"].present? && params["/find_posting"][:driving] == "Farketmez"
+    @from_address = address_parameter_for_search("from_address") if params["/find_posting"].present?
+    @to_address = address_parameter_for_search("to_address")     if params["/find_posting"].present?
     @postings = if params["/find_posting"].present?
-      Posting.live_postings.search(params["/find_posting"][:from_address], params["/find_posting"][:to_address], Date.today, params[:driving])
+      Posting.live_postings.search(@from_address, @to_address, @driving)
     else
       Posting.live_postings
     end
@@ -53,7 +56,19 @@ class PostingsController < ApplicationController
   private
   
   def address_parameter_for_search(address)
-        "#{params['/find_posting']["#{address}"][:neighborhood]}, #{params['/find_posting']["#{address}"][:district]}, Istanbul" if params["/find_posting"]["#{address}"].present?
+    result = ""
+    result += "#{params['/find_posting']["#{address}"][:neighborhood]}," if params['/find_posting']["#{address}"][:neighborhood].present?
+    result += " #{params['/find_posting']["#{address}"][:district]}," if params['/find_posting']["#{address}"][:district].present?
+    result += " Istanbul" if params['/find_posting']["#{address}"][:neighborhood].present? || params['/find_posting']["#{address}"][:district].present?
+    result
+  end
+  
+  def address_parameter_for_new(address)
+    if params[:posting]["#{address}"][:district] == "Koc Universitesi"
+      "Koc Universitesi"
+    else 
+      "#{params[:posting]["#{address}"][:neighborhood]}, #{params[:posting]["#{address}"][:district]}"
+    end
   end
   
 end
