@@ -2,21 +2,23 @@
 #posting.row
   = simple_form_for @posting, html: { class: "form-horizontal" } do |f|
     .span6
+      %h2.posting_title== Nereden
       = f.fields_for :from_address, id: "from_address" do |from|
         = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name) << "Koc Universitesi",  selected: "Koc Universitesi", include_blank: false, input_html: { id: "from_address_district", onchange: "calcRoute()" }
         = from.input :neighborhoods, label: "Semt", input_html: { id: "from_address_neighborhood" } do
           = from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true
       
-      = f.fields_for :to_address, id: "to_address", class: "fields_for" do |from|
-        = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name) << "Koc Universitesi", selected: "Koc Universitesi", include_blank: false, input_html: { id: "to_address_district", onchange: "calcRoute()" }
-        = from.input :neighborhoods, label: "Semt", input_html: { id: "to_address_neighborhood" } do
-          = from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true
-        
+      = f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline"
+      
       = f.input :starting_time, label: "Cıkış Zamanı", as: :string, input_html: { id: "starting_time",  value: "#{Time.now.strftime('%H:%M')}" }
       = f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}" }
       #map.pull-right
     .span6
-      = f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline"
+      %h2.posting_title== Nereye
+      = f.fields_for :to_address, id: "to_address", class: "fields_for" do |from|
+        = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name) << "Koc Universitesi", selected: "Koc Universitesi", include_blank: false, input_html: { id: "to_address_district", onchange: "calcRoute()" }
+        = from.input :neighborhoods, label: "Semt", input_html: { id: "to_address_neighborhood" } do
+          = from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true
       = f.input :driving, label: "Ne Arıyorum", as: :select, collection: ["Farketmez", "Sürücü", "Yolcu", "Taksi"], include_blank: false, item_wrapper_class: "inline"
       = f.input :smoking, label: "Sigara", as: :radio_buttons, collection: ["Evet", "Hayır"], item_wrapper_class: "inline"
       = f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planinizi ve taleplerinizi yaziniz (Orn. Resitpasa'dan gidecegim. Yolculuk karsiliginda bir kahve getirirseniz sevinirim.)"

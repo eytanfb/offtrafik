@@ -2,12 +2,14 @@
 #posting-find
   = simple_form_for find_posting_path, method: "get", html: { class: "form-horizontal" } do |f|
     .row
-      .span3
+      .span3.posting_span
+        %h2.posting_title== Nereden
         = f.fields_for :from_address, label: "Nereden", id: "from_address" do |from|
           = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name) << "Koc Universitesi", prompt: "Seciniz", input_html: { id: "from_address_district" }
           = from.input :neighborhood, label: "Semt", input_html: { id: "from_address_neighborhood" } do
             = from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true
-      .span3
+      .span3.posting_span
+        %h2.posting_title== Nereye
         = f.fields_for :to_address, label: "Nereye", id: "to_address", class: "fields_for" do |from|
           = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name) << "Koc Universitesi", prompt: "Seciniz", input_html: { id: "to_address_district" }
           = from.input :neighborhood, label: "Semt", input_html: { id: "to_address_neighborhood" } do
