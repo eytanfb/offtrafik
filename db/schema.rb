@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(:version => 20130211043937038) do
     t.time     "ending_time"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.float    "latitude"
     t.text     "comments"
     t.boolean  "smoking"
     t.string   "driving"
