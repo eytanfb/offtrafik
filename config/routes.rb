@@ -23,7 +23,9 @@ RelearningRails::Application.routes.draw do
   match '/share_posting', to: 'postings#share_posting'
 
   # Resources
-  resources :users
+  resources :users do
+    get 'activation', as: :activation
+  end
   resources :sessions, only: [:new, :create, :destroy] # Specifying the only necessary actions
   resources :postings do
     get 'respond', as: :respond

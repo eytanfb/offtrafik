@@ -59,6 +59,10 @@ class Posting < ActiveRecord::Base
     self.date.strftime("%b %d")
   end
   
+  def format(address)
+    address.chomp(", Istanbul")
+  end
+  
   private
     def ending_time_is_later_than_starting_time?
       if self.starting_time && self.ending_time

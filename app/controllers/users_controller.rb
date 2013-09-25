@@ -21,9 +21,11 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.activation_guid = SecureRandom.urlsafe_base64
     if @user.save
-      sign_in @user
+      # sign_in @user
+      # redirect_to @user
+      UserMailer.activation(@user.id, @user.activation_guid)
       flash[:success] = "Offtrafik'e Hoşgeldin!"
-      redirect_to @user
+      redirect_to root_path
     else
       @communication_options = { "Email" => "email", "Telefon" => "phone", "BBM" => "bbm" }
       render 'new'
@@ -51,6 +53,12 @@ class UsersController < ApplicationController
   
   def find
     @users = User.find_all_by_name(params[:search_user])
+  end
+  
+  def activation
+    guid = params[:a]
+    user = User.find_by_activation_guid guid
+    user.update_attributes({active: 1})
   end
   
   private

@@ -23,7 +23,8 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :preferred_contact_method, 
-    :preferred_contact_content, :agreed_to_terms_and_conditions, :trip_rating, :neighborhood, :total_kms, :summary, :activation_guid
+    :preferred_contact_content, :agreed_to_terms_and_conditions, :trip_rating, :neighborhood, :total_kms, :summary, :activation_guid, :active
+
   has_secure_password
   has_many :postings
   has_many :comments
