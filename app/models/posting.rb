@@ -12,7 +12,6 @@
 #  ending_time   :time
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  latitude      :float
 #  comments      :text
 #  smoking       :boolean
 #  driving       :string(255)
@@ -20,8 +19,7 @@
 
 #!/bin/env ruby
 class Posting < ActiveRecord::Base
-  attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :longitude, :latitude, :gmaps, 
-    :comments, :smoking, :driving
+  attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :comments, :smoking, :driving
   attr_writer :current_step
   
   belongs_to :user

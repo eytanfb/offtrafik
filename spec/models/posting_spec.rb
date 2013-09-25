@@ -11,7 +11,6 @@
 #  ending_time   :time
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  latitude      :float
 #  comments      :text
 #  smoking       :boolean
 #  driving       :string(255)
