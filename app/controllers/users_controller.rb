@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     if @user.save
       # sign_in @user
       # redirect_to @user
-      UserMailer.activation(@user.id, @user.activation_guid)
+      UserMailer.activation(@user.id, @user.activation_guid).deliver
       flash[:success] = "Offtrafik'e Hoşgeldin!"
       redirect_to root_path
     else

@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
   
   def activation(user_id, guid)
     @user = User.find user_id
-    @link = activation_path(a: guid)
+    @link = user_activation_path(@user, a: guid)
     mail to: @user.email, subject: "Offtrafik Aktivasyon Linki"
   end
   
