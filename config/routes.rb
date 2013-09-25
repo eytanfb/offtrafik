@@ -10,7 +10,6 @@ RelearningRails::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/why', to: 'static_pages#why'
-  match '/terms_and_conditions', to: 'static_pages#terms_and_conditions'
   
   # Matching users
   match '/signup', to: 'users#new'

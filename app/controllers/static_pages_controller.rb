@@ -15,7 +15,4 @@ class StaticPagesController < ApplicationController
   def why    
   end
   
-  def terms_and_conditions 
-  end
-  
 end
