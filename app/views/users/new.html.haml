@@ -16,6 +16,6 @@
       = f.input :password_confirmation, label: "Şifre Onaylama"
       
       #terms_and_conditions
-        = f.input :agreed_to_terms_and_conditions, as: :boolean, label: "Devam etmek icin #{link_to 'Kullanım Koşulları ve Şartlarını', "assets/documents/Terms-And-Conditions.pdf", target: '_blank'} kabul etmeniz gerekmektedir", item_wrapper_class: "inline"
+        = f.input :agreed_to_terms_and_conditions, as: :boolean, label: "Devam etmek icin #{link_to 'Kullanım Koşulları ve Şartlarını', terms_and_conditions_url} kabul etmeniz gerekmektedir", item_wrapper_class: "inline"
       
       = f.submit "Kayıt Ol", class: "btn btn-large btn-primary"
