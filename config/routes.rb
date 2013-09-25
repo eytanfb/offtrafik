@@ -25,6 +25,8 @@ RelearningRails::Application.routes.draw do
   # Resources
   resources :users do
     get 'activation', as: :activation
+    get 'not_activated', as: :not_activated
+    get 'resend_activation', as: :resend_activation
   end
   resources :sessions, only: [:new, :create, :destroy] # Specifying the only necessary actions
   resources :postings do

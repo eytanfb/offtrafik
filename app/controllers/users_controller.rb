@@ -23,8 +23,8 @@ class UsersController < ApplicationController
     if @user.save
       # sign_in @user
       # redirect_to @user
-      UserMailer.activation(@user.id, @user.activation_guid).deliver
-      flash[:success] = "Offtrafik'e Hoşgeldin!"
+      send_activation_email @user.id
+      flash[:success] = "Offtrafik'e Hoşgeldin! Lutfen mailine gelen akitvasyon linkini tikla"
       redirect_to root_path
     else
       @communication_options = { "Email" => "email", "Telefon" => "phone", "BBM" => "bbm" }
@@ -59,12 +59,29 @@ class UsersController < ApplicationController
     guid = params[:a]
     user = User.find_by_activation_guid guid
     user.update_attributes({active: 1})
+    flash[:success] = "Uyeliginiz aktive edilmistir."
+    redirect_to find_posting_path
+  end
+  
+  def resend_activation
+    @user = User.find params[:user_id]
+    send_activation_email @user.id
+    flash[:success] = "Aktivasyon maili yeniden yollandi"
+    redirect_to root_path
+  end
+  
+  def not_activated
+    @user = User.find params[:user_id]
   end
   
   private
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
+    end
+    
+    def send_activation_email(id)
+      UserMailer.activation(id).deliver
     end
   
 end
