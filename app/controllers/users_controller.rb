@@ -9,6 +9,14 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
   
+  def postings
+    @live_postings = current_user.postings.live_postings.paginate(page: params[:live_postings_page], per_page: 2)
+  end
+  
+  def past_postings
+    @past_postings = current_user.postings.past_postings.paginate(page: params[:past_postings_page], per_page: 2)
+  end
+  
   def show
     @user = User.find(params[:id])
     @user.calculate_rating

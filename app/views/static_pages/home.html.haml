@@ -1,33 +1,25 @@
-- if signed_in?
-  .row
-    %aside.span4
-      %section
-        = render 'shared/user_info'
-    %section.span8
-      = render 'users/user_postings', live_postings: @live_postings
-- else  
-  .center.hero-unit  
-    %h1 Offtrafik
-    -# .carousel#myCarousel{ "interval" => 1000 }
-      -# .carousel-inner
-        -# %center
-          -# .item.active
-            -# = image_tag "driving_statistics.jpeg"
-          -# .item
-            -# = image_tag "istanbul_traffic.jpeg"
-        -# %a.carousel-control.left{ href: "#myCarousel", "data-slide" => "prev" } &lsaquo;
-        -# %a.carousel-control.right{ href: "#myCarousel", "data-slide" => "next" } &rsaquo;
-    = form_tag find_posting_path, method: "get" do
-      .row
-        .span4.offset1
-          = search_field_tag :from_address, params[:from_address], class: "span3 search-query", placeholder: "Nereden"
-        .span4
-          = search_field_tag :to_address, params[:to_address], class: "span3 search-query", placeholder: "Nereye"
-          = hidden_field_tag :driving, params[:driving]
-        .offset1
-          = submit_tag "Ara", name: nil, class: 'btn btn-primary btn-medium', style: "color: white;"
-    %p 
-      Bu sayfaya gelerek İstanbul'daki trafik sorunundan sıkıldığını gösterdin. Şimdi üye ol, ve araba paylaşmaya başla!
-    
-    = link_to "Üye ol!", signup_path, class: "btn btn-large btn-primary", style: "color: white"
-    = link_to "Neden?", why_path, class: "btn btn-large btn-primary", style: "color: white; background: green"
+.center.hero-unit  
+  %h1 Offtrafik
+  -# .carousel#myCarousel{ "interval" => 1000 }
+    -# .carousel-inner
+      -# %center
+        -# .item.active
+          -# = image_tag "driving_statistics.jpeg"
+        -# .item
+          -# = image_tag "istanbul_traffic.jpeg"
+      -# %a.carousel-control.left{ href: "#myCarousel", "data-slide" => "prev" } &lsaquo;
+      -# %a.carousel-control.right{ href: "#myCarousel", "data-slide" => "next" } &rsaquo;
+  = form_tag find_posting_path, method: "get" do
+    .row
+      .span4.offset1
+        = search_field_tag :from_address, params[:from_address], class: "span3 search-query", placeholder: "Nereden"
+      .span4
+        = search_field_tag :to_address, params[:to_address], class: "span3 search-query", placeholder: "Nereye"
+        = hidden_field_tag :driving, params[:driving]
+      .offset1
+        = submit_tag "Ara", name: nil, class: 'btn btn-primary btn-medium', style: "color: white;"
+  %p 
+    Bu sayfaya gelerek İstanbul'daki trafik sorunundan sıkıldığını gösterdin. Şimdi üye ol, ve araba paylaşmaya başla!
+  
+  = link_to "Üye ol!", signup_path, class: "btn btn-large btn-primary", style: "color: white"
+  = link_to "Neden?", why_path, class: "btn btn-large btn-primary", style: "color: white; background: green"
