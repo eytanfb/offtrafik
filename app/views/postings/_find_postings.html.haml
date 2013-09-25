@@ -5,19 +5,19 @@
       .span3.posting_span
         %h2.posting_title== Nereden
         = f.fields_for :from_address, label: "Nereden", id: "from_address" do |from|
-          = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name) << "Koc Universitesi", prompt: "Seciniz", input_html: { id: "from_address_district" }
+          = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: @districts, prompt: "Seciniz", input_html: { id: "from_address_district" }
           = from.input :neighborhood, label: "Semt", input_html: { id: "from_address_neighborhood" } do
             = from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true
       .span3.posting_span
         %h2.posting_title== Nereye
         = f.fields_for :to_address, label: "Nereye", id: "to_address", class: "fields_for" do |from|
-          = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: District.pluck(:name) << "Koc Universitesi", prompt: "Seciniz", input_html: { id: "to_address_district" }
+          = from.input :district, label: "Ilce", as: :select, class: "field-part", collection: @districts, prompt: "Seciniz", input_html: { id: "to_address_district" }
           = from.input :neighborhood, label: "Semt", input_html: { id: "to_address_neighborhood" } do
             = from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true
           
     .row
       .span3
-        = f.input :driving , label: "Aranan",  collection: ["Farketmez", "Sürücü", "Yolcu", "Taksi"], include_blank: false
+        = f.input :driving , label: "Aranan",  collection: @driving_options, include_blank: false
     .row
       = f.button :submit, "Ara", class: 'btn btn-primary btn-medium', style: "width: 120px; height: 40px; left: 40%; position: relative; font-size: large"
   #show-results

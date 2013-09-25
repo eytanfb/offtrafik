@@ -1,5 +1,8 @@
+# encoding: utf-8
+
 class PostingsController < ApplicationController
   before_filter :signed_in_user, only: [:show, :share_posting]
+  before_filter :districts_and_driving_options, only: [:new, :find]
   
   def new
     @posting = current_user.postings.new params[:posting]
@@ -69,6 +72,11 @@ class PostingsController < ApplicationController
     else 
       "#{params[:posting]["#{address}"][:neighborhood]}, #{params[:posting]["#{address}"][:district]}"
     end
+  end
+  
+  def districts_and_driving_options
+    @districts = District.pluck(:name).unshift("Koc Universitesi")
+    @driving_options = %w(Sürücü Yolcu Farketmez Taksi)  
   end
   
 end
