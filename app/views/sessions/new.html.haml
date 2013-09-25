@@ -10,7 +10,4 @@
       = session.password_field :password
       
       = session.submit "Giriş", class: "btn btn-large btn-primary"
-      
-    %p 
-      Yeni Kullanıcı:
-      = link_to "Bize Katıl", signup_path
+      = link_to "Bize Katıl", signup_path, class: "btn btn-primary btn-large", id: "signup-button"

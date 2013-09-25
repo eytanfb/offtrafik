@@ -237,6 +237,16 @@ input[type="radio"], input[type="checkbox"]{
 
 /* Buttons */
 
+#signup-button {
+	background: green;
+	&:hover {
+		background-color: green;
+	}
+	&:visited {
+		color: white;
+	}
+}
+
 .side-button-p {
 	margin-bottom: 0px;
 }
