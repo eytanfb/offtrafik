@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    redirect_to user_postings_path if signed_in?
+    redirect_to user_postings_path(current_user) if signed_in?
   end
 
   def help
