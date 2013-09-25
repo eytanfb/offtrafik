@@ -27,7 +27,7 @@ class Posting < ActiveRecord::Base
   belongs_to :user
   
   validates_presence_of :user_id, :from_address, :to_address, :date, :starting_time, :ending_time
-  validates_inclusion_of :driving, :in => %w(Sürücü Yolcu Farketmez)
+  validates_inclusion_of :driving, :in => %w(Sürücü Yolcu Farketmez Taksi)
   validate :ending_time_is_later_than_starting_time?
   
   default_scope order: 'postings.date ASC'
