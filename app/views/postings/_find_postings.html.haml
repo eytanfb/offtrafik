@@ -15,7 +15,7 @@
           
     .row
       .span3
-        = f.input :driving , label: "Aranan",  collection: ["Farketmez", "Sürücü", "Yolcu"], include_blank: false
+        = f.input :driving , label: "Aranan",  collection: ["Farketmez", "Sürücü", "Yolcu", "Taksi"], include_blank: false
     .row
       = f.button :submit, "Ara", class: 'btn btn-primary btn-medium', style: "width: 120px; height: 40px; left: 40%; position: relative; font-size: large"
   #show-results
