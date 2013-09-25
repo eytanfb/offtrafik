@@ -9,5 +9,5 @@
 
     = render 'shared/posting_table', posting_list: @live_postings
 
-    = link_to "Gecmis Ilanlar", past_postings_path, class: "btn btn-primary"
+    = link_to "Gecmis Ilanlar", user_past_postings_path(current_user), class: "btn btn-primary", id: "past-postings-button"
     

@@ -148,7 +148,7 @@ p {
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
-  &:hover{
+  &:absolute{
     color: white;
     text-decoration: none;
     background: none;
@@ -237,11 +237,28 @@ input[type="radio"], input[type="checkbox"]{
 
 /* Buttons */
 
-.btn.btn-primary.btn-mini.side-button{
+.side-button-p {
+	margin-bottom: 0px;
+}
+
+.side-button-search {
   background: green;
   color: white;
   width: 40%;
   margin-top: 5px;
+	&:hover {
+		background-color: green;
+	}
+}
+
+.side-button-list {
+  background: orange;
+  color: white;
+  width: 40%;
+  margin-top: 5px;
+	&:hover {
+		background-color: orange;
+	}
 }
 
 .btn.btn-primary.btn-small.nav-button{
@@ -255,6 +272,15 @@ input[type="radio"], input[type="checkbox"]{
   float: right;
 }
 
+/* Links */
+
+#user_info {
+	a {
+		&:visited {
+			color: white;
+		}
+	}
+}
 /* Miscellaneous */
 
 .debug_dump{
