@@ -52,10 +52,10 @@ class User < ActiveRecord::Base
   
   private
     def before_save_stuff
-      self.remember_token = SecureRandom.urlsafe_base64
+      self.remember_token ||= SecureRandom.urlsafe_base64
       self.trip_rating ||= 0
-      self.preferred_contact_method = 'email'
-      self.preferred_contact_content = self.email
-      self.active = 0
+      self.preferred_contact_method ||= 'email'
+      self.preferred_contact_content ||= self.email
+      self.active ||= 0
     end
 end

@@ -2,4 +2,4 @@
 
 %p Asagidaki linki tiklayarak uyeligini aktive et ve hemen yolculuk paylasmaya basla.
 
-/ %p= link_to "#{@link}"
+%p= link_to "Uyeligi aktive et", user_activation_url(@user, a: @user.activation_guid)

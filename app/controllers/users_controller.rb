@@ -58,9 +58,10 @@ class UsersController < ApplicationController
   def activation
     guid = params[:a]
     user = User.find_by_activation_guid guid
-    user.update_attributes({active: 1})
-    flash[:success] = "Uyeliginiz aktive edilmistir."
-    redirect_to find_posting_path
+    user.update_attribute(:active, 1)
+    flash[:success] = "Uyeliginiz aktive edilmistir"
+    sign_in user
+    redirect_to user
   end
   
   def resend_activation
