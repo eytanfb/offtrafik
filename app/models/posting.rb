@@ -30,20 +30,11 @@ class Posting < ActiveRecord::Base
   
   default_scope order: 'postings.date ASC'
   
-  scope :active, lambda { where('date >= ?', Time.now) }
   scope :live_postings, lambda { where("date >= ?", Date.today) }
   scope :past_postings, lambda { where("date < ?", Date.today) }
-  
-  def self.search(from_address, to_address, driving)
-    if from_address && to_address
-      where 'from_address LIKE ? AND to_address LIKE ?', "%#{from_address}%", "%#{to_address}%"
-      if driving
-        where 'from_address LIKE ? AND to_address LIKE ? and driving LIKE ?', "%#{from_address}%", "%#{to_address}%", "%#{driving}%"
-      end
-    else
-      where "from_address LIKE '%%' AND to_address LIKE '%%'"
-    end
-  end
+  scope :with_from_address, lambda { |value| where("from_address LIKE ?", "%#{value}%") if value }
+  scope :with_to_address, lambda { |value| where("to_address LIKE ?", "%#{value}%") if value }
+  scope :with_driving, lambda { |value| where("driving LIKE ?", "%#{value}%") if value }
   
   def smoking?
     self.smoking ? 'Evet' : 'Hayır'

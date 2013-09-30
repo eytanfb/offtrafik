@@ -27,14 +27,12 @@ class PostingsController < ApplicationController
   end
   
   def find
-    @driving = "" if params["/find_posting"].present? && params["/find_posting"][:driving] == "Farketmez"
+    @driving = params["/find_posting"].present? && params["/find_posting"][:driving] == "Farketmez" ? "" : params["/find_posting"][:driving]
     @from_address = address_parameter_for_search("from_address") if params["/find_posting"].present?
     @to_address = address_parameter_for_search("to_address")     if params["/find_posting"].present?
-    @postings = if params["/find_posting"].present?
-      Posting.live_postings.search(@from_address, @to_address, @driving)
-    else
-      Posting.live_postings
-    end
+
+    @postings = Posting.live_postings.with_from_address(@from_address).with_to_address(@to_address).with_driving(@driving)
+    
     @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
   end
   
@@ -61,8 +59,7 @@ class PostingsController < ApplicationController
   def address_parameter_for_search(address)
     result = ""
     result += "#{params['/find_posting']["#{address}"][:neighborhood]}," if params['/find_posting']["#{address}"][:neighborhood].present?
-    result += " #{params['/find_posting']["#{address}"][:district]}," if params['/find_posting']["#{address}"][:district].present?
-    result += " Istanbul" if params['/find_posting']["#{address}"][:neighborhood].present? || params['/find_posting']["#{address}"][:district].present?
+    result += " #{params['/find_posting']["#{address}"][:district]}" if params['/find_posting']["#{address}"][:district].present?
     result
   end
   
@@ -76,7 +73,7 @@ class PostingsController < ApplicationController
   
   def districts_and_driving_options
     @districts = District.pluck(:name).unshift("Koc Universitesi")
-    @driving_options = %w(Sürücü Yolcu Farketmez Taksi)  
+    @driving_options = %w(Farketmez Sürücü Yolcu Taksi)  
   end
   
 end
