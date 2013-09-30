@@ -19,8 +19,12 @@
       - if @posting.comments.present?
         %p==<span class='detail'>Ekstra:</span>        <span class='answer'>#{@posting.comments}</span>
       - if @posting.user_id != current_user.id || @posting.active?
-        %p= link_to "Iletisime Gec", posting_respond_path(@posting.id), class: "btn btn-primary btn-warning answer", style: "margin-left: 220px; width: 100px"
+        %p= link_to "Iletisime Gec", posting_contact_posting_owner_path(@posting.id), class: "btn btn-primary btn-warning answer", style: "margin-left: 220px; width: 100px", data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true
+        
+#contact-posting-owner-modal-window.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "contact-posting-owner-modal-label", role: "dialog"}
         
 - content_for :javascripts do
   = javascript_include_tag "postings.js"
-  = javascript_include_tag "maps.js"   
+  = javascript_include_tag "maps.js"
+  
+  
