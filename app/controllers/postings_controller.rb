@@ -60,7 +60,7 @@ class PostingsController < ApplicationController
     result = ""
     result += "#{params['/find_posting']["#{address}"][:neighborhood]}," if params['/find_posting']["#{address}"][:neighborhood].present?
     result += " #{params['/find_posting']["#{address}"][:district]}" if params['/find_posting']["#{address}"][:district].present?
-    result
+    result.strip
   end
   
   def address_parameter_for_new(address)
