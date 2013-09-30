@@ -9,29 +9,34 @@ class PostingsController < ApplicationController
   end
   
   def create
+    from_address = params[:posting][:from_address]
+    to_address = params[:posting][:to_address]
     params[:posting][:from_address] = address_parameter_for_new("from_address")
     params[:posting][:to_address] = address_parameter_for_new("to_address")
 
     @posting = current_user.postings.new params[:posting]
-    if @posting.save    
+    if @posting.save
       flash[:success] = "Ilan verildi"
       redirect_to share_posting_path(posting_id: @posting.id)
     else
-      render 'new'
+      flash[:alert] = "Ilan verirken bir hata olustu. Lutfen tekrar deneyin"
+      redirect_to user_postings_path(current_user)
     end
   end
   
   def show
     @posting = Posting.find(params[:id])
-    @user = User.find_by_id @posting.user_id
+    @user = User.find @posting.user_id
   end
   
   def find
-    @driving = params["/find_posting"].present? && params["/find_posting"][:driving] == "Farketmez" ? "" : params["/find_posting"][:driving]
+    @driving = if params["/find_posting"].present? 
+                params["/find_posting"][:driving] == "Farketmez" ? "" : params["/find_posting"][:driving]                
+              end
     @from_address = address_parameter_for_search("from_address") if params["/find_posting"].present?
     @to_address = address_parameter_for_search("to_address")     if params["/find_posting"].present?
 
-    @postings = Posting.live_postings.with_from_address(@from_address).with_to_address(@to_address).with_driving(@driving)
+    @postings = params["/find_posting"].present? ? Posting.live_postings.with_from_address(@from_address).with_to_address(@to_address).with_driving(@driving) : Posting.live_postings
     
     @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
   end
