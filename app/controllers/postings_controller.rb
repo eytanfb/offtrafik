@@ -19,7 +19,7 @@ class PostingsController < ApplicationController
       flash[:success] = "Ilan verildi"
       redirect_to share_posting_path(posting_id: @posting.id)
     else
-      flash[:alert] = "Ilan verirken bir hata olustu. Lutfen tekrar deneyin"
+      flash[:alert] = "Ilan verirken bir hata oluştu. Lütfen tekrar deneyin"
       redirect_to user_postings_path(current_user)
     end
   end
@@ -49,14 +49,14 @@ class PostingsController < ApplicationController
     @posting = Posting.find params[:posting_id]
     text = params[:contact_posting_owner][:content]
     PostingMailer.posting_contact(@posting.user_id, current_user.id, @posting.id, text).deliver
-    flash[:success] = "Yanit isteginiz yollandi"
+    flash[:success] = "Yanıt isteğiniz yollandı"
     redirect_to user_postings_path(current_user)
   end
   
   def full
     @posting = Posting.find params[:posting_id]
     PostingMailer.posting_full(@posting.user_id, current_user.id, @posting.id).deliver
-    flash[:success] = "Ilan dolu emaili yollandi"
+    flash[:success] = "Ilan dolu emaili yollandı"
     redirect_to user_path(current_user)
   end
   
@@ -78,7 +78,7 @@ class PostingsController < ApplicationController
   end
   
   def districts_and_driving_options
-    @districts = District.pluck(:name).unshift("Koc Universitesi")
+    @districts = District.pluck(:name).unshift("Koç Üniversitesi")
     @driving_options = %w(Farketmez Sürücü Yolcu Taksi)  
   end
   
