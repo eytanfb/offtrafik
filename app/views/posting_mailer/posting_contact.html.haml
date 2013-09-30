@@ -2,7 +2,15 @@
 
 %p== #{@owner.name},
 
-%p== #{@responder.name} seninle #{@posting.formatted_date} tarihinde yapacagin #{@to_from} yolculugu icin irtibata gecmek istiyor. 
+%p 
+  ==#{@responder.name} seninle #{@posting.formatted_date} tarihinde yapacagin 
+  %strong==#{@to_from}
+  == yolculugu icin irtibata gecmek istiyor. 
+
+- if @text.present?
+  %strong
+    %p= "#{@responder.name}'in sana ozel bir notu var"
+    %p= "#{@responder.name}: #{@text}"
 
 %p== Eger hala trafikten kurtulacak birini ariyorsan #{mail_to @responder.email, "tikla", subject: "#{@to_from} -- #{@posting.formatted_date}", body: "#{@responder.name}, beraber gitmeye varim. #{@posting.formatted_date} tarihinde gorusuruz."}.
 
