@@ -12,5 +12,6 @@
  *= require bootstrap
  *= require bootstrap-timepicker
  *= require jquery.ui.datepicker
+ *= require font-awesome
  *= require_tree .
  */
