@@ -3,6 +3,7 @@
   %h3#claim-event-modal-label Iletisime Gec
 .modal-body
   = simple_form_for :contact_posting_owner, url: posting_respond_path(params[:posting_id])  do |f|
+    / = f.input :default, label: false, as: :text, readonly: true, input_html: { value: "#{@message}", cols: 150, rows: 5, style: "resize: none" }
     = f.input :content, label: false, as: :text, placeholder: "Mailinize ekstra bir not eklemek isterseniz (ornek. telefon numaraniz) lutfen buraya yazin. Iletisim emailinde yazan standart yazilar yien de gonderilecektir.", input_html: { cols: 150, rows: 5, style: "resize: none" }
     = f.button :submit, "Yolla", class: "btn btn-primary"
 .modal-footer

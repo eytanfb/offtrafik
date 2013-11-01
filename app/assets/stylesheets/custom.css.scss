@@ -282,6 +282,17 @@ input[type="radio"], input[type="checkbox"]{
   float: right;
 }
 
+.green-button {
+	background: green;
+	color: white;
+	&:hover {
+		background-color: green;
+	}
+	&:visited {
+		color: white;
+	}
+}
+
 /* Links */
 
 #user_info {

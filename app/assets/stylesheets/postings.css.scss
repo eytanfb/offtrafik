@@ -105,6 +105,9 @@
 		text-align: left;
 		margin-left: 20px;
 		font-size: 15px;
+		&:visited {
+			color: white;
+		}
 	}
 }
 

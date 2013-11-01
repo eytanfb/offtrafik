@@ -27,6 +27,17 @@ class PostingsController < ApplicationController
   def show
     @posting = Posting.find(params[:id])
     @user = User.find @posting.user_id
+    to_address = @posting.format(@posting.to_address)
+    from_address = @posting.format(@posting.from_address)
+    @to_from = "#{to_address} - #{from_address}"
+    @message = "
+#{@user.name} seninle #{@posting.formatted_date} tarihinde yapacagin #{@to_from} yolculugu icin irtibata gecmek istiyor.
+
+Eger hala trafikten kurtulacak birini ariyorsan tikla.
+
+Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
+
+#{@user.name}"
   end
   
   def find
@@ -70,7 +81,7 @@ class PostingsController < ApplicationController
   end
   
   def address_parameter_for_new(address)
-    if params[:posting]["#{address}"][:district] == "Koc Universitesi"
+    if params[:posting]["#{address}"][:district] == "Koç Üniversitesi"
       "Koc Universitesi"
     else 
       "#{params[:posting]["#{address}"][:neighborhood]}, #{params[:posting]["#{address}"][:district]}"
