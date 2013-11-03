@@ -4,7 +4,7 @@
 en:
   date:
     month_names: [~, Ocak, Subat, Mart, Nisan, Mayis, Haziran, Temmuz, Agustos, Eylul, Ekim, Kasim, Aralik]
-    abbr_month_names: [~, Oca, Sub, Mar, Nis, May, Haz, Tem, Agu, Eyl, Eki, Kas, Araå]
+    abbr_month_names: [~, Oca, Sub, Mar, Nis, May, Haz, Tem, Agu, Eyl, Eki, Kas, Ara]
     formats:
       default: ! '%d/%B/%Y'
       short: ! '%e/%b/%Y'

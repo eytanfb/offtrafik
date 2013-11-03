@@ -82,7 +82,7 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
   
   def address_parameter_for_new(address)
     if params[:posting]["#{address}"][:district] == "Koç Üniversitesi"
-      "Koc Universitesi"
+      "Koç Üniversitesi"
     else 
       "#{params[:posting]["#{address}"][:neighborhood]}, #{params[:posting]["#{address}"][:district]}"
     end
