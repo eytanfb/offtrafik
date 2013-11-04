@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class PostingsController < ApplicationController
-  before_filter :signed_in_user, only: [:show, :share_posting]
+  before_filter :signed_in_user, only: [:show, :share_posting, :full, :respond]
   before_filter :districts_and_driving_options, only: [:new, :find, :find_from_home_page]
   
   def new
@@ -80,8 +80,8 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
   end
   
   def full
-    @posting = Posting.find params[:posting_id]
-    PostingMailer.posting_full(@posting.user_id, current_user.id, @posting.id).deliver
+    posting = Posting.find params[:posting_id]
+    PostingMailer.posting_full(posting.user_id, params[:responder_id], @posting.id).deliver
     flash[:success] = "Ilan dolu emaili yollandı"
     redirect_to user_path(current_user)
   end
