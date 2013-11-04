@@ -1,5 +1,8 @@
+# encoding: utf-8
+
 class StaticPagesController < ApplicationController
   def home
+    @districts = District.pluck(:name)
     redirect_to user_postings_path(current_user) if signed_in?
   end
 

@@ -1,29 +1,22 @@
 = provide(:title, 'Neden')
 %h1 Neden
-%p
-  .row
-    .span4
-      %p Dikkat edersen yolların, içinde yalnız sürücüsü olan arabalarla dolu olduğunu farkedeceksin. Aynı yöne giden sürücüleri ve toplu taşıma kullanıcılarını buluşturarak daha verimli ve sürdürülebilir bir ulaşım alışkanlığı kazandırmayı hedefliyoruz.
-    .span4.offset2
-      = image_tag "driving_statistics.jpeg", size: '250x150'
-  <br />
-  .row
-    .span4
-      = image_tag "tasarruf.jpg", size: '200x150'
-    .span6
-      %p 
-        Bu uygulamayla sizlere:
-        %li Yakıt ve ulaşım masraflarınızda tasarruf yapmanız için
-        %li Öncelikli park alanımızı kullanarak zaman kazanmanız için
-        %li Çevreye katkınızın olabileceği bir ulaşım alternatifi sunuyoruz
-  <br />
-  .row
-    .span6
-      %p
-        Bu site sadece Koç Üniversitesi öğrencilerinin kullanımına açıktır. Güvenliği sağlamak için kayıtlar ku.edu.tr uzantılı mail adresleriyle yapılmaktadır. Bu uygulamanın amacı yolculuklarını paylaşanların güvenliğini mümkün olan en üst düzeyde sağlamaktır.
-    .span4
-      = image_tag "koc_universitesi.jpg", size: '250x150'
-  <br />
-  .row
-    .span6.offset3
-      %b{ style: "font-size: large" } Trafiği azaltmak, karbon ayak izinizi küçültüp çevreyi korumak ve bunları yaparken para ve zaman tasarrufu yapmak istemez misin? 
+.row
+  .span8
+    %p Dikkat edersen yolların, içinde yalnız sürücüsü olan arabalarla dolu olduğunu farkedeceksin.
+    %p Aynı yöne giden sürücüleri ve toplu taşıma kullanıcılarını buluşturarak daha verimli ve sürdürülebilir bir ulaşım alışkanlığı kazandırmayı hedefliyoruz.
+.row
+  .span6
+    %p Burada sadece KU’lular var! Yalnızca ku.edu.tr mail adresleriyle hesap oluşturarak bizbize bir ortam yaratıyoruz, güvenlik endişesini ortadan kaldırıyoruz.
+  .span2  
+    = image_tag "komikkoc.png"
+.row{style: "margin-top: 50px"}
+  .span4
+    = image_tag "harita.png", size: "400x250"
+  .span4
+    %p 240 KU öğrencisi kampüslere nereden ulaştıklarını söyledi. Tüm okulda, senin geldiğin yerden de gelen başkaları kesin vardır!
+.row{style: "margin-top: 50px"}
+  .span6
+    %p Yolculuk paylaşarak ulaşım masraflarından tasarruf edecek, karbon salınımını azaltıp çevreyi koruyacaksın.
+    %p Bunları yaparken yeni insanlar tanıma fırsatı bulacaksın.
+  .span4
+    = image_tag "doga.png"

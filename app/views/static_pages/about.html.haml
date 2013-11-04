@@ -1,21 +1,16 @@
 = provide(:title, 'Hakkımızda')
 %h1 Hakkımızda
 .row
-  .span4
-    %h2 Trafik Sorunu
-    %p Biz İstanbul’un trafik probleminin toplu taşıma yada devletin sağladığı diğer hizmetlerle sağlanamayacağını düşünen; bunun için gereken kaynak ve enerjinin biz sıradan vatandaşlarda olduğuna inanan bireyleriz.
-  .span4.offset2
-    = image_tag "istanbul_traffic.jpeg"
+  .span8
+    %p Biz ders sıralarında kopya çekiştiğin arkadaşlarından başkası değiliz.
 .row
+  .span6
+    %p Biz İstanbul trafiğinin yeni köprülerle ya da mevcut yetersiz toplu taşıma hizmetleriyle sürdürülemeyeceğini düşünüyoruz.
+    %p Bizce bunun için gereken kaynak ve enerji biz gençlerde var ve bunlar değerlendirilmeyi bekliyor. Bizimkisi tüketim kültürüne, doğaya zarar veren petrol şirketlerine, hep daha fazla satmaya çalışan otomobil şirketlerine bir meydan okuma. Buna cesareti de gençlerin 2013 Haziran’ında sergiledikleri BİLİNÇ, DAYANIŞMA, SAHİP ÇIKMA gösterisinden alıyoruz. İstediğimizde nelere, ne pahasına sahip çıktığımızı herkese gösterdik ve hala sahip çıkmamız gereken bir doğa ve geleceğimiz var!
   .span4
-    = image_tag "environmentalism.jpg"
-  .span4.offset2
-    %h2 Çevre Duyarlılığı
-    %p Bu siteyle şehir trafiğinin rahatlaması, yakıt masraflarından tasarruf sağlanması ve çevre kirliliğinin azaltılmasını sağlayabiliriz.
+    = image_tag 'trafik.png'
 .row
-  .span4
-    %h2 Sende Başla
-    %p       
-      = raw "Bunlar sana yapmaya değer geliyorsa sen de bize #{link_to 'KATIL', signup_path}. Profilini oluştur, yolculuğunu belirt, paylaş ve herkes kazansın."
-  .span4.offset2
-    = image_tag 'carshare_parking.jpeg'
+  .span8
+    %p Bu siteyle yakıt masraflarından tasarruf sağlanması, şehir trafiğinin rahatlaması ve çevre kirliliğinin azalmasını sağlayabiliriz.     
+    %p= raw "Bunlar sana yapmaya değer geliyorsa sen de bize #{link_to 'KATIL', signup_path}."
+    %p gelmiyorsa yakında görüşürüz ;)

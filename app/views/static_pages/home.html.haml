@@ -1,25 +1,13 @@
 .center.hero-unit  
   %h1 Offtrafik
-  -# .carousel#myCarousel{ "interval" => 1000 }
-    -# .carousel-inner
-      -# %center
-        -# .item.active
-          -# = image_tag "driving_statistics.jpeg"
-        -# .item
-          -# = image_tag "istanbul_traffic.jpeg"
-      -# %a.carousel-control.left{ href: "#myCarousel", "data-slide" => "prev" } &lsaquo;
-      -# %a.carousel-control.right{ href: "#myCarousel", "data-slide" => "next" } &rsaquo;
-  = form_tag find_posting_path, method: "get" do
-    .row
-      .span4.offset1
-        = search_field_tag :from_address, params[:from_address], class: "span3 search-query", placeholder: "Nereden"
-      .span4
-        = search_field_tag :to_address, params[:to_address], class: "span3 search-query", placeholder: "Nereye"
-        = hidden_field_tag :driving, params[:driving]
-      .offset1
-        = submit_tag "Ara", name: nil, class: 'btn btn-primary btn-medium', style: "color: white;"
-  %p 
-    Bu sayfaya gelerek İstanbul'daki trafik sorunundan sıkıldığını gösterdin. Şimdi üye ol, ve araba paylaşmaya başla!
-  
-  = link_to "Üye ol!", signup_path, class: "btn btn-large btn-primary", style: "color: white"
-  = link_to "Neden?", why_path, class: "btn btn-large btn-primary", style: "color: white; background: green"
+  = image_tag "harita.png", style: "margin-bottom: 15px"
+  %p Bu kadar insan nereye mi gidiyor? Seninle aynı yere. Koç Üniversitesi'ne!
+  .row
+    = simple_form_for find_posting_path, method: "get", html: { class: "form-search" }, url: { controller: "postings", action: "find" } do |f|
+      = f.input :from_address, label: false, as: :select, collection: @districts, prompt: "Sen Koc Universitesi'ne Nereden Gidiyorsun?", input_html: { class: "span5" }
+      = f.button :submit, "Ara", name: nil, class: 'btn btn-primary btn-medium', style: "color: white"
+      = hidden_field_tag :to_address, "Koç Üniversitesi"
+      = hidden_field_tag :driving, params[:driving]
+  .row
+    = link_to "Üye ol!", signup_path, class: "btn btn-large btn-primary", style: "color: white"
+    = link_to "Neden?", why_path, class: "btn btn-large btn-primary", style: "color: white; background: green"
