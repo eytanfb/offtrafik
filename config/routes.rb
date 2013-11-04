@@ -19,6 +19,7 @@ RelearningRails::Application.routes.draw do
   
   # Matching postings
   match '/find_posting', to: 'postings#find'
+  match '/find_from_home', to: 'postings#find_from_home_page'
   match '/find_user', to: 'users#find'
   match '/share_posting', to: 'postings#share_posting'
 

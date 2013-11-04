@@ -1,6 +1,6 @@
 %h3 Ilan Ara
 #posting-find
-  = simple_form_for find_posting_path, method: "get", html: { class: "form-horizontal" } do |f|
+  = simple_form_for find_posting_path, method: "get", html: { class: "form-horizontal" }, url: { controller: "postings", action: "find" } do |f|
     .row
       .span3.posting_span
         %h2.posting_title== Nereden
@@ -17,7 +17,7 @@
           
     .row
       .span3
-        = f.input :driving , label: "Aranan",  collection: @driving_options, include_blank: false
+        = f.input :driving , label: "Aranan",  collection: @driving_options, include_blank: false, input_html: { value: @driving }
     .row
       = f.button :submit, "Ara", class: 'btn btn-primary btn-medium', style: "width: 120px; height: 40px; left: 40%; position: relative; font-size: large"
   #show-results

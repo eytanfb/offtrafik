@@ -2,7 +2,7 @@
 
 class PostingsController < ApplicationController
   before_filter :signed_in_user, only: [:show, :share_posting]
-  before_filter :districts_and_driving_options, only: [:new, :find]
+  before_filter :districts_and_driving_options, only: [:new, :find, :find_from_home_page]
   
   def new
     @posting = current_user.postings.new params[:posting]
@@ -52,6 +52,21 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
     @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
   end
   
+  def find_from_home_page
+    driving = "Farketmez"
+    from_address = params[:find_from_home][:from_address]
+    to_address = "Koç Üniversitesi"
+    postings_found = Posting.live_postings.with_from_address(from_address).with_to_address(to_address).with_driving(driving)
+     if postings_found.blank?
+       postings_found = Posting.live_postings.with_to_address("Koç Üniversitesi")
+       flash.now[:warning] = "Aradıgınız adresten Koç Üniversitesi'ne ilan bulunamadı. Ama belki aşagıdakiler hoşunuza gider!"
+     end
+    @postings = postings_found.paginate page: params[:page], per_page: 10, order: "date asc"
+    @from_address_district = from_address
+    @to_address_district = to_address
+    @driving = driving
+  end
+  
   def share_posting
     @posting = Posting.find params[:posting_id]
   end
@@ -75,7 +90,7 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
   
   def address_parameter_for_search(address)
     result = ""
-    result += "#{params['/find_posting']["#{address}"][:neighborhood]}," if params['/find_posting']["#{address}"][:neighborhood].present?
+    result += "#{params['/find_posting']["#{address}"][:neighborhood]}," if params['/find_posting']["#{address}"][:neighborhood].present?    
     result += " #{params['/find_posting']["#{address}"][:district]}" if params['/find_posting']["#{address}"][:district].present?
     result.strip
   end

@@ -3,7 +3,7 @@
   = image_tag "harita.png", style: "margin-bottom: 15px"
   %p Bu kadar insan nereye mi gidiyor? Seninle aynı yere. Koç Üniversitesi'ne!
   .row
-    = simple_form_for find_posting_path, method: "get", html: { class: "form-search" }, url: { controller: "postings", action: "find" } do |f|
+    = simple_form_for :find_from_home, method: "get", html: { class: "form-search" }, url: { controller: "postings", action: "find_from_home_page" } do |f|
       = f.input :from_address, label: false, as: :select, collection: @districts, prompt: "Sen Koc Universitesi'ne Nereden Gidiyorsun?", input_html: { class: "span5" }
       = f.button :submit, "Ara", name: nil, class: 'btn btn-primary btn-medium', style: "color: white"
       = hidden_field_tag :to_address, "Koç Üniversitesi"
