@@ -12,8 +12,8 @@
     %p= "#{@responder.name}'in sana ozel bir notu var"
     %p= "#{@responder.name}: #{@text}"
 
-%p== Eger hala trafikten kurtulacak birini ariyorsan #{mail_to @responder.email, "tikla", subject: "#{@to_from} -- #{@posting.formatted_date}", body: "#{@responder.name}, beraber gitmeye varim. #{@posting.formatted_date} tarihinde gorusuruz."}.
+%p== Eger hala trafikten kurtulacak birini ariyorsan #{mail_to @responder.email, "tikla", subject: "#{@to_from} -- #{@posting.formatted_date}", body: "#{@responder.name}, beraber gitmeye varim. #{l @posting.date, format: :short} tarihinde gorusuruz."}.
 
-%p== Eger yol arkadaslarini bulduysan, lutfen #{link_to 'buraya tikla', posting_full_url(@posting.id, responder: @responder.id)}
+%p== Eger yol arkadaslarini bulduysan, lutfen #{link_to 'buraya tikla', posting_full_url(@posting_id, responder: @responder_id)}
 
 %p== #{@responder.name}

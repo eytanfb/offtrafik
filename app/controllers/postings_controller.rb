@@ -81,7 +81,7 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
   
   def full
     posting = Posting.find params[:posting_id]
-    PostingMailer.posting_full(posting.user_id, params[:responder_id], @posting.id).deliver
+    PostingMailer.posting_full(posting.user_id, params[:responder], posting.id).deliver
     flash[:success] = "Ilan dolu emaili yollandı"
     redirect_to user_path(current_user)
   end
