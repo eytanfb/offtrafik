@@ -199,6 +199,10 @@ input[type="text"], input[type="password"], input[type="email"]{
 	height: 30px;
 }
 
+.form-horizontal select, .form-search select{
+	height: 40px;
+}
+
 #error_explanation{
   color: #f00;
   ul{
