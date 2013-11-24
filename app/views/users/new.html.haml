@@ -9,7 +9,7 @@
       
       = f.input :email
       
-      = f.input :neighborhood, label: "Ilceniz", as: :select, collection: DISTRICTS, include_blank: false
+      = f.input :neighborhood, label: "Ilceniz", as: :select, collection: DISTRICTS, include_blank: false, input_html: { style: "height: 40px" }
       
       = f.input :password, label: "Şifre"
       
