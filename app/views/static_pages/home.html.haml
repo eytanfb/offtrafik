@@ -1,7 +1,7 @@
 .center.hero-unit  
   %h1 Offtrafik
   = image_tag "harita.png", style: "margin-bottom: 15px"
-  %p Bu kadar insan nereye mi gidiyor? Seninle aynı yere. Koç Üniversitesi'ne!
+  %p Bu noktalardan nereye mi gidiliyor? Seninle aynı yere. Koç Üniversitesi'ne!
   .row
     = simple_form_for :find_from_home, method: "get", html: { class: "form-search" }, url: { controller: "postings", action: "find_from_home_page" } do |f|
       = f.input :from_address, label: false, as: :select, collection: @districts, prompt: "Sen Koc Universitesi'ne Nereden Gidiyorsun?", input_html: { class: "span5" }
