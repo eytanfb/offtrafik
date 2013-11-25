@@ -1,7 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
-  
-namespace :db do 
+
+namespace :db, evnironment: :production do 
   DISTRICTS.each_with_index do |d|
     district = District.create!(name: d)
     NEIGHBORHOODS.each do |n|
