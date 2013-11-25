@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 namespace :db do 
-  task populate: :production do
+  task populate: :environment do
     DISTRICTS.each_with_index do |d|
       district = District.create!(name: d)
       NEIGHBORHOODS.each do |n|
