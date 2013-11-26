@@ -51,6 +51,10 @@ class Posting < ActiveRecord::Base
   def format(address)
     address.chomp(", Istanbul")
   end
+
+  def self.count
+    Posting.all.count
+  end
   
   private
     def ending_time_is_later_than_starting_time?

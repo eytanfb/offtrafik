@@ -50,6 +50,10 @@ class User < ActiveRecord::Base
     end
   end
   
+  def self.count
+    User.all.count
+  end
+  
   private
     def before_save_stuff
       self.remember_token ||= SecureRandom.urlsafe_base64
