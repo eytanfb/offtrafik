@@ -4,7 +4,7 @@
   %p Bu noktalardan nereye mi gidiliyor? Seninle aynı yere. Koç Üniversitesi'ne!
   .row
     = simple_form_for :find_from_home, method: "get", html: { class: "form-search" }, url: { controller: "postings", action: "find_from_home_page" } do |f|
-      = f.input :from_address, label: false, as: :select, collection: @districts, prompt: "Sen Koc Universitesi'ne Nereden Gidiyorsun?", input_html: { class: "span5" }
+      = f.input :from_address, label: false, as: :select, collection: @districts, prompt: "Sen Koç Üniversitesi'ne Nereden Gidiyorsun?", input_html: { class: "span5" }
       = f.button :submit, "Ara", name: nil, class: 'btn btn-primary btn-medium', style: "color: white"
       = hidden_field_tag :to_address, "Koç Üniversitesi"
       = hidden_field_tag :driving, params[:driving]
