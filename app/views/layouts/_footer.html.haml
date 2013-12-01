@@ -1,10 +1,12 @@
 %footer.footer
-  %nav     
-    %ul
-      %li= link_to "Neden?", why_path # why
-      %li= link_to "Hakkımızda", about_path # about
-      %li= link_to "Bize Ulaşın", contact_path, style: "margin-right: 20px"
-      == Kullanici Sayisi: #{User.count}
-      == Ilan Sayisi: #{Posting.count}
-      
-<span id="siteseal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=2IQ7ahhGhnt9tNMbqxSW0CUjCO7IpPRClsZ2h3u3w8a5JbXf5vsb71"></script></span>
+  %nav
+    .span6
+      <span id="siteseal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=2IQ7ahhGhnt9tNMbqxSW0CUjCO7IpPRClsZ2h3u3w8a5JbXf5vsb71"></script></span>
+    .span6
+      .fb-like{ data: { colorscheme: "light", href: "http://facebook.com/offtrafik", "show-count" => "true", action: "like", width: "250px" } }
+      = link_to "Follow @Offtrafik", "#", href: """https://twitter.com/offtrafik", class: "twitter-follow-button", data: { "show-count" => "false", lang: "en", size: "large" }
+    .span6
+      %ul
+        %li= link_to "Neden?", why_path # why
+        %li= link_to "Hakkımızda", about_path # about
+        %li= link_to "Bize Ulaşın", contact_path, style: "margin-right: 20px"
