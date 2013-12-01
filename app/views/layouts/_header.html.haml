@@ -2,9 +2,9 @@
   .navbar-inner{ style: "background: green" }
     .container
       - if signed_in?
-        = link_to "Offtrafik", find_posting_path, id: "logo"
+        = link_to (image_tag "offtrafik-logo.png", id: "logo"), find_posting_path, id: "logo"
       - else
-        = link_to "Offtrafik", root_path, id: "logo"
+        = link_to (image_tag "offtrafik-logo.png", id: "logo"), root_path, id: "logo"
       %nav
         %ul.nav.pull-right                  
           - if signed_in?
