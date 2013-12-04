@@ -1,4 +1,4 @@
-RelearningRails::Application.routes.draw do
+Offtrafik::Application.routes.draw do
   
   match '/rate' => 'rater#create', :as => 'rate'
 

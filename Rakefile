@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-RelearningRails::Application.load_tasks
+Offtrafik::Application.load_tasks
