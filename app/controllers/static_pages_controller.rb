@@ -22,4 +22,15 @@ class StaticPagesController < ApplicationController
     send_file "#{Rails.root}/app/assets/documents/Terms-And-Conditions.pdf", type: 'application/pdf'
   end
   
+  def admin
+    if current_user.admin?
+      @user_count = User.count
+      @posting_count = Posting.count
+      @live_posting_count = Posting.live_postings.count
+    else
+      flash[:notice] = "Bu sayfaya erişiminiz yoktur."
+      redirect_to current_user
+    end
+  end
+  
 end
