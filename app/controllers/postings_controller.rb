@@ -40,6 +40,17 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
 #{@user.name}"
   end
   
+  def destroy
+    @posting = Posting.find params[:id]
+    if @posting.destroy
+      flash[:success] = "Ilan silinmiştir!"
+      redirect_to current_user
+    else
+      flash[:warning] = "Ilan silinememiştir. Lütfen tekrar deneyiniz."
+      redirect_to @posting
+    end
+  end
+  
   def find
     @driving = if params["/find_posting"].present? 
                 params["/find_posting"][:driving] == "Farketmez" ? "" : params["/find_posting"][:driving]                

@@ -99,6 +99,9 @@
 		float: left;
 		font-size: 15px;
 		font-weight: bold;
+		&:visited {
+			color: white;
+		}
 	}
 	.answer {
 		width: 200px;
