@@ -40,6 +40,10 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
 #{@user.name}"
   end
   
+  def edit
+    @posting = Posting.new
+  end
+  
   def destroy
     @posting = Posting.find params[:id]
     if @posting.destroy

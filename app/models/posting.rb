@@ -56,6 +56,18 @@ class Posting < ActiveRecord::Base
     Posting.all.count
   end
   
+  def from_address_district
+    get_partial_address self.to_address, 1
+  end
+  
+  def neighborhood
+    get_partial_address self.to_address, 0
+  end
+    
+  def get_partial_address(address, part)
+    address.include?('Koç Üniversitesi') ? 'Koç Üniversitesi' : address.split(',')[part] 
+  end
+  
   private
     def ending_time_is_later_than_starting_time?
       if self.starting_time && self.ending_time
