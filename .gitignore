@@ -27,3 +27,4 @@ extra_stuff.txt
 
 *.dump
 *.sql
+.DS_Store
