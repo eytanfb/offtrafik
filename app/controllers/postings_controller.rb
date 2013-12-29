@@ -85,10 +85,13 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
     @from_address_district = from_address
     @to_address_district = to_address
     @driving = driving
+  end
+  
+  def index
+    @postings = Posting.live_postings
     
     respond_to do |format|
-      format.html
-      format.json { render :json => @postings.to_json }
+      format.json { render json: @postings.to_json }
     end
   end
   
