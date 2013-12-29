@@ -22,7 +22,6 @@
         %p= link_to "Iletişime Geç", posting_contact_posting_owner_path(@posting.id), class: "btn btn-primary btn-warning answer", style: "margin-left: 220px; width: 100px", data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true
       - else
         %p
-          = link_to "Ilanı Değiştir", edit_posting_path(@posting), class: "btn btn-primary btn-warning detail", style: "width: 95px; margin-left:80px; font-weight: normal"
           = link_to "Ilanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger answer", style: "width: 60px"
         
 #contact-posting-owner-modal-window.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "contact-posting-owner-modal-label", role: "dialog"}

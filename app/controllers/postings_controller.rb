@@ -65,6 +65,11 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
     @postings = params["/find_posting"].present? ? Posting.live_postings.with_from_address(@from_address).with_to_address(@to_address).with_driving(@driving) : Posting.live_postings
     
     @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
+    
+    respond_to do |format|
+      format.html
+      format.json { render :json => @postings.to_json }
+    end
   end
   
   def find_from_home_page
@@ -80,6 +85,11 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
     @from_address_district = from_address
     @to_address_district = to_address
     @driving = driving
+    
+    respond_to do |format|
+      format.html
+      format.json { render :json => @postings.to_json }
+    end
   end
   
   def share_posting
