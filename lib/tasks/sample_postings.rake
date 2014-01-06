@@ -3,7 +3,7 @@
 
 namespace :db do
   desc "Populate sample postings"
-  task populate: :environment do
+  task sample_postings: :environment do
     users = User.all(limit: 6)
     4.times do
       from_address = 'Ortakoy, Istanbul'
