@@ -23,7 +23,7 @@ Offtrafik::Application.routes.draw do
   match '/find_from_home', to: 'postings#find_from_home_page'
   match '/find_user', to: 'users#find'
   match '/share_posting', to: 'postings#share_posting'
-  match '/postings', to: 'postings#index'
+  match '/all_postings', to: 'postings#all_postings'
 
   # Resources
   resources :users do

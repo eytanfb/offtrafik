@@ -87,7 +87,7 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
     @driving = driving
   end
   
-  def index
+  def all_postings
     @postings = Posting.live_postings
     
     respond_to do |format|
