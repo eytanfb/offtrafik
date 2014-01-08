@@ -1,0 +1,20 @@
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <div id="facebook">
+    	<div id="fb-share-button" data-href = "http://facebook.com/offtrafik/postings/#{@posting.id}" data-type: "buttonm" style: "height: 20px; width: 157px;">  </div>
+    </div>
+	<div id="twitter" style: "margin-top: 20px">
+		<div class = "twitter-share-button" dat-url: "www.offtrafik.com/postings/#{@posting.id}" data-text: "@Offtrafik'te ilan verdim. #{@posting.format(@posting.from_address)}-#{@posting.format(@posting.to_address)} arasi #{@posting.date.strftime(\"%d/%m/%Y\")} gununde yolculuk paylasacak insan ariyorum." data-count: "none" >
+			<a href = "https://twitter.com/share">
+			Tweet
+		</div>
+	</div>
+    <div style="margin-top: 20px"></div>
+    <%= link_to "İlanlara Dön", find_posting_path, class: "btn btn-primary green-button" %>
+  </div>
+</div>

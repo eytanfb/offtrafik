@@ -1,0 +1,39 @@
+<h3 class="center">Yeni İlan</h3>
+<div class="row" id="posting">
+  <%= simple_form_for @posting, html: { class: "form-horizontal" } do |f| %>
+    <div class="span6">
+      <h2 class="posting_title">
+        <%= = Nereden %>
+      </h2>
+      <%= f.fields_for :from_address, id: "from_address" do |from| %>
+        <%= from.input :district, label: false, as: :select, class: "field-part", collection: @districts,  selected: "Koç Üniversitesi", include_blank: false, input_html: { id: "from_address_district", onchange: "calcRoute()" } %>
+        <%= from.input :neighborhoods, label: false, input_html: { id: "from_address_neighborhood" } do %>
+          <%= from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true %>
+        <% end %>
+      <% end %>
+      <%= f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline" %>
+      <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time",  value: "#{Time.now.strftime('%H:%M')}" } %>
+      <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}" } %>
+      <div class="pull-right" id="map"></div>
+    </div>
+    <div class="span6">
+      <h2 class="posting_title">
+        <%= = Nereye %>
+      </h2>
+      <%= f.fields_for :to_address, id: "to_address", class: "fields_for" do |from| %>
+        <%= from.input :district, label: false, as: :select, class: "field-part", collection: @districts, selected: "Koç Üniversitesi", include_blank: false, input_html: { id: "to_address_district", onchange: "calcRoute()" } %>
+        <%= from.input :neighborhoods, label: false, input_html: { id: "to_address_neighborhood" } do %>
+          <%= from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true %>
+        <% end %>
+      <% end %>
+      <%= f.input :driving, label: "Ne Arıyorum", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
+      <%= f.input :smoking, label: "Sigara", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
+      <%= f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)" %>
+      <%= f.submit "Ilan Ver", class: "btn btn-primary pull-right span4", Fromstyle: "height: 50px" %>
+    </div>
+  <% end %>
+</div>
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "new_posting.js" %>
+  <%= javascript_include_tag "maps.js" %>
+<% end %>

@@ -1,0 +1,35 @@
+<%= provide(:title, "Kullanıcı Ara") %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+  </aside>
+  <section>
+    <h3>
+      <%= = Kullanici Ara %>
+    </h3>
+    <table class="table table-hover">
+      <tr>
+        <td>İsim</td>
+        <td>İletişim Tercihi</td>
+        <td>İletişim Bilgisi</td>
+      </tr>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td>
+              <%= link_to user.name, user %>
+            </td>
+            <td>
+              <%= link_to user.preferred_contact_method, user %>
+            </td>
+            <td>
+              <%= link_to user.preferred_contact_content, user %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+</div>

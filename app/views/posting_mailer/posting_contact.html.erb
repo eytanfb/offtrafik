@@ -1,0 +1,28 @@
+<meta content="text/html" http-equiv="Content-Type"/>
+<p>
+  <%= "#{@owner.name}," %>
+</p>
+<p>
+  <%= "#{@responder.name} seninle #{@posting.formatted_date} tarihinde yapacagin"  %>
+  <strong> <%= =#{@to_from} %> </strong>
+  <%= "yolculugu icin irtibata gecmek istiyor." %>
+</p>
+<% if @text.present? %>
+  <strong>
+    <p>
+      <%= "#{@responder.name}'in sana ozel bir notu var" %>
+    </p>
+    <p>
+      <%= "#{@responder.name}: #{@text}" %>
+    </p>
+  </strong>
+<% end %>
+<p>
+  Eger hala trafikten kurtulacak birini ariyorsan <%= "#{mail_to @responder.email, "tikla", subject: "#{@to_from} -- #{@posting.formatted_date}", body: "#{@responder.name}, beraber gitmeye varim. #{l @posting.date, format: :short} tarihinde gorusuruz."}" %>.
+</p>
+<p>
+  Eger yol arkadaslarini bulduysan, lutfen <%= #{link_to 'buraya tikla', posting_full_url(@posting_id, responder: @responder_id)} %>
+</p>
+<p>
+  <%= "#{@responder.name}" %>
+</p>

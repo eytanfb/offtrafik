@@ -1,0 +1,38 @@
+<table class="table table-hover">
+  <tr>
+    <td>Kim</td>
+    <td>Nereden</td>
+    <td>Nereye</td>
+    <td>Tarih</td>
+    <td>Çıkış Zamanı</td>
+    <td>Varış Zamanı</td>
+    <td>İhtiyaç</td>
+  </tr>
+  <tbody>
+    <% posting_list.each do |posting| %>
+      <tr>
+        <td>
+          <%= link_to posting.user.name, posting %>
+        </td>
+        <td>
+          <%= link_to posting.from_address, posting %>
+        </td>
+        <td>
+          <%= link_to posting.to_address, posting %>
+        </td>
+        <td>
+          <%= link_to "#{l posting.date, format: :short}", posting %>
+        </td>
+        <td>
+          <%= link_to posting.starting_time.to_s(:time), posting %>
+        </td>
+        <td>
+          <%= link_to posting.ending_time.to_s(:time), posting %>
+        </td>
+        <td>
+          <%= link_to posting.driving, posting %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

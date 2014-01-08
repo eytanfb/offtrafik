@@ -1,9 +1,0 @@
-.row
-  %aside.span4
-    %section
-      = render 'shared/user_info'
-  %section.span8
-    %h3 Geçmiş Ilanlar
-    - if @past_postings
-      = will_paginate @past_postings, param_name: "past_postings_page"
-      = render 'shared/posting_table', posting_list: @past_postings

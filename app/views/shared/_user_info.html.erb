@@ -1,0 +1,25 @@
+<%= link_to (gravatar_for current_user, size: 52), user_path(current_user)%>
+<h1>
+  <%= link_to current_user.name, user_path(current_user) %>
+</h1>
+<section id="user_info">
+  <p>Yolculuk Puanı: #{current_user.calculate_rating != 0 ? "#{current_user.trip_rating}/5" : "N/A"} </p>
+  <p class="side-button-p">
+    <a class="btn btn-primary btn-mini" href="<%= new_posting_path %>" style="color:white; width: 40%">
+      <i class="icon-edit icon-white"></i>
+      Yeni İlan
+    </a>
+  </p>
+  <p class="side-button-p">
+    <a class="btn btn-primary btn-mini side-button-search" href="<%= find_posting_path %>">
+      <i class="icon-search icon-white"></i>
+      İlan Ara
+    </a>
+  </p>
+  <p class="side-button-p">
+    <a class="btn btn-primary btn-mini side-button-list" href="<%= user_postings_path(current_user) %>">
+      <i class="icon-list icon-white"></i>
+      İlanlarim
+    </a>
+  </p>
+</section>

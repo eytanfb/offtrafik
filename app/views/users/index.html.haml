@@ -1,9 +1,0 @@
-= provide(:title, 'All Users')
-%h1 All Users
-
-= will_paginate # paginate looks for an ActiveRecord:Relation not an array so @users from Users#index won't work
-
-%ul.users
-  = render @users
-  
-= will_paginate

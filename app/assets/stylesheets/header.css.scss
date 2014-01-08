@@ -7,32 +7,39 @@
 
 #header{
 	background: #008800;
-	.header-tab{
+	.header-tab
+	{
 		color: white;
-		&:visited{
+		&:visited
+		{
 			color: white;
 		}
 	}
-	.dropdown-toggle{
+	.dropdown-toggle
+	{
 		background: #008800;
 	}
 }
 
 /* Navbar */
 
-.nav.pull-right{
+.nav.pull-right
+{
     height: 40px;
 }
 
-.user-search{
+.user-search
+{
     margin-top: 4px;
 }
 
-#user-search-button{
+#user-search-button
+{
     margin-top: 0px;
     height: 30px;
 }
 
-li.nav-user-search{
+li.nav-user-search
+{
     height: 40px;
 }

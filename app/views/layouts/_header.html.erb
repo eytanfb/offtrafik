@@ -1,0 +1,45 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner" id="header">
+    <div class="container">
+      <% if signed_in? %>
+        <%= link_to (image_tag "offtrafik-logo-on-green.png", id: "logo"), find_posting_path %>
+      <% else %>
+        <%= link_to (image_tag "offtrafik-logo-on-green.png", id: "logo"), root_path %>
+      <% end %>
+      <nav>
+        <ul class="nav pull-right">
+          <% if signed_in? %>
+            <li>
+              <%= link_to "Ana Sayfa", find_posting_path, class: "header-tab" # home   %>
+            </li>
+            <li class="dropdown">
+              <%= link_to "Profil <b class='caret'></b>".html_safe, "#", class: "dropdown-toggle header-tab", data: { toggle: "dropdown" } %>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to "Profil", current_user %>
+                </li>
+                <li>
+                  <%= link_to "Ayarlar", edit_user_path(current_user) # settings %>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Çıkış", signout_path, method: "delete" # signouton %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Ana Sayfa", root_path, class: "header-tab" # home %>
+            </li>
+            <li>
+              <%= link_to "Neden?", why_path, class: "navbar-tab", style: "color: white" # why %>
+            </li>
+            <li>
+              <%= link_to "Giriş", signin_path, class: "navbar-tab", style: "color: white" #signin %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
