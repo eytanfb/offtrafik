@@ -1,7 +1,7 @@
 <div class="center hero-unit">
-  <h1>Offtrafik</h1>
+  <h2>Bu noktalardan nereye mi gidiliyor?  </h2>
   <%= image_tag "harita.png", style: "margin-bottom: 15px; height: 400px; width: 575px" %>
-  <p>Bu noktalardan nereye mi gidiliyor? Seninle aynı yere. Koç Üniversitesi'ne!</p>
+  <h4> Seninle aynı yere. Koç Üniversitesi'ne!</h4>
   <div class="row">
     <%= simple_form_for :find_from_home, method: "get", html: { class: "form-search" }, url: { controller: "postings", action: "find_from_home_page" } do |f| %>
       <%= f.input :from_address, label: false, as: :select, collection: @districts, prompt: "Sen Koç Üniversitesi'ne Nereden Gidiyorsun?", input_html: { class: "span5" } %>

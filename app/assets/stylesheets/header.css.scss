@@ -1,12 +1,22 @@
-#logo{
-	height: 40px;
-	width: 180px;
+#logo
+{
+	height: 60px;
+
 	position: fixed;
-	top: -2px;
 }
 
-#header{
-	background: #008800;
+header
+{
+	//z-index: -1 !important;
+}
+
+#header
+{
+	background: linear-gradient(0deg, #008000, #568203);
+	height: 60px;
+	padding-top: 5px;
+	font-weight: 600;
+	font-size: 24pt;
 	.header-tab
 	{
 		color: white;
@@ -15,10 +25,7 @@
 			color: white;
 		}
 	}
-	.dropdown-toggle
-	{
-		background: #008800;
-	}
+
 }
 
 /* Navbar */

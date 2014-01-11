@@ -1,1 +1,33 @@
-//HOME CSS
+//HOME PAGE CSS--Without Login
+
+.container
+{
+	position: relative;
+	display: block;
+  
+  .span8
+  {
+    margin-top: 10px;
+  }
+}
+
+.i-main-container
+{
+	h2
+	{
+		color: black;
+	}
+	
+	h4
+	{
+		color: black;
+	}
+	
+	margin-top: 20px;
+	
+	border-style:solid;
+	border-color:red;
+	
+	background: radial-gradient(circle, gray);
+
+}
