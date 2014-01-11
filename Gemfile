@@ -22,7 +22,7 @@ gem 'rename'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'mysql2'
   gem 'rspec-rails'
   gem 'capybara', '1.1.2'
   gem 'guard-rspec', '1.2.1'
