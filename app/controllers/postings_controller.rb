@@ -19,7 +19,6 @@ class PostingsController < ApplicationController
       flash[:success] = "Ilan verildi"
       redirect_to share_posting_path(posting_id: @posting.id)
     else
-      @posting = current_user.postings.new params[:posting]
       districts_and_driving_options
       render 'new'
     end
