@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140111125307) do
+ActiveRecord::Schema.define(:version => 20140113172147) do
 
   create_table "comments", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -47,15 +47,13 @@ ActiveRecord::Schema.define(:version => 20140111125307) do
     t.date     "date"
     t.time     "starting_time"
     t.time     "ending_time"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.text     "comments"
     t.boolean  "smoking"
     t.string   "driving"
-    t.string   "from_address_neighborhood"
-    t.string   "from_address_district"
-    t.string   "to_address_neighborhood"
-    t.string   "to_address_district"
+    t.string   "from_address"
+    t.string   "to_address"
   end
 
   create_table "users", :force => true do |t|
