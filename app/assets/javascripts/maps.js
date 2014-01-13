@@ -40,24 +40,6 @@ function calcRoute() {
   var start = document.getElementById('from_address_district').value + ", Istanbul";
   var end = document.getElementById('to_address_district').value + ", Istanbul";
 	
-	from_neighborhood = document.getElementById('posting_from_address_neighborhood').value;
-	to_neighborhood = document.getElementById('posting_to_address_neighborhood').value;
-	
-	if(from_neighborhood != "")
-	{
-		start += from_neighborhood;
-	} else
-	{
-		start += ", Istanbul";
-	}
-	
-	if(to_neighborhood != "")
-	{
-		end += to_neighborhood;
-	} else {
-		end += to_neighborhood;
-	}
-	
   var request = {
       origin:start,
       destination:end,

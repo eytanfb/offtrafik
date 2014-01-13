@@ -13,7 +13,7 @@
         <% end %>
       <% end %>
       <%= f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline" %>
-      <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time",  value: "#{Time.now.strftime('%H:%M')}" } %>
+      <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}" } %>
       <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}" } %>
       <div class="pull-right" id="map"></div>
     </div>
@@ -37,5 +37,4 @@
 <% content_for :javascripts do %>
   <%= javascript_include_tag "new_posting.js" %>
   <%= javascript_include_tag "maps.js" %>
-  <%= javascript_include_tag "bootstrap-timepicker" %>
 <% end %>

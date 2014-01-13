@@ -14,7 +14,6 @@ jQuery(function($) {
 		} else {
 				$("#posting_from_address_neighborhood").html("");
 		}
-		
 	});
 	
 	$("#to_address_district").change(function(){
@@ -26,8 +25,7 @@ jQuery(function($) {
 			}
 		} else {
 				$("#posting_to_address_neighborhood").html("");
-		}
-				
+		}		
 	});
 	
 	$("#posting_date").datepicker({ 
