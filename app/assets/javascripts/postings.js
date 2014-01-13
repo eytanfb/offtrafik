@@ -1,18 +1,19 @@
 jQuery(function($) {
 				
 	neighborhoods = $("#_find_posting_from_address_neighborhood").html();
+	$("#_find_posting_from_address_neighborhood").html("");
+	$("#_find_posting_to_address_neighborhood").html("");
 	
 	$("#from_address_district").change(function(){
 		district = $("#from_address_district :selected").text();
-		alert(district);
 		if(district != "Koç Üniversitesi"){	
-			alert("alert");
 			options = $(neighborhoods).filter("optgroup[label='" + district + "']");
 			if(options){
 				$("#_find_posting_from_address_neighborhood").html(options);		
 			}
+		} else {
+			$("#_find_posting_from_address_neighborhood").html("");
 		}
-		
 	});
 	
 	$("#to_address_district").change(function(){
@@ -22,6 +23,8 @@ jQuery(function($) {
 			if(options){
 				$("#_find_posting_to_address_neighborhood").html(options);		
 			}
+		} else {
+			$("#_find_posting_to_address_neighborhood").html("");
 		}
 				
 	});

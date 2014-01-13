@@ -117,8 +117,7 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
   private
   
   def address_parameter_for_search(address)
-    result = ""
-    result += "#{params['/find_posting']["#{address}"][:neighborhood]}," if params['/find_posting']["#{address}"][:neighborhood].present?    
+    result = ""    
     result += " #{params['/find_posting']["#{address}"][:district]}" if params['/find_posting']["#{address}"][:district].present?
     result.strip
   end

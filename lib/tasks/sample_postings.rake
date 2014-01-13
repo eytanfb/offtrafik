@@ -6,8 +6,8 @@ namespace :db do
   task sample_postings: :environment do
     users = User.all(limit: 8)
     6.times do
-      from_address = ['Ortakoy, Istanbul', "Istinye, Istanbul", "Sariyer, Istanbul"]
-      to_address = ['Koc Universitesi, Istanbul', "Taksim, Istanbul", "Bakirkoy, Istanbul"]
+      from_address = ['Beşiktaş, Istanbul', "Beyoğlu, Istanbul", "Sarıyer, Istanbul"]
+      to_address = ['Koc Universitesi, Istanbul', "Pendik, Istanbul", "Bakırköy, Istanbul"]
       date = Date.today + 1.week
       starting_time = Time.now
       ending_time = Time.now + rand(30...60).minutes
