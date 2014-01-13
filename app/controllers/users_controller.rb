@@ -10,11 +10,11 @@ class UsersController < ApplicationController
   end
   
   def postings
-    @live_postings = current_user.postings.live_postings.paginate(page: params[:live_postings_page], per_page: 2)
+    @live_postings = current_user.postings.live_postings.paginate(page: params[:live_postings_page], per_page: 5)
   end
   
   def past_postings
-    @past_postings = current_user.postings.past_postings.paginate(page: params[:past_postings_page], per_page: 2)
+    @past_postings = current_user.postings.past_postings.paginate(page: params[:past_postings_page], per_page: 5)
   end
   
   def show
