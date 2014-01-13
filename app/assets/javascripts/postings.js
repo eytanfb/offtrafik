@@ -4,18 +4,24 @@ jQuery(function($) {
 	
 	$("#from_address_district").change(function(){
 		district = $("#from_address_district :selected").text();
-		options = $(neighborhoods).filter("optgroup[label='" + district + "']");
-		if(options){
-			$("#_find_posting_from_address_neighborhood").html(options);		
+		alert(district);
+		if(district != "Koç Üniversitesi"){	
+			alert("alert");
+			options = $(neighborhoods).filter("optgroup[label='" + district + "']");
+			if(options){
+				$("#_find_posting_from_address_neighborhood").html(options);		
+			}
 		}
 		
 	});
 	
 	$("#to_address_district").change(function(){
 		district = $("#to_address_district :selected").text();
-		options = $(neighborhoods).filter("optgroup[label='" + district + "']");
-		if(options){
-			$("#_find_posting_to_address_neighborhood").html(options);		
+		if(district != "Koç Üniversitesi"){	
+			options = $(neighborhoods).filter("optgroup[label='" + district + "']");
+			if(options){
+				$("#_find_posting_to_address_neighborhood").html(options);		
+			}
 		}
 				
 	});
