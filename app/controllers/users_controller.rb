@@ -29,8 +29,6 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.activation_guid = SecureRandom.urlsafe_base64
     if @user.save
-      # sign_in @user
-      # redirect_to @user
       send_activation_email @user.id
       flash[:success] = "Offtrafik'e Hoşgeldin! Lutfen mailine gelen akitvasyon linkini tikla"
       redirect_to root_path
