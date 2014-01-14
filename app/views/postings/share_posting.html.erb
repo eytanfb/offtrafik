@@ -17,3 +17,7 @@
     <%= link_to "İlanlara Dön", find_posting_path, class: "btn btn-primary green-button" %>
   </div>
 </div>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "sharing.js" %>
+<% end %>

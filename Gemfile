@@ -6,8 +6,6 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
-gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails',
-                              :git => 'git://github.com/tispratik/bootstrap-timepicker-rails.git'
 gem 'thin'
 gem 'simple_form'
 gem 'font-awesome-rails'

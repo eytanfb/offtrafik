@@ -27,7 +27,7 @@ function initialize(){
 	map = new google.maps.Map(document.getElementById("map"), myOptions);
 	directionsDisplay.setMap(map);
 	
-	if(document.getElementById("from_address_district").innerHTML != null)
+	if(document.getElementById("from_address") && document.getElementById("from_address").innerHTML != null)
 	{
 		calcRouteForShow();
 	}
@@ -54,8 +54,8 @@ function calcRoute() {
 
 function calcRouteForShow() {
 	
-  var start = document.getElementById('from_address_district').innerHTML + ", Istanbul";
-  var end = document.getElementById('to_address_district').innerHTML + ", Istanbul";
+  var start = document.getElementById('from_address').innerHTML + ", Istanbul";
+  var end = document.getElementById('to_address').innerHTML + ", Istanbul";
 	
   var request = {
       origin:start,
