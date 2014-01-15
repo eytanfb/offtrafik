@@ -25,38 +25,6 @@ class UsersController < ApplicationController
     @favorites = @user.favorites
   end
   
-  def create
-    @user = User.new(params[:user])
-    @user.activation_guid = SecureRandom.urlsafe_base64
-    if @user.save
-      send_activation_email @user.id
-      flash[:success] = "Offtrafik'e Hoşgeldin! Lutfen mailine gelen akitvasyon linkini tikla"
-      redirect_to root_path
-    else
-      @communication_options = { "Email" => "email", "Telefon" => "phone", "BBM" => "bbm" }
-      render 'new'
-    end
-  end
-  
-  def new
-    @user = User.new
-  end
-  
-  def edit
-    @user = User.find(params[:id])
-  end
-  
-  def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
-      flash[:success] = "Profil Güncellendi"
-      sign_in @user
-      redirect_to @user
-    else
-      render 'edit'
-    end
-  end
-  
   def find
     @users = User.find_all_by_name(params[:search_user])
   end

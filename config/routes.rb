@@ -1,8 +1,8 @@
 Offtrafik::Application.routes.draw do
   
-  match '/rate' => 'rater#create', :as => 'rate'
-
-  root :to => 'static_pages#home'
+  devise_for :users, controllers: { :registrations => 'users' }
+  
+  root to: 'static_pages#home'
   
   # Matching static_pages
   match '/', to: 'static_pages#home'

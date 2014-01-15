@@ -1,15 +1,4 @@
-FactoryGirl.define do
-  factory :user do
-    sequence(:name) { |n| "Person #{n}" }
-    sequence(:email) { |n| "person_#{n}@ku.edu.tr" }
-    password              "foobar"
-    password_confirmation "foobar"
-    trip_rating 5
-    preferred_contact_method "email"
-    sequence(:preferred_contact_content) { |n| "person_#{n}@ku.edu.tr" }
-    agreed_to_terms_and_conditions true
-  end
-  
+FactoryGirl.define do  
   factory :admin do
     admin true
   end
