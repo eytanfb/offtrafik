@@ -1,35 +1,16 @@
-#logo
-{
-	height: 60px;
+//HEADER FILE CSS
 
-	position: fixed;
-}
-
-header
+%header-font-styles
 {
-	//z-index: -1 !important;
-}
 
-#header
-{
-	background: linear-gradient(0deg, #008000, #568203);
-	height: 60px;
-	padding-top: 5px;
-	font-weight: 600;
-	font-size: 24pt;
-	.header-tab
+	
+	&:visited
 	{
-		color: white;
-		&:visited
-		{
-			color: white;
-		}
+		color: red;
 	}
-
 }
 
 /* Navbar */
-
 .nav.pull-right
 {
     height: 40px;
@@ -50,3 +31,47 @@ li.nav-user-search
 {
     height: 40px;
 }
+
+#logo
+{
+	height: 60px;
+	position: fixed;
+}
+
+.header-tab, .navbar-tab
+{
+	margin: auto;
+	
+	font-weight: 400;
+	font-size: 14pt;
+
+	color:red;
+	
+	//border-style: solid;
+	//border-color: blue;
+}
+
+#header
+{	
+	background: linear-gradient(180deg,#138808, #1E4D2B);
+	height: 60px;
+	padding-top: 5px;
+	
+	border-style:none;
+	border-bottom-style:outset;
+	border-color:black;
+	border-width: 3px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	
+	.container
+	{
+		//border-style:solid;
+		//border-color:red;
+			
+		width:auto;	
+		margin-left:100px;
+		margin-right:100px;
+	}
+}
+
