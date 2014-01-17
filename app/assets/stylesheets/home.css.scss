@@ -43,6 +43,20 @@
 	float:left;
 	width:49%;
 	
+	h3
+	{
+		width:1250px;
+		text-align:left;
+		
+		//border-style: solid;
+		//border-color:blue;
+	}
+	
+	#second-title
+	{
+		text-align:right;
+	}
+	
 	//border-style: solid;
 	//border-color:green;
 }
@@ -53,7 +67,7 @@
 	float: left;
 	width:49%;	
 	height: auto;
-	
+	margin-top:100px;
 	padding: 10px 0 20px 0;
 	
 	//border-style: solid;
