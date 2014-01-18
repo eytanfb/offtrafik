@@ -1,7 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class UsersController < ApplicationController
+class UsersController < Devise::RegistrationsController
   before_filter :signed_in_user, only: [:index, :edit, :update, :show]
   before_filter :correct_user, only: [:edit, :update]
   

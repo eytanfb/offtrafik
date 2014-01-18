@@ -1,6 +1,6 @@
 Offtrafik::Application.routes.draw do
   
-  devise_for :users, controllers: { :registrations => 'users' }
+  devise_for :users, controllers: { registrations: 'users' }
   
   root to: 'static_pages#home'
   
