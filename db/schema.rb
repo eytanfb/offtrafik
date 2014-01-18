@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140115202716) do
+ActiveRecord::Schema.define(:version => 20140118183707) do
 
   create_table "comments", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -72,7 +72,13 @@ ActiveRecord::Schema.define(:version => 20140115202716) do
     t.string   "summary"
     t.datetime "created_at",                                     :null => false
     t.datetime "updated_at",                                     :null => false
-    t.string   "neighborhoog"
+    t.string   "neighborhood"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "unconfirmed_email"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

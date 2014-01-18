@@ -2,20 +2,18 @@
 #
 # Table name: postings
 #
-#  id                        :integer          not null, primary key
-#  user_id                   :integer
-#  date                      :date
-#  starting_time             :time
-#  ending_time               :time
-#  created_at                :datetime         not null
-#  updated_at                :datetime         not null
-#  comments                  :text
-#  smoking                   :boolean
-#  driving                   :string(255)
-#  from_address_neighborhood :string(255)
-#  from_address_district     :string(255)
-#  to_address_neighborhood   :string(255)
-#  to_address_district       :string(255)
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  date          :date
+#  starting_time :time
+#  ending_time   :time
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  comments      :text
+#  smoking       :boolean
+#  driving       :string(255)
+#  from_address  :string(255)
+#  to_address    :string(255)
 #
 
 require 'spec_helper'

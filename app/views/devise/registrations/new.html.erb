@@ -1,16 +1,26 @@
-<h2>Sign up</h2>
+<%= provide(:title, 'Üye Ol') %>
+<h1>Üye Ol</h1>
+<div class="row">
+  <div class="span6 offset3">
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <!-- <%= f.error_notification %> -->
 
   <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
+    <%= f.input :first_name, label: "Ad", required: true, autofocus: true %>
+    <%= f.input :last_name, label: "Soyad", required: true %>
+    <%= f.input :neighborhood, label: "İlçeniz", as: :select, collection: DISTRICTS, include_blank: false, required: true, input_html: { style: "height: 40px" } %>
+    <%= f.input :email, required: true %>
+    <%= f.input :password, label: "Şifre", required: true %>
+    <%= f.input :password_confirmation, label: "Şifre Onaylama", required: true %>
   </div>
-
+  
+  <div id="terms_and_conditions">
+    <%= f.input :agreed_to_terms_and_conditions, as: :boolean, label: "Devam etmek icin #{link_to 'Kullanım Koşulları ve Şartlarını', terms_and_conditions_url} kabul etmeniz gerekmektedir".html_safe, item_wrapper_class: "inline" %>
+  </div>
+  
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Kayıt Ol", class: "btn btn-primary" %>
   </div>
 <% end %>
 

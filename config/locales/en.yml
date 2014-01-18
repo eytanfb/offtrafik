@@ -9,16 +9,14 @@ en:
       default: ! '%d/%B/%Y'
       short: ! '%e/%b/%Y'
   activerecord:
-    attributes:
-      user:
-        password_digest: "Password"
     errors:
       models:
         user:
           attributes:
-            name:
-              blank: "Isim alanı boş olamaz"
-              too_long: "Isim 50 karakterden fazla olamaz"
+            first_name:
+              blank: "Ad alanı boş olamaz"
+            last_name:
+              blank: "Soyad alanı boş olamaz"						
             email:
               blank: "Email alanı boş olamaz"
               uniqueness: "Bu email daha once alınmıştır"
@@ -30,9 +28,6 @@ en:
               blank: "Şifre boş olamaz"
             password_confirmation:
               blank: "Şifre doğrulama boş olamaz"
-            preferred_contact_content:
-              blank: "Iletişim bilgisi boş olamaz"
-              invalid: "Iletişim bilgisi doğru formatta değil"
             agreed_to_terms_and_conditions:
               inclusion: "Kullanım Koşuları ve Şartları'nı kabul etmeniz gerekmektedir"
         posting:

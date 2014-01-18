@@ -29,7 +29,7 @@ group :development, :test do
   gem 'guard-spork', '1.2.0'
   gem 'spork', '0.9.2'
   gem 'factory_girl_rails', '4.1.0'
-  gem 'annotate', '2.5.0'
+  gem 'annotate', '2.6.1'
   gem 'letter_opener'
 end
 
