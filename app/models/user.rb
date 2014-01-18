@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :summary, :neighborhood, :first_name, :last_name, :agreed_to_terms_and_conditions
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :summary, :neighborhood, :first_name, :last_name, :agreed_to_terms_and_conditions, :trip_rating
   
   validates_presence_of :first_name, :last_name, :email, :password, :password_confirmation, message: "alani bos olamaz"
   validates_inclusion_of :agreed_to_terms_and_conditions, in: [true], on: :create
@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
   has_many :postings
   has_many :comments
   has_many :favorites
+  
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
   
   def calculate_rating
     comments_sum = Comment.find_all_by_is_about(self.id).collect { |comment| comment.rating }.sum

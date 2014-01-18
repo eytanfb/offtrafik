@@ -2,6 +2,13 @@ Offtrafik::Application.routes.draw do
   
   devise_for :users, controllers: { registrations: 'users' }
   
+  devise_scope :user do
+    get 'users/:id/postings' => 'users#postings', as: :user_postings
+    get 'users/:id/past_postings' => 'users#past_postings', as: :user_past_postings
+    match 'users/:id' => 'users#show', as: :user
+    match 'users/:id/edit' => 'users#edit', as: :edit_user
+  end
+  
   root to: 'static_pages#home'
   
   # Matching static_pages
@@ -14,9 +21,9 @@ Offtrafik::Application.routes.draw do
   match '/admin', to: 'static_pages#admin'
   
   # Matching users
-  match '/signup', to: 'users#new'
-  match '/signin', to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete # via: delete means it should be called at HTTP DELETE
+  # match '/signup', to: 'users#new'
+  # match '/signin', to: 'sessions#new'
+  # match '/signout', to: 'sessions#destroy', via: :delete # via: delete means it should be called at HTTP DELETE
   
   # Matching postings
   match '/find_posting', to: 'postings#find'
@@ -25,15 +32,6 @@ Offtrafik::Application.routes.draw do
   match '/share_posting', to: 'postings#share_posting'
   match '/all_postings', to: 'postings#all_postings'
 
-  # Resources
-  resources :users do
-    get 'activation', as: :activation
-    get 'not_activated', as: :not_activated
-    get 'resend_activation', as: :resend_activation
-    get 'postings'
-    get 'past_postings'
-  end
-  resources :sessions, only: [:new, :create, :destroy] # Specifying the only necessary actions
   resources :postings do
     post 'respond', as: :respond
     get 'contact_posting_owner'
