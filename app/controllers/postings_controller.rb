@@ -11,8 +11,8 @@ class PostingsController < ApplicationController
   def create
     from_address = params[:posting][:from_address]
     to_address = params[:posting][:to_address]
-    params[:posting][:from_address] = address_parameter_for_new("from_address")
-    params[:posting][:to_address] = address_parameter_for_new("to_address")
+    # params[:posting][:from_address] = address_parameter_for_new("from_address")
+#     params[:posting][:to_address] = address_parameter_for_new("to_address")
 
     @posting = current_user.postings.new params[:posting]
     if @posting.save
