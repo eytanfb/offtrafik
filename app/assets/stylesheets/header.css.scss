@@ -1,28 +1,16 @@
-#logo{
-	height: 40px;
-	width: 180px;
-	position: fixed;
-	top: -2px;
-}
+//HEADER FILE CSS
 
-#header{
-	background: #008800;
-	.header-tab
+%header-font-styles
+{
+
+	
+	&:visited
 	{
-		color: white;
-		&:visited
-		{
-			color: white;
-		}
-	}
-	.dropdown-toggle
-	{
-		background: #008800;
+		color: red;
 	}
 }
 
 /* Navbar */
-
 .nav.pull-right
 {
     height: 40px;
@@ -43,3 +31,47 @@ li.nav-user-search
 {
     height: 40px;
 }
+
+#logo
+{
+	height: 60px;
+	position: fixed;
+}
+
+.header-tab, .navbar-tab
+{
+	margin: auto;
+	
+	font-weight: 400;
+	font-size: 14pt;
+
+	color:red;
+	
+	//border-style: solid;
+	//border-color: blue;
+}
+
+#header
+{	
+	background: linear-gradient(180deg,#138808, #1E4D2B);
+	height: 60px;
+	padding-top: 5px;
+	
+	border-style:none;
+	border-bottom-style:outset;
+	border-color:black;
+	border-width: 3px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	
+	.container
+	{
+		//border-style:solid;
+		//border-color:red;
+			
+		width:auto;	
+		margin-left:100px;
+		margin-right:100px;
+	}
+}
+

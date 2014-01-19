@@ -1,17 +1,39 @@
-<div class="center hero-unit">
-  <h1>Offtrafik</h1>
-  <%= image_tag "harita.png", style: "margin-bottom: 15px; height: 400px; width: 575px" %>
-  <p>Bu noktalardan nereye mi gidiliyor? Seninle aynı yere. Koç Üniversitesi'ne!</p>
-  <div class="row">
-    <%= simple_form_for :find_from_home, method: "get", html: { class: "form-search" }, url: { controller: "postings", action: "find_from_home_page" } do |f| %>
-      <%= f.input :from_address, label: false, as: :select, collection: @districts, prompt: "Sen Koç Üniversitesi'ne Nereden Gidiyorsun?", input_html: { class: "span5" } %>
-      <%= f.button :submit, "Ara", name: nil, class: 'btn btn-primary btn-medium', style: "color: white" %>
-      <%= hidden_field_tag :to_address, "Koç Üniversitesi" %>
-      <%= hidden_field_tag :driving, params[:driving] %>
-    <% end %>
-  </div>
-  <div class="row">
-    <%= link_to "Üye ol!", signup_path, class: "btn btn-large btn-primary", style: "color: white" %>
-    <%= link_to "Neden?", why_path, class: "btn btn-large btn-primary", style: "color: white; background: green" %>
-  </div>
-</div>
+<div class="center hero-unit i-main-container">
+	<div id = "container-left-part">
+	   <h3>Bütün bu noktalardan Koç Üniversite'sine gidiliyor.</h3>
+		<h3 id = "second-title">Sende katıl, yolculuklarını paylaşmaya başla !</h3>
+	   <%= image_tag "harita.png", style: "margin-bottom: 15px; height: 400px; width: 575px" %>
+	   <!--<h4> Seninle aynı yere. Koç Üniversitesi'ne!</h4>-->
+	</div><!--container-left-part-->
+	
+	<div id = "container-right-part">
+		<div id = "search-boxes">
+			<p>Search Boxes Will Be Here</p>
+		</div>
+		
+	   <div class="row">
+	     <%= simple_form_for :find_from_home, method: "get", html: { class: "form-search" }, url: { controller: "postings", action: "find_from_home_page" } do |f| %>
+		    
+			 
+	       <%= f.button :submit, "İlan Ara", name: nil, class: 'btn btn-primary btn-large', id: "search-button" %>
+	       <%= hidden_field_tag :to_address, "Koç Üniversitesi" %>
+	       <%= hidden_field_tag :driving, params[:driving] %>
+	     <% end %>
+	   </div>
+		
+	   <div class="row" id = "main-buttons">
+	     <%= link_to "Üye Ol !", signup_path, class: "btn btn-large btn-primary", style: "color: white" %>
+	     <%= link_to "Neden?", why_path, class: "btn btn-large btn-primary", style: "color: white; background: green" %>
+	   </div>
+	</div> <!--container-right-part-->
+</div><!--center hero-unit i-main-container-->
+
+
+
+
+<!-- 
+
+f.input :from_address, label: false, as: :select, collection: @districts, prompt: "Sen Koç Üniversitesi'ne Nereden Gidiyorsun?", input_html: { class: "span5" }
+
+
+-->

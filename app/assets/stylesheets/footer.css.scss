@@ -1,0 +1,72 @@
+/*FOOTER*/
+
+$grayMediumLight: #eaeaea;
+
+footer 
+{
+  margin-top: 35px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 2px solid $grayMediumLight;
+  /*color: $grayLight; Need a fix*/
+  background: linear-gradient(0deg, gray, white);
+
+	border-style:none;
+	border-bottom-style:outset;
+	border-width: 3px;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+
+  /*Keep it at the bottom*/
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  
+  .span5
+  {
+	  /*float: right;*/
+
+    .links
+    {
+      margin-right: 25px;
+    }
+	  
+  }
+  
+  nav
+  {
+      //border-style: solid;
+      //border-color: blue;   
+  }
+
+  a 
+  {
+    color: white;
+  }
+  small{
+    float: left;
+  }
+  ul{
+    float: right;
+    list-style: none;
+    li
+	 {
+      float: left;
+      margin-left: 15px;
+    }
+  }  
+}
+
+/* clearfix */
+  
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  zoom: 1;
+}
