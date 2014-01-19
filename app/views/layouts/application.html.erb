@@ -4,13 +4,17 @@
       <%= full_title(yield(:title)) %>
     </title>
     <%= stylesheet_link_tag "application", media: 'all' %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false", "application" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places", "application" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
   </head>
   <body>
     <%= render 'layouts/header' %>
+    <% unless current_page?(new_posting_path) || current_page?("/postings") %>
     <div class="container">
+    <% else %>
+    <div>
+    <% end %>
       <% flash.each do |key, value| %>
         <div class="alert-<%= key %> alert">
           <%= value %>

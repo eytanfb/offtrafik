@@ -21,44 +21,23 @@ function initialize(){
 				  mapTypeId: 'roadmap'
 				}
 				map.setCenter(results[0].geometry.location);
-				map.setZoom(10);
+				map.setZoom(9);
     }
 	});
 	
-	var from_address = document.getElementById("posting_from_address");
-	var to_address = document.getElementById("posting_to_address");
-	
-	map = new google.maps.Map(document.getElementById("map"), myOptions);
-	map.controls[google.maps.ControlPosition.TOP_LEFT].push(from_address);
-	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(to_address);
-	
-	var autocomplete = new google.maps.places.Autocomplete(from_address);
-	autocomplete.bindTo('bounds', map);
-	autocomplete.setComponentRestrictions({'country': 'tr'});
-	autocomplete = new google.maps.places.Autocomplete(to_address);
-	autocomplete.bindTo('bounds', map);
-	autocomplete.setComponentRestrictions({'country': 'tr'});
+	map = new google.maps.Map(document.getElementById("show-map"), myOptions);
 	
 	directionsDisplay.setMap(map);
-	calcRoute();
 	
-	var inputs = $(':input').keypress(function(e){ 
-	    if (e.which == 13) {
-	       e.preventDefault();
-	       var nextInput = inputs.get(inputs.index(this) + 1);
-	       if (nextInput) {
-	          nextInput.focus();
-	       }
-	    }
-	});
+	calcRouteForShow();
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-function calcRoute() {
-		
-  var start = document.getElementById('posting_from_address').value;
-  var end = document.getElementById('posting_to_address').value;
+function calcRouteForShow() {
+	
+  var start = document.getElementById('from_address').innerHTML + ", Istanbul";
+  var end = document.getElementById('to_address').innerHTML + ", Istanbul";
 	
   var request = {
       origin:start,

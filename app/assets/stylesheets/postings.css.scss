@@ -6,9 +6,20 @@
 	margin-top: 50px;
 }
 
-#map {
-	height: 400px;
-	width: 400px;
+#show-map {
+	height: 250px;
+	width: 95%;
+}
+
+.address-input {
+	background-color: #fff;
+  padding: 0px 11px 0 13px;
+  width: 200px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+	margin-top: 5px;
 }
 
 .facebook {

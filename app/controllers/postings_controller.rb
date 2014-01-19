@@ -1,8 +1,8 @@
 # encoding: utf-8
 
 class PostingsController < ApplicationController
-  before_filter :signed_in_user, only: [:show, :share_posting, :full, :respond]
-  before_filter :districts_and_driving_options, only: [:new, :find, :find_from_home_page]
+  before_filter :authenticate_user!, only: [:show, :share_posting, :full, :respond]
+  before_filter :driving_options, only: [:new, :find, :find_from_home_page]
   
   def new
     @posting = current_user.postings.new params[:posting]
@@ -11,15 +11,13 @@ class PostingsController < ApplicationController
   def create
     from_address = params[:posting][:from_address]
     to_address = params[:posting][:to_address]
-    params[:posting][:from_address] = address_parameter_for_new("from_address")
-    params[:posting][:to_address] = address_parameter_for_new("to_address")
 
     @posting = current_user.postings.new params[:posting]
     if @posting.save
       flash[:success] = "Ilan verildi"
       redirect_to share_posting_path(posting_id: @posting.id)
     else
-      districts_and_driving_options
+      driving_options
       render 'new'
     end
   end
@@ -122,17 +120,8 @@ Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
     result.strip
   end
   
-  def address_parameter_for_new(address)
-    if params[:posting]["#{address}"][:district] == "Koç Üniversitesi"
-      "Koç Üniversitesi"
-    else 
-      "#{params[:posting]["#{address}"][:neighborhood]}, #{params[:posting]["#{address}"][:district]}"
-    end
-  end
-  
-  def districts_and_driving_options
-    @districts = District.pluck(:name).unshift("Koç Üniversitesi")
-    @driving_options = %w(Farketmez Sürücü Yolcu Taksi)  
+  def driving_options
+    @driving_options = %w(Farketmez Sürücü Yolcu Taksi)
   end
   
 end
