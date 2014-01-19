@@ -63,5 +63,7 @@ module Offtrafik
     # Rotate log files
     #log_pipe = IO.popen("/usr/sbin/rotatelogs #{Rails.root}/log/#{Rails.env}.%Y%m%d.log 86400", 'a')
     #config.logger = Logger.new(log_pipe)
+    
+    config.assets.initialize_on_precompile = false
   end
 end
