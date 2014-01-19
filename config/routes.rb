@@ -20,11 +20,6 @@ Offtrafik::Application.routes.draw do
   match '/terms_and_conditions', to: 'static_pages#terms_and_conditions'
   match '/admin', to: 'static_pages#admin'
   
-  # Matching users
-  # match '/signup', to: 'users#new'
-  # match '/signin', to: 'sessions#new'
-  # match '/signout', to: 'sessions#destroy', via: :delete # via: delete means it should be called at HTTP DELETE
-  
   # Matching postings
   match '/find_posting', to: 'postings#find'
   match '/find_from_home', to: 'postings#find_from_home_page'
@@ -37,6 +32,7 @@ Offtrafik::Application.routes.draw do
     get 'contact_posting_owner'
     get 'full', as: :full
   end
+  
   resources :comments
 
 

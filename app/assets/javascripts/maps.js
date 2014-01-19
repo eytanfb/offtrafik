@@ -7,24 +7,13 @@ var toMarker;
 
 function initialize(){
 	
-	var myOptions;
-	var address = "Istanbul";
-	geocoder = new google.maps.Geocoder();
+
 	directionsDisplay = new google.maps.DirectionsRenderer();
-	
-	geocoder.geocode({'address': address}, function(results, status)
-	{
-    if (status == google.maps.GeocoderStatus.OK) {
-				myOptions = {
-				  zoom: 3,
-				  center: results[0].geometry.location,
-				  mapTypeId: 'roadmap'
-				}
-				map.setCenter(results[0].geometry.location);
-				map.setZoom(10);
-    }
-	});
-	
+	var myOptions = {
+	  zoom: 10,
+	  center: new google.maps.LatLng(41.1136, 28.9750),
+	  mapTypeId: 'roadmap'
+	}
 	var from_address = document.getElementById("posting_from_address");
 	var to_address = document.getElementById("posting_to_address");
 	
