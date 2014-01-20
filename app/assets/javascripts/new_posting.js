@@ -1,33 +1,5 @@
 jQuery(function($) {
 				
-	// neighborhoods = $("#posting_from_address_neighborhood").html();
-	// $("#posting_from_address_neighborhood").html("");
-	// $("#posting_to_address_neighborhood").html("");
-	// 
-	// $("#from_address_district").change(function(){
-	// 	district = $("#from_address_district :selected").text();
-	// 	if(district != "Koç Üniversitesi"){
-	// 		options = $(neighborhoods).filter("optgroup[label='" + district + "']");
-	// 		if(options){
-	// 			$("#posting_from_address_neighborhood").html(options);		
-	// 		}
-	// 	} else {
-	// 			$("#posting_from_address_neighborhood").html("");
-	// 	}
-	// });
-	// 
-	// $("#to_address_district").change(function(){
-	// 	district = $("#to_address_district :selected").text();
-	// 	if(district != "Koç Üniversitesi"){
-	// 		options = $(neighborhoods).filter("optgroup[label='" + district + "']");
-	// 		if(options){
-	// 			$("#posting_to_address_neighborhood").html(options);		
-	// 		}
-	// 	} else {
-	// 			$("#posting_to_address_neighborhood").html("");
-	// 	}		
-	// });
-	// 
 	$("#posting_date").datepicker({ 
 			dateFormat: 'dd-mm-yy', minDate: 0
 		});
@@ -42,4 +14,24 @@ jQuery(function($) {
 	
 		makeTimepicker("#starting_time");
 		makeTimepicker("#ending_time");
+		
+		$("#standard-posting .posting-button").click(function(){
+			event.preventDefault();
+			$('#standard-posting .posting-button').addClass('hidden');
+			$('#standard-posting .items').toggle(500).removeClass('hidden');
+			if($("#frequent-posting .posting-button").hasClass('hidden')){
+				$('#frequent-posting .items').hide(500).addClass('hidden');
+				$('#frequent-posting .posting-button').show(500).removeClass('hidden');	
+			}
+		});
+		
+		$("#frequent-posting .posting-button").click(function(){
+			event.preventDefault();
+			$('#frequent-posting .posting-button').addClass('hidden');
+			$('#frequent-posting .items').toggle(500).removeClass('hidden');
+			if($("#standard-posting .posting-button").hasClass('hidden')){
+				$('#standard-posting .items').hide(500).addClass('hidden');
+				$('#standard-posting .posting-button').show(500).removeClass('hidden');	
+			}
+		});
 });

@@ -6,6 +6,28 @@
 	margin-top: 50px;
 }
 
+#standard-posting {
+	margin-bottom: 10px;
+}
+
+.hidden {
+	display: none;
+}
+
+.posting-button {
+	width: 300px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	&:visited {
+		color: white;
+	}
+}
+
+.posting-submit {
+	margin-left: 180px;
+}
+
 #show-map {
 	height: 250px;
 	width: 95%;
