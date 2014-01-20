@@ -1,1 +1,99 @@
-//HOME CSS
+//HOME PAGE CSS--Without Login
+
+.container
+{
+	position: relative;
+	display: block;
+	width:auto;
+  
+  .span8
+  {
+    margin-top: 10px;
+  }
+}
+
+.i-main-container
+{
+	h2
+	{
+		color: black;
+	}
+	
+	h4
+	{
+		color: black;
+	}
+	
+	display:block;
+	height: 530px;	
+	margin-top: 50px;
+	margin-left: 40px;
+	margin-right: 40px;
+	
+	//background-color:radial-gradient(circle, #91A3B0, white);
+	background-color:lighten(#91A3B0,22%);
+	border-style:dotted;
+	border-radius: 40px;
+	border-width:6px;
+	border-color:lighten(#123524,10%);
+}
+
+#container-left-part
+{
+	float:left;
+	width:49%;
+	
+	h3
+	{
+		width:1250px;
+		text-align:left;
+		
+		//border-style: solid;
+		//border-color:blue;
+	}
+	
+	#second-title
+	{
+		text-align:right;
+	}
+	
+	//border-style: solid;
+	//border-color:green;
+}
+
+
+#container-right-part
+{
+	float: left;
+	width:49%;	
+	height: auto;
+	margin-top:100px;
+	padding: 10px 0 20px 0;
+	
+	//border-style: solid;
+	//border-color:blue;
+}
+
+#search-boxes
+{
+	display: block;
+	height: 50px;
+	
+	margin: 10px 10px 20px 10px;
+	padding: 3px 5px 3px 5px;
+
+	//border-style: solid;
+	//border-color: yellow;
+}
+
+#search-button
+{
+	color: white;
+	width:200px;
+	font-size:18pt;
+}
+
+#main-buttons
+{
+	margin-top: 100px;
+}
