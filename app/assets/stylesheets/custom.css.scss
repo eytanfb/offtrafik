@@ -3,6 +3,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$grayLight: #eaeaea;
 
 @mixin box_sizing{
   -moz-box-sizing: border-box;
@@ -18,6 +19,7 @@ html {
 
 body {
   padding-top: 60px;
+  display: block;
 }
 
 section {
@@ -131,7 +133,7 @@ p {
 aside{
   section{
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $grayLight;
     &:first-child{
       border: 0;
       padding-top: 0;
@@ -203,9 +205,9 @@ input[type="radio"], input[type="checkbox"]{
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $grayLight;
     &:last_child{
-      border-bottom: 1px solid $grayLighter;
+      border-bottom: 1px solid $grayLight;
     }
   }
 }
@@ -239,7 +241,7 @@ input[type="radio"], input[type="checkbox"]{
 .side-button-list {
   background: orange;
   color: white;
-  width: 40%;
+  width: 40%;.
   margin-top: 5px;
 	&:hover {
 		background-color: orange;
@@ -286,5 +288,3 @@ input[type="radio"], input[type="checkbox"]{
   margin-top: 45px;
   @include box_sizing;
 }
-
-

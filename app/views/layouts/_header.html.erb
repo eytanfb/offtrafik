@@ -2,9 +2,9 @@
   <div class="navbar-inner" id="header">
     <div class="container">
       <% if signed_in? %>
-        <%= link_to (image_tag "offtrafik-logo-on-green.png", id: "logo"), find_posting_path %>
+        <%= link_to (image_tag "offtrafik-no-background-logo.png", id: "logo"), find_posting_path %>
       <% else %>
-        <%= link_to (image_tag "offtrafik-logo-on-green.png", id: "logo"), root_path %>
+        <%= link_to (image_tag "offtrafik-no-background-logo.png", id: "logo"), root_path %>
       <% end %>
       <nav>
         <ul class="nav pull-right">
@@ -32,7 +32,7 @@
               <%= link_to "Ana Sayfa", root_path, class: "header-tab" %>
             </li>
             <li>
-              <%= link_to "Neden?", why_path, class: "navbar-tab", style: "color: white" %>
+              <%= link_to "Neden?", why_path, class: "navbar-tab" %>
             </li>
             <li>
               <%= link_to "Giriş", new_user_session_path, class: "navbar-tab", style: "color: white" %>
