@@ -1,6 +1,7 @@
 jQuery(function($) {
 				
-	$("#posting_date").datepicker({ 
+	var dates = $("#posting").find(".datepicker");
+	dates.datepicker({ 
 			dateFormat: 'dd-mm-yy', minDate: 0
 		});
 		
