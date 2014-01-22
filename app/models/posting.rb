@@ -20,7 +20,6 @@
 #!/bin/env ruby
 class Posting < ActiveRecord::Base
   attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :comments, :smoking, :driving
-  attr_writer :current_step
   
   belongs_to :user
   

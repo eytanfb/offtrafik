@@ -6,18 +6,20 @@ class PostingsController < ApplicationController
   
   def new
     @posting = current_user.postings.new params[:posting]
+    @frequent_posting = current_user.postings.new params[:posting]
   end
   
   def create
     from_address = params[:posting][:from_address]
     to_address = params[:posting][:to_address]
 
-    @posting = Posting.new params[:posting]
+    @posting = current_user.postings.new params[:posting]
     if @posting.save
       flash[:success] = "Ilan verildi"
       redirect_to share_posting_path(posting_id: @posting.id)
     else
       driving_options
+      @frequent_posting = current_user.postings.new params[:posting]
       render 'new'
     end
   end
@@ -28,14 +30,6 @@ class PostingsController < ApplicationController
     to_address = @posting.format(@posting.to_address)
     from_address = @posting.format(@posting.from_address)
     @to_from = "#{to_address} - #{from_address}"
-    @message = "
-#{@user.name} seninle #{@posting.formatted_date} tarihinde yapacagin #{@to_from} yolculugu icin irtibata gecmek istiyor.
-
-Eger hala trafikten kurtulacak birini ariyorsan tikla.
-
-Eger yol arkadaslarini bulduysan, lutfen buraya tikla.
-
-#{@user.name}"
   end
   
   def edit
