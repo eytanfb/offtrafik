@@ -12,21 +12,22 @@ function initialize(){
 	var myOptions = {
 	  zoom: 10,
 	  center: new google.maps.LatLng(41.1136, 28.9750),
+		bounds: new google.maps.LatLngBounds(new google.maps.LatLng(41.500, 28.400), new google.maps.LatLng(40.600, 29.400)),
 	  mapTypeId: 'roadmap'
 	}
-	var from_address = document.getElementById("posting_from_address");
-	var to_address = document.getElementById("posting_to_address");
+	var fromAddress = document.getElementById("posting_from_address");
+	var toAddress = document.getElementById("posting_to_address");
 	
 	map = new google.maps.Map(document.getElementById("map"), myOptions);
-	map.controls[google.maps.ControlPosition.TOP_LEFT].push(from_address);
-	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(to_address);
+	map.controls[google.maps.ControlPosition.TOP_LEFT].push(fromAddress);
+	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(toAddress);
 	
-	var autocomplete = new google.maps.places.Autocomplete(from_address);
-	autocomplete.bindTo('bounds', map);
-	autocomplete.setComponentRestrictions({'country': 'tr'});
-	autocomplete = new google.maps.places.Autocomplete(to_address);
-	autocomplete.bindTo('bounds', map);
-	autocomplete.setComponentRestrictions({'country': 'tr'});
+	var fromAutocomplete = new google.maps.places.Autocomplete(fromAddress);
+	fromAutocomplete.bindTo('bounds', map);
+	fromAutocomplete.setComponentRestrictions({'country': 'tr'});
+	var toAutocomplete = new google.maps.places.Autocomplete(toAddress);
+	toAutocomplete.bindTo('bounds', map);
+	toAutocomplete.setComponentRestrictions({'country': 'tr'});
 	
 	directionsDisplay.setMap(map);
 	calcRoute();
@@ -52,6 +53,7 @@ function calcRoute() {
   var request = {
       origin:start,
       destination:end,
+			region: "tr",
       travelMode: google.maps.DirectionsTravelMode.DRIVING
   };
   directionsService.route(request, function(response, status) {
