@@ -15,19 +15,8 @@ function initialize(){
 		bounds: new google.maps.LatLngBounds(new google.maps.LatLng(41.500, 28.400), new google.maps.LatLng(40.600, 29.400)),
 	  mapTypeId: 'roadmap'
 	}
-	var fromAddress = document.getElementById("posting_from_address");
-	var toAddress = document.getElementById("posting_to_address");
 	
 	map = new google.maps.Map(document.getElementById("map"), myOptions);
-	// map.controls[google.maps.ControlPosition.TOP_LEFT].push(fromAddress);
-	// map.controls[google.maps.ControlPosition.TOP_RIGHT].push(toAddress);
-	
-	var fromAutocomplete = new google.maps.places.Autocomplete(fromAddress);
-	fromAutocomplete.bindTo('bounds', map);
-	fromAutocomplete.setComponentRestrictions({'country': 'tr'});
-	var toAutocomplete = new google.maps.places.Autocomplete(toAddress);
-	toAutocomplete.bindTo('bounds', map);
-	toAutocomplete.setComponentRestrictions({'country': 'tr'});
 	
 	directionsDisplay.setMap(map);
 	calcRoute();
@@ -61,6 +50,46 @@ function calcRoute() {
       directionsDisplay.setDirections(response);
     }
   });
+}
+
+function preparePostingAdresses() {
+	
+	map.controls[google.maps.ControlPosition.TOP_LEFT].clear();
+	map.controls[google.maps.ControlPosition.TOP_RIGHT].clear();
+	
+	var fromAddress = document.getElementById("posting_from_address");
+	var toAddress = document.getElementById("posting_to_address");
+	
+	map.controls[google.maps.ControlPosition.TOP_LEFT].push(fromAddress);
+	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(toAddress);
+	
+	var fromAutocomplete = new google.maps.places.Autocomplete(fromAddress);
+	fromAutocomplete.bindTo('bounds', map);
+	fromAutocomplete.setComponentRestrictions({'country': 'tr'});
+	var toAutocomplete = new google.maps.places.Autocomplete(toAddress);
+	toAutocomplete.bindTo('bounds', map);
+	toAutocomplete.setComponentRestrictions({'country': 'tr'});
+	
+}
+
+function prepareFrequentPostingAdresses() {
+	
+	map.controls[google.maps.ControlPosition.TOP_LEFT].pop();
+	map.controls[google.maps.ControlPosition.TOP_RIGHT].pop();
+	
+	var fromAddress = document.getElementById("frequent_posting_from_address");
+	var toAddress = document.getElementById("frequent_posting_to_address");
+	
+	map.controls[google.maps.ControlPosition.TOP_LEFT].push(fromAddress);
+	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(toAddress);
+	
+	var fromAutocomplete = new google.maps.places.Autocomplete(fromAddress);
+	fromAutocomplete.bindTo('bounds', map);
+	fromAutocomplete.setComponentRestrictions({'country': 'tr'});
+	var toAutocomplete = new google.maps.places.Autocomplete(toAddress);
+	toAutocomplete.bindTo('bounds', map);
+	toAutocomplete.setComponentRestrictions({'country': 'tr'});
+	
 }
 
 function setMarkerOptions(marker, map, position, icon)
