@@ -38,6 +38,14 @@ en:
               blank: "Nereye alanı boş olamaz"
             date:
               blank: "Tarih alanı boş olamaz"
+        frequent_posting:
+          attributes:
+            from_address:
+              blank: "Nereden alanı boş olamaz"
+            to_address:
+              blank: "Nereye alanı boş olamaz"
+            last_date:
+              blank: "Son Ilan Tarihi boş olamaz"
         comment:
           attributes:
             text:

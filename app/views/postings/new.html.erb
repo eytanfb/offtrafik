@@ -21,13 +21,15 @@
         <p><%= link_to "Rutin Ilan", "#", class: "btn btn-primary btn-large posting-button", style: "background: orange" %></p>
         <div class="items hidden">
           <%= simple_form_for @frequent_posting, html: { class: "form-horizontal" } do |f| %>
-            <%= f.input :date, label: "Son Ilan Tarihi", as: :string, default: Date.today + 2.weeks, input_html: { class: "datepicker" } %>
+            <%= f.input :last_date, label: "Son Ilan Tarihi", as: :string, default: Date.today + 2.weeks, input_html: { class: "datepicker" } %>
             <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}" } %>
             <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}" } %>
             <%= f.input :driving, label: "Ne Arıyorum", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
             <%= f.input :smoking, label: "Sigara", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
             <%= f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)" %>
-            <%= f.submit "Ilan Ver", class: "btn btn-primary posting-submit", style: "width: 280px;" %>
+            <%= f.input :from_address, label: false, as: :string, placeholder: "Nereden", input_html: { onblur: "calcRoute()", class: "address-input" } %>
+            <%= f.input :to_address, label: false, as: :string, placeholder: "Nereye", input_html: { onblur: "calcRoute()", class: "address-input" }  %>
+            <%= f.submit "Ilan Ver", class: "btn btn-primary posting-submit", style: "width: 280px;" %>            
           <% end %>
         </div>
       </div>

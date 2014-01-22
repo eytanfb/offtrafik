@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   
   has_many :postings
+  has_many :frequent_postings
   has_many :comments
   has_many :favorites
   

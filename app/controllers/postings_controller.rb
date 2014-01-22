@@ -6,7 +6,7 @@ class PostingsController < ApplicationController
   
   def new
     @posting = current_user.postings.new params[:posting]
-    @frequent_posting = current_user.postings.new params[:posting]
+    @frequent_posting = current_user.frequent_postings.new params[:frequent_posting]
   end
   
   def create
@@ -19,7 +19,7 @@ class PostingsController < ApplicationController
       redirect_to share_posting_path(posting_id: @posting.id)
     else
       driving_options
-      @frequent_posting = current_user.postings.new params[:posting]
+      @frequent_posting = current_user.frequent_postings.new params[:frequent_posting]
       render 'new'
     end
   end

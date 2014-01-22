@@ -19,8 +19,8 @@ function initialize(){
 	var toAddress = document.getElementById("posting_to_address");
 	
 	map = new google.maps.Map(document.getElementById("map"), myOptions);
-	map.controls[google.maps.ControlPosition.TOP_LEFT].push(fromAddress);
-	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(toAddress);
+	// map.controls[google.maps.ControlPosition.TOP_LEFT].push(fromAddress);
+	// map.controls[google.maps.ControlPosition.TOP_RIGHT].push(toAddress);
 	
 	var fromAutocomplete = new google.maps.places.Autocomplete(fromAddress);
 	fromAutocomplete.bindTo('bounds', map);

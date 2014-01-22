@@ -33,6 +33,7 @@ Offtrafik::Application.routes.draw do
     get 'full', as: :full
   end
   
+  resources :frequent_postings
   resources :comments
 
 
