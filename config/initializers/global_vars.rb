@@ -1049,5 +1049,3 @@ NEIGHBORHOODS =
   ["Zeytinburnu",	"Yeşiltepe"],
   ["Zeytinburnu",	"Zeytinburnu Olivium"]
 ]
-
-SAMPLE_FAVORITES = ["Kanyon, Istanbul", "Istinye Park, Istanbul", "Koc Universitesi, Istanbul", "Taksim, Istanbul", "Besiktas KafePi, Istanbul", "Anjelique, Istanbul", "Garipce, Istanbul", "Benzin Cafe, Kadikoy, Istanbul"]

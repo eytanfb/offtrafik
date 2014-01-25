@@ -19,7 +19,8 @@
 
 class FrequentPosting < ActiveRecord::Base
 
-  attr_accessible :comments, :driving, :ending_time, :from_address, :last_date, :smoking, :starting_time, :to_address
+  attr_accessible :comments, :driving, :ending_time, :from_address, :last_date, :smoking, :starting_time, :to_address, :days
+  attr_writer :days
   
   belongs_to :user
   
