@@ -5,9 +5,9 @@
         <p><%= link_to "Gunluk Ilan", "#", class: "btn btn-primary btn-large posting-button" %></p>
         <div class="items hidden">
           <%= simple_form_for @posting, html: { class: "form-horizontal" } do |f| %>
-            <%= f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline", input_html: { class: "datepicker" } %>
-            <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}" } %>
-            <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}" } %>
+            <%= f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline", input_html: { class: "standard-datepicker" } %>
+            <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
+            <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
             <%= f.input :driving, label: "Ne Arıyorum", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
             <%= f.input :smoking, label: "Sigara", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
             <%= f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)" %>
@@ -26,9 +26,9 @@
                 <%= field.input "#{day}", as: :boolean  %>
               <% end %>
             <% end %>
-            <%= f.input :last_date, label: "Son Ilan Tarihi", as: :string, default: Date.today + 2.weeks, input_html: { class: "datepicker" } %>
-            <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}" } %>
-            <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}" } %>
+            <%= f.input :last_date, label: "Son Ilan Tarihi", as: :string, default: Date.today + 2.weeks, input_html: { class: "frequent-datepicker" } %>
+            <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
+            <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
             <%= f.input :driving, label: "Ne Arıyorum", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
             <%= f.input :smoking, label: "Sigara", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
             <%= f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)" %>
