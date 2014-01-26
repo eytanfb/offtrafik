@@ -10,8 +10,8 @@ class PostingsController < ApplicationController
   end
   
   def create
-    from_address = params[:posting][:from_address]
-    to_address = params[:posting][:to_address]
+    params[:posting][:from_address] = params[:from_address]
+    params[:posting][:to_address] = params[:to_address]
 
     @posting = current_user.postings.new params[:posting]
     if @posting.save

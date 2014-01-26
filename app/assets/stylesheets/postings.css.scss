@@ -14,9 +14,12 @@
 	display: none;
 }
 
+.visible {
+	display: block;
+}
+
 .posting-button {
 	width: 300px;
-	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	&:visited {
@@ -41,7 +44,7 @@
   font-size: 15px;
   font-weight: 300;
   text-overflow: ellipsis;
-	margin-top: 5px;
+	margin-bottom: 20px;
 }
 
 .facebook {

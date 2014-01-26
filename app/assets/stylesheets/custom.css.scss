@@ -225,14 +225,13 @@ input[type="radio"], input[type="checkbox"]{
 }
 
 .side-button-p {
-	margin-bottom: 0px;
+	margin-bottom: 2px;
 }
 
 .side-button-search {
   background: green;
   color: white;
   width: 40%;
-  margin-top: 5px;
 	&:hover {
 		background-color: green;
 	}
