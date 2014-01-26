@@ -5,7 +5,8 @@ var directionsService = new google.maps.DirectionsService();
 var fromMarker;
 var toMarker;
 
-function initialize(){
+function initialize()
+{
 	
 
 	directionsDisplay = new google.maps.DirectionsRenderer();
@@ -30,15 +31,39 @@ function initialize(){
 	       }
 	    }
 	});
+	
+	fromAddress = document.getElementById("posting_from_address");
+	toAddress = document.getElementById("posting_to_address");
+	
+	var fromAutocomplete = new google.maps.places.Autocomplete(fromAddress);
+	fromAutocomplete.bindTo('bounds', map);
+	fromAutocomplete.setComponentRestrictions({'country': 'tr'});
+	var toAutocomplete = new google.maps.places.Autocomplete(toAddress);
+	toAutocomplete.bindTo('bounds', map);
+	toAutocomplete.setComponentRestrictions({'country': 'tr'});
+	
+	fromAddress = document.getElementById("frequent_posting_from_address");
+	toAddress = document.getElementById("frequent_posting_to_address");
+	
+	fromAutocomplete = new google.maps.places.Autocomplete(fromAddress);
+	fromAutocomplete.bindTo('bounds', map);
+	fromAutocomplete.setComponentRestrictions({'country': 'tr'});
+	toAutocomplete = new google.maps.places.Autocomplete(toAddress);
+	toAutocomplete.bindTo('bounds', map);
+	toAutocomplete.setComponentRestrictions({'country': 'tr'});
+	
+	// These lines will put the text_fields into the map but will not post the data
+	// map.controls[google.maps.ControlPosition.TOP_LEFT].push(fromAddress);
+// 	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(toAddress);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-function calcRoute() {
-		
+function calcRoute() 
+{	
   var start = document.getElementById('posting_from_address').value;
-  var end = document.getElementById('posting_to_address').value;
-	
+  var	end = document.getElementById('posting_to_address').value;
+		
   var request = {
       origin:start,
       destination:end,
@@ -52,46 +77,6 @@ function calcRoute() {
   });
 }
 
-function preparePostingAdresses() {
-	
-	map.controls[google.maps.ControlPosition.TOP_LEFT].clear();
-	map.controls[google.maps.ControlPosition.TOP_RIGHT].clear();
-	
-	var fromAddress = document.getElementById("posting_from_address");
-	var toAddress = document.getElementById("posting_to_address");
-	
-	map.controls[google.maps.ControlPosition.TOP_LEFT].push(fromAddress);
-	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(toAddress);
-	
-	var fromAutocomplete = new google.maps.places.Autocomplete(fromAddress);
-	fromAutocomplete.bindTo('bounds', map);
-	fromAutocomplete.setComponentRestrictions({'country': 'tr'});
-	var toAutocomplete = new google.maps.places.Autocomplete(toAddress);
-	toAutocomplete.bindTo('bounds', map);
-	toAutocomplete.setComponentRestrictions({'country': 'tr'});
-	
-}
-
-function prepareFrequentPostingAdresses() {
-	
-	map.controls[google.maps.ControlPosition.TOP_LEFT].pop();
-	map.controls[google.maps.ControlPosition.TOP_RIGHT].pop();
-	
-	var fromAddress = document.getElementById("frequent_posting_from_address");
-	var toAddress = document.getElementById("frequent_posting_to_address");
-	
-	map.controls[google.maps.ControlPosition.TOP_LEFT].push(fromAddress);
-	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(toAddress);
-	
-	var fromAutocomplete = new google.maps.places.Autocomplete(fromAddress);
-	fromAutocomplete.bindTo('bounds', map);
-	fromAutocomplete.setComponentRestrictions({'country': 'tr'});
-	var toAutocomplete = new google.maps.places.Autocomplete(toAddress);
-	toAutocomplete.bindTo('bounds', map);
-	toAutocomplete.setComponentRestrictions({'country': 'tr'});
-	
-}
-
 function setMarkerOptions(marker, map, position, icon)
 {
 	marker.setMap(map);
@@ -99,4 +84,3 @@ function setMarkerOptions(marker, map, position, icon)
 	marker.setAnimation(google.maps.Animation.DROP);
 	marker.setIcon(icon);
 }
-

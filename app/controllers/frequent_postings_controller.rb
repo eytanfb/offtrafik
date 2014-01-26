@@ -7,12 +7,9 @@ class FrequentPostingsController < ApplicationController
   end
   
   def create
-    @frequent_posting = current_user.frequent_postings.new params[:frequent_posting]
-  
-  
-    # @posting = current_user.postings.new params[:posting]
-    # flash[:success] = "#{Date.parse(params[:frequent_posting][:last_date]).class}"
-    # render template: "postings/new"
+    params[:frequent_posting][:from_address] = params[:from_address]
+    params[:frequent_posting][:to_address] = params[:to_address]
+    @frequent_posting = current_user.frequent_postings.new params[:frequent_posting]  
     if @frequent_posting.save
       fp = params[:frequent_posting]
       days = fp[:days].reject { |k,v| v == "0" }.keys
