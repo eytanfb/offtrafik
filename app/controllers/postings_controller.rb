@@ -13,7 +13,7 @@ class PostingsController < ApplicationController
     params[:posting][:from_address] = params[:from_address]
     params[:posting][:to_address] = params[:to_address]
 
-    @posting = current_user.postings.new params[:posting]
+    @posting = Posting.new params[:posting]
     if @posting.save
       flash[:success] = "Ilan verildi"
       redirect_to share_posting_path(posting_id: @posting.id)
