@@ -5,51 +5,37 @@
     </section>
   </aside>
   <div class="div" id="posting-show">
-    <div class="span8">
+    <div class="span12">
       <div id="show-map" style="margin-top:20px"></div>
     </div>
     <div class="span8" id="posting-details" onload="calcRouteForShow()" style="margin-left: 340px">
       <h3 class="center" style="text-decoration: underline">İlan Detayları</h3>
-      <p>
-		  <span class='detail'>Ilan Sahibi:</span> <span class='answer'><%= link_to @user.name, user_path(@user) %></span>
-      </p>
-      <p>
-         <span class='detail'>Nereden:</span> <span class='answer' id='from_address'><%= @posting.from_address %></span>
-      </p>
-      <p>
-         <span class='detail'>Nereye:</span> <span class='answer' id='to_address'><%= @posting.to_address %></span> 
-      </p>
-      <p>
-         <span class='detail'>Tarih:</span> <span class='answer'><%= l @posting.date, format: :default %></span> 
-      </p>
-      <p>
-         <span class='detail'>Cıkış Zamani:</span> <span class='answer'><%= @posting.starting_time.to_s(:time) %></span>
-      </p>
-      <p>
-         <span class='detail'>Varış Zamani:</span> <span class='answer'><%=@posting.ending_time.to_s(:time) %></span>
-      </p>
-      <p>
-         <span class='detail'>Sigara:</span> <span class='answer'><%= @posting.smoking? %></span>
-      </p>
-      <p>
-         <span class='detail'>Ihtiyaç:</span> <span class='answer'><%= @posting.driving %></span>
-      </p>
+      <p><span class='detail'>Ilan Sahibi:</span> <span class='answer'><%= link_to @user.name, user_path(@user) %></span></p>
+      <p><span class='detail'>Nereden:</span> <span class='answer' id='from_address'><%= @posting.from_address %></span></p>
+      <p><span class='detail'>Nereye:</span> <span class='answer' id='to_address'><%= @posting.to_address %></span></p>
+      <p><span class='detail'>Tarih:</span> <span class='answer'><%= l @posting.date, format: :default %></span></p>
+      <p><span class='detail'>Cıkış Zamani:</span> <span class='answer'><%= @posting.starting_time.to_s(:time) %></span></p>
+      <p><span class='detail'>Varış Zamani:</span> <span class='answer'><%=@posting.ending_time.to_s(:time) %></span></p>
+      <p><span class='detail'>Sigara:</span> <span class='answer'><%= @posting.smoking? %></span></p>
+      <p><span class='detail'>Ihtiyaç:</span> <span class='answer'><%= @posting.driving %></span></p>
       <% if @posting.comments.present? %>
-        <p>
-          <span class='detail'>Ekstra:</span>        <span class='answer'><%= @posting.comments %></span>
-        </p>
+        <p><span class='detail'>Ekstra:</span> <span class='answer'><%= @posting.comments %></span></p>
       <% end %>
       <% if @posting.user_id != current_user.id && @posting.active? %>
-        <p>
-          <%= link_to "Iletişime Geç", posting_contact_posting_owner_path(@posting.id), class: "btn btn-primary btn-warning answer", style: "margin-left: 220px; width: 100px", data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true %>
-        </p>
+        <p><%= link_to "Iletişime Geç", posting_contact_posting_owner_path(@posting.id), class: "btn btn-primary btn-warning answer", style: "margin-left: 220px; width: 100px", data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true %></p>
       <% else %>
-        <p>
-          <%= link_to "Ilanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger answer", style: "width: 60px" %>
-        </p>
+        <p><%= link_to "Ilanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger answer", style: "width: 60px; margin-left: 113px" %></p>
       <% end %>
     </div>
   </div>
+  <% if @posting.user_id == current_user.id %>
+    <div class="span4" id="posting-responders" style="border: 1px solid black;">
+      <h5 style="text-decoration:underline">Cevap Verenler</h5>
+      <p><%= link_to (gravatar_for current_user, size: 30), user_path(current_user)%><%= link_to @user.name, user_path(@user) %><span class="pull-right"><%= link_to "<i class='icon-ok icon-white'></i><span style='color:white'>Gelsin</span>".html_safe, "#", class: "btn btn-mini btn-success" %><%= link_to "<i class='icon-remove icon-white'></i><span style='color:white'>Gelmesin</span>".html_safe, "#", class: "btn btn-mini btn-danger", style:"margin-left:20px; margin-right:20px;" %></span></p>
+      
+      <!-- <button style="background:green"><i class="icon-ok"></i></button><button style="margin-left:20px; margin-right:20px;background:red"><i class="icon-remove"></i></button> -->
+    </div>
+  <% end %>
 </div>
 <div aria-hidden="true" aria-labelledby="contact-posting-owner-modal-label" class="modal hide fade" id="contact-posting-owner-modal-window" role="dialog"></div>
 <% content_for :javascripts do %>
