@@ -46,6 +46,7 @@ class User < ActiveRecord::Base
   has_many :frequent_postings
   has_many :comments
   has_many :favorites
+  has_many :posting_responses, :class_name => "posting_response", :foreign_key => "responder_id"
   
   def name
     "#{self.first_name} #{self.last_name}"

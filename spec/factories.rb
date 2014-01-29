@@ -1,8 +1,22 @@
-FactoryGirl.define do  
-  factory :admin do
-    admin true
+FactoryGirl.define do
+  factory :user do
+    first_name "Sample"
+    last_name "User"
+    email "sample-user@ku.edu.tr"
+    password "password"
+    password_confirmation "password"
+    agreed_to_terms_and_conditions true
   end
   
+  factory :second_user, class: User do
+    first_name "Second"
+    last_name "User"
+    email "second-user@ku.edu.tr"
+    password "password"
+    password_confirmation "password"
+    agreed_to_terms_and_conditions true
+  end
+    
   factory :posting do
     from_address "Ortakoy, Istanbul"
     to_address "Koc University, Istanbul"

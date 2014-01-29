@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :signed_in_user, only: [:create]
+  before_filter :authenticate_user!, only: [:create]
   
   def new
     if params[:is_about]

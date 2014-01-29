@@ -31,9 +31,6 @@ describe Posting do
   it { should respond_to(:date) }
   it { should respond_to(:starting_time) }
   it { should respond_to(:ending_time) }
-  it { should respond_to(:longitude) }
-  it { should respond_to(:latitude) }
-  it { should respond_to(:gmaps) }
   it { should respond_to(:comments) }
   it { should respond_to(:smoking)}
   it { should respond_to(:driving)}
@@ -56,7 +53,6 @@ describe Posting do
   describe "if it doesn't have a starting_time it should not be valid" do
     before do
       @posting.starting_time = nil
-      @posting.current_step = 'date_time'
     end
     it { should_not be_valid }
   end
@@ -64,7 +60,6 @@ describe Posting do
   describe "if it doesn't have a ending_time it should not be valid" do
     before do
       @posting.ending_time = nil
-      @posting.current_step = 'date_time'
     end
     it { should_not be_valid }
   end
@@ -83,22 +78,6 @@ describe Posting do
         Posting.new(user_id: user.id)        
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
-  end
-  
-  describe "if from_address not valid shouldn't be valid" do
-    before do
-      @posting.from_address = "ajkdhfkajshdfkajhdsf"
-      @posting.current_step = 'address'
-    end
-    it { should_not be_valid }
-  end
-  
-  describe "if to_address not valid shouldn't be valid" do
-    before do
-      @posting.to_address = "ajkdhfkajshdfkajhdsf"
-      @posting.current_step = 'address'
-    end
-    it { should_not be_valid }
   end
   
 end

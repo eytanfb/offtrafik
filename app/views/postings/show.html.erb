@@ -31,9 +31,9 @@
   <% if @posting.user_id == current_user.id %>
     <div class="span4" id="posting-responders" style="border: 1px solid black;">
       <h5 style="text-decoration:underline">Cevap Verenler</h5>
-      <p><%= link_to (gravatar_for current_user, size: 30), user_path(current_user)%><%= link_to @user.name, user_path(@user) %><span class="pull-right"><%= link_to "<i class='icon-ok icon-white'></i><span style='color:white'>Gelsin</span>".html_safe, "#", class: "btn btn-mini btn-success" %><%= link_to "<i class='icon-remove icon-white'></i><span style='color:white'>Gelmesin</span>".html_safe, "#", class: "btn btn-mini btn-danger", style:"margin-left:20px; margin-right:20px;" %></span></p>
-      
-      <!-- <button style="background:green"><i class="icon-ok"></i></button><button style="margin-left:20px; margin-right:20px;background:red"><i class="icon-remove"></i></button> -->
+      <% @posting.posting_responses do |responder| %>
+        <p><%= link_to (gravatar_for responder.user.gravatar, size: 30), user_path(responder.user)%><%= link_to responder.user.name, user_path(responder.user) %><span class="pull-right"><%= link_to "<i class='icon-ok icon-white'></i><span style='color:white'>Gelsin</span>".html_safe, "#", class: "btn btn-mini btn-success" %><%= link_to "<i class='icon-remove icon-white'></i><span style='color:white'>Gelmesin</span>".html_safe, "#", class: "btn btn-mini btn-danger", style:"margin-left:20px; margin-right:20px;" %></span></p>
+    <% end %>
     </div>
   <% end %>
 </div>
