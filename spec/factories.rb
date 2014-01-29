@@ -35,7 +35,13 @@ FactoryGirl.define do
     ending_time Time.now + 30.minutes - 1.day
     driving "Yolcu"
     smoking false
-  end    
+  end   
+  
+  factory :posting_response do
+    responder_id  1
+    posting_id    1
+    accepted      false
+  end 
   
   factory :comment do
     text "This is a sample comment"

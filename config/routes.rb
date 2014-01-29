@@ -35,7 +35,7 @@ Offtrafik::Application.routes.draw do
   
   resources :frequent_postings
   resources :comments
-
+  resources :posting_responses
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
