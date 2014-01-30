@@ -31,6 +31,8 @@ group :development, :test do
   gem 'factory_girl_rails', '4.1.0'
   gem 'annotate', '2.6.1'
   gem 'letter_opener'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end
 
 group :production do

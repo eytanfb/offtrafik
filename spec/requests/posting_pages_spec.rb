@@ -48,5 +48,35 @@ describe "PostingPages" do
     it { should have_selector('title', text: 'Ilan Ara') }
     it { should have_selector('h3', text: 'İlan Ara') }
     it { should have_selector('div', class: 'pagination') }
-  end  
+  end
+  
+  describe "#show" do
+    
+    describe "with no responses" do
+      before do
+        @posting = user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul",
+          date: Date.today+1.week, starting_time: Time.now, ending_time: Time.now + 1.hour, driving: "Yolcu")
+        visit posting_path(@posting)
+      end
+      it { should have_content('Ortakoy') }
+      it { should have_content('Koc University') }
+      it { should have_content(user.name) }
+      it { should have_content("Yolcu") }
+      it { should_not have_content('Cevap Verenler') }
+    end 
+    
+    describe "with responded posting" do
+      let(:second_user) { FactoryGirl.create(:second_user) }
+      before do
+        @posting = user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul",
+          date: Date.today+1.week, starting_time: Time.now, ending_time: Time.now + 1.hour, driving: "Yolcu")
+        @posting_response = @posting.posting_responses.create!(responder_id: second_user.id)
+        visit posting_path(@posting)
+      end
+    
+      it { should have_content("Cevap Verenler") }
+      it { should have_content(second_user.name) }
+      # it { should have_selector() }
+    end
+  end
 end
