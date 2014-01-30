@@ -3,11 +3,9 @@ namespace :db do
   task sample_posting_responses: :environment do
     users = User.all(limit: 4)
     postings = Posting.all(limit: 6)
-    4.times do
-      postings.each do |posting|
-        users.each do |user|
-          posting.posting_responses.create!(responder_id: user.id) unless posting.user.id == user.id
-        end
+    postings.each do |posting|
+      users.each do |user|
+        posting.posting_responses.create!(responder_id: user.id) unless posting.user.id == user.id
       end
     end
   end
