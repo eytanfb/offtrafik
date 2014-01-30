@@ -36,8 +36,17 @@ Offtrafik::Application.configure do
   config.assets.debug = true
   
   # Don't care if the mailer can't send
-  config.action_mailer.default_url_options = { :host => 'offtrafik.herokuapp.com' }
   config.action_mailer.asset_host = "offtrafik.herokuapp.com"
+  config.action_mailer.default_url_options = { :host => 'offtrafik.herokuapp.com' }
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
