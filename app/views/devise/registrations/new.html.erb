@@ -9,7 +9,6 @@
   <div class="form-inputs">
     <%= f.input :first_name, label: "Ad", required: true, autofocus: true %>
     <%= f.input :last_name, label: "Soyad", required: true %>
-    <%= f.input :neighborhood, label: "İlçeniz", as: :select, collection: DISTRICTS, include_blank: false, required: true, input_html: { style: "height: 40px" } %>
     <%= f.input :email, required: true %>
     <%= f.input :password, label: "Şifre", required: true %>
     <%= f.input :password_confirmation, label: "Şifre Onaylama", required: true %>
