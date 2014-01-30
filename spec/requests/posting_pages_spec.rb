@@ -76,7 +76,8 @@ describe "PostingPages" do
     
       it { should have_content("Cevap Verenler") }
       it { should have_content(second_user.name) }
-      # it { should have_selector() }
+      it { should have_css("a.btn-success") }
+      it { should have_css("a.btn-danger") }
     end
   end
 end
