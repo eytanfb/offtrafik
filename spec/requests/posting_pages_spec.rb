@@ -97,7 +97,7 @@ describe "PostingPages" do
           sign_in second_user
           visit posting_path(@posting)          
         end
-        it { should have_selector("a#respond-button[disabled]") }
+        it { should have_selector("a#respond-button.disabled") }
         it { should have_content("Iletişime Geçildi") }
       end
       
