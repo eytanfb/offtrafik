@@ -5,7 +5,7 @@ describe "PostingResponses" do
   let(:user) { FactoryGirl.create(:user) }
   let(:second_user) { FactoryGirl.create(:second_user) }
   
-  before do
+  before(:each) do
     @posting = user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul",
       date: Date.today+1.week, starting_time: Time.now, ending_time: Time.now + 1.hour, driving: "Yolcu")
     @posting_response = @posting.posting_responses.create!(responder_id: second_user.id)
@@ -15,10 +15,12 @@ describe "PostingResponses" do
   end
   
   it "should have options to accept or reject responses" do
-    page.should have_css("a.btn-success")
-    page.should have_css("a.btn-danger")
-    page.should have_content(second_user.name)
     page.should have_css("p##{second_user.name.parameterize}-response")
+    within("p##{second_user.name.parameterize}-response") do
+      page.should have_css("a.btn-success")
+      page.should have_css("a.btn-danger")
+      page.should have_content(second_user.name)
+    end
   end
   
   describe "when posting response is given" do
@@ -43,11 +45,30 @@ describe "PostingResponses" do
         @posting_response.save
         visit posting_path(@posting)
       end
-      it "should note that the user is coming" do
+      it "should note that the user is not coming" do
         within("p##{second_user.name.parameterize}-response") do
           page.should have_content("Gelmiyor")
         end
       end      
+    end
+  end
+  
+  describe "giving a posting response", :focus, js: true do
+    describe "when response accepted is chosen" do
+      before do
+        within("p##{second_user.name.parameterize}-response") do
+          page.should have_css("a.btn-success")
+          find("a.btn-success").click
+          page.driver.browser.switch_to.alert.accept
+        end
+      end
+      it { @posting_response.accepted.should  eq(true) }
+      it { page.should have_content("kabul ettiniz") }
+      it "should note that the user is coming" do
+        within("p##{second_user.name.parameterize}-response") do
+          page.should have_content("Geliyor")
+        end
+      end
     end
   end
   

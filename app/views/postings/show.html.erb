@@ -43,7 +43,7 @@
           <% elsif response.rejected %>
             Gelmiyor
           <% else %>
-            <%= link_to "<i class='icon-ok icon-white'></i><span style='color:white'>Gelsin</span>".html_safe, "#", class: "btn btn-mini btn-success" %><%= link_to "<i class='icon-remove icon-white'></i><span style='color:white'>Gelmesin</span>".html_safe, "#", class: "btn btn-mini btn-danger", style:"margin-left:20px; margin-right:20px;" %>
+            <%= link_to "<i class='icon-ok icon-white'></i><span style='color:white'>Gelsin</span>".html_safe, posting_response_accept_path(response), class: "btn btn-mini btn-success", confirm: "#{response.responder.name}'i kabul etmek istediginize emin misiniz?" %><%= link_to "<i class='icon-remove icon-white'></i><span style='color:white'>Gelmesin</span>".html_safe, "#", class: "btn btn-mini btn-danger", style:"margin-left:20px; margin-right:20px;", confirm: "#{response.responder.name}'i reddetmek istediginize emin misiniz?" %>
           <% end %>
       </span>
       </p>
