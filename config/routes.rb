@@ -37,6 +37,7 @@ Offtrafik::Application.routes.draw do
   resources :comments
   resources :posting_responses do
     get 'accept'
+    get 'reject'
   end
 
   # The priority is based upon order of creation:

@@ -45,7 +45,7 @@ describe "PostingResponses" do
         @posting_response.save
         visit posting_path(@posting)
       end
-      it "should note that the user is not coming" do
+      it "should note that the user is NOT coming" do
         within("p##{second_user.name.parameterize}-response") do
           page.should have_content("Gelmiyor")
         end
@@ -53,23 +53,37 @@ describe "PostingResponses" do
     end
   end
   
-  describe "giving a posting response", :focus, js: true do
-    describe "when response accepted is chosen" do
-      before do
-        within("p##{second_user.name.parameterize}-response") do
-          page.should have_css("a.btn-success")
-          find("a.btn-success").click
-          page.driver.browser.switch_to.alert.accept
-        end
+  describe "when response accepted is chosen", :focus, js: true do
+    before do
+      within("p##{second_user.name.parameterize}-response") do
+        page.should have_css("a.btn-success")
+        find("a.btn-success").click
+        page.driver.browser.switch_to.alert.accept
       end
-      it { @posting_response.accepted.should  eq(true) }
-      it { page.should have_content("kabul ettiniz") }
-      it "should note that the user is coming" do
-        within("p##{second_user.name.parameterize}-response") do
-          page.should have_content("Geliyor")
-        end
+    end  
+    it { page.should have_content("kabul ettiniz") }
+    it "should note that the user is coming" do
+      within("p##{second_user.name.parameterize}-response") do
+        page.should have_content("Geliyor")
       end
     end
+    it { @posting_response.accepted.should eq(true) }
   end
   
+  describe "when response rejected is chosen", :focus, js: true do
+    before do
+      within("p##{second_user.name.parameterize}-response") do
+        page.should have_css("a.btn-danger")
+        find("a.btn-danger").click
+        page.driver.browser.switch_to.alert.accept
+      end
+    end  
+    it { page.should have_content("reddettiniz") }
+    it "should note that the user is NOT coming" do
+      within("p##{second_user.name.parameterize}-response") do
+        page.should have_content("Gelmiyor")
+      end
+    end
+    it { @posting_response.accepted.should eq(false) }
+  end
 end

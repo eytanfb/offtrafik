@@ -163,6 +163,15 @@
         1,
         null,
         null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
         null
       ],
       "/Users/eytanfb/Desktop/Work/offtrafik/app/models/posting_response.rb": [
@@ -187,7 +196,7 @@
         1,
         null,
         1,
-        8,
+        13,
         null,
         null,
         1,
@@ -528,10 +537,10 @@
         1,
         null,
         1,
-        4,
-        4,
-        4,
-        4,
+        5,
+        5,
+        5,
+        5,
         null,
         null
       ],
@@ -709,7 +718,7 @@
         1,
         null,
         1,
-        16,
+        19,
         null,
         null,
         1,
@@ -729,6 +738,6 @@
         null
       ]
     },
-    "timestamp": 1391172797
+    "timestamp": 1391175150
   }
 }
