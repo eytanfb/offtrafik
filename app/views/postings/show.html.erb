@@ -36,7 +36,7 @@
     <div class="span5" id="posting-responders" style="border: 1px solid black">
       <h5 style="text-decoration:underline">Cevap Verenler</h5>
       <% @posting.posting_responses.each do |responder| %>
-      <p style="line-height:25px;"><%= link_to (gravatar_for responder.user, size: 30), user_path(responder.user)%><%= link_to responder.user.name, user_path(responder.user) %><span class="pull-right"><%= link_to "<i class='icon-ok icon-white'></i><span style='color:white'>Gelsin</span>".html_safe, "#", class: "btn btn-mini btn-success" %><%= link_to "<i class='icon-remove icon-white'></i><span style='color:white'>Gelmesin</span>".html_safe, "#", class: "btn btn-mini btn-danger", style:"margin-left:20px; margin-right:20px;" %></span></p>
+      <p id="<%= current_user.name.parameterize %>-response" style="line-height:25px;"><%= link_to (gravatar_for responder.user, size: 30), user_path(responder.user)%><%= link_to responder.user.name, user_path(responder.user) %><span class="pull-right"><%= link_to "<i class='icon-ok icon-white'></i><span style='color:white'>Gelsin</span>".html_safe, "#", class: "btn btn-mini btn-success" %><%= link_to "<i class='icon-remove icon-white'></i><span style='color:white'>Gelmesin</span>".html_safe, "#", class: "btn btn-mini btn-danger", style:"margin-left:20px; margin-right:20px;" %></span></p>
     <% end %>
     </div>
   <% end %>

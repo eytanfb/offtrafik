@@ -22,19 +22,19 @@ gem 'rename'
 group :development, :test do
   gem 'mysql2'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'capybara', '1.1.2'
-  gem 'guard-rspec', '1.2.1'
-  gem 'rb-fsevent', '0.9.1', :require => false
+  gem 'guard-rspec'
+  gem 'rb-fsevent', '0.9.3', :require => false
   gem 'growl', '1.0.3'
-  gem 'guard-spork', '1.2.0'
-  gem 'spork', '0.9.2'
   gem 'factory_girl_rails', '4.1.0'
   gem 'annotate', '2.6.1'
   gem 'letter_opener'
-  gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'launchy'
   gem 'database_cleaner'
+  gem 'guard-zeus'
+  gem 'listen', '2.4.0'
 end
 
 group :production do

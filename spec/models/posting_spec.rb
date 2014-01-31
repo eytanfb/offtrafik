@@ -34,6 +34,8 @@ describe Posting do
   it { should respond_to(:comments) }
   it { should respond_to(:smoking)}
   it { should respond_to(:driving)}
+  it { should have_many(:posting_responses).dependent(:destroy) }
+  it { should belong_to(:user) }
 
   describe "if it doesn't have an owner it should not be valid" do
     before { @posting.user_id = nil }
