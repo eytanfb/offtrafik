@@ -66,7 +66,7 @@ describe "PostingPages" do
     end 
     
     describe "with responded posting" do
-      let(:second_user) { FactoryGirl.create(:second_user) }
+      let(:second_user) { FactoryGirl.create(:user) }
       before do
         @posting = user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul",
           date: Date.today+1.week, starting_time: Time.now, ending_time: Time.now + 1.hour, driving: "Yolcu")
@@ -78,6 +78,37 @@ describe "PostingPages" do
       it { should have_content(second_user.name) }
       it { should have_css("a.btn-success") }
       it { should have_css("a.btn-danger") }
+    end
+    
+    describe "responding to a posting" do
+      let(:second_user) { FactoryGirl.create(:user) }
+      let(:third_user) { FactoryGirl.create(:user) }
+      before do
+        @posting = user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul",
+          date: Date.today+1.week, starting_time: Time.now, ending_time: Time.now + 1.hour, driving: "Yolcu")
+        @posting_response = @posting.posting_responses.create!(responder_id: second_user.id)
+        sign_out
+        second_user.confirm!
+        third_user.confirm!
+      end
+      
+      describe "should not be respondable if already responded" do
+        before do
+          sign_in second_user
+          visit posting_path(@posting)          
+        end
+        it { should have_selector("a#respond-button[disabled]") }
+        it { should have_content("Iletişime Geçildi") }
+      end
+      
+      describe "should be respondable if not already responded" do
+        before do
+          sign_in third_user
+          visit posting_path(@posting)
+        end
+        it { should have_selector("a#respond-button") }
+        it { should have_content("Iletişime Geç") }
+      end
     end
   end
 end

@@ -16,3 +16,8 @@ def sign_in(user)
   fill_in "Şifre",    with: user.password
   click_button "Giris"
 end
+
+def sign_out
+  click_link_or_button('Profil')
+  click_link_or_button('Çıkış')
+end

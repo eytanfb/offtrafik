@@ -33,6 +33,8 @@ group :development, :test do
   gem 'letter_opener'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'launchy'
+  gem 'database_cleaner'
 end
 
 group :production do

@@ -15,7 +15,7 @@ describe "CommentPages" do
   
   describe "post creation" do
     
-    let(:user2) { FactoryGirl.create(:second_user) }
+    let(:user2) { FactoryGirl.create(:user) }
     
     before do
       user2.confirm!

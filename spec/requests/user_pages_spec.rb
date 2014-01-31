@@ -30,7 +30,7 @@ describe "UserPages" do
   
   describe "user can see other users" do
     let(:user) { FactoryGirl.create(:user) }
-    let(:second_user) { FactoryGirl.create(:second_user) }
+    let(:second_user) { FactoryGirl.create(:user) }
     before do 
       user.confirm!
       second_user.confirm!

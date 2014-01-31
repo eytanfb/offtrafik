@@ -22,7 +22,11 @@
         <p><span class='detail'>Ekstra:</span> <span class='answer'><%= @posting.comments %></span></p>
       <% end %>
       <% if @posting.user_id != current_user.id && @posting.active? %>
-        <p><%= link_to "Iletişime Geç", posting_contact_posting_owner_path(@posting.id), class: "btn btn-primary btn-warning answer", style: "margin-left: 220px; width: 100px", data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true %></p>
+        <% if @respondable %>
+          <p><%= link_to "Iletişime Geç", posting_contact_posting_owner_path(@posting.id), class: "btn btn-primary btn-warning answer", style: "margin-left: 220px; width: 100px", id: "respond-button", disabled: "#{@respondable}", data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true %></p>
+        <% else %>
+          <p><%= link_to "Iletişime Geçildi", "#", class: "btn disabled answer", style: "margin-left: 220px; width: 120px; color: black", id: "respond-button", disabled: "#{@respondable}" %></p>
+        <% end %>
       <% else %>
         <p><%= link_to "Ilanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger answer", style: "width: 60px; margin-left: 113px" %></p>
       <% end %>

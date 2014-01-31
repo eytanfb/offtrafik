@@ -4,8 +4,6 @@
 </div>
 <div class="modal-body">
   <%= simple_form_for :contact_posting_owner, url: posting_respond_path(params[:posting_id])  do |f| %>
-    <!-- = f.input :default, label: false, as: :text, readonly: true, input_html: { value: "#{@message}", cols: 150, rows: 5, style: "resize: none" }
-    -->
     <%= f.input :content, label: false, as: :text, placeholder: "Mailinize ekstra bir not eklemek isterseniz (örnek: telefon numaraniz) lütfen buraya yazın. İletişim emailinde yazan standart yazılar yine de gönderilecektir.", input_html: { cols: 150, rows: 5, style: "resize: none" } %>
     <%= f.button :submit, "Yolla", class: "btn btn-primary" %>
   <% end %>

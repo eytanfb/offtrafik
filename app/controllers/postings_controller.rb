@@ -30,6 +30,7 @@ class PostingsController < ApplicationController
     to_address = @posting.format(@posting.to_address)
     from_address = @posting.format(@posting.from_address)
     @to_from = "#{to_address} - #{from_address}"
+    @respondable = !@posting.posting_responses.collect(&:responder_id).include?(current_user.id)
   end
   
   def edit
