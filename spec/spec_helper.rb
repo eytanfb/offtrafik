@@ -1,11 +1,6 @@
 require 'rubygems'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
-
-unless ENV['DRB']
-  require 'simplecov'
-  SimpleCov.start 'rails'
-end
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
