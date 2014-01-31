@@ -29,6 +29,7 @@ describe PostingResponse do
   it { should belong_to(:posting) }
   it { should belong_to(:user) }
   it { should respond_to(:responder) }
+  it { should respond_to(:rejected) }
   
   it "should not be valid without a responder id" do
     @posting_response.responder_id = nil

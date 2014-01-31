@@ -21,5 +21,9 @@ class PostingResponse < ActiveRecord::Base
   def responder
     self.user
   end
+  
+  def rejected
+    self.accepted == false
+  end
 
 end

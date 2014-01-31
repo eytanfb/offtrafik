@@ -21,17 +21,33 @@ describe "PostingResponses" do
     page.should have_css("p##{second_user.name.parameterize}-response")
   end
   
-  describe "when posting response is accepted" do
-    before do
-      @posting_response.accepted = true
-      @posting_response.accepted.should == true
-      @posting_response.save
-      visit posting_path(@posting)
-    end
-    it "should note that the user is coming" do
-      within("p##{second_user.name.parameterize}-response") do
-        page.should have_content("Geliyor")
+  describe "when posting response is given" do
+    describe "if accepted" do
+      before do
+        @posting_response.accepted = true
+        @posting_response.accepted.should == true
+        @posting_response.save
+        visit posting_path(@posting)
       end
+      it "should note that the user is coming" do
+        within("p##{second_user.name.parameterize}-response") do
+          page.should have_content("Geliyor")
+        end
+      end
+    end
+    
+    describe "if rejected" do
+      before do
+        @posting_response.accepted = false
+        @posting_response.accepted.should == false
+        @posting_response.save
+        visit posting_path(@posting)
+      end
+      it "should note that the user is coming" do
+        within("p##{second_user.name.parameterize}-response") do
+          page.should have_content("Gelmiyor")
+        end
+      end      
     end
   end
   
