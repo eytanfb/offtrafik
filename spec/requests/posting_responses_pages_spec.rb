@@ -3,12 +3,12 @@ require 'spec_helper'
 describe "PostingResponses" do
   
   let(:user) { FactoryGirl.create(:user) }
-  let(:second_user) { FactoryGirl.create(:user) }
+  let(:second_user) { FactoryGirl.create(:second_user) }
   
   before do
     @posting = user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul",
       date: Date.today+1.week, starting_time: Time.now, ending_time: Time.now + 1.hour, driving: "Yolcu")
-    @posting.posting_responses.create!(responder_id: second_user.id)
+    @posting_response = @posting.posting_responses.create!(responder_id: second_user.id)
     user.confirm!
     sign_in user
     visit posting_path(@posting)
@@ -21,9 +21,14 @@ describe "PostingResponses" do
     page.should have_css("p##{second_user.name.parameterize}-response")
   end
   
-  describe "accept response", :focus do
-    before { click_link_or_button "Gelsin" }
-    it "should show user as coming" do
+  describe "when posting response is accepted" do
+    before do
+      @posting_response.accepted = true
+      @posting_response.accepted.should == true
+      @posting_response.save
+      visit posting_path(@posting)
+    end
+    it "should note that the user is coming" do
       within("p##{second_user.name.parameterize}-response") do
         page.should have_content("Geliyor")
       end

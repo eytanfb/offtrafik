@@ -201,7 +201,6 @@ GEM
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
     slop (3.4.7)
-    spork (0.9.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -266,7 +265,6 @@ DEPENDENCIES
   shoulda-matchers
   simple_form
   simplecov
-  spork (= 0.9.2)
   thin
   uglifier (>= 1.0.3)
   will_paginate (= 3.0.3)

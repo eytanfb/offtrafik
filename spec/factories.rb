@@ -7,6 +7,15 @@ FactoryGirl.define do
     password_confirmation           "password"
     agreed_to_terms_and_conditions  true
   end
+  
+  factory :second_user, class: User do
+    first_name                      "Second"
+    last_name                       "User"
+    sequence(:email)                 { |n| "second-user-#{n}@ku.edu.tr"}
+    password                        "password"
+    password_confirmation           "password"
+    agreed_to_terms_and_conditions  true
+  end
     
   factory :posting do
     from_address                "Ortakoy, Istanbul"
