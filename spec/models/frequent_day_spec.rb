@@ -12,5 +12,4 @@
 require 'spec_helper'
 
 describe FrequentDay do
-  pending "add some examples to (or delete) #{__FILE__}"
 end

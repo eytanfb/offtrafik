@@ -4,17 +4,21 @@
 require 'spec_helper'
 
 describe "CommentPages" do
-  
+
   subject { page }
   
   let(:user) { FactoryGirl.create(:user) }
-  before { sign_in user }
+  before do
+    user.confirm!
+    sign_in user
+  end
   
   describe "post creation" do
     
     let(:user2) { FactoryGirl.create(:user) }
     
     before do
+      user2.confirm!
       visit user_path(user2)
       click_link "Yorum Yaz"
     end

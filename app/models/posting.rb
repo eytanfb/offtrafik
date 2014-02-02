@@ -22,6 +22,7 @@ class Posting < ActiveRecord::Base
   attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :comments, :smoking, :driving
   
   belongs_to :user
+  has_many :posting_responses, :class_name => "PostingResponse", :foreign_key => "posting_id", dependent: :destroy
   
   validates_presence_of :from_address, :to_address, :date, :starting_time, :ending_time
   validates_inclusion_of :driving, in: %w(Sürücü Yolcu Farketmez Taksi)

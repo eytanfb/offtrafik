@@ -9,21 +9,13 @@ describe "Static pages" do
 
   describe "Home page" do
     before { visit root_path }
-    it { should have_selector('h1', text: 'Offtrafik') }
     it { should have_selector('title', text:
                         full_title('')) }
   
   end
 
-  # describe "Help page" do
-#     before { visit help_path }
-#     it { should have_selector('h1', text: 'Help') }
-#     it { should have_selector('title', text: full_title('Help')) }
-#     
-#   end
-
   describe "About page" do
-    before {visit about_path }
+    before { visit about_path }
     it { should have_selector('h1', text: 'Hakkımızda') }
     it { should have_selector('title', text: full_title('Hakkımızda')) }
   
@@ -40,12 +32,6 @@ describe "Static pages" do
     before { visit why_path }
     it { should have_selector('h1', text: 'Neden') }
     it { should have_selector('title', text: full_title('Neden')) }
-  end
-  
-  describe "Terms and Conditions page" do
-    before { visit terms_and_conditions_path }
-    it { should have_selector('h1', text: 'Kullanım Koşulları ve Şartları') }
-    it { should have_selector('title', text: full_title('Kullanım Koşulları ve Şartları')) }
   end
   
 end

@@ -20,6 +20,9 @@
 # Ignore ssl-cert
 /ssl-cert
 
+# Ignore test coverage
+/coverage
+
 /42dfd0fc6b6f8
 
 extra_stuff.txt
@@ -27,4 +30,4 @@ extra_stuff.txt
 
 *.dump
 *.sql
-.DS_Store
+.DS_Store#

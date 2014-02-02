@@ -33,7 +33,19 @@
 
 #show-map {
 	height: 250px;
-	width: 95%;
+	width: 99%;
+	border-style:solid;
+  border-width:1px;
+  border-color: #DDD;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	label { 
+	  width: auto; display:inline; 
+	}	
+	img {
+		max-width: none;
+	}
 }
 
 .address-input {
@@ -179,4 +191,8 @@
 	.control-group {
 		margin-bottom: 5px;
 	}
+}
+
+#posting-responders {
+	height: 300px;
 }

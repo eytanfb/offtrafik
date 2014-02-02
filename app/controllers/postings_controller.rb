@@ -30,6 +30,7 @@ class PostingsController < ApplicationController
     to_address = @posting.format(@posting.to_address)
     from_address = @posting.format(@posting.from_address)
     @to_from = "#{to_address} - #{from_address}"
+    @respondable = !@posting.posting_responses.collect(&:responder_id).include?(current_user.id)
   end
   
   def edit
@@ -93,10 +94,15 @@ class PostingsController < ApplicationController
   
   def respond
     @posting = Posting.find params[:posting_id]
-    text = params[:contact_posting_owner][:content]
-    PostingMailer.posting_contact(@posting.user_id, current_user.id, @posting.id, text).deliver
-    flash[:success] = "Yanıt isteğiniz yollandı"
-    redirect_to user_postings_path(current_user)
+    posting_response = @posting.posting_responses.new(responder_id: current_user.id)
+    if posting_response.save
+      text = params[:contact_posting_owner][:content]
+      PostingMailer.posting_contact(@posting.user_id, current_user.id, @posting.id, text).deliver
+      flash[:success] = "Yanıt isteğiniz yollandı"
+      redirect_to user_postings_path(current_user)
+    else
+      flash[:warning] = "Yanit isteginiz olustrulurken bir sorun cikti. Lutfen tekrar deneyiniz "
+    end
   end
   
   def full

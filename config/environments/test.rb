@@ -35,6 +35,8 @@ Offtrafik::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
   
+  config.action_mailer.default_url_options = { host: "offtrafik.dev" }
+  
   # Speed up tests by lowering BCrypt encryption cost
   require 'bcrypt'
   silence_warnings do
