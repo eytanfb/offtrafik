@@ -53,7 +53,7 @@ describe "PostingResponses" do
     end
   end
   
-  describe "when response accepted is chosen", :focus, js: true do
+  describe "when response accepted is chosen", :slow, js: true do
     before do
       within("p##{second_user.name.parameterize}-response") do
         page.should have_css("a.btn-success")
@@ -70,7 +70,7 @@ describe "PostingResponses" do
     it { @posting_response.accepted.should eq(true) }
   end
   
-  describe "when response rejected is chosen", :focus, js: true do
+  describe "when response rejected is chosen", :slow, js: true do
     before do
       within("p##{second_user.name.parameterize}-response") do
         page.should have_css("a.btn-danger")
