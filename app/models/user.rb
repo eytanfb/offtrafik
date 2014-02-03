@@ -68,6 +68,13 @@ class User < ActiveRecord::Base
   def self.count
     User.all.count
   end
+
+  def has_past_responses?
+    self.posting_responses.each do |response|
+      return true if response.posting.date < Date.today
+    end
+    false
+  end
   
   private
   
