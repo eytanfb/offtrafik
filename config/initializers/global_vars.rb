@@ -1049,3 +1049,5 @@ NEIGHBORHOODS =
   ["Zeytinburnu",	"Yeşiltepe"],
   ["Zeytinburnu",	"Zeytinburnu Olivium"]
 ]
+
+VALID_DOMAINS = ["@ku.edu.tr", "@alumni.ku.edu.tr"]

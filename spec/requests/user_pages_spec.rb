@@ -6,13 +6,6 @@ require 'spec_helper'
 describe "UserPages" do
   
   subject { page }
-
-  describe "signup page" do
-    before { visit new_user_registration_path }
-
-    it { should have_selector('h1',    text: 'Üye Ol') }
-    it { should have_selector('title', text: full_title('Üye Ol')) }
-  end
   
   describe "user show page" do
     let(:user) { FactoryGirl.create(:user) }
@@ -63,18 +56,25 @@ describe "UserPages" do
         
     end
     
-    describe "with valid information" do      
+    describe "with valid information", :focus do
       before do
-        fill_in "Ad", with: "Sample"
-        fill_in "Soyad", with: "User"
-        fill_in "Email", with: "sample-user@ku.edu.tr"
-        fill_in "Şifre", with: "foobar"
-        fill_in "Şifre Onaylama", with: "foobar"
+        fill_in "user_first_name",                      with: "Sample"
+        fill_in "user_last_name",                       with: "User"
+        fill_in "user_email",                           with: "sample-user@ku.edu.tr"
+        fill_in "user_password",                        with: "foobar"
+        fill_in "user_password_confirmation",           with: "foobar"
         check "user_agreed_to_terms_and_conditions"
       end
       
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
+      end
+      
+      it "should humanize the first and last name" do
+        fill_in "user_first_name", with: "sample"
+        fill_in "user_last_name", with: "user"
+        click_button submit
+        User.last.name.should == "Sample User"
       end
     end
   end # end of signing up test

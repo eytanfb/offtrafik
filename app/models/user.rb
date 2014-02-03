@@ -40,13 +40,16 @@ class User < ActiveRecord::Base
   validates_inclusion_of :agreed_to_terms_and_conditions, in: [true], on: :create
   validates_length_of :password, within: 6..20, on: :create
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@ku.edu.tr/i
-  validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  # validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validate :valid_email_domain
   
   has_many :postings
   has_many :frequent_postings
   has_many :comments
   has_many :favorites
   has_many :posting_responses, :class_name => "PostingResponse", :foreign_key => "responder_id"
+
+  before_save :titleize_name
   
   def name
     "#{self.first_name} #{self.last_name}"
@@ -64,6 +67,27 @@ class User < ActiveRecord::Base
   
   def self.count
     User.all.count
+  end
+  
+  private
+  
+  def titleize_name
+    self.first_name = self.first_name.titleize
+    self.last_name = self.last_name.titleize
+  end
+  
+  def valid_email_domain
+    valid = false
+    VALID_DOMAINS.each do |d|
+      if /#{d}$/ =~ self.email
+        valid = true
+      end
+    end
+    if valid
+      return true
+    else
+      errors.add(:email, "gecerli bir adres degil")
+    end
   end
   
 end
