@@ -57,11 +57,14 @@ describe User do
   it { should allow_value("abs@alumni.ku.edu.tr").for(:email) }
   it { should_not allow_value("abs@asd.ku.edu.tr").for(:email) }
   
-  let(:posting) { create(:posting, date: 1.week.ago, user_id: user.id) }
-  before { posting.posting_responses.create!(responder_id: user.id) } 
-  
-  it "has_past_responses should be true if there is a response for which the posting.date < Time.now" do  
-    user.has_past_responses?.should == true
+  it "has_past_responses should be false if there is no response for which the posting.date < Date.today" do  
+    user.has_past_responses?.should == false
   end
   
+  # create a past response
+  describe "has_past_responses should be true if there is a response for which the posting.date < Date.today" do
+    let(:posting) { create(:posting, date: 1.week.ago, user_id: user.id) }
+    before { posting.posting_responses.create!(responder_id: user.id) }   
+    it { user.has_past_responses?.should == true }
+  end  
 end

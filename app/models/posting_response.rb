@@ -17,6 +17,8 @@ class PostingResponse < ActiveRecord::Base
   belongs_to :user, :class_name => "User", :foreign_key => "responder_id"
   
   validates :posting_id, :responder_id, presence: true
+
+  scope :past, -> { joins(:posting).where("date < ?", Date.today) }
   
   def responder
     self.user

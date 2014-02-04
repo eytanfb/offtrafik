@@ -56,7 +56,7 @@ describe "UserPages" do
         
     end
     
-    describe "with valid information", :focus do
+    describe "with valid information" do
       before do
         fill_in "user_first_name",                      with: "Sample"
         fill_in "user_last_name",                       with: "User"
@@ -78,5 +78,19 @@ describe "UserPages" do
       end
     end
   end # end of signing up test
+  
+  describe "root page" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do 
+      user.confirm!
+      sign_in user
+      visit root_path
+    end
+    
+    describe "user with no has_past_responses? == false" do
+      it { should have_selector('h3', text: "İlanlar") }
+      it { should have_css("a#past-postings-button") }
+    end
+  end
   
 end

@@ -4,10 +4,6 @@
 class UsersController < Devise::RegistrationsController
   before_filter :authenticate_user!, only: [:index, :edit, :update, :show]
   
-  def index
-    @users = User.paginate(page: params[:page])
-  end
-  
   def postings
     @live_postings = current_user.postings.live_postings.paginate(page: params[:live_postings_page], per_page: 5)
   end

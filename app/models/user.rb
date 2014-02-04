@@ -70,10 +70,7 @@ class User < ActiveRecord::Base
   end
 
   def has_past_responses?
-    self.posting_responses.each do |response|
-      return true if response.posting.date < Date.today
-    end
-    false
+    !self.posting_responses.past.empty?
   end
   
   private
