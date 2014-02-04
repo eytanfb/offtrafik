@@ -26,7 +26,7 @@ FactoryGirl.define do
       end
       
       after(:create) do |user, evaluator|
-        create_list(:posting_with_responses), evaluator.post_count, user: user)
+        create_list(:posting_with_responses, evaluator.post_count, user: user)
       end
     end
   end
@@ -72,7 +72,7 @@ FactoryGirl.define do
   end   
   
   factory :posting_response do
-    responder_id  rand(5)+1
+    responder_id  {rand(5)+1}
     posting
   end 
   
