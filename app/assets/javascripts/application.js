@@ -15,3 +15,5 @@
 //= require jquery.ui.all
 //= require bootstrap
 //= require bootstrap-timepicker
+//= require alertify.js
+//= require dialogs.js
