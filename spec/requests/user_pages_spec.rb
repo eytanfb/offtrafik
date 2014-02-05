@@ -79,7 +79,7 @@ describe "UserPages" do
     end
   end # end of signing up test
   
-  describe "root page" do
+  describe "root page", :focus do
     let(:user) { FactoryGirl.create(:user) }
     before do 
       user.confirm!
@@ -87,9 +87,14 @@ describe "UserPages" do
       visit root_path
     end
     
-    describe "user with no has_past_responses? == false" do
+    describe "user with has_past_responses? == false" do
       it { should have_selector('h3', text: "İlanlar") }
       it { should have_css("a#past-postings-button") }
+    end
+    
+    describe "user with has_past_responses? == true" do
+      it { should have_selector('h3', text: "Bu yolculuklar gerceklesti mi?") }
+      
     end
   end
   
