@@ -20,7 +20,7 @@ require 'spec_helper'
 
 describe Posting do
   
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
   before { @posting = user.postings.build(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
     date: '07-11-2011', starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu" ) }
 

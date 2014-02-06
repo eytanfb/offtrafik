@@ -7,7 +7,7 @@ describe "CommentPages" do
 
   subject { page }
   
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
   before do
     user.confirm!
     sign_in user
@@ -15,7 +15,7 @@ describe "CommentPages" do
   
   describe "post creation" do
     
-    let(:user2) { FactoryGirl.create(:user) }
+    let(:user2) { create(:user) }
     
     before do
       user2.confirm!

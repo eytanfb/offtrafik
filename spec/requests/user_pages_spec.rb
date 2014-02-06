@@ -5,25 +5,27 @@ require 'spec_helper'
 
 describe "UserPages" do
   
-  subject { page }
+  # subject { page }
   
-  describe "user show page" do
-    let(:user) { FactoryGirl.create(:user) }
+  describe "user show page", :focus do
+    let(:user) { create(:user) }
     before do 
       user.confirm!
       sign_in user
       visit user_path(user)
     end
     
-    it { should have_selector('h1', text: user.name) }
-    it { should have_selector('title', text: user.name) }
+    it "#show" do
+      page.should have_selector('h1', text: user.name)
+      page.should have_selector('title', text: user.name)
     
-    it { should have_content("Yolculuk Puanı") }
+      page.should have_content("Yolculuk Puanı")        
+    end
   end
   
   describe "user can see other users" do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:second_user) { FactoryGirl.create(:user) }
+    let(:user) { create(:user) }
+    let(:second_user) { create(:user) }
     before do 
       user.confirm!
       second_user.confirm!
@@ -79,10 +81,12 @@ describe "UserPages" do
     end
   end # end of signing up test
   
-  describe "root page", :focus do
-    let(:user) { FactoryGirl.create(:user) }
+  describe "root page" do
+    let(:user) { create(:user) }
+    let(:user_with_reponses) { create(:user_with_responses) }
     before do 
       user.confirm!
+      user_with_reponses.confirm!
       sign_in user
       visit root_path
     end
@@ -91,11 +95,35 @@ describe "UserPages" do
       it { should have_selector('h3', text: "İlanlar") }
       it { should have_css("a#past-postings-button") }
     end
-    
-    describe "user with has_past_responses? == true" do
-      it { should have_selector('h3', text: "Bu yolculuklar gerceklesti mi?") }
       
+    describe "user with has_past_responses? == true" do
+      before do
+        sign_out
+        sign_in user_with_reponses
+        visit root_path
+      end
+      it { should have_selector('h3', text: "Bu yolculuklar gerceklesti mi?") }
+      it { should have_css("p.side-button-p") }
+      it { should have_css("td#driver") }
+      it { should have_css("td#rider") }
+      it { should have_css("td#date-time") }
+      it { should have_css("td#journey") }
+      it { should have_css("td#have-met") }
+      it { should have_css("tbody#posting-responses") }
+      it "should contain posting response details" do
+        within("#posting-responses") do
+          it { should have_content(user_with_reponses.name) }        
+        end
+      end
+      
+      # describe "chose did happen" do
+#         before do
+#           click_link "Evet"
+#         end
+#         it { should have_content("Yolculuk gerceklesti") }
+#       end
     end
+    
   end
   
 end

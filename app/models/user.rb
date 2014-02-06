@@ -70,7 +70,10 @@ class User < ActiveRecord::Base
   end
 
   def has_past_responses?
-    !self.posting_responses.past.empty?
+    self.postings.each do |posting|
+      return true unless posting.posting_responses.past.empty?
+    end
+    false
   end
   
   private

@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "PostingResponses" do
   
-  let(:user) { FactoryGirl.create(:user) }
-  let(:second_user) { FactoryGirl.create(:second_user) }
+  let(:user) { create(:user) }
+  let(:second_user) { create(:second_user) }
   
   before(:each) do
     @posting = user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul",

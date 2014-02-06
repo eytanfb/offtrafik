@@ -7,6 +7,9 @@
     <td>Çıkış Zamanı</td>
     <td>Varış Zamanı</td>
     <td>İhtiyaç</td>
+    <% if params[:action] == "past_responses" %>
+      <td>Gerceklesti?</td>
+    <% end %>
   </tr>
   <tbody>
     <% posting_list.each do |posting| %>
@@ -32,6 +35,9 @@
         <td>
           <%= link_to posting.driving, posting %>
         </td>
+        <% if params[:action] == "past_responses" %>
+          <td><%= link_to "Evet", "#", class: "yes", remote: true %> <%= link_to "Hayir", "#", class: "no", remote: true %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

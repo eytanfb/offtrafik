@@ -3,7 +3,14 @@
 class StaticPagesController < ApplicationController
   def home
     @districts = District.pluck(:name)
-    redirect_to user_postings_path(current_user) if signed_in?
+    path = if signed_in?
+      if current_user.has_past_responses?
+        user_past_responses_path(current_user)
+      else
+        user_postings_path(current_user)
+      end
+    end  
+    redirect_to path unless path.nil?
   end
 
   def help

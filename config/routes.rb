@@ -5,6 +5,7 @@ Offtrafik::Application.routes.draw do
   devise_scope :user do
     get 'users/:id/postings' => 'users#postings', as: :user_postings
     get 'users/:id/past_postings' => 'users#past_postings', as: :user_past_postings
+    get 'users/:id/past_responses' => 'posting_responses#past_responses', as: :user_past_responses
     match 'users/:id' => 'users#show', as: :user
     match 'users/:id/edit' => 'users#edit', as: :edit_user
   end

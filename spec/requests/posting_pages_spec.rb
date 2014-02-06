@@ -7,7 +7,7 @@ describe "PostingPages" do
   
   subject { page }
   
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
   before do
     user.confirm!
     sign_in user
@@ -66,7 +66,7 @@ describe "PostingPages" do
     end 
     
     describe "with responded posting" do
-      let(:second_user) { FactoryGirl.create(:user) }
+      let(:second_user) { create(:user) }
       before do
         @posting = user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul",
           date: Date.today+1.week, starting_time: Time.now, ending_time: Time.now + 1.hour, driving: "Yolcu")
@@ -81,8 +81,8 @@ describe "PostingPages" do
     end
     
     describe "responding to a posting" do
-      let(:second_user) { FactoryGirl.create(:user) }
-      let(:third_user) { FactoryGirl.create(:user) }
+      let(:second_user) { create(:user) }
+      let(:third_user) { create(:user) }
       before do
         @posting = user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University, Istanbul",
           date: Date.today+1.week, starting_time: Time.now, ending_time: Time.now + 1.hour, driving: "Yolcu")

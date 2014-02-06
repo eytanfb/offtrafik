@@ -15,7 +15,7 @@ require 'spec_helper'
 
 describe Comment do
   
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
   before { @comment = user.comments.build(text: "This is a simple comment", rating: 3, is_about: 1) }
   
   subject{ @comment }

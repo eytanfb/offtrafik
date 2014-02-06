@@ -26,7 +26,7 @@ FactoryGirl.define do
       end
       
       after(:create) do |user, evaluator|
-        create_list(:posting_with_responses, evaluator.post_count, user: user)
+        create_list(:past_posting_with_responses, evaluator.post_count, user: user)
       end
     end
   end
@@ -51,6 +51,17 @@ FactoryGirl.define do
     user
     
     factory :posting_with_responses do
+      ignore do
+        response_count 4
+      end
+      
+      after(:create) do |posting, evaluator|
+        create_list(:posting_response, evaluator.response_count, posting: posting)
+      end
+    end
+    
+    factory :past_posting_with_responses do
+      date    1.week.ago
       ignore do
         response_count 4
       end
