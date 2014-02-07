@@ -4,18 +4,29 @@
       <%= render 'shared/user_info' %>
     </section>
   </aside>
-  <div class="span8">
+  <div class="span12">
     <h3>Bu yolculuklar gerceklesti mi?</h3>
 
     <table>
-      <th>
+      <tr>
         <td id="driver">Surucu</td>
         <td id="rider">Yolcu</td>
         <td id="date-time">Tarih</td>
         <td id="journey">Yolculuk</td>
         <td id="have-met">Bulustunuz mu?</td>
-      </th>
+      </tr>
       <tbody id="posting-responses">
+          <% @postings_with_past_responses.each do |posting| %>
+            <% posting.posting_responses.each do |response| %>
+            <tr>
+              <td id="<%= posting.user.name.parameterize %>-driver-<%= posting.id %>"><%= posting.user.name %></td>
+              <td id="<%= response.responder.name.parameterize %>-rider-<%= posting.id %>"><%= response.responder.name %></td>
+              <td><%= "#{posting.date} #{posting.starting_time.strftime("%H:%M")} - #{posting.ending_time.strftime("%H:%M")}" %></td>
+              <td><%= "#{posting.from_address} - #{posting.to_address}" %></td>
+              <td id="buttons-<%= posting.id %>"><%= link_to "Evet", "#", class: "btn btn-mini btn-success" %> <%= link_to "Hayir", "#", class: "btn btn-mini btn-danger" %></td>
+            </tr>
+            <% end %>
+          <% end %>
       </tbody>
     </table>
   </div>

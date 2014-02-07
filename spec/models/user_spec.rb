@@ -66,5 +66,11 @@ describe User do
     let(:posting) { create(:posting, date: 1.week.ago, user_id: user.id) }
     before { posting.posting_responses.create!(responder_id: (user.id)+1) }
     it { user.has_past_responses?.should == true }
-  end  
+  end
+  
+  describe "has_past_responses should also return true if user has responded to other postings" do
+    let(:posting) { create(:posting, date: 1.week.ago, user_id: 4) }
+    before { posting.posting_responses.create!(responder_id: user.id) }
+    it { user.has_past_responses?.should == true }
+  end
 end

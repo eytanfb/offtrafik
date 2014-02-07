@@ -7,7 +7,7 @@ describe "UserPages" do
   
   # subject { page }
   
-  describe "user show page", :focus do
+  describe "user show page" do
     let(:user) { create(:user) }
     before do 
       user.confirm!
@@ -32,10 +32,10 @@ describe "UserPages" do
       sign_in user
     end
     before { visit user_path(second_user) }
-    
-    it { should have_selector('h1', text: second_user.name) }
-    it { should have_selector('title', text: second_user.name) }
-    
+    it "#show other user" do
+      page.should have_selector('h1', text: second_user.name)
+      page.should have_selector('title', text: second_user.name)
+    end    
   end
     
   describe "signing up" do
@@ -52,8 +52,10 @@ describe "UserPages" do
       describe "after submission" do
           before { click_button submit }
           
-          it { should have_selector('title', text: 'Üye Ol') }
-          it { should have_content('olamaz') }
+          it "should have errors" do
+            page.should have_selector('title', text: 'Üye Ol')
+            page.should have_content('olamaz')
+          end
         end
         
     end
@@ -83,45 +85,57 @@ describe "UserPages" do
   
   describe "root page" do
     let(:user) { create(:user) }
-    let(:user_with_reponses) { create(:user_with_responses) }
+    let(:user_with_responses) { create(:user_with_responses) }
     before do 
       user.confirm!
-      user_with_reponses.confirm!
+      user_with_responses.confirm!
       sign_in user
       visit root_path
     end
     
     describe "user with has_past_responses? == false" do
-      it { should have_selector('h3', text: "İlanlar") }
-      it { should have_css("a#past-postings-button") }
+      it "should have some basic details" do
+        page.should have_selector('h3', text: "İlanlar")
+        page.should have_css("a#past-postings-button")
+      end
     end
       
     describe "user with has_past_responses? == true" do
       before do
         sign_out
-        sign_in user_with_reponses
+        sign_in user_with_responses
         visit root_path
       end
-      it { should have_selector('h3', text: "Bu yolculuklar gerceklesti mi?") }
-      it { should have_css("p.side-button-p") }
-      it { should have_css("td#driver") }
-      it { should have_css("td#rider") }
-      it { should have_css("td#date-time") }
-      it { should have_css("td#journey") }
-      it { should have_css("td#have-met") }
-      it { should have_css("tbody#posting-responses") }
+      it "should have user info and a table for posting responses" do
+        page.should have_selector('h3', text: "Bu yolculuklar gerceklesti mi?")
+        page.should have_css("p.side-button-p")
+        page.should have_css("td#driver")
+        page.should have_css("td#rider")
+        page.should have_css("td#date-time")
+        page.should have_css("td#journey")
+        page.should have_css("td#have-met")
+        page.should have_css("tbody#posting-responses")
+      end
       it "should contain posting response details" do
         within("#posting-responses") do
-          it { should have_content(user_with_reponses.name) }        
+          page.should have_content(user_with_responses.name)
+          page.should have_content("#{user_with_responses.postings.first.posting_responses.first.responder.name}")
+          page.should have_content("#{user_with_responses.postings.first.date} #{user_with_responses.postings.first.starting_time.strftime("%H:%M")} - #{user_with_responses.postings.first.ending_time.strftime("%H:%M")}")
+          page.should have_content("#{user_with_responses.postings.first.from_address} - #{user_with_responses.postings.first.to_address}")
+          page.should have_css("a.btn-success")
+          page.should have_css("a.btn-danger")
         end
       end
       
-      # describe "chose did happen" do
-#         before do
-#           click_link "Evet"
-#         end
-#         it { should have_content("Yolculuk gerceklesti") }
-#       end
+      describe "chose did happen", :focus do
+        before do
+          click_link "Evet"
+        end
+        it "if the user is the owner of the posting, then poster_agreed should be true" do
+          user_with_responses.postings.first.posting_responses.first.poster_agreed.should == true
+          # page.should have_content("Yolculuk gerceklesti")
+        end
+      end
     end
     
   end

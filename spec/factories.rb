@@ -83,7 +83,7 @@ FactoryGirl.define do
   end   
   
   factory :posting_response do
-    responder_id  {rand(5)+1}
+    responder_id  { create(:user).id }
     posting
   end 
   
