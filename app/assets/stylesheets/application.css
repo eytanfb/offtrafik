@@ -15,3 +15,18 @@
  *= require font-awesome
  *= require_tree .
  */
+html {
+	font-family:'Quando';
+	overflow-y: scroll;
+}
+
+body
+{
+	background: url("main-background.png") no-repeat center center;
+	height: 100%;
+	background-size: cover;
+ 
+ 	padding-top: 60px;
+  	display: block;
+}
+

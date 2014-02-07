@@ -1,5 +1,13 @@
 @import "bootstrap";
 
+@font-face
+{
+	font-family:'Quando';
+	src: url(http://fonts.googleapis.com/css?family=Quando&subset=latin-ext,latin);
+	font-style:normal;
+	font-weight:normal;
+}
+
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
@@ -11,15 +19,6 @@ $grayMediumLight: #eaeaea;
 }
 
 /* universal */
-
-html {
-  overflow-y: scroll;
-}
-
-body {
-  padding-top: 60px;
-  display: block;
-}
 
 section {
   overflow: auto;
@@ -52,28 +51,6 @@ textarea {
 }
 .timestamp {
   color: $grayLight;
-}
-/* footer */
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
-  a {
-    color: $gray;
-  }
-  small{
-    float: left;
-  }
-  ul{
-    float: right;
-    list-style: none;
-    li{
-      float: left;
-      margin-left: 10px;
-    }
-  }  
 }
 
 /* typography */

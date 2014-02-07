@@ -1,8 +1,10 @@
 <div class="center hero-unit i-main-container">
-	<div id = "container-left-part">
+	<section id ="headlines">
 	   <h3>Bütün bu noktalardan Koç Üniversite'sine gidiliyor.</h3>
-		<h3 id = "second-title">Sende katıl, yolculuklarını paylaşmaya başla !</h3>
-	   <%= image_tag "harita.png", style: "margin-bottom: 15px; height: 400px; width: 575px" %>
+		<h3 id = "second-title">Sende katıl, yolculuklarını paylaşmaya başla !</h3>		
+	</section>
+	<div id = "container-left-part">
+	   <figure><%= image_tag "harita.png" %></figure>
 	   <!--<h4> Seninle aynı yere. Koç Üniversitesi'ne!</h4>-->
 	</div><!--container-left-part-->
 	
@@ -14,7 +16,6 @@
 	   <div class="row">
 	     <%= simple_form_for :find_from_home, method: "get", html: { class: "form-search" }, url: { controller: "postings", action: "find_from_home_page" } do |f| %>
 		    
-			 
 	       <%= f.button :submit, "İlan Ara", name: nil, class: 'btn btn-primary btn-large', id: "search-button" %>
 	       <%= hidden_field_tag :to_address, "Koç Üniversitesi" %>
 	       <%= hidden_field_tag :driving, params[:driving] %>
