@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140128201536) do
+ActiveRecord::Schema.define(:version => 20140207091833) do
 
   create_table "comments", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -67,8 +67,10 @@ ActiveRecord::Schema.define(:version => 20140128201536) do
     t.integer  "responder_id"
     t.integer  "posting_id"
     t.boolean  "accepted"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.boolean  "poster_agreed"
+    t.boolean  "responder_agreed"
   end
 
   create_table "postings", :force => true do |t|

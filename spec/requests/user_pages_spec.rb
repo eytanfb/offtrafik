@@ -127,13 +127,13 @@ describe "UserPages" do
         end
       end
       
-      describe "chose did happen", :focus do
+      describe "chose did happen", :slow do
         before do
           click_link "Evet"
         end
         it "if the user is the owner of the posting, then poster_agreed should be true" do
           user_with_responses.postings.first.posting_responses.first.poster_agreed.should == true
-          # page.should have_content("Yolculuk gerceklesti")
+          page.should have_content("Bulustuk")
         end
       end
     end

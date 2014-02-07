@@ -18,15 +18,22 @@
       <tbody id="posting-responses">
           <% @postings_with_past_responses.each do |posting| %>
             <% posting.posting_responses.each do |response| %>
-            <tr>
-              <td id="<%= posting.user.name.parameterize %>-driver-<%= posting.id %>"><%= posting.user.name %></td>
-              <td id="<%= response.responder.name.parameterize %>-rider-<%= posting.id %>"><%= response.responder.name %></td>
+            <tr id="<%= posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-<%= posting.id %>">
+              <td id="<%= posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-driver-<%= posting.id %>"><%= posting.user.name %></td>
+              <td id="<%= response.responder.name.parameterize %>-<%= response.responder.name.parameterize %>-rider-<%= posting.id %>"><%= response.responder.name %></td>
               <td><%= "#{posting.date} #{posting.starting_time.strftime("%H:%M")} - #{posting.ending_time.strftime("%H:%M")}" %></td>
               <td><%= "#{posting.from_address} - #{posting.to_address}" %></td>
-              <td id="buttons-<%= posting.id %>"><%= link_to "Evet", "#", class: "btn btn-mini btn-success" %> <%= link_to "Hayir", "#", class: "btn btn-mini btn-danger" %></td>
+              <% if (current_user == posting.user && !response.poster_agreed.nil? && response.poster_agreed) || (current_user == response.responder && !response.responder_agreed.nil? && response.responder_agreed) %>
+                <td>Bulustuk</td>
+              <% elsif (current_user == posting.user && !response.poster_agreed.nil? && !response.poster_agreed) || (current_user == response.responder && !response.responder_agreed.nil? && !response.responder_agreed) %>
+                <td>Bulusamadik</td>
+              <% else %>
+                <td id="<%= posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-answer-<%= posting.id %>"><%= link_to "Evet", posting_response_happened_path(response), class: "btn btn-mini btn-success", remote: true, data: { confirm: "#{posting.user.name} ile #{response.responder.name} bulustu mu?", positive: "Tebrikler! Yolculuk paylastiniz!", negative: "Bulusamadiniz mi?" } %> <%= link_to "Hayir", posting_response_not_happened_path(response), class: "btn btn-mini btn-danger", remote: true, data: { confirm: "#{posting.user.name} ile #{response.responder.name} bulusmadiniz mi?", positive: "Bir dahaki sefere!", negative: "Bulustunuz mu yoksa?" } %></td>
+              <% end %>
             </tr>
             <% end %>
           <% end %>
       </tbody>
     </table>
   </div>
+</div>

@@ -31,4 +31,14 @@ class PostingResponsesController < ApplicationController
     end
     @posting_response.save
   end
+  
+  def not_happened
+    @posting_response = PostingResponse.find params[:posting_response_id]
+    if current_user == @posting_response.posting.user
+      @posting_response.poster_agreed = false
+    else
+      @posting_response.responder_agreed = false
+    end
+    @posting_response.save
+  end
 end

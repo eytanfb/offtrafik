@@ -39,6 +39,8 @@ Offtrafik::Application.routes.draw do
   resources :posting_responses do
     get 'accept'
     get 'reject'
+    get 'happened'
+    get 'not_happened'
   end
 
   # The priority is based upon order of creation:
