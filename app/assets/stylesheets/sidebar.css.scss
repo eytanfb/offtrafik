@@ -1,0 +1,54 @@
+/* sidebar */
+
+aside
+{
+	float:left;
+	border-style:solid;
+	border-color:red;
+	
+	
+	display:inline;
+	margin-top:50px;
+	margin-left:200px;
+	
+	
+  section
+  {
+    padding: 10px 0;
+    border-top: 1px solid gray;
+    
+	 &:first-child
+	 {
+      border: 0;
+      padding-top: 0;
+    }
+    
+	 span
+	 {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    
+	 h1
+	 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+
+  textarea
+  {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+.gravatar
+{
+  float: left;
+  margin-right: 10px;
+}

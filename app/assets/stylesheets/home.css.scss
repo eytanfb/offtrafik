@@ -1,7 +1,7 @@
 //HOME PAGE CSS--Without Login
 
 .container
-{
+{	
 	position: relative;
 	display: block;
 	width:auto;
@@ -14,6 +14,19 @@
 
 .i-main-container
 {
+	
+  	border-style:solid;
+  	border-color:blue;
+  	background: url("background-image.png") no-repeat center center;
+  	height: 100%;
+  	background-size: cover;
+	
+	text-align:center;
+	font-family:'Quando';
+	background-color: transparent;
+	display:block;
+	height: 550px;
+	
 	h2
 	{
 		color: black;
@@ -23,55 +36,85 @@
 	{
 		color: black;
 	}
-	
-	display:block;
-	height: 530px;	
-	margin-top: 50px;
-	margin-left: 40px;
-	margin-right: 40px;
-	
-	//background-color:radial-gradient(circle, #91A3B0, white);
-	background-color:lighten(#91A3B0,22%);
-	border-style:dotted;
-	border-radius: 40px;
-	border-width:6px;
-	border-color:lighten(#123524,10%);
 }
 
-#container-left-part
+#headlines
+{
+	border-style: solid;
+	border-color:red;
+	
+	margin:auto;
+	width:90%;
+	text-align:center;
+	
+	
+	h3
+	{
+		display:block;
+		text-align:left;
+	}
+	
+	h3#second-title
+	{
+		text-align:right;
+		padding-right: 10px;
+	}
+}
+
+/*#container-left-part
 {
 	float:left;
 	width:49%;
 	
 	h3
 	{
-		width:1250px;
 		text-align:left;
-		
-		//border-style: solid;
-		//border-color:blue;
 	}
 	
-	#second-title
+	
+	
+	figure
 	{
-		text-align:right;
+		border-style: double;
+		border-color: rgb(52,52,52);
+		border-width:6px;
+		border-radius:30% 30%;
+		height: 400px; 
+		width: auto;
+		
+		overflow:hidden;
 	}
 	
-	//border-style: solid;
-	//border-color:green;
+	img
+	{
+		margin-bottom: 15px; 
+		height: 400px; 
+		width: auto;
+	}
 }
-
+*/
+.search-bar
+{
+	background-color: black;
+	opacity:0.8;
+	margin: 0 auto auto auto;
+	width: 70%;
+	
+	border-style:solid;
+	border-color:gray;
+	border-width:2px;
+	border-radius:25px;
+}
 
 #container-right-part
 {
-	float: left;
-	width:49%;	
+	float: none;
+	width:50%;	
 	height: auto;
 	margin-top:100px;
+	margin-left:auto;
+	margin-right:auto;
 	padding: 10px 0 20px 0;
-	
-	//border-style: solid;
-	//border-color:blue;
 }
 
 #search-boxes
@@ -81,9 +124,6 @@
 	
 	margin: 10px 10px 20px 10px;
 	padding: 3px 5px 3px 5px;
-
-	//border-style: solid;
-	//border-color: yellow;
 }
 
 #search-button
