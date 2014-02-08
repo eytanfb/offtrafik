@@ -14,12 +14,16 @@
 
 .i-main-container
 {
+	
+  	border-style:solid;
+  	border-color:blue;
+  	background: url("background-image.png") no-repeat center center;
+  	height: 100%;
+  	background-size: cover;
+	
 	text-align:center;
 	font-family:'Quando';
 	background-color: transparent;
-	
-	border-style:solid;
-	border-color:blue;
 	display:block;
 	height: 550px;
 	
@@ -57,7 +61,7 @@
 	}
 }
 
-#container-left-part
+/*#container-left-part
 {
 	float:left;
 	width:49%;
@@ -88,14 +92,28 @@
 		width: auto;
 	}
 }
-
+*/
+.search-bar
+{
+	background-color: black;
+	opacity:0.8;
+	margin: 0 auto auto auto;
+	width: 70%;
+	
+	border-style:solid;
+	border-color:gray;
+	border-width:2px;
+	border-radius:25px;
+}
 
 #container-right-part
 {
-	float: left;
-	width:49%;	
+	float: none;
+	width:50%;	
 	height: auto;
 	margin-top:100px;
+	margin-left:auto;
+	margin-right:auto;
 	padding: 10px 0 20px 0;
 }
 
