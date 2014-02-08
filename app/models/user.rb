@@ -69,8 +69,8 @@ class User < ActiveRecord::Base
     self.postings.each do |posting|
       return true unless posting.posting_responses.past.empty?
     end
-    self.posting_responses do |response|
-      return true if response.posting.date < Date.today
+    self.posting_responses.each do |response|
+      return true if response.posting.date < Date.today && response.responder_agreed.nil?
     end
     false
   end

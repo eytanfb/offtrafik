@@ -127,7 +127,7 @@ describe "UserPages" do
         end
       end
       
-      describe "chose did happen", :slow do
+      describe "chose did happen", :slow, js: true do
         before do
           click_link "Evet"
         end

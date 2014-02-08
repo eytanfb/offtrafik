@@ -69,8 +69,22 @@ describe User do
   end
   
   describe "has_past_responses should also return true if user has responded to other postings" do
-    let(:posting) { create(:posting, date: 1.week.ago, user_id: 4) }
-    before { posting.posting_responses.create!(responder_id: user.id) }
-    it { user.has_past_responses?.should == true }
+    let(:user2) { create(:user) }
+    before do
+      user2.postings.create!(date: 1.week.ago, to_address: "asdf", from_address: "adsf", starting_time: Time.now, ending_time: Time.now+30.minutes, driving: "Yolcu")
+      user2.postings.first.posting_responses.create!(responder_id: user.id)
+    end
+    it "should return true if posting_responses are not answered" do
+      user2.postings.first.date.should < Date.today
+      user.postings.empty?.should == true
+      user.posting_responses.empty?.should == false
+      user2.postings.first.posting_responses.first.responder_id.should == user.id
+      user.has_past_responses?.should == true
+    end
+    it "should return false if all posting answers are answered", :focus do
+      user2.postings.first.posting_responses.first.update_attribute(:responder_agreed, true)
+      user2.postings.first.posting_responses.first.responder_agreed.should == true
+      user.has_past_responses?.should == false
+    end
   end
 end

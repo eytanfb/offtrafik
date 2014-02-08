@@ -2,12 +2,14 @@
 #
 # Table name: posting_responses
 #
-#  id           :integer          not null, primary key
-#  responder_id :integer
-#  posting_id   :integer
-#  accepted     :boolean
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id               :integer          not null, primary key
+#  responder_id     :integer
+#  posting_id       :integer
+#  accepted         :boolean
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  poster_agreed    :boolean
+#  responder_agreed :boolean
 #
 
 require 'spec_helper'

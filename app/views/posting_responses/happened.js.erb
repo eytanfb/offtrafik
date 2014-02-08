@@ -1,1 +1,2 @@
 $("#<%= @posting_response.posting.user.name.parameterize %>-<%= @posting_response.responder.name.parameterize %>-answer-<%= @posting_response.posting.id %>").html("Bulustuk");
+$("#<%= @posting_response.posting.user.name.parameterize %>-<%= @posting_response.responder.name.parameterize %>-answer-<%= @posting_response.posting.id %>").addClass("responder-true");
