@@ -20,10 +20,8 @@ html {
 
 body
 {
-	background: url("base-background.png") no-repeat center center;
-	height: 100%;
-	background-size: cover;
- 
+	background: url("base-background-2.png") no-repeat center center;
+	background-size:100%;
  	padding-top: 60px;
   	display: block;
 }
