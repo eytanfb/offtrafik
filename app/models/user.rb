@@ -99,6 +99,14 @@ class User < ActiveRecord::Base
     responses
   end
   
+  def agreed_journeys
+    (self.postings.past_postings << self.posting_responses.past.map { |response| response.posting if response.accepted && !response.responder_agreed.nil? }).flatten
+  end
+  
+  def total_journeys
+    self.postings.past_postings.count + self.posting_responses.past.select { |response| response if response.accepted && !response.responder_agreed.nil? }.count
+  end
+  
   private
   
   def past_posting_responses

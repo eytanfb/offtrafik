@@ -32,6 +32,7 @@ require 'spec_helper'
 describe User do
   
   let(:user) { create(:user) }
+  let(:user_2) { create(:user) }
   
   it { should respond_to(:email) }
   it { should respond_to(:trip_rating) }
@@ -41,6 +42,12 @@ describe User do
   it { should respond_to(:last_name) }
   it { should respond_to(:name) }
   it { should respond_to(:agreed_to_terms_and_conditions) }
+  it { should respond_to(:has_past_responses?) }
+  it { should respond_to(:has_past_postings?) }
+  it { should respond_to(:has_showable_journeys?) }
+  it { should respond_to(:unagreed_postings) }
+  it { should respond_to(:total_journeys) }
+  it { should respond_to(:agreed_journeys) }
   it { should have_many(:postings) }
   it { should have_many(:posting_responses) }
   it { should have_many(:favorites) }
@@ -57,15 +64,17 @@ describe User do
   it { should allow_value("abs@alumni.ku.edu.tr").for(:email) }
   it { should_not allow_value("abs@asd.ku.edu.tr").for(:email) }
   
-  describe "#has_past_postings?" do
+  describe ".has_past_postings?" do
     it "should return false if user has no past posting" do
       user.has_past_postings?.should == false
     end
+    
     it "should return false if there are past postings but no posting responses" do
       user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
     date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
       user.has_past_postings?.should == false
     end
+    
     it "should return true if user has past postings and postings have posting responses and posting responses are accepted and poster_agreed.nil?" do
       user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
     date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
@@ -81,13 +90,13 @@ describe User do
     end
   end
   
-  describe "#has_past_responses?" do
+  describe ".has_past_responses?" do
     it "should return false if user has not responded to any postings that has passed" do
       user.posting_responses.first.should be_nil
       user.posting_responses.empty?.should == true
       user.has_past_responses?.should == false
     end
-    let(:user_2) { create(:user) }
+
     it "should return false if user has responded to a posting that has passed but posting_response is nil or not accepted" do
       user_2.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
     date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
@@ -98,6 +107,7 @@ describe User do
       user_2.postings.first.posting_responses.first.accepted.should == false
       user.has_past_responses?.should == false
     end
+
     it "should return false if response.accepted but !responder_agreed.nil?" do
       user_2.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
     date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
@@ -106,11 +116,42 @@ describe User do
       user_2.postings.first.posting_responses.first.update_attribute(:responder_agreed, true)
       user.has_past_responses?.should == false
     end
+
     it "should return true if response.accepted and responder_agreed.nil?" do
       user_2.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
     date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
       user_2.postings.first.posting_responses.create!(responder_id: user.id, accepted: true)
       user.has_past_responses?.should == true
     end
+  end
+  
+  describe ".total_journeys" do
+    it "should return the number of past postings + accepted and agreed responses" do
+      user.total_journeys.should == 0
+      5.times do
+        user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
+      date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
+      end
+      user.total_journeys.should == 5
+      user_2.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
+      date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
+      user_2.postings.first.posting_responses.create!(responder_id: user.id, accepted: true)
+      user_2.postings.first.posting_responses.first.update_attribute(:responder_agreed, true)
+      user.total_journeys.should == 6
+    end
+  end
+  
+  it ".agreed_journeys should return all journeys in postings and posting_response.accepted and !response.responder_agreed.nil?" do
+    user.agreed_journeys.should be_empty
+    5.times do
+      user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
+    date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
+    end
+    user.agreed_journeys.count == 5
+    user_2.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
+    date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
+    user_2.postings.first.posting_responses.create!(responder_id: user.id, accepted: true)
+    user_2.postings.first.posting_responses.first.update_attribute(:responder_agreed, true)
+    user.agreed_journeys.count.should == 6
   end
 end

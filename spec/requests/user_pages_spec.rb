@@ -9,8 +9,10 @@ describe "UserPages" do
   
   describe "user show page" do
     let(:user) { create(:user) }
+    let(:user_with_postings) { create(:user_with_postings) } 
     before do 
       user.confirm!
+      user_with_postings.confirm!
       sign_in user
       visit user_path(user)
     end
@@ -20,6 +22,20 @@ describe "UserPages" do
       page.should have_selector('title', text: user.name)
     
       page.should have_content("Yolculuk Puanı")
+      page.should have_css("h4#total-journey-count")
+      page.should have_css("h3#past-journeys")
+    end
+    
+    before do
+      sign_out
+      sign_in user_with_postings
+      visit user_path(user_with_postings)
+    end
+    
+    it "#show with postings" do
+      page.should have_css("td#date-time")
+      page.should have_css("td#journey")
+      page.should have_css("td#with-who")
     end
   end
   

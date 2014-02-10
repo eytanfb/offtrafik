@@ -16,11 +16,40 @@
       <% @favorites.each do |f| %>
         <span class="favorite" style="display:none">#{f.location}</span>
       <% end %>
-      <h4>
-        Yolculuk Puanı: <%= @user.trip_rating %>
-      </h4>
+      <div class="row">
+        <div class="span6">
+          <h4>Yolculuk Puanı: <%= @user.trip_rating %></h4>
+        </div>
+        <div class="span6">
+          <h4 id='total-journey-count'>Toplam Yolculuklar: <%= @user.total_journeys %> </h4>
+        </div>
+      </div>
     </section>
-    <%= render 'display_comments', comments: @comments, user: @user %>
+    <div class="row">
+      <div class="span6">
+        <%= render 'display_comments', comments: @comments, user: @user %>
+      </div>
+      <div class="span8">
+        <h3 id="past-journeys">Gecmis Yolculuklar</h3>
+        <%= will_paginate @agreed_journeys %>
+        <table>
+          <tr>
+            <td id="date-time"><strong>Tarih</strong></td>
+            <td id="journey"><strong>Yolculuk</strong></td>
+            <td id="with-who"><strong>Kiminle</strong></td>
+          </tr>
+          <tbody>
+            <% @agreed_journeys.each do |journey| %>
+              <tr id="<%= journey.user.name.parameterize %>-<%= journey.id %>">
+                <td><%= "#{journey.formatted_date} #{journey.starting_time.strftime("%H:%M")} - #{journey.ending_time.strftime("%H:%M")}" %></td>
+                <td><%= "#{journey.from_address} - #{journey.to_address}" %></td>
+                <td><%= journey.people_who_completed_journey(current_user.name).join(',') %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </section>
 </div>
 <% content_for :javascripts do %>

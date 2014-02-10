@@ -21,7 +21,8 @@ require 'spec_helper'
 describe Posting do
   
   let(:user) { create(:user) }
-  before { @posting = user.postings.build(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
+  let(:user_2) { create(:user, first_name: "Another") }
+  before { @posting = user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
     date: '07-11-2011', starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu" ) }
 
   subject { @posting }
@@ -34,38 +35,15 @@ describe Posting do
   it { should respond_to(:comments) }
   it { should respond_to(:smoking)}
   it { should respond_to(:driving)}
+  it { should respond_to(:people_who_completed_journey) }
   it { should have_many(:posting_responses).dependent(:destroy) }
   it { should belong_to(:user) }
-
-  describe "if it doesn't have an owner it should not be valid" do
-    before { @posting.user_id = nil }
-    it { should_not be_valid }
-  end
-  
-  describe "if it doesn't have a from_address it should not be valid" do
-    before { @posting.from_address = nil }
-    it { should_not be_valid }
-  end
-  
-  describe "if it doesn't have a to_address it should not be valid" do
-    before { @posting.to_address = nil }
-    it { should_not be_valid }
-  end
-  
-  describe "if it doesn't have a starting_time it should not be valid" do
-    before do
-      @posting.starting_time = nil
-    end
-    it { should_not be_valid }
-  end
-  
-  describe "if it doesn't have a ending_time it should not be valid" do
-    before do
-      @posting.ending_time = nil
-    end
-    it { should_not be_valid }
-  end
-  
+  it { should validate_presence_of(:user_id) }
+  it { should validate_presence_of(:from_address) }
+  it { should validate_presence_of(:to_address) }
+  it { should validate_presence_of(:starting_time) }
+  it { should validate_presence_of(:ending_time) }
+    
   describe "if starting_time is later than ending_time it should not be valid" do
     before do
       @posting.ending_time = Time.now
@@ -79,6 +57,31 @@ describe Posting do
       expect do
         Posting.new(user_id: user.id)        
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
+  end
+  
+  describe ".people_who_completed_journey", :focus do
+    it "should return 0 if there are no responses" do
+      @posting.people_who_completed_journey.count.should == 0
+    end
+    it "should return an array all the people who have been accepted to the posting and if both parties agreed" do
+      3.times do |n|
+        response = @posting.posting_responses.create!(responder_id: user_2.id, accepted: true)
+        response.update_attribute(:poster_agreed, true) if n.even?
+        response.update_attribute(:responder_agreed, true)
+      end
+      @posting.people_who_completed_journey(user.name).count.should == 2
+      @posting.people_who_completed_journey(user.name).first.should == user_2.name
+      @posting.people_who_completed_journey(user.name).last.should == user_2.name
+      @posting.people_who_completed_journey(user.name).include?(user.name).should == false
+      user_2.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
+    date: '07-11-2011', starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu" )
+      user_2.postings.first.posting_responses.create!(responder_id: user.id, accepted: true)
+      user_2.postings.first.posting_responses.first.update_attribute(:poster_agreed, true)
+      user_2.postings.first.posting_responses.first.update_attribute(:responder_agreed, true)
+      user_2.postings.first.people_who_completed_journey(user.name).count == 1
+      user_2.postings.first.people_who_completed_journey(user.name).first.should == user_2.name
+      user_2.postings.first.people_who_completed_journey(user.name).include?(user.name).should == false
     end
   end
   

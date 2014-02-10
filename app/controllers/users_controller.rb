@@ -15,6 +15,7 @@ class UsersController < Devise::RegistrationsController
   def show
     @user = User.find(params[:id])
     @user.calculate_rating
+    @agreed_journeys = @user.agreed_journeys.paginate(page: params[:page], per_page: 3)
     @postings = @user.postings.paginate(page: params[:page], per_page: 2, order: "date ASC")
     @comments = Comment.find_all_by_is_about(@user.id).paginate(page: params[:page], per_page: 5)
     @favorites = @user.favorites
