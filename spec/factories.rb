@@ -84,6 +84,7 @@ FactoryGirl.define do
   
   factory :posting_response do
     responder_id  { create(:user).id }
+    accepted      true
     posting
   end 
   

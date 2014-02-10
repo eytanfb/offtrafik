@@ -81,8 +81,26 @@ class User < ActiveRecord::Base
     has_past_postings? || has_past_responses?
   end
   
+  def accepted_past_responses
+    responses = []
+    self.posting_responses.past.each do |response|
+      responses << response if response.accepted == true && response.responder_agreed.nil?
+    end
+    responses
+  end
+  
+  def unagreed_postings
+    responses = []
+    self.postings.past_postings.each do |posting|
+      posting.posting_responses.each do |response|
+        responses << response if response.accepted && response.poster_agreed.nil?
+      end
+    end
+    responses
+  end
+  
   private
-
+  
   def past_posting_responses
     postings = []
     self.postings.past_postings.each do |posting|
@@ -94,14 +112,6 @@ class User < ActiveRecord::Base
       end
     end
     postings
-  end
-  
-  def accepted_past_responses
-    responses = []
-    self.posting_responses.past.each do |response|
-      responses << response if response.accepted == true && response.responder_agreed.nil?
-    end
-    responses
   end
   
   def titleize_name

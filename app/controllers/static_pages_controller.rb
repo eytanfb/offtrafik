@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   def home
     @districts = District.pluck(:name)
     path = if signed_in?
-      if current_user.has_past_responses?
+      if current_user.has_showable_journeys?
         user_past_responses_path(current_user)
       else
         user_postings_path(current_user)

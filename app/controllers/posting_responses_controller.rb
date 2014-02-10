@@ -14,9 +14,8 @@ class PostingResponsesController < ApplicationController
   
   def past_responses
     @postings_with_past_responses = []
-    user_postings = current_user.postings.includes(:posting_responses).select { |posting| posting unless posting.posting_responses.past.empty? }
-    user_responses = current_user.posting_responses.includes(:posting).map { |response| response.posting if response.posting.date < Date.today }.delete_if { |posting| posting.nil? }
-    user_responses.each { |posting| posting.posting_responses.reject! { |response| response.responder.name != current_user.name }}
+    user_postings  = current_user.unagreed_postings
+    user_responses = current_user.accepted_past_responses
     @postings_with_past_responses << user_postings
     @postings_with_past_responses << user_responses
     @postings_with_past_responses.flatten!

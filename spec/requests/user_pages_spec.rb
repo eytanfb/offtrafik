@@ -93,14 +93,14 @@ describe "UserPages" do
       visit root_path
     end
     
-    describe "user with has_past_responses? == false" do
+    describe "user with has_showable_journeys? == false" do
       it "should have some basic details" do
         page.should have_selector('h3', text: "İlanlar")
         page.should have_css("a#past-postings-button")
       end
     end
       
-    describe "user with has_past_responses? == true" do
+    describe "user with has_showable_journeys? == true" do
       before do
         sign_out
         sign_in user_with_responses
