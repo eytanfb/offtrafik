@@ -24,7 +24,7 @@ class Posting < ActiveRecord::Base
   belongs_to :user
   has_many :posting_responses, :class_name => "PostingResponse", :foreign_key => "posting_id", dependent: :destroy
   
-  validates_presence_of :from_address, :to_address, :date, :starting_time, :ending_time
+  validates_presence_of :from_address, :to_address, :date, :starting_time, :ending_time, :user_id
   validates_inclusion_of :driving, in: %w(Sürücü Yolcu Farketmez Taksi)
   validate :ending_time_is_later_than_starting_time?
   

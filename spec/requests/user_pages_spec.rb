@@ -19,7 +19,7 @@ describe "UserPages" do
       page.should have_selector('h1', text: user.name)
       page.should have_selector('title', text: user.name)
     
-      page.should have_content("Yolculuk Puanı")        
+      page.should have_content("Yolculuk Puanı")
     end
   end
   
