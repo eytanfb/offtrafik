@@ -57,34 +57,60 @@ describe User do
   it { should allow_value("abs@alumni.ku.edu.tr").for(:email) }
   it { should_not allow_value("abs@asd.ku.edu.tr").for(:email) }
   
-  it "has_past_responses should be false if there is no response for which the posting.date < Date.today" do  
-    user.has_past_responses?.should == false
+  describe "#has_past_postings?" do
+    it "should return false if user has no past posting" do
+      user.has_past_postings?.should == false
+    end
+    it "should return false if there are past postings but no posting responses" do
+      user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
+    date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
+      user.has_past_postings?.should == false
+    end
+    it "should return true if user has past postings and postings have posting responses and posting responses are accepted and poster_agreed.nil?" do
+      user.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
+    date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
+      user.postings.first.posting_responses.create!(responder_id: 3)
+      user.has_past_postings?.should == false
+      user.postings.first.posting_responses.first.update_attribute(:accepted, false)
+      user.has_past_postings?.should == false
+      user.postings.first.posting_responses.first.update_attribute(:accepted, true)
+      user.postings.first.posting_responses.first.update_attribute(:poster_agreed, false)
+      user.has_past_postings?.should == false
+      user.postings.first.posting_responses.first.update_attribute(:poster_agreed, nil)
+      user.has_past_postings?.should == true
+    end
   end
   
-  # create a past response
-  describe "has_past_responses should be true if there is a response for which the posting.date < Date.today" do
-    let(:posting) { create(:posting, date: 1.week.ago, user_id: user.id) }
-    before { posting.posting_responses.create!(responder_id: (user.id)+1) }
-    it { user.has_past_responses?.should == true }
-  end
-  
-  describe "has_past_responses should also return true if user has responded to other postings" do
-    let(:user2) { create(:user) }
-    before do
-      user2.postings.create!(date: 1.week.ago, to_address: "asdf", from_address: "adsf", starting_time: Time.now, ending_time: Time.now+30.minutes, driving: "Yolcu")
-      user2.postings.first.posting_responses.create!(responder_id: user.id)
-    end
-    it "should return true if posting_responses are not answered" do
-      user2.postings.first.date.should < Date.today
-      user.postings.empty?.should == true
-      user.posting_responses.empty?.should == false
-      user2.postings.first.posting_responses.first.responder_id.should == user.id
-      user.has_past_responses?.should == true
-    end
-    it "should return false if all posting answers are answered", :focus do
-      user2.postings.first.posting_responses.first.update_attribute(:responder_agreed, true)
-      user2.postings.first.posting_responses.first.responder_agreed.should == true
+  describe "#has_past_responses?" do
+    it "should return false if user has not responded to any postings that has passed" do
+      user.posting_responses.first.should be_nil
+      user.posting_responses.empty?.should == true
       user.has_past_responses?.should == false
+    end
+    let(:user_2) { create(:user) }
+    it "should return false if user has responded to a posting that has passed but posting_response is nil or not accepted" do
+      user_2.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
+    date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
+      user_2.postings.first.posting_responses.create!(responder_id: user.id)
+      user_2.postings.first.posting_responses.first.accepted.should be_nil
+      user.has_past_responses?.should == false
+      user_2.postings.first.posting_responses.first.update_attribute(:accepted, false)
+      user_2.postings.first.posting_responses.first.accepted.should == false
+      user.has_past_responses?.should == false
+    end
+    it "should return false if response.accepted but !responder_agreed.nil?" do
+      user_2.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
+    date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
+      user_2.postings.first.posting_responses.create!(responder_id: user.id, accepted: true)
+      user.has_past_responses?.should == true
+      user_2.postings.first.posting_responses.first.update_attribute(:responder_agreed, true)
+      user.has_past_responses?.should == false
+    end
+    it "should return true if response.accepted and responder_agreed.nil?" do
+      user_2.postings.create!(from_address: "Ortakoy, Istanbul", to_address: "Koc University", 
+    date: 1.week.ago, starting_time: Time.now, ending_time: Time.now + 1.hour, smoking: false, driving: "Yolcu")
+      user_2.postings.first.posting_responses.create!(responder_id: user.id, accepted: true)
+      user.has_past_responses?.should == true
     end
   end
 end

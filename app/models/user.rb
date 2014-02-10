@@ -39,8 +39,6 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :email, :password, :password_confirmation, message: "alani bos olamaz"
   validates_inclusion_of :agreed_to_terms_and_conditions, in: [true], on: :create
   validates_length_of :password, within: 6..20, on: :create
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@ku.edu.tr/i
-  # validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validate :valid_email_domain
   
   has_many :postings
@@ -65,17 +63,46 @@ class User < ActiveRecord::Base
     end
   end
 
+  def has_past_postings?
+    postings_empty = self.postings.past_postings.empty? ? false : true
+    posting_responses = past_posting_responses
+    posting_responses_empty = posting_responses.empty? ? false : true
+    postings_empty && posting_responses_empty
+  end
+  
   def has_past_responses?
-    self.postings.each do |posting|
-      return true unless posting.posting_responses.past.empty?
-    end
-    self.posting_responses.each do |response|
-      return true if response.posting.date < Date.today && response.responder_agreed.nil?
-    end
-    false
+    responses_empty = self.posting_responses.past.empty? ? false : true
+    accepted_responses = accepted_past_responses
+    accepted_responses_empty = accepted_responses.empty? ? false : true
+    responses_empty && accepted_responses_empty
+  end
+  
+  def has_showable_journeys?
+    has_past_postings? || has_past_responses?
   end
   
   private
+
+  def past_posting_responses
+    postings = []
+    self.postings.past_postings.each do |posting|
+      if !posting.posting_responses.empty?
+        posting.posting_responses.each do |response|
+          postings << posting if response.accepted && response.poster_agreed.nil?
+          break
+        end
+      end
+    end
+    postings
+  end
+  
+  def accepted_past_responses
+    responses = []
+    self.posting_responses.past.each do |response|
+      responses << response if response.accepted == true && response.responder_agreed.nil?
+    end
+    responses
+  end
   
   def titleize_name
     self.first_name = self.first_name.titleize
