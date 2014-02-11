@@ -4,8 +4,27 @@
 
 //Customized by Igal 
 
+section.span8.postings-list
+{
+	border-style:solid;
+   background: rgba(252, 252, 255, 0.6);
+	border-color: rgba(252, 252, 255, 0.6);
+	border-radius:15px;
+	
+	margin-top:25px;
+	text-align:center;
+	padding-bottom:10px;
+	
+}
 
-
+.table-hover
+{
+	&:hover
+	{
+		background-color:rgba(11,99,157,0.5);
+		color:black;
+	}
+}
 
 
 
@@ -196,12 +215,6 @@
 
 .posting_title {
 	margin-bottom: 10px;
-}
-
-.posting_span {
-	.control-group {
-		margin-bottom: 5px;
-	}
 }
 
 #posting-responders {

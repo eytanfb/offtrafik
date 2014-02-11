@@ -1,0 +1,76 @@
+/* Styles for New Post* postings/new.html.ern */
+
+h3.center
+{
+	font-size:3em;
+	font-family:'Quando';
+	margin-top: 10px;
+	border-style:solid;
+	border-color:red;
+}
+
+#posting
+{
+	border-style:solid;
+	border-color:blue;
+	padding-top:5px;
+}
+
+#map-container
+{
+	float:right;
+	margin-right:30px;
+	
+	border-style:solid;
+	border-color:green;
+}
+
+#posting-selection
+{
+	float:left;
+	width:38%;
+	margin-left:30px;
+	padding:5px;
+	
+	border-style:solid;
+	border-color:green;
+}
+
+#standad-postings
+{
+	text-align:center;
+}
+
+.control-group 
+{
+	margin:0;
+	padding: 0 50px 0 35px;
+
+}
+
+.place-input
+{
+	margin-bottom:20px;
+	display:block;
+}
+
+#frequent-postngs
+{
+	text-align:center;
+}
+
+.control-group.optional
+{
+	border-style:solid;
+	border-color:blue;
+}	
+
+.control-label
+{
+	display:inline;
+}
+
+.checkbox
+{
+	display:inline;
+}

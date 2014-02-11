@@ -1,28 +1,32 @@
 <h3 class="center">Yeni İlan</h3>
 <div class="row" id="posting">
-    <div class="span6 center">
+    <div class="span6 center" id ="posting-selection">
       <div id="standard-posting">
-        <p><%= link_to "Gunluk Ilan", "#", class: "btn btn-primary btn-large posting-button" %></p>
+        <p><%= link_to "Günlük İlan", "#", class: "btn btn-primary btn-large posting-button" %></p>
         <div class="items hidden">
-          <%= simple_form_for @posting, html: { class: "form-horizontal" } do |f| %>
-            <%= text_field_tag :from_address, params[:from_address], placeholder: "Nereye", id: "posting_to_address", onblur: "calcRoute()", class: "address-input", style: "margin-left: 50px; margin-bottom: 20px" %>
-            <%= text_field_tag :to_address, params[:to_address], placeholder: "Nereden", id: "posting_from_address", onblur: "calcRoute()", class: "address-input", style: "margin-bottom: 20px" %>
-            <%= f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline", input_html: { class: "standard-datepicker" } %>
-            <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
-            <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
-            <%= f.input :driving, label: "Ne Arıyorum", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
-            <%= f.input :smoking, label: "Sigara", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
-            <%= f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)" %>
-            <%= f.submit "Ilan Ver", class: "btn btn-primary posting-submit", style: "width: 280px;" %>
+ 			 <%= simple_form_for @posting, html: { class: "form-horizontal" } do |f| %>
+			 <div class = "place-input">
+				  <%= text_field_tag :from_address, params[:from_address], placeholder: "Nereden", id: "posting_to_address", onblur: "calcRoute()", class: "address-input" %>
+				  <%= text_field_tag :to_address, params[:to_address], placeholder: "Nereye", id: "posting_from_address", onblur: "calcRoute()", class: "address-input " %>
+			 </div><!--place-input-->
+			  	  <%= f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline", input_html: { class: "standard-datepicker " } %>
+			  	  <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
+			     <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
+			  	  <%= f.input :driving, label: "Ne Arıyorum", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline"%>
+              <%= f.input :smoking, label: "Sigara", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
+              <%= f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)" %>
+            <%= f.submit "İlan Ver", class: "btn btn-primary posting-submit", style: "width: 280px;" %>
           <% end %>
         </div>
       </div>
       <div id="frequent-posting">
-        <p><%= link_to "Rutin Ilan", "#", class: "btn btn-primary btn-large posting-button", style: "background: orange" %></p>
+        <p><%= link_to "Rutin İlan", "#", class: "btn btn-primary btn-large posting-button", style: "background: orange" %></p>
         <div class="items hidden">
-          <%= simple_form_for @frequent_posting, html: { class: "form-horizontal" } do |f| %>
-            <%= text_field_tag :from_address, params[:from_address], placeholder: "Nereye", id: "frequent_posting_to_address", onblur: "calcRoute()", class: "address-input", style: "margin-left: 50px; margin-bottom: 20px" %>
-            <%= text_field_tag :to_address, params[:to_address], placeholder: "Nereden", id: "frequent_posting_from_address", onblur: "calcRoute()", class: "address-input", style: "margin-bottom: 20px" %>
+ 			 <div class = "place-input">
+			 <%= simple_form_for @frequent_posting, html: { class: "form-horizontal" } do |f| %>
+            <%= text_field_tag :from_address, params[:from_address], placeholder: "Nereden", id: "frequent_posting_to_address", onblur: "calcRoute()", class: "address-input" %>
+            <%= text_field_tag :to_address, params[:to_address], placeholder: "Nereye", id: "frequent_posting_from_address", onblur: "calcRoute()", class: "address-input" %>
+			 </div><!--place-input-->
             <%= f.fields_for :days do |field| %>
               <% Date::DAYNAMES.each do |day| %>
                 <%= field.input "#{day}", as: :boolean  %>
@@ -39,7 +43,7 @@
         </div>
       </div>
     </div>
-    <div class="span10">
+    <div class="span10" id = "map-container">
       <div class="pull-right" id="map"></div>
     </div>
 </div>

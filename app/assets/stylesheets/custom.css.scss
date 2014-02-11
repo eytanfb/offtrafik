@@ -19,6 +19,14 @@ $grayLight: #eaeaea;
   box-sizing: border-box;
 }
 
+@mixin background-box
+{
+   background: rgba(252, 252, 255, 0.6);
+	border-color: rgba(252, 252, 255, 0.6);
+	border-radius:15px;
+}
+/*Sudo class for the background container*/
+
 /* universal */
 
 section {
@@ -97,7 +105,8 @@ input, textarea, select, .uneditable-input{
   @include box_sizing;
 }
 
-input[type="text"], input[type="password"], input[type="email"]{
+input[type="text"], input[type="password"], input[type="email"]
+{
 	height: 30px;
 }
 
@@ -118,7 +127,8 @@ input[type="text"], input[type="password"], input[type="email"]{
   @extend .error;
 }
 
-input[type="radio"], input[type="checkbox"]{
+input[type="radio"], input[type="checkbox"]
+{
  clear: left;
  float: left;
  margin-right: 10px;
