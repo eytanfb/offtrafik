@@ -62,7 +62,7 @@ describe Posting do
   
   describe ".people_who_completed_journey", :focus do
     it "should return 0 if there are no responses" do
-      @posting.people_who_completed_journey.count.should == 0
+      @posting.people_who_completed_journey(user.name).count.should == 0
     end
     it "should return an array all the people who have been accepted to the posting and if both parties agreed" do
       3.times do |n|
