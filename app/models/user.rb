@@ -100,7 +100,7 @@ class User < ActiveRecord::Base
   end
   
   def agreed_journeys
-    (self.postings.past_postings << self.posting_responses.past.map { |response| response.posting if response.accepted && !response.responder_agreed.nil? }).flatten
+    (self.postings.past_postings << self.posting_responses.past.map { |response| response.posting if response.accepted && !response.responder_agreed.nil? }).flatten.delete_if { |posting| posting.nil? }
   end
   
   def total_journeys
