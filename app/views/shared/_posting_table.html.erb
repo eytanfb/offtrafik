@@ -13,28 +13,14 @@
   </tr>
   <tbody>
     <% posting_list.each do |posting| %>
-      <tr class="table-hover">
-        <td>
-          <%= link_to posting.user.name, posting %>
-        </td>
-        <td>
-          <%= link_to posting.from_address, posting %>
-        </td>
-        <td>
-          <%= link_to posting.to_address, posting %>
-        </td>
-        <td>
-          <%= link_to "#{l posting.date, format: :short}", posting %>
-        </td>
-        <td>
-          <%= link_to posting.starting_time.to_s(:time), posting %>
-        </td>
-        <td>
-          <%= link_to posting.ending_time.to_s(:time), posting %>
-        </td>
-        <td>
-          <%= link_to posting.driving, posting %>
-        </td>
+      <tr class="table-hover clickableRow" href="<%= posting_path(posting) %>">
+        <td><%= posting.user.name %></td>
+        <td><%= posting.from_address %></td>
+        <td><%= posting.to_address %></td>
+        <td><%= "#{l posting.date, format: :short}" %></td>
+        <td><%= posting.starting_time.to_s(:time) %></td>
+        <td><%= posting.ending_time.to_s(:time) %></td>
+        <td><%= posting.driving %></td>
         <% if params[:action] == "past_responses" %>
           <td><%= link_to "Evet", "#", class: "yes", remote: true %> <%= link_to "Hayir", "#", class: "no", remote: true %></td>
         <% end %>
@@ -42,3 +28,7 @@
     <% end %>
   </tbody>
 </table>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "postings.js" %>
+<% end %>

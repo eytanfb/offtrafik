@@ -1,14 +1,9 @@
 jQuery(function($) {
 		
-		makeTimepicker("#starting_time");
-		makeTimepicker("#ending_time");
+	jQuery(document).ready(function($) {
+	      $(".clickableRow").click(function() {
+	            window.document.location = $(this).attr("href");
+	      });
+	});
 		
 });
-
-function makeTimepicker(divId){
-	$(divId).timepicker({
-		minuteStep: 5,
-		showMeridian: false,
-		defaultTime: 'value'
-	});
-}
