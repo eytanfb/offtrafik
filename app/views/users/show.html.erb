@@ -4,6 +4,13 @@
     <section>
       <%= render 'shared/user_info' %>
     </section>
+    <section>
+      <% @notifications.each do |notification| %>
+        <ol>
+          <%= "<i class='icon-user'>#{notification.responder.name}</i>" %>
+        </ol>
+      <% end %>
+    </section>
   </aside>
   <section id="user-show">
     <h1 id="user-name-heading">
