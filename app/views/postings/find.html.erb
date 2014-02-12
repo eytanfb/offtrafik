@@ -1,11 +1,7 @@
 <%= provide(:title, 'Ilan Ara') %>
 <div class="row">
   <% if signed_in? %>
-    <aside class="span4">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-    </aside>
+    <%= render partial: "shared/sidebar" %>
     <section class="span8" id = "main-content">
       <%= render 'find_postings' %>
     </section>
