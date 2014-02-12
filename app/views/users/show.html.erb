@@ -26,7 +26,7 @@
       <div class="span6">
         <%= render 'display_comments', comments: @comments, user: @user %>
       </div>
-      <div class="span8">
+      <div class="span6">
         <h3 id="past-journeys">Gecmis Yolculuklar</h3>
         <%= will_paginate @agreed_journeys, param_name: "journey_page" %>
         <table>
