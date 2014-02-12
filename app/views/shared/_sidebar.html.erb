@@ -6,11 +6,11 @@
       <h2 style="color: black; margin-bottom: 10px">Notifications: <%= @notifications.count %></h2>
       <% @notifications.each do |notification| %>
         <div class="clickable" href="<%= posting_path(notification.posting) %>">
-          <p><%= "<i class='icon-user'></i>  #{notification.responder.name}".html_safe %></p>
-          <p><%= "<i class='icon-map-marker'></i>  Nereden: #{notification.posting.from_address}".html_safe %></p>
-          <p><%= "<i class='icon-map-marker'></i>  Nereye: #{notification.posting.to_address}".html_safe %></p>
-          <p><%= "<i class='icon-time'></i>  #{notification.posting.starting_time.strftime("%H:%M")}".html_safe %></p>
-          <p><%= "<i class='icon-calendar'></i>  #{notification.posting.formatted_date}".html_safe %></p>
+          <p><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{notification.responder.name}".html_safe %></p>
+          <p><%= "<i class='fa fa-map-marker  fa-2x green' ></i>  Nereden: #{notification.posting.from_address}".html_safe %></p>
+          <p><%= "<i class='fa fa-map-marker  fa-2x red'></i>  Nereye: #{notification.posting.to_address}".html_safe %></p>
+          <p><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{notification.posting.starting_time.strftime("%H:%M")}".html_safe %></p>
+          <p><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{notification.posting.formatted_date}".html_safe %></p>
         </div>
         <hr/>
       <% end %>
