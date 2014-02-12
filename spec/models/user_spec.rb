@@ -48,6 +48,7 @@ describe User do
   it { should respond_to(:unagreed_postings) }
   it { should respond_to(:total_journeys) }
   it { should respond_to(:agreed_journeys) }
+  it { should respond_to(:phone) }
   it { should have_many(:postings) }
   it { should have_many(:posting_responses) }
   it { should have_many(:favorites) }
