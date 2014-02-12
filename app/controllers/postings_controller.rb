@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class PostingsController < ApplicationController
-  before_filter :authenticate_user!, only: [:show, :share_posting, :full, :respond]
+  before_filter :authenticate_user!, only: [:show, :share_posting, :full, :respond, :create, :new]
   before_filter :driving_options, only: [:new, :find, :find_from_home_page]
   
   def new
@@ -13,7 +13,7 @@ class PostingsController < ApplicationController
     params[:posting][:from_address] = params[:from_address]
     params[:posting][:to_address] = params[:to_address]
 
-    @posting = Posting.new params[:posting]
+    @posting = current_user.postings.new params[:posting]
     if @posting.save
       flash[:success] = "Ilan verildi"
       redirect_to share_posting_path(posting_id: @posting.id)
