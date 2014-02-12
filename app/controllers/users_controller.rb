@@ -17,7 +17,7 @@ class UsersController < Devise::RegistrationsController
     @user.calculate_rating
     @agreed_journeys = @user.agreed_journeys.paginate(page: params[:journey_page], per_page: 3)
     @comments = Comment.find_all_by_is_about(@user.id).paginate(page: params[:comments_page], per_page: 3)
-    @notifications = PostingResponse.includes(:posting).where("posting.user_id = ?", current_user.id)
+    @notifications = PostingResponse.includes(:posting).where(posting_id: current_user.postings).limit(3).select { |response| response.accepted.nil? }
   end
   
   def find
