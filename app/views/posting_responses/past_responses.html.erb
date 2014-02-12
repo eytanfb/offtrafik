@@ -23,9 +23,9 @@
             <td><%= "#{response.posting.date} #{response.posting.starting_time.strftime("%H:%M")} - #{response.posting.ending_time.strftime("%H:%M")}" %></td>
             <td><%= "#{response.posting.from_address} - #{response.posting.to_address}" %></td>
             <% if (current_user == response.posting.user && !response.poster_agreed.nil? && response.poster_agreed) || (current_user == response.responder && !response.responder_agreed.nil? && response.responder_agreed) %>
-              <td>Bulustuk</td>
+              <td class="responder-true">Bulustuk</td>
             <% elsif (current_user == response.posting.user && !response.poster_agreed.nil? && !response.poster_agreed) || (current_user == response.responder && !response.responder_agreed.nil? && !response.responder_agreed) %>
-              <td>Bulusamadik</td>
+              <td class="responder-false">Bulusamadik</td>
             <% else %>
               <td id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-answer-<%= response.posting.id %>"><%= link_to "Evet", posting_response_happened_path(response), class: "btn btn-mini btn-success", remote: true, data: { confirm: "#{response.posting.user.name} ile #{response.responder.name} bulustu mu?", positive: "Tebrikler! Yolculuk paylastiniz!", negative: "Bulusamadiniz mi?" } %> <%= link_to "Hayir", posting_response_not_happened_path(response), class: "btn btn-mini btn-danger", remote: true, data: { confirm: "#{response.posting.user.name} ile #{response.responder.name} bulusmadiniz mi?", positive: "Bir dahaki sefere!", negative: "Bulustunuz mu yoksa?" } %></td>
             <% end %>
