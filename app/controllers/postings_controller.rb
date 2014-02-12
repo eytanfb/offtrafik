@@ -3,6 +3,7 @@
 class PostingsController < ApplicationController
   before_filter :authenticate_user!, only: [:show, :share_posting, :full, :respond, :create, :new]
   before_filter :driving_options, only: [:new, :find, :find_from_home_page]
+  before_filter :notifications, only: [:share_posting, :find, :find_from_home_page, :show]
   
   def new
     @posting = current_user.postings.new params[:posting]
