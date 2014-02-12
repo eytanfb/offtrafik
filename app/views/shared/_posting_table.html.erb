@@ -1,19 +1,19 @@
-<table class="table table-hover">
+<table class="table">
   <tr>
-    <td>Kim</td>
-    <td>Nereden</td>
-    <td>Nereye</td>
-    <td>Tarih</td>
-    <td>Çıkış Zamanı</td>
-    <td>Varış Zamanı</td>
-    <td>İhtiyaç</td>
+	  <th>Kim</th>
+	  <th>Nereden</th>
+	  <th>Nereye</th>
+	  <th>Tarih</th>
+	  <th>Çıkış Zamanı</th>
+	  <th>Varış Zamanı</th>
+	  <th>İhtiyaç</th>
     <% if params[:action] == "past_responses" %>
       <td>Gerceklesti?</td>
     <% end %>
   </tr>
   <tbody>
     <% posting_list.each do |posting| %>
-      <tr>
+      <tr class="table-hover">
         <td>
           <%= link_to posting.user.name, posting %>
         </td>

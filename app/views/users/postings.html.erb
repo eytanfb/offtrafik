@@ -4,7 +4,7 @@
       <%= render 'shared/user_info' %>
     </section>
   </aside>
-  <section class="span8">
+  <section class="span8 postings-list">
     <h3>İlanlar</h3>
     <%= will_paginate @live_postings, param_name: "live_postings_page" %>
     <%= render 'shared/posting_table', posting_list: @live_postings %>

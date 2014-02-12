@@ -1,5 +1,12 @@
 @import "bootstrap";
 
+$pink1: #6699CC;
+$pink1_: saturate(lighten($pink1, 4%), 4%);
+$pink1__: saturate(darken($pink1, 4%), 4%);
+$pink2: #0B639D;
+$pink2_: saturate(lighten($pink2, 4%), 4%);
+$pink2__: saturate(darken($pink2, 4%), 4%);
+
 @font-face
 {
 	font-family:'Quando';
@@ -17,6 +24,115 @@ $grayLight: #eaeaea;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+@mixin background-box
+{
+   background: rgba(252, 252, 255, 0.6);
+	border-color: rgba(252, 252, 255, 0.6);
+	border-radius:15px;
+}
+/*Sudo class for the background container*/
+
+.button {
+  display: inline-block;
+  position: relative;
+  background: red;
+  border-radius: 30px;
+  width: auto;
+  margin: 10px 10px;
+  margin-top: 50px;
+  box-shadow: 0 0 0 5px rgba(black, .05);
+  height: 60px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$pink1), color-stop(50%,$pink1), color-stop(50%,$pink2), color-stop(100%,$pink2));
+  
+  &:before {
+    content: "";
+    position: absolute;
+    border-radius: 20px;
+    height: 40px;
+    top: 10px;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$pink2), color-stop(50%,$pink2), color-stop(50%,$pink1), color-stop(100%,$pink1));
+  }
+  a {
+    display: block;
+    position: relative;
+    height: 100%;
+    line-height: 60px;
+    border-radius: 30px;
+    padding: 0 40px;
+    font-family: "Futura-Bold", "Futura LT Book", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+  }
+  & > span {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ececec), color-stop(50%,#ececec), color-stop(50%,white), color-stop(100%,white));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.button_iconed {
+  @extend .button;
+  a > span {
+    padding-left: 40px;
+  }
+  i {
+    position: absolute;
+    font-style: normal;
+    font-size: 28px;
+    // font family would be your icon font
+    left: -1px;
+    padding-left: 25px;
+    padding-right: 15px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(50%, white), color-stop(50%, #ddd), color-stop(100%, #ddd));
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    overflow: hidden;
+    
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      height: 40px;
+      width: 100%;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ddd), color-stop(50%, #ddd), color-stop(50%, white), color-stop(100%, white));
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+    }
+    span {
+      position: relative;
+      color: $pink2;
+    }
+  }
+}
+
+.button_iconed_smooth {
+  @extend .button_iconed;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$pink1), color-stop(100%,$pink2));
+  
+  &:before {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$pink2), color-stop(100%,$pink1));
+  }
+  a > span {
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ececec), color-stop(100%,white));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+  i {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #ddd));
+    &:before {
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ddd), color-stop(100%, white));
+    }
+  }
 }
 
 /* universal */
@@ -97,7 +213,8 @@ input, textarea, select, .uneditable-input{
   @include box_sizing;
 }
 
-input[type="text"], input[type="password"], input[type="email"]{
+input[type="text"], input[type="password"], input[type="email"]
+{
 	height: 30px;
 }
 
@@ -118,7 +235,8 @@ input[type="text"], input[type="password"], input[type="email"]{
   @extend .error;
 }
 
-input[type="radio"], input[type="checkbox"]{
+input[type="radio"], input[type="checkbox"]
+{
  clear: left;
  float: left;
  margin-right: 10px;
