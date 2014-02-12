@@ -1,14 +1,10 @@
 <div class="row">
-  <aside class="span4">
-    <section>
-      <%= render 'shared/user_info' %>
-    </section>
-  </aside>
+  <%= render partial: 'shared/sidebar' %>
   <div class="div" id="posting-show">
     <div class="span12">
       <div id="show-map" style="margin-top:20px"></div>
     </div>
-    <div class="span6 offset6" id="posting-details" onload="calcRouteForShow()">
+    <div class="span6" id="posting-details" onload="calcRouteForShow()">
       <h3 class="center" style="text-decoration: underline">İlan Detayları</h3>
       <p><span class='detail'>Ilan Sahibi:</span> <span class='answer'><%= link_to @user.name, user_path(@user) %></span></p>
       <p><span class='detail'>Nereden:</span> <span class='answer' id='from_address'><%= @posting.from_address %></span></p>

@@ -1,22 +1,6 @@
 <%= provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
-    <section>
-      <%= render 'shared/user_info' %>
-    </section>
-    <section id="notifications">
-      <h2 style="color: black">Notifications: <%= @notifications.count %></h2>
-      <% @notifications.each do |notification| %>
-        <div>
-          <p><%= "<i class='icon-user'></i>  #{notification.responder.name}".html_safe %></p>
-          <p><%= "<i class='icon-map-marker icon-green'></i>  Nereden: #{notification.posting.from_address}".html_safe %></p>
-          <p><%= "<i class='icon-map-marker icon-red'></i>  Nereye: #{notification.posting.to_address}".html_safe %></p>
-          <p><%= "<i class='icon-time'></i>  #{notification.posting.starting_time.strftime("%H:%M")}".html_safe %></p>
-        </div>
-        <hr/>
-      <% end %>
-    </section>
-  </aside>
+  <%= render partial: 'shared/sidebar' %>
   <section id="user-show">
     <h1 id="user-name-heading">
       <%= @user.name %>
@@ -64,4 +48,5 @@
 <% content_for :javascripts do %>
   <%= javascript_include_tag "users.js" %>
   <%= javascript_include_tag "maps.js" %>
+  <%= javascript_include_tag "postings.js" %>
 <% end %>

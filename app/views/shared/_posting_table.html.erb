@@ -13,7 +13,7 @@
   </tr>
   <tbody>
     <% posting_list.each do |posting| %>
-      <tr class="table-hover clickableRow" href="<%= posting_path(posting) %>">
+      <tr class="table-hover clickable" href="<%= posting_path(posting) %>">
         <td><%= posting.user.name %></td>
         <td><%= posting.from_address %></td>
         <td><%= posting.to_address %></td>

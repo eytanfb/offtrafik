@@ -31,6 +31,7 @@ class PostingsController < ApplicationController
     from_address = @posting.format(@posting.from_address)
     @to_from = "#{to_address} - #{from_address}"
     @respondable = !@posting.posting_responses.collect(&:responder_id).include?(current_user.id)
+    @notifications = PostingResponse.includes(:posting).where(posting_id: current_user.postings).limit(3).select { |response| response.accepted.nil? }   
   end
   
   def edit
