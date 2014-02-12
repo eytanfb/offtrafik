@@ -23,6 +23,13 @@ class UsersController < Devise::RegistrationsController
     @users = User.find_all_by_name(params[:search_user])
   end
   
+  def enter_phone
+    if params[:enter_phone][:phone].present?
+      current_user.update_attribute(:phone, params[:enter_phone][:phone])
+    end
+    redirect_to current_user
+  end
+  
   private
     def correct_user
       @user = User.find(params[:id])

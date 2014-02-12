@@ -4,6 +4,7 @@ class PostingResponsesController < ApplicationController
     @posting_response = PostingResponse.find params[:posting_response_id]
     @posting_response.accepted = true
     @posting_response.save
+    @telephone = true if current_user.phone.nil?
   end
   
   def reject

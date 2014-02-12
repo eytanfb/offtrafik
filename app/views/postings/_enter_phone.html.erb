@@ -1,0 +1,10 @@
+<div class="modal-header">
+  <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+  <h3 id="enter-phone-modal-label">Telefon Numaranizi Girin</h3>
+</div>
+<div class="modal-body">
+  <%= simple_form_for :enter_phone, url: user_enter_phone_path(current_user.id)  do |f| %>
+    <%= f.input :phone, label: false, as: :string, placeholder: "Iletisim icin telefon numaranizi ekleyin" %>
+    <%= f.button :submit, "Yolla", class: "btn btn-primary" %>
+  <% end %>
+</div>
