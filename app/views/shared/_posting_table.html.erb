@@ -1,5 +1,5 @@
-<table class="table">
-  <tr>
+<table id="posting-search-results" class="table">
+  <thead>
 	  <th>Kim</th>
 	  <th>Nereden</th>
 	  <th>Nereye</th>
@@ -10,7 +10,7 @@
     <% if params[:action] == "past_responses" %>
       <td>Gerceklesti?</td>
     <% end %>
-  </tr>
+  </thead>
   <tbody>
     <% posting_list.each do |posting| %>
       <tr class="table-hover clickable" href="<%= posting_path(posting) %>">
