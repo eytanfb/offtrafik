@@ -18,3 +18,5 @@
 //= require alertify.js
 //= require dialogs.js
 //= require sitewide.js
+//= require chosen-jquery
+//= require postings.js

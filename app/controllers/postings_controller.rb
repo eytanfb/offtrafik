@@ -3,7 +3,8 @@
 class PostingsController < ApplicationController
   before_filter :authenticate_user!, only: [:show, :share_posting, :full, :respond, :create, :new]
   before_filter :driving_options, only: [:new, :find, :find_from_home_page]
-  before_filter :notifications, only: [:share_posting, :find, :find_from_home_page, :show]
+  before_filter :notifications, only: [:share_posting, :find, :show]
+  before_filter :set_districts, only: [:find, :find_from_home_page]
   
   def new
     @posting = current_user.postings.new params[:posting]
@@ -32,7 +33,6 @@ class PostingsController < ApplicationController
     from_address = @posting.format(@posting.from_address)
     @to_from = "#{to_address} - #{from_address}"
     @respondable = !@posting.posting_responses.collect(&:responder_id).include?(current_user.id)
-    @notifications = PostingResponse.includes(:posting).where(posting_id: current_user.postings).limit(3).select { |response| response.accepted.nil? }   
   end
   
   def edit
@@ -115,6 +115,10 @@ class PostingsController < ApplicationController
   end
   
   private
+  
+  def set_districts
+    @districts = District.all
+  end
   
   def address_parameter_for_search(address)
     result = ""    

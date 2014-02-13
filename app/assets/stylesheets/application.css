@@ -13,6 +13,7 @@
  *= require font-awesome
  *= require alertify.core.css
  *= require alertify.bootstrap.css
+ *= require chosen
  *= require_tree .
  */
 html {
