@@ -17,3 +17,4 @@
 //= require bootstrap-timepicker
 //= require alertify.js
 //= require dialogs.js
+//= require sitewide.js

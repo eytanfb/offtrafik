@@ -57,6 +57,32 @@ li.nav-user-search
 	position: fixed;
 }
 
+#notification-box {
+		background: linear-gradient(top, #FF3019 0, #CF0404 75%);
+		border: 1px solid white;
+		box-shadow: 1px 1px 5px rgba(0,0,0,.75);
+		box-shadow: 1px 1px 5px rgba(0,0,0,.75);
+		display: block;
+		background: #FF3019;
+		background-repeat: repeat-x;
+		font-size: 9px;
+		color: white;
+		padding: 3px 4px;
+		line-height: 90%;
+		text-shadow: none;
+		margin-top: 10px;
+}
 
-
-
+#header-notifications {
+	li {
+		.notification-element {
+			margin-right: 5px;
+		}
+		&:hover
+		{
+			background-color:rgba(11,99,157,0.5);
+			color:black;
+			cursor: pointer;
+		}
+	}
+}

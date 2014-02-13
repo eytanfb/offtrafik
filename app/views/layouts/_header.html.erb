@@ -10,11 +10,29 @@
         <ul class="nav pull-right">
           <% if signed_in? %>
             <li>
-              <%= link_to "Ana Sayfa", find_posting_path, class: "header-tab" %>
+              <%= link_to "Ana Sayfa", find_posting_path %>
             </li>
-            <li><%= link_to current_user.name, current_user, class: "header-tab" %></li>
+            <li><%= link_to current_user.name, current_user %></li>
+            <% if notifications %>
+              <li class="dropdown" id="header-notifications"><%= link_to notifications.count, "#", class: "dropdown-toggle", id: "notification-box" , data: { toggle: "dropdown" } %>
+                <ul class="dropdown-menu">
+                  <% notifications.each do |notification| %>
+                    <li>
+                      <div class="clickable" href="<%= posting_path(notification.posting) %>">
+                        <span class="notification-element"><%= "<i class='fa fa-user        fa-sm'></i>  #{notification.responder.name}".html_safe %></span><br/>
+                        <span class="notification-element"><%= "<i class='fa fa-map-marker  fa-sm' ></i> #{notification.posting.from_address}".html_safe %></span><br/>
+                        <span class="notification-element"><%= "<i class='fa fa-map-marker  fa-sm'></i> #{notification.posting.to_address}".html_safe %></span><br/>
+                        <span class="notification-element"><%= "<i class='fa fa-clock-o     fa-sm'></i>  #{notification.posting.starting_time.strftime("%H:%M")}".html_safe %></span><br/>
+                        <span class="notification-element"><%= "<i class='fa fa-calendar    fa-sm'></i>  #{notification.posting.formatted_date}".html_safe %></span><br/>
+                      </div>
+                    </li>
+                    <hr>
+                  <% end %>
+                </ul>
+              </li>
+            <% end %>
             <li class="dropdown">
-              <%= link_to "Profil <b class='caret'></b>".html_safe, "#", class: "dropdown-toggle header-tab", data: { toggle: "dropdown" } %>
+              <%= link_to "Profil <b class='caret'></b>".html_safe, "#", class: "dropdown-toggle", data: { toggle: "dropdown" } %>
               <ul class="dropdown-menu">
                 <li>
                   <%= link_to "Ayarlar", edit_user_path(current_user) %>
