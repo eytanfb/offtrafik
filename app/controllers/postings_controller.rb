@@ -52,17 +52,17 @@ class PostingsController < ApplicationController
   
   def find
     @driving = if params["/find_posting"].present? 
-                params["/find_posting"][:driving] == "Farketmez" ? "" : params["/find_posting"][:driving]                
+                params["/find_posting"][:driving] == "Farketmez" ? "" : params["/find_posting"][:driving]
               end
-    @from_address = address_parameter_for_search("from_address") if params["/find_posting"].present?
-    @to_address = address_parameter_for_search("to_address")     if params["/find_posting"].present?
+    @from_address = params["/find_posting"][:from_address] if params["/find_posting"].present?
+    @to_address   = params["/find_posting"][:to_address] if params["/find_posting"].present?
 
     @postings = params["/find_posting"].present? ? Posting.live_postings.with_from_address(@from_address).with_to_address(@to_address).with_driving(@driving) : Posting.live_postings
     
     @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
     
     respond_to do |format|
-        format.html
+      format.html
       format.json { render :json => @postings.to_json }
     end
   end
@@ -117,7 +117,7 @@ class PostingsController < ApplicationController
   private
   
   def set_districts
-    @districts = District.all
+    @districts = District.all.collect { |d| [d.name, d.name] }
   end
   
   def address_parameter_for_search(address)

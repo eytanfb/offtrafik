@@ -1,6 +1,6 @@
 <h3>İlan Ara</h3>
 <div id="posting-find">
-  <%= simple_form_for find_posting_path, method: "get", html: { class: "form-horizontal" }, url: { controller: "postings", action: "find" } do |f| %>
+  <%= simple_form_for find_posting_path, html: { class: "form-horizontal" } do |f| %>
     <div class="row">
       <div class="span3 posting_span">
         <%= f.input :from_address, label: false, id: "from_address", collection: @districts, as: :select, include_blank: "Nereden", input_html: { class: "chosen-select" }  %>
