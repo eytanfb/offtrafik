@@ -3,15 +3,15 @@
   <%= simple_form_for find_posting_path, html: { class: "form-horizontal" } do |f| %>
     <div class="row">
       <div class="span3 posting_span">
-        <%= f.input :from_address, label: false, id: "from_address", collection: @districts, as: :select, include_blank: "Nereden", input_html: { class: "chosen-select" }  %>
+        <%= f.input :from_address, label: false, id: "from_address", collection: @districts, as: :select, include_blank: "Nereden", input_html: { class: "chosen-select", value: @from_address }  %>
       </div>
       <div class="span3 posting_span">
-        <%= f.input :to_address, label: false, id: "to_address", collection: @districts, as: :select, include_blank: "Nereye", input_html: { class: "chosen-select" } %>
+        <%= f.input :to_address, label: false, id: "to_address", collection: @districts, as: :select, include_blank: "Nereye", input_html: { class: "chosen-select", value: @to_address } %>
       </div>
     </div>
     <div class="row">
       <div class="span3">
-        <%= f.input :driving , label: "Aranan",  collection: @driving_options, include_blank: false, input_html: { value: @driving } %>
+        <%= f.input :driving , label: false, include_blank: "Aranan", collection: @driving_options, input_html: { value: @driviong, id: "driving" } %>
       </div>
     </div>
     <div class="row">

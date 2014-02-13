@@ -15,8 +15,8 @@
     <% posting_list.each do |posting| %>
       <tr class="table-hover clickable" href="<%= posting_path(posting) %>">
         <td><%= posting.user.name %></td>
-        <td><%= posting.from_address %></td>
-        <td><%= posting.to_address %></td>
+        <td><%= posting.format(posting.from_address) %></td>
+        <td><%= posting.format(posting.to_address) %></td>
         <td><%= "#{l posting.date, format: :short}" %></td>
         <td><%= posting.starting_time.to_s(:time) %></td>
         <td><%= posting.ending_time.to_s(:time) %></td>
