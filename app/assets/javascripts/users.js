@@ -86,3 +86,11 @@ function setCenterToAddress(address)
 	});
 }
 google.maps.event.addDomListener(window, 'load', initialize);
+
+$(function(){
+  $("#user-comments .pagination a").bind("click", function(event) {
+		$(".pagination").html("Yukleniyor...");
+    $.getScript(this.href);
+		return false;
+  });
+});

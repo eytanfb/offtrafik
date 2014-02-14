@@ -20,6 +20,7 @@
     </section>
     <div class="row">
       <div class="span6">
+        <h3>Yorumlar</h3>
         <%= render 'display_comments', comments: @comments, user: @user %>
       </div>
       <div class="span6">
@@ -47,5 +48,4 @@
 </div>
 <% content_for :javascripts do %>
   <%= javascript_include_tag "users.js" %>
-  <%= javascript_include_tag "maps.js" %>
 <% end %>
