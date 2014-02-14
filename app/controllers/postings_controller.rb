@@ -64,6 +64,7 @@ class PostingsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render :json => @postings.to_json }
+      format.js
     end
   end
   

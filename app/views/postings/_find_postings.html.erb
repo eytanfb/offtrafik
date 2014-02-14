@@ -1,6 +1,6 @@
 <h3>İlan Ara</h3>
 <div id="posting-find">
-  <%= simple_form_for find_posting_path, html: { class: "form-horizontal" } do |f| %>
+  <%= simple_form_for find_posting_path, html: { class: "form-horizontal" }, method: "get" do |f| %>
     <div class="row">
       <div class="span3 posting_span">
         <%= f.input :from_address, label: false, id: "from_address", collection: @districts, as: :select, include_blank: "Nereden", input_html: { class: "chosen-select", value: @from_address }  %>
@@ -18,12 +18,11 @@
       <%= f.button :submit, "Ara", class: 'btn btn-primary btn-medium', style: "width: 120px; height: 40px; left: 40%; position: relative; font-size: large" %>
     </div>
   <% end %>
-  <div id="show-results">
-    <% if @postings.present? %>
-      <%= will_paginate @postings %>
-      <%= render 'shared/posting_table', posting_list: @postings %>
+    <% if @postings.present? %>      
+      <div id="show-results">
+        <%= render 'shared/posting_table', posting_list: @postings, param_name: "page" %>
+      </div>
     <% end %>
-  </div>
 </div>
 
 <% content_for :javascripts do %>
