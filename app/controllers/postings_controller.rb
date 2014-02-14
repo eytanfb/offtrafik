@@ -57,7 +57,7 @@ class PostingsController < ApplicationController
     @from_address = params["/find_posting"][:from_address] if params["/find_posting"].present?
     @to_address   = params["/find_posting"][:to_address] if params["/find_posting"].present?
 
-    @postings = params["/find_posting"].present? ? Posting.live_postings.with_from_address(@from_address).with_to_address(@to_address).with_driving(@driving) : Posting.live_postings
+    @postings = params["/find_posting"].present? ? Posting.live_postings.with_from_address(@from_address).with_to_address(@to_address).with_driving(@driving).not_current_user(current_user.id) : Posting.live_postings.not_current_user(current_user.id)
     
     @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
     

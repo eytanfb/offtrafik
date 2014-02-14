@@ -30,11 +30,12 @@ class Posting < ActiveRecord::Base
   
   default_scope order: 'postings.date ASC'
   
-  scope :live_postings, lambda { where("date >= ?", Date.today) }
-  scope :past_postings, lambda { where("date < ?", Date.today) }
-  scope :with_from_address, lambda { |value| where("from_address LIKE ?", "%#{value}%") if value }
-  scope :with_to_address, lambda { |value| where("to_address LIKE ?", "%#{value}%") if value }
-  scope :with_driving, lambda { |value| where("driving LIKE ?", "%#{value}%") if value }
+  scope :live_postings,       lambda { where("date >= ?", Date.today) }
+  scope :past_postings,       lambda { where("date < ?", Date.today) }
+  scope :with_from_address,   lambda { |value| where("from_address LIKE ?", "%#{value}%") if value }
+  scope :with_to_address,     lambda { |value| where("to_address LIKE ?", "%#{value}%") if value }
+  scope :with_driving,        lambda { |value| where("driving LIKE ?", "%#{value}%") if value }
+  scope :not_current_user,    lambda { |value| where("user_id <> #{value}") if value }
   
   def smoking?
     self.smoking ? 'Evet' : 'Hayır'
@@ -49,7 +50,9 @@ class Posting < ActiveRecord::Base
   end
   
   def format(address)
-    address.chomp(", Istanbul")
+    address = address.chomp(", Turkey")
+    address = address.chomp(", Istanbul")
+    address = address.chomp(", Istanbul, Turkey")
   end
 
   def self.count
