@@ -1,6 +1,6 @@
 $(function() {
-	$(".chosen-select").chosen();
-	$("#driving").chosen();	
+	$(".chosen-select").chosen({no_results_text: "Semt Bulunamadi"});
+	$("#driving").chosen({no_results_text: "Semt Bulunamadi"});	
 	$("#posting-search-results").tablesorter();
 	
   $("#show-results .pagination a").bind("click", function(event) {
