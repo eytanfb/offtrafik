@@ -4,13 +4,12 @@
 
 <div class="center hero-unit i-main-container">
 	<%= simple_form_for :find_from_home, method: "get", html: { class: "form-search" }, url: { controller: "postings", action: "find_from_home_page" } do |f| %>
-      <%= f.input :from_address, label: false, collection: District.all.collect { |d| [d.name, d.name] }, input_html: { style: "width: 200px", onchange: "calcRoute()" } %>
-      <%= f.input :to_address, label: false, input_html: { value: "Koç Üniversitesi", readonly: true, style: "width: 200px" } %>
+      <%= f.input :from_address, label: false, placeholder: "Nereden" , as: :string %>
       <%= f.button :submit, "İlan Ara", name: nil, class: 'btn btn-primary btn-large', id: "search-button" %>
-  <div id="map"></div>
 	<div id = "container-right-part">
 	  <div class="row">
       <%= hidden_field_tag :driving, params[:driving] %>
+      <%= hidden_field_tag :to_address, "Koç Üniversitesi" %>
     <% end %>
 	  </div>
 		
