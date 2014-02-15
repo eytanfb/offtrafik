@@ -33,7 +33,7 @@ function geolocate(autocomplete) {
 }
 
 $(function() {
-	$("#driving").chosen({no_results_text: "Bulunamadi"});	
+	$("#driving").chosen({no_results_text: "Bulunamadi"});
 	$("#posting-search-results").tablesorter();
 	
   $("#show-results .pagination a").bind("click", function(event) {
