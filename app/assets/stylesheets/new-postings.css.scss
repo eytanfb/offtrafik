@@ -45,7 +45,22 @@ h3.center
 {
 	margin:0;
 	padding: 0 50px 0 35px;
-
+	
+	&.optional.posting_comments
+	{
+		border-style:solid;
+		border-color:red;
+		
+		padding-left: 0px;
+		padding-right: 20px;
+		
+		text-align:left;
+		
+		.optional.control-label
+		{
+			
+		}
+	}
 }
 
 .place-input
@@ -53,6 +68,8 @@ h3.center
 	margin-bottom:20px;
 	display:block;
 }
+
+
 
 #frequent-postngs
 {
