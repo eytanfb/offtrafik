@@ -1,15 +1,11 @@
 /* sidebar */
-@mixin background-box
+
+aside.span4
 {
    background: rgba(252, 252, 255, 0.6);
 	border-color: rgba(252, 252, 255, 0.6);
 	border-radius:15px;
-}
-
-aside.span4
-{
-   @include background-box;
-	
+		
 	float:left;
 	border-style:solid;
 	
