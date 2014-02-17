@@ -29,8 +29,8 @@ class PostingsController < ApplicationController
   def show
     @posting = Posting.find(params[:id])
     @user = User.find @posting.user_id
-    to_address = @posting.format(@posting.to_address)
-    from_address = @posting.format(@posting.from_address)
+    to_address = Posting.format(@posting.to_address)
+    from_address = Posting.format(@posting.from_address)
     @to_from = "#{to_address} - #{from_address}"
     @respondable = !@posting.posting_responses.collect(&:responder_id).include?(current_user.id)
   end
@@ -57,7 +57,7 @@ class PostingsController < ApplicationController
     @from_address = params["/find_posting"][:from_address] if params["/find_posting"].present?
     @to_address   = params["/find_posting"][:to_address] if params["/find_posting"].present?
 
-    @postings = params["/find_posting"].present? ? Posting.live_postings.with_from_address(@from_address).with_to_address(@to_address).with_driving(@driving).not_current_user(current_user.id) : Posting.live_postings.not_current_user(current_user.id)
+    @postings = params["/find_posting"].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving).not_current_user(current_user.id) : Posting.live_postings.not_current_user(current_user.id)
     
     @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
     
@@ -72,7 +72,7 @@ class PostingsController < ApplicationController
     driving = "Farketmez"
     from_address = params[:find_from_home][:from_address]
     to_address = "Koç Üniversitesi"
-    postings_found = Posting.live_postings.with_from_address(from_address).with_to_address(to_address).with_driving(driving)
+    postings_found = Posting.live_postings.with_from_address(Posting.format(from_address)).with_to_address(Posting.format(to_address)).with_driving(driving)
      if postings_found.blank?
        postings_found = Posting.live_postings.with_to_address("Koç Üniversitesi")
        flash.now[:warning] = "Aradıgınız adresten Koç Üniversitesi'ne ilan bulunamadı. Ama belki aşagıdakiler hoşunuza gider!"

@@ -49,7 +49,7 @@ class Posting < ActiveRecord::Base
     self.date.strftime("%b %d")
   end
   
-  def format(address)
+  def self.format(address)
     address = address.chomp(", Turkey")
     address = address.chomp(", Istanbul")
     address = address.chomp(", Istanbul, Turkey")
