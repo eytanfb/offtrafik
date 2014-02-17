@@ -62,7 +62,7 @@ class PostingsController < ApplicationController
     
     @postings = @postings.not_current_user(current_user.id) if user_signed_in?
     
-    @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
+    @postings = @postings.paginate(page: params[:page], per_page: 9, order: "date asc") if @postings.present?
     
     respond_to do |format|
       format.html
