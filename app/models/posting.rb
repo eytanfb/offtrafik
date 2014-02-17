@@ -25,7 +25,7 @@ class Posting < ActiveRecord::Base
   has_many :posting_responses, :class_name => "PostingResponse", :foreign_key => "posting_id", dependent: :destroy
   
   validates_presence_of :from_address, :to_address, :date, :starting_time, :ending_time, :user_id
-  validates_inclusion_of :driving, in: %w(Sürücü Yolcu Farketmez Taksi)
+  validates_inclusion_of :driving, in: %w(Sürücü Yolcu Taksi)
   validate :ending_time_is_later_than_starting_time?
   
   default_scope order: 'postings.date ASC'

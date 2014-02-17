@@ -25,7 +25,7 @@ class FrequentPosting < ActiveRecord::Base
   belongs_to :user
   
   validates_presence_of :user_id, :from_address, :to_address, :last_date, :starting_time, :ending_time
-  validates_inclusion_of :driving, in: %w(Sürücü Yolcu Farketmez Taksi)
+  validates_inclusion_of :driving, in: %w(Sürücü Yolcu Taksi)
   validate :ending_time_is_later_than_starting_time?
 
   has_many :frequent_days
