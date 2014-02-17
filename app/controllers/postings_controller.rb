@@ -3,7 +3,8 @@
 class PostingsController < ApplicationController
   before_filter :authenticate_user!, only: [:show, :share_posting, :full, :respond, :create, :new]
   before_filter :driving_options, only: [:new, :find, :find_from_home_page]
-  before_filter :notifications, only: [:share_posting, :find, :find_from_home_page, :show]
+  before_filter :notifications, only: [:share_posting, :find, :show]
+  before_filter :set_districts, only: [:find, :find_from_home_page]
   
   def new
     @posting = current_user.postings.new params[:posting]
@@ -28,11 +29,10 @@ class PostingsController < ApplicationController
   def show
     @posting = Posting.find(params[:id])
     @user = User.find @posting.user_id
-    to_address = @posting.format(@posting.to_address)
-    from_address = @posting.format(@posting.from_address)
+    to_address = Posting.format(@posting.to_address)
+    from_address = Posting.format(@posting.from_address)
     @to_from = "#{to_address} - #{from_address}"
     @respondable = !@posting.posting_responses.collect(&:responder_id).include?(current_user.id)
-    @notifications = PostingResponse.includes(:posting).where(posting_id: current_user.postings).limit(3).select { |response| response.accepted.nil? }   
   end
   
   def edit
@@ -51,19 +51,21 @@ class PostingsController < ApplicationController
   end
   
   def find
-    @driving = if params["/find_posting"].present? 
-                params["/find_posting"][:driving] == "Farketmez" ? "" : params["/find_posting"][:driving]                
+    @posting = Posting.new params[:posting]
+    @driving = if params[:posting].present? 
+                params[:posting][:driving] == "Farketmez" ? "" : params[:posting][:driving]
               end
-    @from_address = address_parameter_for_search("from_address") if params["/find_posting"].present?
-    @to_address = address_parameter_for_search("to_address")     if params["/find_posting"].present?
+    @from_address = params[:posting][:from_address] if params[:posting].present?
+    @to_address   = params[:posting][:to_address] if params[:posting].present?
 
-    @postings = params["/find_posting"].present? ? Posting.live_postings.with_from_address(@from_address).with_to_address(@to_address).with_driving(@driving) : Posting.live_postings
+    @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving).not_current_user(current_user.id) : Posting.live_postings.not_current_user(current_user.id)
     
     @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
     
     respond_to do |format|
-        format.html
+      format.html
       format.json { render :json => @postings.to_json }
+      format.js
     end
   end
   
@@ -71,7 +73,7 @@ class PostingsController < ApplicationController
     driving = "Farketmez"
     from_address = params[:find_from_home][:from_address]
     to_address = "Koç Üniversitesi"
-    postings_found = Posting.live_postings.with_from_address(from_address).with_to_address(to_address).with_driving(driving)
+    postings_found = Posting.live_postings.with_from_address(Posting.format(from_address)).with_to_address(Posting.format(to_address)).with_driving(driving)
      if postings_found.blank?
        postings_found = Posting.live_postings.with_to_address("Koç Üniversitesi")
        flash.now[:warning] = "Aradıgınız adresten Koç Üniversitesi'ne ilan bulunamadı. Ama belki aşagıdakiler hoşunuza gider!"
@@ -116,9 +118,13 @@ class PostingsController < ApplicationController
   
   private
   
+  def set_districts
+    @districts = District.all.collect { |d| [d.name, d.name] }
+  end
+  
   def address_parameter_for_search(address)
     result = ""    
-    result += " #{params['/find_posting']["#{address}"][:district]}" if params['/find_posting']["#{address}"][:district].present?
+    result += " #{params[:posting]["#{address}"][:district]}" if params[:posting]["#{address}"][:district].present?
     result.strip
   end
   

@@ -1,43 +1,24 @@
 <h3>İlan Ara</h3>
 <div id="posting-find">
-  <%= simple_form_for find_posting_path, method: "get", html: { class: "form-horizontal" }, url: { controller: "postings", action: "find" } do |f| %>
-    <div class="row">
-      <div class="span3 posting_span">
-        <h2 class="posting_title">
-          Nereden
-        </h2>
-        <%= f.fields_for :from_address, label: "Nereden", id: "from_address" do |from| %>
-          <%= from.input :district, label: "İlçe", as: :select, class: "field-part", collection: @districts, prompt: "Seciniz", input_html: { id: "from_address_district" } %>
-          <%= from.input :neighborhood, label: "Semt", input_html: { id: "from_address_neighborhood" } do %>
-            <%= from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="span3 posting_span">
-        <h2 class="posting_title">
-          Nereye
-        </h2>
-        <%= f.fields_for :to_address, label: "Nereye", id: "to_address", class: "fields_for" do |from| %>
-          <%= from.input :district, label: "İlçe", as: :select, class: "field-part", collection: @districts, prompt: "Seciniz", input_html: { id: "to_address_district" } %>
-          <%= from.input :neighborhood, label: "Semt", input_html: { id: "to_address_neighborhood" } do %>
-            <%= from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span3">
-        <%= f.input :driving , label: "Aranan",  collection: @driving_options, include_blank: false, input_html: { value: @driving } %>
-      </div>
-    </div>
-    <div class="row">
-      <%= f.button :submit, "Ara", class: 'btn btn-primary btn-medium', style: "width: 120px; height: 40px; left: 40%; position: relative; font-size: large" %>
-    </div>
+  <%= simple_form_for @posting, method: "get", url: { controller: "postings", action: "find" } do |f| %>
+        <div class="row">
+          <%= f.input :from_address, label: false, placeholder: "Nereden", input_html: { id: "from_address", class: "search-input" }  %>
+        </div>
+        <div class="row">
+          <%= f.input :to_address, label: false, placeholder: "Nereye", input_html: { id: "to_address", class: "search-input" } %>
+        </div>
+        <div class="row">
+          <%= f.input :driving, label: false, include_blank: "Aranan", collection: @driving_options, input_html: { id: "driving" } %>
+          <%= f.button :submit, "Ara", class: 'btn btn-primary btn-medium span3' %>
+        </div>
   <% end %>
-  <div id="show-results">
-    <% if @postings.present? %>
-      <%= will_paginate @postings %>
-      <%= render 'shared/posting_table', posting_list: @postings %>
+    <% if @postings.present? %>      
+      <div id="show-results">
+        <%= render 'shared/posting_table', posting_list: @postings, param_name: "page" %>
+      </div>
     <% end %>
-  </div>
 </div>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "postings.js" %>
+<% end %>

@@ -1,8 +1,9 @@
-<h3>Yorumlar</h3>
 <% if user != current_user %>
   <%= link_to "Yorum Yaz", new_comment_path(is_about: user.id), class: "btn btn-small", id: "write_comment" %>
 <% end %>
-<%= will_paginate comments, param_name: 'comments_page' %>
-<ol class="comments">
-	  <%= render comments %>
-</ol>
+<div id="user-comments">
+  <%= will_paginate comments, param_name: 'comments_page' %>
+  <ol class="comments">
+      <%= render comments %>
+  </ol>
+</div>

@@ -5,7 +5,7 @@
     	<div id="fb-share-button" data-href = "http://facebook.com/offtrafik/postings/#{@posting.id}" data-type: "buttonm" style: "height: 20px; width: 157px;">  </div>
     </div>
 	<div id="twitter" style: "margin-top: 20px">
-		<div class = "twitter-share-button" dat-url: "www.offtrafik.com/postings/#{@posting.id}" data-text: "@Offtrafik'te ilan verdim. #{@posting.format(@posting.from_address)}-#{@posting.format(@posting.to_address)} arasi #{@posting.date.strftime(\"%d/%m/%Y\")} gununde yolculuk paylasacak insan ariyorum." data-count: "none" >
+		<div class = "twitter-share-button" dat-url: "www.offtrafik.com/postings/#{@posting.id}" data-text: "@Offtrafik'te ilan verdim. #{Posting.format(@posting.from_address)}-#{Posting.format(@posting.to_address)} arasi #{@posting.date.strftime(\"%d/%m/%Y\")} gununde yolculuk paylasacak insan ariyorum." data-count: "none" >
 			<a href = "https://twitter.com/share">Tweet</a>
 		</div>
 	</div>

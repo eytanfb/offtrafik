@@ -1,0 +1,2 @@
+$("#user-comments").html("<%= escape_javascript(render('display_comments', comments: @comments, user: @user, param_name: 'comments_page')) %>");
+$('.pagination a').attr('data-remote', 'true');

@@ -28,11 +28,15 @@ $grayLight: #eaeaea;
 
 @mixin background-box
 {
-   background: rgba(252, 252, 255, 0.6);
+  background: rgba(252, 252, 255, 0.6);
 	border-color: rgba(252, 252, 255, 0.6);
 	border-radius:15px;
 }
 /*Sudo class for the background container*/
+
+.boxed {
+	@include background-box;
+}
 
 .button {
   display: inline-block;
