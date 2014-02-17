@@ -4,7 +4,7 @@
 
 //Customized by Igal 
 
-section.span8.postings-list
+section.span9.postings-list
 {
 	border-style:solid;
    background: rgba(252, 252, 255, 0.6);
@@ -14,6 +14,10 @@ section.span8.postings-list
 	margin-top:25px;
 	text-align:center;
 	padding-bottom:10px;
+	
+	#user-postings {
+		min-height: 500px;
+	}
 	
 }
 
@@ -42,13 +46,12 @@ section.span8.postings-list
 	.posting-image-container {
 		border: 1px solid blue;
 		height: 40%;
-		margin-left: auto;
-		margin-right: auto;
 		.posting-image {
 			height: 100%;
-			margin-left: auto;
-			margin-right: auto;
 		}
+	}
+	.posting-details {
+		text-align: left;
 	}
 	.green {
 		color: #27AE60;

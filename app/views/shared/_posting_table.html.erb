@@ -3,7 +3,7 @@
   <% posting_list.each do |posting| %>
   <li class="posting">
     <div class="posting-image-container center">
-      <%= image_tag "posting-#{posting.driving.downcase}.png", class: "posting-image" %>
+      <%= image_tag "posting-#{posting.driving.downcase.parameterize}.png", class: "posting-image" %>
     </div>
     <div class="posting-details">
       <p><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{posting.user.name}".html_safe %></p>
