@@ -51,13 +51,14 @@ class PostingsController < ApplicationController
   end
   
   def find
-    @driving = if params["/find_posting"].present? 
-                params["/find_posting"][:driving] == "Farketmez" ? "" : params["/find_posting"][:driving]
+    @posting = Posting.new params[:posting]
+    @driving = if params[:posting].present? 
+                params[:posting][:driving] == "Farketmez" ? "" : params[:posting][:driving]
               end
-    @from_address = params["/find_posting"][:from_address] if params["/find_posting"].present?
-    @to_address   = params["/find_posting"][:to_address] if params["/find_posting"].present?
+    @from_address = params[:posting][:from_address] if params[:posting].present?
+    @to_address   = params[:posting][:to_address] if params[:posting].present?
 
-    @postings = params["/find_posting"].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving).not_current_user(current_user.id) : Posting.live_postings.not_current_user(current_user.id)
+    @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving).not_current_user(current_user.id) : Posting.live_postings.not_current_user(current_user.id)
     
     @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
     
@@ -123,7 +124,7 @@ class PostingsController < ApplicationController
   
   def address_parameter_for_search(address)
     result = ""    
-    result += " #{params['/find_posting']["#{address}"][:district]}" if params['/find_posting']["#{address}"][:district].present?
+    result += " #{params[:posting]["#{address}"][:district]}" if params[:posting]["#{address}"][:district].present?
     result.strip
   end
   

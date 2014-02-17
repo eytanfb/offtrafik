@@ -1,6 +1,6 @@
 <h3>İlan Ara</h3>
 <div id="posting-find">
-  <%= simple_form_for find_posting_path, method: "get" do |f| %>
+  <%= simple_form_for @posting, method: "get", url: { controller: "postings", action: "find" } do |f| %>
         <div class="row">
           <%= f.input :from_address, label: false, placeholder: "Nereden", input_html: { value: @from_address, id: "from_address", class: "search-input" }  %>
         </div>
