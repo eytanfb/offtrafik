@@ -58,7 +58,9 @@ class PostingsController < ApplicationController
     @from_address = params[:posting][:from_address] if params[:posting].present?
     @to_address   = params[:posting][:to_address] if params[:posting].present?
 
-    @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving).not_current_user(current_user.id) : Posting.live_postings.not_current_user(current_user.id)
+    @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving) : Posting.live_postings
+    
+    @postings = @postings.not_current_user(current_user.id) if user_signed_in?
     
     @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
     
@@ -70,6 +72,7 @@ class PostingsController < ApplicationController
   end
   
   def find_from_home_page
+    @posting = Posting.new params[:find_from_home]
     driving = "Farketmez"
     from_address = params[:find_from_home][:from_address]
     to_address = "Koç Üniversitesi"
