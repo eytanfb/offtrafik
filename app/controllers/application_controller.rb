@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery except: :index
+  protect_from_forgery
 
   helper_method :notifications
   
