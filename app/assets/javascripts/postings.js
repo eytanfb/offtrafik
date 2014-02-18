@@ -41,6 +41,15 @@ $(function() {
     $.getScript(this.href);
 		return false;
   });
+	
+	$("#from_address").keyup(function() {
+    $.get($("#filter-posting-search").attr("action"), $("#filter-posting-search").serialize(), null, "script");
+    return false;
+  });
+	$("#to_address").keyup(function() {
+    $.get($("#filter-posting-search").attr("action"), $("#filter-posting-search").serialize(), null, "script");
+    return false;
+  });
 	initialize();
 	
 	$("#from_address").on('focus', function(){
