@@ -5,7 +5,11 @@
   </li>
   <% end %>
 </ol>
-<%= will_paginate posting_list, param_name: "#{param_name}" %>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "endless_scroll.js" %>
+<% end %>
+<!-- <%= will_paginate posting_list, param_name: "#{param_name}" %> -->
 <!-- <table id="posting-search-results" class="table">
   <thead>
     <th>Kim</th>
