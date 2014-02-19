@@ -14,7 +14,6 @@
  *= require alertify.core.css
  *= require alertify.bootstrap.css
  *= require chosen
- *= require jquery-tablesorter/theme.bootstrap_2
  *= require_tree .
  */
 html {
