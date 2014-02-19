@@ -19,4 +19,3 @@
 //= require dialogs.js
 //= require sitewide.js
 //= require chosen-jquery
-//= require jquery-tablesorter
