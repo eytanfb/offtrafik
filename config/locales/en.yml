@@ -7,7 +7,7 @@ en:
     abbr_month_names: [~, Oca, Sub, Mar, Nis, May, Haz, Tem, Agu, Eyl, Eki, Kas, Ara]
     formats:
       default: ! '%d/%B/%Y'
-      short: ! '%e/%b/%Y'
+      short: ! '%b %e'
   activerecord:
     errors:
       models:
