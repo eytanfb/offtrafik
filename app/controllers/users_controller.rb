@@ -28,7 +28,10 @@ class UsersController < Devise::RegistrationsController
     if params[:enter_phone][:phone].present?
       current_user.update_attribute(:phone, params[:enter_phone][:phone])
     end
-    redirect_to current_user
+    @posting_response = PostingResponse.find params[:posting_response]
+    PostingResponseMailer.accepted_to_owner(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
+    PostingResponseMailer.accepted_to_responder(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
+    redirect_to @posting_response.posting
   end
   
   private

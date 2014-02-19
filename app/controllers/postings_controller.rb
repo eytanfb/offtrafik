@@ -18,6 +18,7 @@ class PostingsController < ApplicationController
     @posting = current_user.postings.new params[:posting]
     if @posting.save
       flash[:success] = "Ilan verildi"
+      PostingMailer.new_one_time_posting_given(current_user.id, @posting.id).deliver
       redirect_to share_posting_path(posting_id: @posting.id)
     else
       driving_options
@@ -108,13 +109,6 @@ class PostingsController < ApplicationController
     else
       flash[:warning] = "Yanit isteginiz olustrulurken bir sorun cikti. Lutfen tekrar deneyiniz "
     end
-  end
-  
-  def full
-    posting = Posting.find params[:posting_id]
-    PostingMailer.posting_full(posting.user_id, params[:responder], posting.id).deliver
-    flash[:success] = "Ilan dolu emaili yollandı"
-    redirect_to user_path(current_user)
   end
   
   private

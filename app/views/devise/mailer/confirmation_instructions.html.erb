@@ -1,5 +1,5 @@
-<p>Welcome <%= @email %>!</p>
+<p>Merhaba <%= @resource.name %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Asagidaki linkten hesabini aktive edebilirsin:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %></p>
+<p><%= link_to 'Aktive Et', confirmation_url(@resource, :confirmation_token => @token) %></p>

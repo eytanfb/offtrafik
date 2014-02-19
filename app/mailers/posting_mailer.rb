@@ -12,18 +12,14 @@ class PostingMailer < ActionMailer::Base
     @text = text
     @to_from = "#{to_address} - #{from_address}"
     
-    mail to: @owner.email, subject: "#{@to_from} Ilanina Yanit"
+    mail to: @owner.email, subject: "İlanina Başvuran Var!"
   end
   
-  def posting_full(owner_id, responder_id, posting_id)
+  def new_one_time_posting_given(owner_id, posting_id)
     @owner = User.find owner_id
-    @responder = User.find responder_id
     @posting = Posting.find posting_id
-    to_address = Posting.format(@posting.to_address)
-    from_address = Posting.format(@posting.from_address)
-    @to_from = "#{to_address} - #{from_address}"
+    @to_from = "#{Posting.format(@posting.to_address)} - #{Posting.format(@posting.from_address)}"
     
-    mail to: @responder.email, subject: "#{@to_from} -- #{l @posting.date, format: :short}"
+    mail to: @owner.email, subject: "Kıtaları Değil İnsanları Birleştirmek"
   end
-  
 end

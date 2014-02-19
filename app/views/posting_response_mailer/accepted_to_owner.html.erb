@@ -1,0 +1,14 @@
+<meta content="text/html" http-equiv="Content-Type"/>
+<p>Sevgili <%= @owner.name %></p>
+
+<p>Tebrikler! <%= link_to "#{@to_from}", posting_url(@posting) %> yolculugunu <%= @responder.name %> ile paylasacaksin.</p>
+
+<% if @responder.phone.present? %>
+  <p><%= @responder.name %>: <%= @responder.phone %></p>
+<% end %>
+
+<p>Lutfen birinizle irtibata gecmeyi unutmayin.</p>
+
+<p>Offtrafik</p>
+
+<p><%= image_tag "offtrafik-no-background-logo.png" %></p>
