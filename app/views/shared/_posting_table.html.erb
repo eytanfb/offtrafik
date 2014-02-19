@@ -1,16 +1,7 @@
 <ol class="postings">
   <% posting_list.each do |posting| %>
   <li class="posting clickable" href="<%= posting_path(posting) %>">
-    <div class="posting-image-container center">
-      <%= image_tag "posting-#{posting.driving.downcase.parameterize}.png", class: "posting-image" %>
-    </div>
-    <div class="posting-details">
-      <p><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{posting.user.name}".html_safe %></p>
-      <p><%= "<i class='fa fa-map-marker  fa-2x green' ></i>  Nereden: #{truncate(Posting.format(posting.from_address), length: 30)}".html_safe %></p>
-      <p><%= "<i class='fa fa-map-marker  fa-2x red'></i>  Nereye: #{truncate(Posting.format(posting.to_address), length: 30)}".html_safe %></p>
-      <p><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{posting.starting_time.strftime("%H:%M")}".html_safe %></p>
-      <p><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{l posting.date, format: :short}".html_safe %></p>
-    </div>
+    <%= render :partial => 'posting', locals: { posting: posting }  %>
   </li>
   <% end %>
 </ol>

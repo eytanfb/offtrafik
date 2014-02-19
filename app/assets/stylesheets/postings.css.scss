@@ -5,54 +5,7 @@
 	border-radius:15px;
 }
 
-//Customized by Igal 
-
-section.span9.postings-list
-{
-	border-style:solid;
-   background: rgba(252, 252, 255, 0.6);
-	border-color: rgba(252, 252, 255, 0.6);
-	border-radius:15px;
-	
-	margin-top:25px;
-	text-align:center;
-	padding-bottom:10px;
-	
-	#user-postings {
-		min-height: 500px;
-	}
-	
-}
-
-.table-hover
-{
-	&:hover
-	{
-		background-color:rgba(11,99,157,0.5);
-		color:black;
-		cursor: pointer;
-	}
-}
-
-
-
-
-
-//Already Existing CSS Code
-
-.posting {
-	float: left;
-	height: 325px;
-	width: 200px;
-	background: white;
-	margin: 10px 10px 10px 10px;
-	border-radius: 5px;
-	box-shadow: 1px 1px 1px #888888;
-	-webkit-transform: rotate(-2deg);
-  -moz-transform: rotate(-2deg);
-	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,.5);
-  -moz-box-shadow: 0 3px 6px rgba(0,0,0,.5);
-	
+@mixin posting-features {
 	&:before {
 		content: '';
 		display: block;
@@ -158,6 +111,79 @@ section.span9.postings-list
 	.midnight {
 		color: #2C3E50;
 	}
+}
+
+//Customized by Igal 
+
+section.span9.postings-list
+{
+	border-style:solid;
+   background: rgba(252, 252, 255, 0.6);
+	border-color: rgba(252, 252, 255, 0.6);
+	border-radius:15px;
+	
+	margin-top:25px;
+	text-align:center;
+	padding-bottom:10px;
+	
+	#user-postings {
+		min-height: 500px;
+	}
+	
+}
+
+.table-hover
+{
+	&:hover
+	{
+		background-color:rgba(11,99,157,0.5);
+		color:black;
+		cursor: pointer;
+	}
+}
+
+
+
+
+
+//Already Existing CSS Code
+
+.small-posting {
+	float: left;
+	height: 165px;
+	width: 200px;
+	background: white;
+	margin: 20px 100px 20px 20px;
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px #888888;
+	-webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+  -moz-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+  opacity: 0.9;
+  filter: alpha(opacity=10);
+	
+	.posting-details {
+		margin-top: 10px;
+	}
+	
+	@include posting-features
+}
+
+.posting {
+	float: left;
+	height: 325px;
+	width: 200px;
+	background: white;
+	margin: 10px 10px 10px 10px;
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px #888888;
+	-webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+  -moz-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+	
+	@include posting-features
 }
 
 #posting {
