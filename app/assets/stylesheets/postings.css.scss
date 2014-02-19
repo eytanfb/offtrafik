@@ -212,6 +212,8 @@ section.span8.postings-list
 
 #posting-find {
 	
+	min-height: 300px;
+	
 	.field-part {
 		margin-bottom: 5px;
 }
@@ -241,4 +243,12 @@ section.span8.postings-list
 
 #posting-responders {
 	height: 300px;
+}
+
+#posting-search-results {
+	cursor: pointer;
+}
+
+.search-input {
+	width: 500px;
 }

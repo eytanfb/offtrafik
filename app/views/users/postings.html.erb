@@ -2,8 +2,7 @@
   <%= render partial: "shared/sidebar" %>
   <section class="span8 postings-list">
     <h3>İlanlar</h3>
-    <%= will_paginate @live_postings, param_name: "live_postings_page" %>
-    <%= render 'shared/posting_table', posting_list: @live_postings %>
+    <%= render 'shared/posting_table', posting_list: @live_postings, param_name: "live_postings_page" %>
     <%= link_to "Gecmis Ilanlar", user_past_postings_path(current_user), class: "btn btn-primary", id: "past-postings-button" %>
   </section>
 </div>

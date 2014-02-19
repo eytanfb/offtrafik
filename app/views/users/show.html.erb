@@ -20,6 +20,7 @@
     </section>
     <div class="row">
       <div class="span6">
+        <h3>Yorumlar</h3>
         <%= render 'display_comments', comments: @comments, user: @user %>
       </div>
       <div class="span6">
@@ -35,7 +36,7 @@
             <% @agreed_journeys.each do |journey| %>
               <tr id="<%= journey.user.name.parameterize %>-<%= journey.id %>">
                 <td><%= "#{journey.formatted_date} #{journey.starting_time.strftime("%H:%M")} - #{journey.ending_time.strftime("%H:%M")}" %></td>
-                <td><%= "#{journey.from_address} - #{journey.to_address}" %></td>
+                <td><%= "#{Posting.format(journey.from_address)} - #{Posting.format(journey.to_address)}" %></td>
                 <td><%= journey.people_who_completed_journey(current_user.name).join(',').present? ? journey.people_who_completed_journey(current_user.name).join(',') : "Yalniz" %></td>
               </tr>
             <% end %>
@@ -47,5 +48,4 @@
 </div>
 <% content_for :javascripts do %>
   <%= javascript_include_tag "users.js" %>
-  <%= javascript_include_tag "maps.js" %>
 <% end %>

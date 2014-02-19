@@ -1,4 +1,5 @@
 class PostingResponsesController < ApplicationController
+  before_filter :notifications, only: [:past_responses]
   
   def accept
     @posting_response = PostingResponse.find params[:posting_response_id]

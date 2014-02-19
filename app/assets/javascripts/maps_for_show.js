@@ -1,4 +1,3 @@
-var geocoder;
 var map;
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
@@ -9,24 +8,19 @@ function initialize(){
 	
 	var myOptions;
 	var address = "Istanbul";
-	geocoder = new google.maps.Geocoder();
 	directionsDisplay = new google.maps.DirectionsRenderer();
 	
-	geocoder.geocode({'address': address}, function(results, status)
-	{
-    if (status == google.maps.GeocoderStatus.OK) {
-				myOptions = {
-				  zoom: 3,
-				  center: results[0].geometry.location,
-				  mapTypeId: 'roadmap'
-				}
-				map.setCenter(results[0].geometry.location);
-				map.setZoom(9);
-    }
-	});
-	
+
+	myOptions = {
+	  zoom: 10,
+	  center: new google.maps.LatLng(41.1136, 28.9750),
+		bounds: new google.maps.LatLngBounds(new google.maps.LatLng(41.500, 28.400), new google.maps.LatLng(40.600, 29.400)),
+	  mapTypeId: 'roadmap'
+	}
+		
 	map = new google.maps.Map(document.getElementById("show-map"), myOptions);
-	
+	var traffic = new google.maps.TrafficLayer();
+	traffic.setMap(map);
 	directionsDisplay.setMap(map);
 	
 	calcRouteForShow();

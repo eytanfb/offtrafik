@@ -7,8 +7,8 @@ class PostingMailer < ActionMailer::Base
     @posting = Posting.find posting_id
     @posting_id = @posting.id
     @responder_id = @responder.id
-    to_address = @posting.format(@posting.to_address)
-    from_address = @posting.format(@posting.from_address)
+    to_address = Posting.format(@posting.to_address)
+    from_address = Posting.format(@posting.from_address)
     @text = text
     @to_from = "#{to_address} - #{from_address}"
     
@@ -19,8 +19,8 @@ class PostingMailer < ActionMailer::Base
     @owner = User.find owner_id
     @responder = User.find responder_id
     @posting = Posting.find posting_id
-    to_address = @posting.format(@posting.to_address)
-    from_address = @posting.format(@posting.from_address)
+    to_address = Posting.format(@posting.to_address)
+    from_address = Posting.format(@posting.from_address)
     @to_from = "#{to_address} - #{from_address}"
     
     mail to: @responder.email, subject: "#{@to_from} -- #{l @posting.date, format: :short}"
