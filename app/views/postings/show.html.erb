@@ -1,6 +1,6 @@
 <div class="row">
   <%= render partial: 'shared/sidebar' %>
-  <div class="div" id="posting-show">
+  <section id="posting-show">
     <div class="span12">
       <div id="show-map" style="margin-top:20px"></div>
     </div>
@@ -27,7 +27,6 @@
         <p><%= link_to "Ilanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger answer", style: "width: 60px; margin-left: 113px" %></p>
       <% end %>
     </div>
-  </div>
   <% if @posting.user_id == current_user.id && @posting.posting_responses.count > 0 %>
     <div class="span5" id="posting-responders">
       <h5 style="text-decoration:underline">Cevap Verenler</h5>
@@ -47,6 +46,7 @@
     <% end %>
     </div>
   <% end %>
+  </section>
 </div>
 <div aria-hidden="true" aria-labelledby="contact-posting-owner-modal-label" class="modal hide fade" id="contact-posting-owner-modal-window" role="dialog"></div>
 <div aria-hidden="true" aria-labelledby="enter-phone-modal-label" class="modal hide fade" id="enter-phone-modal-window" role="dialog"></div>
