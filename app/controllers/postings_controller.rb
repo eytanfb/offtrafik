@@ -124,7 +124,7 @@ class PostingsController < ApplicationController
   end
   
   def driving_options
-    @driving_options = %w(Farketmez Sürücü Yolcu Taksi)
+    @driving_options = %w(Sürücü Yolcu Taksi)
   end
   
 end

@@ -1,6 +1,6 @@
 <%= simple_form_for @posting, method: "get", html: { id: "filter-posting-search" }, url: { controller: "postings", action: "find" } do |f| %>
   <%= f.input :from_address, label: false, placeholder: "Nereden", input_html: { id: "from_address", class: "posting-filter-search" }  %>
   <%= f.input :to_address, label: false, placeholder: "Nereye", input_html: { id: "to_address", class: "posting-filter-search" } %>
-  <%= f.input :driving, label: false, include_blank: "Aranan", collection: @driving_options, input_html: { id: "driving" } %>
-  <%= f.button :submit, "Ara", class: 'btn btn-primary btn-medium' %>
+  <%= f.input :driving, label: false, include_blank: "Hepsi", collection: @driving_options, input_html: { id: "driving" } %>
+  <!-- <%= f.button :submit, "Ara", class: 'btn btn-primary btn-medium' %> -->
 <% end %>

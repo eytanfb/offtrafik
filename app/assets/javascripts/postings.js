@@ -52,6 +52,11 @@ $(function() {
     return false;
   });
 	
+	$("#driving").change(function() {
+    $.get($("#filter-posting-search").attr("action"), $("#filter-posting-search").serialize(), null, "script");
+    return false;
+  });
+	
 	initialize();
 	
 	$("#from_address").on('focus', function(){
