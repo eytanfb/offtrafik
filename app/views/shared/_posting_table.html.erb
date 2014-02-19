@@ -1,6 +1,6 @@
 <ol class="postings">
   <% posting_list.each do |posting| %>
-  <li class="posting">
+  <li class="posting clickable" href="<%= posting_path(posting) %>">
     <div class="posting-image-container center">
       <%= image_tag "posting-#{posting.driving.downcase.parameterize}.png", class: "posting-image" %>
     </div>

@@ -31,6 +31,10 @@ class PostingResponsesController < ApplicationController
       @posting_response.responder_agreed = true
     end
     @posting_response.save
+    if @posting_response.poster_agreed && @posting_response.responder_agreed
+      PostingResponseMailer.journey_happened(@posting_response.posting.user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
+      PostingResponseMailer.journey_happened(@posting_response.responder.id, @posting_response.posting.user.id, @posting_response.posting.id).deliver
+    end
   end
   
   def not_happened

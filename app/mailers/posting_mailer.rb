@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class PostingMailer < ActionMailer::Base
   default from: "ilan@offtrafik.com"
   
