@@ -25,7 +25,7 @@
 	font-family:'Quando';
 	background-color: transparent;
 	display:block;
-	height: 550px;
+	height: 700px;
 	
 	h2
 	{
@@ -35,6 +35,60 @@
 	h4
 	{
 		color: black;
+	}
+}
+
+#home-search-container {
+	margin-top: 25px;
+	#home-search {
+		display: inline-block;
+		.control-group {
+			float: left;
+			padding: 0px;
+		}
+		.find_from_home_from_address {
+			display: none;
+		}
+	
+		#home-search-button {
+			margin-top: 0px;
+			height: 38px;
+			background: transparent;
+			border: 1px solid #D35400;
+			color: rgba(255,255,255,0.8);
+		}
+	
+		#home-search-input {
+			background-color: transparent;
+			border: 1px solid #D35400;
+			height: 38px;
+			margin-right: 20px;
+			padding: 4px;
+			width: 360px;
+			color: white;
+			&::-webkit-input-placeholder { 
+			    color: white;
+					opacity: 0.5;
+			}
+			&:-moz-placeholder {
+			    color: white;
+					opacity: 0.5;
+			}
+			&::-moz-placeholder {
+			    color: white;
+					opacity: 0.5;
+			}
+			&:-ms-input-placeholder {
+			    color: white;
+					filter:alpha(opacity=50);
+			}
+		}
+	}
+	#check-all-postings {
+		color: rgba(211,84,0,0.8);
+		a {
+			color: rgba(211,84,0,0.8);
+		}
 	}
 }
 
@@ -82,7 +136,7 @@
 
 #newest-postings {
   position: absolute;
-  margin: 300px auto 0 -498px;
+  margin: 350px auto 0 -498px;
   left: 55%;
   z-index: 12;
 }
@@ -90,6 +144,7 @@
 #why-offtrafik {
 	background: white;
 	width: 100%;
+	min-height: 300px;
 }
 
 #headlines
@@ -189,30 +244,4 @@
 #main-buttons
 {
 	margin-top: 100px;
-}
-
-#home-search {
-	display: inline-block;
-	.control-group {
-		float: left;
-		padding: 0px;
-	}
-	.find_from_home_from_address {
-		display: none;
-	}
-	
-	#home-search-button {
-		margin-top: 0px;
-		height: 38px;
-		background: #D35400;
-	}
-	
-	#home-search-input {
-		background-color: #e3e3e3;
-		border: 0;
-		height: 38px;
-		margin-right: 20px;
-		padding: 4px;
-		width: 360px;
-	}
 }
