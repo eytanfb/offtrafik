@@ -25,15 +25,15 @@ class Posting < ActiveRecord::Base
   has_many :posting_responses, :class_name => "PostingResponse", :foreign_key => "posting_id", dependent: :destroy
   
   validates_presence_of :from_address, :to_address, :date, :starting_time, :ending_time, :user_id
-  validates_inclusion_of :driving, in: %w(Sürücü Yolcu Farketmez Taksi)
+  validates_inclusion_of :driving, in: %w(Sürücü Yolcu Taksi)
   validate :ending_time_is_later_than_starting_time?
   
   default_scope order: 'postings.date ASC'
   
   scope :live_postings,       lambda { where("date >= ?", Date.today) }
   scope :past_postings,       lambda { where("date < ?", Date.today) }
-  scope :with_from_address,   lambda { |value| where("from_address LIKE ?", "%#{(value.split & (DISTRICTS + NEIGHBORHOODS.collect(&:last))).first}%") if value }
-  scope :with_to_address,     lambda { |value| where("to_address LIKE ?", "%#{(value.split & (DISTRICTS + NEIGHBORHOODS.collect(&:last))).first}%") if value }
+  scope :with_from_address,   lambda { |value| where("from_address LIKE ? and from_address LIKE ?", "%#{Posting.format(value)}%", "%#{(value.split & (DISTRICTS + NEIGHBORHOODS.collect(&:last))).first}%") if value }
+  scope :with_to_address,     lambda { |value| where("to_address LIKE ? and to_address LIKE ?", "%#{Posting.format(value)}%", "%#{(value.split & (DISTRICTS + NEIGHBORHOODS.collect(&:last))).first}%") if value }
   scope :with_driving,        lambda { |value| where("driving LIKE ?", "%#{value}%") if value }
   scope :not_current_user,    lambda { |value| where("user_id <> #{value}") if value }
   

@@ -87,3 +87,14 @@ li.nav-user-search
 		}
 	}
 }
+
+#header-login {
+	margin-top: 18px;
+	input {
+		width: 200px;
+		margin-top: 0px;
+		&[type="submit"] {
+			width: 50px;
+		}
+	}
+}
