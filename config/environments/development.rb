@@ -36,7 +36,7 @@ Offtrafik::Application.configure do
   config.assets.debug = true
   
   # Don't care if the mailer can't send
-  config.action_mailer.default_url_options = { host: 'http://offtrafik.dev' }
+  config.action_mailer.default_url_options = { host: 'offtrafik.dev' }
   config.action_mailer.asset_host = "http://offtrafik.dev"
 
   config.action_mailer.raise_delivery_errors = true
