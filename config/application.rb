@@ -65,5 +65,9 @@ module Offtrafik
     #config.logger = Logger.new(log_pipe)
     
     config.assets.initialize_on_precompile = false
+    
+    # Added for location ip
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    
   end
 end

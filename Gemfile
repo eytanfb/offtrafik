@@ -14,7 +14,6 @@ gem 'font-awesome-rails'
 gem 'jquery_datepicker'
 gem 'jquery-ui-rails'
 gem 'jquery-rails'
-gem 'rename'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -51,10 +50,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
   gem 'chosen-rails'
-  gem 'jquery-tablesorter'
 end
 
 gem 'devise'
+gem 'geocoder'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

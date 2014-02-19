@@ -1,21 +1,20 @@
 <% content_for :javascripts do %>
   <%= javascript_include_tag "home.js" %>
 <% end %>
+<div class="i-main-container">
+  <div class="center hero-unit">
+    <h2>Paylasacak Yolculuk Arayin</h2>
 
-<div class="center hero-unit i-main-container">
-	<%= simple_form_for :find_from_home, method: "get", html: { class: "form-search" }, url: { controller: "postings", action: "find_from_home_page" } do |f| %>
-      <%= f.input :from_address, label: false, placeholder: "Nereden" , as: :string %>
-      <%= f.button :submit, "İlan Ara", name: nil, class: 'btn btn-primary btn-large', id: "search-button" %>
-	<div id = "container-right-part">
-	  <div class="row">
-      <%= hidden_field_tag :driving, params[:driving] %>
-      <%= hidden_field_tag :to_address, "Koç Üniversitesi" %>
+    <p>Koc Universiteli asagidaki kutudan gitmek istedigin adrese olan ilanlari gorebilirsin</p>
+    <%= simple_form_for :find_from_home, method: "get", url: { controller: "postings", action: "find_from_home_page" }, html: { id: "home-search" } do |f| %>
+      <div class="form-inline">
+        <%= f.input :to_address, label: false, placeholder: "Nereye gitmek istiyorsun", as: :string, input_html: { id: "home-search-input" } %>
+        <%= f.input :from_address, label: false, class: "hidden", input_html: { value: "#{request.location.city}", class: "hidden" } %>
+        <%= f.button :submit, "İlan Ara", class: 'btn btn-primary btn-medium', id: "home-search-button" %>
+      </div>
+      <!-- <%= hidden_field_tag :driving, params[:driving] %>-->
     <% end %>
-	  </div>
-		
-	   <div class="row" id = "main-buttons">
-	     <%= link_to "Üye Ol !", new_user_registration_path, class: "btn btn-large btn-primary", style: "color: white" %>
-	     <%= link_to "Neden?", why_path, class: "btn btn-large btn-primary", style: "color: white; background: green" %>
-	   </div>
-	</div> <!--container-right-part-->
-</div><!--center hero-unit i-main-container-->
+    
+    <p>veya <%= link_to "Butun Ilanlara Bak", find_posting_path %> </p> 
+  </div><!--center hero-unit-->
+</div><!-- i-main-container -->

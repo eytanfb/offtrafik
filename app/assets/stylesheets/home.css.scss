@@ -15,11 +15,11 @@
 .i-main-container
 {
 	
-  	border-style:solid;
-  	border-color:blue;
-  	background: url("background-image.png") no-repeat center center;
-  	height: 100%;
-  	background-size: cover;
+	border-style:solid;
+	border-color:blue;
+	background: url("background-image.png") no-repeat center center;
+	height: 100%;
+	background-size: cover;
 	
 	text-align:center;
 	font-family:'Quando';
@@ -35,6 +35,45 @@
 	h4
 	{
 		color: black;
+	}
+}
+
+.hero-unit {
+  position: absolute;
+  background-color: #ffffff;
+  width: 700px;
+  z-index: 15;
+  padding: 0;
+  margin-top: 50px;
+  margin-left: -350px;
+  left: 50%;
+  text-align: center;
+  font-size: 15px;
+  color: #000000;
+  letter-spacing: 1px;
+  height: 220px;
+  border: 0;
+  -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+	h2 {
+	  margin-top: 16px;
+	  margin-bottom: 0;
+		font-size: 36px;
+		height: 54px;
+	}
+	p {
+		height: 30px;
+	}
+	a {
+		color: blue;
+		&:hover {
+			color: blue;
+			text-decoration: none;
+		}
+		&:visited {
+			color: blue;
+		}
 	}
 }
 
@@ -135,4 +174,30 @@
 #main-buttons
 {
 	margin-top: 100px;
+}
+
+#home-search {
+	display: inline-block;
+	.control-group {
+		float: left;
+		padding: 0px;
+	}
+	.find_from_home_from_address {
+		display: none;
+	}
+	
+	#home-search-button {
+		margin-top: 0px;
+		height: 38px;
+		background: #D35400;
+	}
+	
+	#home-search-input {
+		background-color: #e3e3e3;
+		border: 0;
+		height: 38px;
+		margin-right: 20px;
+		padding: 4px;
+		width: 360px;
+	}
 }

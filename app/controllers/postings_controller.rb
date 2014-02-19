@@ -72,17 +72,18 @@ class PostingsController < ApplicationController
   
   def find_from_home_page
     @posting = Posting.new params[:find_from_home]
-    driving = "Farketmez"
+    driving = ""
+    to_address = params[:find_from_home][:to_address]
     from_address = params[:find_from_home][:from_address]
-    to_address = "Koç Üniversitesi"
     postings_found = Posting.live_postings.with_from_address(Posting.format(from_address)).with_to_address(Posting.format(to_address)).with_driving(driving)
      if postings_found.blank?
-       postings_found = Posting.live_postings.with_to_address("Koç Üniversitesi")
-       flash.now[:warning] = "Aradıgınız adresten Koç Üniversitesi'ne ilan bulunamadı. Ama belki aşagıdakiler hoşunuza gider!"
+       postings_found = Posting.live_postings.with_from_address(from_address)
+       postings_found = Posting.live_postings if postings_found.blank?
+       flash.now[:warning] = "Bulundugunuz yerden aradıgınız adrese ilan bulunamadı. Ama belki aşagıdakiler hoşunuza gider!"
      end
     @postings = postings_found.paginate page: params[:page], per_page: 8, order: "date asc"
-    @from_address_district = from_address
-    @to_address_district = to_address
+    @from_address = from_address
+    @to_address = to_address
     @driving = driving
   end
   
