@@ -33,6 +33,7 @@ Offtrafik::Application.routes.draw do
     post 'respond', as: :respond
     get 'contact_posting_owner'
     get 'full', as: :full
+    get 'preview', as: :preview
   end
   
   resources :frequent_postings

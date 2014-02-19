@@ -36,6 +36,11 @@ class PostingsController < ApplicationController
     @respondable = !@posting.posting_responses.collect(&:responder_id).include?(current_user.id)
   end
   
+  def preview
+    @posting = Posting.find params[:posting_id]
+    @user = @posting.user
+  end
+  
   def edit
     @posting = Posting.new
   end

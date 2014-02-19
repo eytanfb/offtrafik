@@ -19,9 +19,12 @@
   </div><!--center hero-unit-->
   <div id="newest-postings">
     <% @last_3_postings.each do |posting| %>
-      <div class="small-posting">
+      <div class="small-posting clickable" href="<%= posting_preview_path(posting) %>">
         <%= render partial: "postings/small_posting", locals: { posting: posting }  %>
       </div>
     <% end %>
   </div>
 </div><!-- i-main-container -->
+<div id="why-offtrafik">
+  <p></p>
+</div>
