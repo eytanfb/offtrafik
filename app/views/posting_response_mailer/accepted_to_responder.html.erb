@@ -1,12 +1,18 @@
 <meta content="text/html" http-equiv="Content-Type"/>
 <p>Sevgili <%= @responder.name %></p>
 
-<p>Tebrikler! <%= link_to "#{@to_from}", posting_url(@posting) %> yolculugunu <%= @owner.name %> ile paylasacaksin.</p>
+<p>Başvurduğun <%= link_to "#{@to_from} ilanına", posting_url(@posting) %> sahibinin cevabı olumlu! Artık sadece buluşup yolculuğu gerçekleştirmeniz kaldı.
+</p>
 
 <p><%= @owner.name %>: <%= @owner.phone %></p>
 
-<p>Lutfen birinizle irtibata gecmeyi unutmayin.</p>
+<p>Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’da paylaşımın arttıkça trafiğin ve çevre kirliliğinin ne kadar azalacağını hayal edin.. Buna öncülük ettiğiniz için sizi tebrik ederiz!
+</p>
+
+<p><a href="www.offtrafik.com">Offtrafik'te</a> birbirinizin profiline yorumlar yazmayı ve yolculukla ilgili anılarınızı sosyal medyada #offtrafik ile paylaşmayı unutmayın.</p>
+
+<p>İyi yolculuklar,</p>
 
 <p>Offtrafik</p>
 
-<p><%= image_tag "offtrafik-no-background-logo.png" %></p>
+<p><%= image_tag "#{request.protocol + request.host_with_port}/offtrafik-no-background-logo.png" %></p>
