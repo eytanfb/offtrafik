@@ -34,111 +34,6 @@ $grayLight: #eaeaea;
 }
 /*Sudo class for the background container*/
 
-.boxed {
-	@include background-box;
-}
-
-.button {
-  display: inline-block;
-  position: relative;
-  background: red;
-  border-radius: 30px;
-  width: auto;
-  margin: 10px 10px;
-  margin-top: 50px;
-  box-shadow: 0 0 0 5px rgba(black, .05);
-  height: 60px;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$pink1), color-stop(50%,$pink1), color-stop(50%,$pink2), color-stop(100%,$pink2));
-  
-  &:before {
-    content: "";
-    position: absolute;
-    border-radius: 20px;
-    height: 40px;
-    top: 10px;
-    bottom: 0;
-    left: 10px;
-    right: 10px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$pink2), color-stop(50%,$pink2), color-stop(50%,$pink1), color-stop(100%,$pink1));
-  }
-  a {
-    display: block;
-    position: relative;
-    height: 100%;
-    line-height: 60px;
-    border-radius: 30px;
-    padding: 0 40px;
-    font-family: "Futura-Bold", "Futura LT Book", sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 20px;
-    color: white;
-    text-decoration: none;
-    -webkit-font-smoothing: antialiased;
-  }
-  & > span {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ececec), color-stop(50%,#ececec), color-stop(50%,white), color-stop(100%,white));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-.button_iconed {
-  @extend .button;
-  a > span {
-    padding-left: 40px;
-  }
-  i {
-    position: absolute;
-    font-style: normal;
-    font-size: 28px;
-    // font family would be your icon font
-    left: -1px;
-    padding-left: 25px;
-    padding-right: 15px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(50%, white), color-stop(50%, #ddd), color-stop(100%, #ddd));
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    overflow: hidden;
-    
-    &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      height: 40px;
-      width: 100%;
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ddd), color-stop(50%, #ddd), color-stop(50%, white), color-stop(100%, white));
-      border-top-left-radius: 30px;
-      border-bottom-left-radius: 30px;
-    }
-    span {
-      position: relative;
-      color: $pink2;
-    }
-  }
-}
-
-.button_iconed_smooth {
-  @extend .button_iconed;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$pink1), color-stop(100%,$pink2));
-  
-  &:before {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$pink2), color-stop(100%,$pink1));
-  }
-  a > span {
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ececec), color-stop(100%,white));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-  }
-  i {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #ddd));
-    &:before {
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ddd), color-stop(100%, white));
-    }
-  }
-}
-
 /* universal */
 
 section {
@@ -261,7 +156,6 @@ input[type="radio"], input[type="checkbox"]
 }
 
 /* Buttons */
-
 #signup-button {
 	background: green;
 	&:hover {
@@ -272,7 +166,8 @@ input[type="radio"], input[type="checkbox"]
 	}
 }
 
-.side-button-p {
+.side-button-p 
+{
 	margin-bottom: 2px;
 }
 
@@ -315,6 +210,15 @@ input[type="radio"], input[type="checkbox"]
 	&:visited {
 		color: white;
 	}
+}
+
+/*Igal Button Customization*/
+.i-button
+{
+	width: 60%;
+	height: 30px;
+	bottom-margin: 15px;
+	border-radius:10px;
 }
 
 /* Links */
