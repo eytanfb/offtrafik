@@ -49,6 +49,11 @@ class User < ActiveRecord::Base
 
   before_save :titleize_name
   
+  def confirm!
+    send_welcome_message
+    super
+  end
+  
   def name
     "#{self.first_name} #{self.last_name}"
   end
@@ -139,6 +144,10 @@ class User < ActiveRecord::Base
     else
       errors.add(:email, "gecerli bir adres degil")
     end
+  end
+  
+  def send_welcome_message
+    UserMailer.welcome(self.id).deliver
   end
   
 end

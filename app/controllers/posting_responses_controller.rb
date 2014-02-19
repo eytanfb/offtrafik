@@ -11,6 +11,7 @@ class PostingResponsesController < ApplicationController
     @posting_response = PostingResponse.find params[:posting_response_id]
     @posting_response.accepted = false
     @posting_response.save
+    PostingResponseMailer.rejected_to_responder(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
   end
   
   def past_responses
@@ -30,6 +31,10 @@ class PostingResponsesController < ApplicationController
       @posting_response.responder_agreed = true
     end
     @posting_response.save
+    if @posting_response.poster_agreed && @posting_response.responder_agreed
+      PostingResponseMailer.journey_happened(@posting_response.posting.user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
+      PostingResponseMailer.journey_happened(@posting_response.responder.id, @posting_response.posting.user.id, @posting_response.posting.id).deliver
+    end
   end
   
   def not_happened

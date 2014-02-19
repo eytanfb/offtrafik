@@ -1,0 +1,10 @@
+<meta content="text/html" http-equiv="Content-Type"/>
+<p>Sevgili <%= @responder.name %></p>
+
+<p>Basvurdugunuz <%= link_to "#{@to_from}", posting_url(@posting) %> yolculugu malesef dolu.</p>
+
+<p><%= Posting.format(@posting.to_address) %> yonune giden baska ilanlara <%= link_to "buradan", find_posting_url(to_address: Posting.format(@posting.to_address)) %> bakabilirsin.</p>
+
+<p>Offtrafik</p>
+
+<p><%= image_tag "offtrafik-no-background-logo.png", width: "150px" %></p>

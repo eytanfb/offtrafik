@@ -1,10 +1,13 @@
-// Place all the styles related to the Postings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin background-box
+{
+  background: rgba(252, 252, 255, 0.6);
+	border-color: rgba(252, 252, 255, 0.6);
+	border-radius:15px;
+}
 
 //Customized by Igal 
 
-section.span8.postings-list
+section.span9.postings-list
 {
 	border-style:solid;
    background: rgba(252, 252, 255, 0.6);
@@ -14,6 +17,10 @@ section.span8.postings-list
 	margin-top:25px;
 	text-align:center;
 	padding-bottom:10px;
+	
+	#user-postings {
+		min-height: 500px;
+	}
 	
 }
 
@@ -32,6 +39,126 @@ section.span8.postings-list
 
 
 //Already Existing CSS Code
+
+.posting {
+	float: left;
+	height: 325px;
+	width: 200px;
+	background: white;
+	margin: 10px 10px 10px 10px;
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px #888888;
+	-webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+  -moz-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+	
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		background-color: rgba(220,212,176,0.85);
+		height: 25px;
+		-webkit-transition-duration: 0.5s;
+	  -moz-transition-duration: 0.5s;
+		-o-transition-duration: 0.5s;
+		-ms-transition-duration: 0.5s;
+	}
+	
+	&:before {
+		left:-5px;
+		top: -15px;
+		width: 45px;
+		-webkit-transform: rotate(-12deg);
+		-moz-transform: rotate(-12deg);
+		-o-transform: rotate(-12deg);
+		-ms-transform: rotate(-12deg);
+	}
+		
+	&:nth-child(even) {
+		-webkit-transform: rotate(2deg);
+	  -moz-transform: rotate(2deg);
+	}
+	
+	&:nth-child(4n) {
+		-webkit-transform: none;
+	  -moz-transform: none;
+	  position: relative;
+	  top: -5px;
+	}
+	
+	&:nth-child(5n) {
+		-webkit-transform: rotate(5deg);
+	  -moz-transform: rotate(5deg);
+	  position: relative;
+	  right: 5px;
+	}
+	
+	&:nth-child(8n) {
+		position: relative;
+	  top: 8px;
+	  right: 5px;
+	}
+	
+	&:hover{
+		-webkit-transform: scale(1.1);
+	  -moz-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+    transform: scale(1.1);
+		-webkit-transition-property: -webkit-transform;
+	  -moz-transition-property: -moz-transform;
+		-o-transition-property: -o-transform;
+		-ms-transition-property: -ms-transform;
+		-webkit-transition-duration: 0.25s;
+	  -moz-transition-duration: 0.25s;
+		-o-transition-duration: 0.25s;
+		-ms-transition-duration: 0.25s;
+	  position: relative;
+	  z-index: 5;
+		cursor: pointer;
+		&:before {			
+			opacity:0;
+			filter:alpha(opacity=0); /* For IE8 and earlier */
+			-webkit-transition: opacity 0.25s linear;
+		  -moz-transition: opacity 0.25s linear;
+			-o-transition: opacity 0.25s linear;
+			-ms-transition: opacity 0.25s linear;
+		}
+	}
+	
+	.posting-image-container {
+		border: 1px solid blue;
+		height: 40%;
+		.posting-image {
+			height: 100%;
+		}
+	}
+	
+	.posting-details {		
+		text-align: left;
+		margin-left: 5px;
+	}
+	.green {
+		color: #27AE60;
+	}
+	
+	.blue {
+		color: #2980B9;
+	}
+	
+	.red {
+		color: #C0392B;
+	}
+	
+	.orange {
+		color: #D35400;
+	}
+	
+	.midnight {
+		color: #2C3E50;
+	}
+}
 
 #posting {
 	margin-top: 50px;
@@ -209,19 +336,14 @@ section.span8.postings-list
 }
 
 #posting-find {
-	
+	@include background-box;
 	min-height: 300px;
-	
+	margin-top: 25px;
 	.field-part {
 		margin-bottom: 5px;
 }
-	
-	.control-label {
-		margin-left: 0px;
-		width: 70px;
-	}
 	.controls {		
-		width: 140px;
+		width: 200px;
 		margin-left: 10px;
 		float: left;
 	}
@@ -247,6 +369,11 @@ section.span8.postings-list
 	cursor: pointer;
 }
 
-.search-input {
-	width: 500px;
+#filter-posting-search {
+	height: 25px;
+}
+
+.posting-filter-search {
+	width: 200px;
+	margin-right: 20px;
 }

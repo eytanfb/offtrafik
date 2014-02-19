@@ -18,6 +18,7 @@ class PostingsController < ApplicationController
     @posting = current_user.postings.new params[:posting]
     if @posting.save
       flash[:success] = "Ilan verildi"
+      PostingMailer.new_one_time_posting_given(current_user.id, @posting.id).deliver
       redirect_to share_posting_path(posting_id: @posting.id)
     else
       driving_options
@@ -58,9 +59,9 @@ class PostingsController < ApplicationController
     @from_address = params[:posting][:from_address] if params[:posting].present?
     @to_address   = params[:posting][:to_address] if params[:posting].present?
 
-    @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving).not_current_user(current_user.id) : Posting.live_postings.not_current_user(current_user.id)
+    @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving) : Posting.live_postings
     
-    @postings = @postings.paginate(page: params[:page], per_page: 10, order: "date asc") if @postings.present?
+    @postings = @postings.paginate(page: params[:page], per_page: 8, order: "date asc") if @postings.present?
     
     respond_to do |format|
       format.html
@@ -70,6 +71,7 @@ class PostingsController < ApplicationController
   end
   
   def find_from_home_page
+    @posting = Posting.new params[:find_from_home]
     driving = "Farketmez"
     from_address = params[:find_from_home][:from_address]
     to_address = "Koç Üniversitesi"
@@ -78,7 +80,7 @@ class PostingsController < ApplicationController
        postings_found = Posting.live_postings.with_to_address("Koç Üniversitesi")
        flash.now[:warning] = "Aradıgınız adresten Koç Üniversitesi'ne ilan bulunamadı. Ama belki aşagıdakiler hoşunuza gider!"
      end
-    @postings = postings_found.paginate page: params[:page], per_page: 10, order: "date asc"
+    @postings = postings_found.paginate page: params[:page], per_page: 8, order: "date asc"
     @from_address_district = from_address
     @to_address_district = to_address
     @driving = driving
@@ -109,13 +111,6 @@ class PostingsController < ApplicationController
     end
   end
   
-  def full
-    posting = Posting.find params[:posting_id]
-    PostingMailer.posting_full(posting.user_id, params[:responder], posting.id).deliver
-    flash[:success] = "Ilan dolu emaili yollandı"
-    redirect_to user_path(current_user)
-  end
-  
   private
   
   def set_districts
@@ -129,7 +124,7 @@ class PostingsController < ApplicationController
   end
   
   def driving_options
-    @driving_options = %w(Farketmez Sürücü Yolcu Taksi)
+    @driving_options = %w(Sürücü Yolcu Taksi)
   end
   
 end

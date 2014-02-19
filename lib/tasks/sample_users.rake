@@ -7,7 +7,7 @@ namespace :db do
     100.times do |n|
       first_name = Faker::Name.first_name
       last_name = Faker::Name.last_name
-      email = ["example-#{n}@ku.edu.tr", "example-#{n}@alumni.ku.edu.tr"].sample
+      email = "example-#{n}@ku.edu.tr"
       password = "password"
       user = User.new(first_name: first_name,
                    last_name: last_name,

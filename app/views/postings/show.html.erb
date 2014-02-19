@@ -1,6 +1,6 @@
 <div class="row">
   <%= render partial: 'shared/sidebar' %>
-  <div class="div" id="posting-show">
+  <section id="posting-show">
     <div class="span12">
       <div id="show-map" style="margin-top:20px"></div>
     </div>
@@ -27,7 +27,6 @@
         <p><%= link_to "Ilanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger answer", style: "width: 60px; margin-left: 113px" %></p>
       <% end %>
     </div>
-  </div>
   <% if @posting.user_id == current_user.id && @posting.posting_responses.count > 0 %>
     <div class="span5" id="posting-responders">
       <h5 style="text-decoration:underline">Cevap Verenler</h5>
@@ -39,13 +38,15 @@
           <% elsif response.rejected %>
             Gelmiyor
           <% else %>
-            <%= link_to "<i class='icon-ok icon-white'></i><span style='color:white'>Gelsin</span>".html_safe, posting_response_accept_path(response), class: "btn btn-mini btn-success", data: { confirm: "#{response.responder.name} ile yolculuk yapmak istediginize emin misiniz?", positive: "#{response.responder.name} ile yolculuk etmeyi kabul ettiniz", negative: "#{response.responder.name} ile yolculuk etmeyi kabul etmediniz" }, method: :get, remote: true, data: { toggle: 'modal', target: '#enter-phone-modal-window' } %><%= link_to "<i class='icon-remove icon-white'></i><span style='color:white'>Gelmesin</span>".html_safe, posting_response_reject_path(response), class: "btn btn-mini btn-danger", style:"margin-left:20px; margin-right:20px;", data: { confirm: "#{response.responder.name}'i reddetmek istediginize emin misiniz?", positive: "#{response.responder.name} ile yolculuk etmeyi reddettiniz", negative: "#{response.responder.name} ile yolculuk etmeyi reddetmediniz" }, method: :get, remote: true %>
+            <%= link_to "enter phone", "#", data: { toggle: 'modal', target: '#enter-phone-modal-window' }, class: "hidden", id: "enter-phone-button" %>
+            <%= link_to "<i class='icon-ok icon-white'></i><span style='color:white'>Gelsin</span>".html_safe, posting_response_accept_path(response), class: "btn btn-mini btn-success", data: { confirm: "#{response.responder.name} ile yolculuk yapmak istediginize emin misiniz?", positive: "#{response.responder.name} ile yolculuk etmeyi kabul ettiniz", negative: "#{response.responder.name} ile yolculuk etmeyi kabul etmediniz" }, method: :get, remote: true %><%= link_to "<i class='icon-remove icon-white'></i><span style='color:white'>Gelmesin</span>".html_safe, posting_response_reject_path(response), class: "btn btn-mini btn-danger", style:"margin-left:20px; margin-right:20px;", data: { confirm: "#{response.responder.name}'i reddetmek istediginize emin misiniz?", positive: "#{response.responder.name} ile yolculuk etmeyi reddettiniz", negative: "#{response.responder.name} ile yolculuk etmeyi reddetmediniz" }, method: :get, remote: true %>
           <% end %>
       </span>
       </p>
     <% end %>
     </div>
   <% end %>
+  </section>
 </div>
 <div aria-hidden="true" aria-labelledby="contact-posting-owner-modal-label" class="modal hide fade" id="contact-posting-owner-modal-window" role="dialog"></div>
 <div aria-hidden="true" aria-labelledby="enter-phone-modal-label" class="modal hide fade" id="enter-phone-modal-window" role="dialog"></div>

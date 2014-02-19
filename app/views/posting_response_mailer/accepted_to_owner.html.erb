@@ -1,0 +1,19 @@
+<meta content="text/html" http-equiv="Content-Type"/>
+<p>Sevgili <%= @owner.name %></p>
+
+<p>Mutlulukla belirtmek isteriz ki <%= link_to "#{@to_from} ilanına", posting_url(@posting) %> başvuruyu kabul ettiğini <%= @responder.name %> ilettik. Artık sadece buluşup yolculuğu gerçekleştirmeniz kaldı.</p>
+
+<% if @responder.phone.present? %>
+  <p><%= @responder.name %>: <%= @responder.phone %></p>
+<% end %>
+
+<p>Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!
+</p>
+
+<p><%= link_to "Offtrafik'te", root_url %> birbirinizin profiline yorumlar yazmayı ve yolculukla ilgili anılarınızı sosyal medyada #offtrafik ile paylaşmayı unutmayın.</p>
+
+<p>İyi yolculuklar,</p>
+
+<p>Offtrafik</p>
+
+<p><%= image_path "offtrafik-no-background-logo.png", width: "150px" %></p>

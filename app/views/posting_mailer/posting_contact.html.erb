@@ -1,4 +1,10 @@
 <meta content="text/html" http-equiv="Content-Type"/>
-<p><%= "#{@owner.name}," %></p>
+<p>Sevgili <%= @owner.name %>,</p>
 
-<p><%= "#{@posting.formatted_date}" %> tarihinde yapacagin yolculuk icin yeni talepler var. <%= link_to 'Ilana', posting_url(@posting) %> giderek cevap verin.</p>
+<p><%= @responder.name %> seninle <%= link_to "#{@to_from}", posting_url(@posting) %> yolculuğunu paylaşmak istiyor.</p>
+
+<p>Linke tıklayıp ona cevap verebilir, daha keyifli ve çevreci bir yolculuk yapabilirsiniz.</p>
+
+<p>Offtrafik</p>
+
+<p><%= image_tag "offtrafik-no-background-logo.png", width: "150px" %></p>
