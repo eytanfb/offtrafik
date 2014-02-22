@@ -12,15 +12,32 @@
     <% end %>
     
     <p id="check-all-postings">veya <%= link_to "Butun Ilanlara Bak", find_posting_path %> </p> 
-  </div><!--center hero-unit-->
-  <div id="newest-postings">
-    <% @last_3_postings.each do |posting| %>
-      <div class="small-posting clickable" href="<%= posting_preview_path(posting) %>">
-        <%= render partial: "postings/small_posting", locals: { posting: posting }  %>
-      </div>
-    <% end %>
   </div>
 </div><!-- i-main-container -->
 <div id="why-offtrafik">
-  <p></p>
+  <h2 style="vertical-align: middle">Offtrafik'e Neden Bayilacaksiniz</h2>
+  <div class="row">
+    <div class="offset3 center featurette">
+      <%= image_tag "myku-logosu.jpg", style: "width: 200px; height: 130px" %>
+      <h4>KU Mailizinile Uye Olun</h4>
+      <p style="text-align: left">Offtrafik'e Koc Universitesi mailinizle uye olun, ozel bir grubun parcasi olmaya devam edin</p>
+    </div>
+    <div class="center featurette">
+      <%= image_tag "search-post.png", style: "width: 200px; height: 130px" %>
+      <h4>Ilan Verin/Arayin</h4>
+      <p>Offtrafik'te verilmis ilanlari arayabilir, veya kendi ilaninizi verebilirsiniz.</p>
+    </div>
+    <div class="center featurette">
+      <%= image_tag "landing-page-share.png", style: "width: 200px; height: 130px" %>
+      <h4>Paylasin</h4>
+    </div>
+  </div>
 </div>
+
+<!-- <div id="newest-postings">
+  <% @last_3_postings.each do |posting| %>
+    <div class="small-posting clickable" href="<%= posting_preview_path(posting) %>">
+      <%= render partial: "postings/small_posting", locals: { posting: posting }  %>
+    </div>
+  <% end %>
+</div> -->

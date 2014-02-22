@@ -1,7 +1,7 @@
 <ol class="postings">
   <% posting_list.each do |posting| %>
   <li class="posting clickable" href="<%= posting_path(posting) %>">
-    <%= render :partial => 'posting', locals: { posting: posting }  %>
+    <%= render :partial => 'postings/posting', locals: { posting: posting }  %>
   </li>
   <% end %>
 </ol>
