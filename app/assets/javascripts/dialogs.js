@@ -10,7 +10,6 @@ $.rails.allowAction = function(element){
 $.rails.confirmed = function(element){
     element.removeAttr('data-confirm');
     element.trigger('click.rails');
-		return false;
 };
 
 $.rails.showConfirmDialog = function(element){
@@ -20,10 +19,10 @@ $.rails.showConfirmDialog = function(element){
 		    cancel : "Geri"
 		} });
     alertify.confirm(msg, function(e){
+				e.preventDefault();
         if(e){
           $.rails.confirmed(element);
 					alertify.success(element.data('positive'));
-					return false;
         } else {
         	alertify.error(element.data('negative'));
         }
