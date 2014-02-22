@@ -19,7 +19,6 @@ $.rails.showConfirmDialog = function(element){
 		    cancel : "Geri"
 		} });
     alertify.confirm(msg, function(e){
-				e.preventDefault();
         if(e){
           $.rails.confirmed(element);
 					alertify.success(element.data('positive'));
