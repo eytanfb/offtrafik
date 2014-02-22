@@ -111,7 +111,7 @@ class PostingsController < ApplicationController
       text = params[:contact_posting_owner][:content]
       PostingMailer.posting_contact(@posting.user_id, current_user.id, @posting.id, text).deliver
       flash[:success] = "Yanıt isteğiniz yollandı"
-      redirect_to user_postings_path(current_user)
+      redirect_to find_posting_path
     else
       flash[:warning] = "Yanit isteginiz olustrulurken bir sorun cikti. Lutfen tekrar deneyiniz "
     end
