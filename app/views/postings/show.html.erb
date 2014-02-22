@@ -39,6 +39,7 @@
           <% elsif response.rejected %>
             Gelmiyor
           <% else %>
+            <%= link_to "enter phone", "#", data: { toggle: 'modal', target: '#enter-phone-modal-window', keyboard: "false", backdrop: "static" }, class: "hidden", id: "enter-phone-button" %>
             <%= link_to "<i class='icon-ok icon-white'></i><span style='color:white'>Gelsin</span>".html_safe, posting_response_accept_path(response), class: "btn btn-mini btn-success", data: { confirm: "#{response.responder.name} ile yolculuk yapmak istediginize emin misiniz?", positive: "#{response.responder.name} ile yolculuk etmeyi kabul ettiniz", negative: "#{response.responder.name} ile yolculuk etmeyi kabul etmediniz" }, method: :get, remote: true %><%= link_to "<i class='icon-remove icon-white'></i><span style='color:white'>Gelmesin</span>".html_safe, posting_response_reject_path(response), class: "btn btn-mini btn-danger", style:"margin-left:20px; margin-right:20px;", data: { confirm: "#{response.responder.name}'i reddetmek istediginize emin misiniz?", positive: "#{response.responder.name} ile yolculuk etmeyi reddettiniz", negative: "#{response.responder.name} ile yolculuk etmeyi reddetmediniz" }, method: :get, remote: true %>
           <% end %>
       </span>
