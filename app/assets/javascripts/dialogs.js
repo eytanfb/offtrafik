@@ -10,6 +10,7 @@ $.rails.allowAction = function(element){
 $.rails.confirmed = function(element){
     element.removeAttr('data-confirm');
     element.trigger('click.rails');
+		element.trigger('click.rails');
 };
 
 $.rails.showConfirmDialog = function(element){
