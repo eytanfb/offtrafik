@@ -12,15 +12,13 @@ class PostingsController < ApplicationController
   end
   
   def create
-    params[:posting][:from_address] = params[:from_address]
-    params[:posting][:to_address] = params[:to_address]
-
     @posting = current_user.postings.new params[:posting]
     if @posting.save
       flash[:success] = "Ilan verildi"
       PostingMailer.new_one_time_posting_given(current_user.id, @posting.id).deliver
       redirect_to share_posting_path(posting_id: @posting.id)
     else
+      flash[:warning] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
       driving_options
       @frequent_posting = current_user.frequent_postings.new params[:frequent_posting]
       render 'new'
@@ -130,7 +128,7 @@ class PostingsController < ApplicationController
   end
   
   def driving_options
-    @driving_options = %w(Sürücü Yolcu Taksi)
+    @driving_options = %w(Sürücü Yolcu Taksi\ Paylasimi)
   end
   
 end

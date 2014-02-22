@@ -7,8 +7,6 @@ class FrequentPostingsController < ApplicationController
   end
   
   def create
-    params[:frequent_posting][:from_address] = params[:from_address]
-    params[:frequent_posting][:to_address] = params[:to_address]
     @frequent_posting = current_user.frequent_postings.new params[:frequent_posting]  
     if @frequent_posting.save
       fp = params[:frequent_posting]
@@ -38,7 +36,7 @@ class FrequentPostingsController < ApplicationController
   private
   
   def driving_options
-    @driving_options = %w(Sürücü Yolcu Taksi)
+    @driving_options = %w(Sürücü Yolcu Taksi\ Paylasimi)
   end
 end
 
