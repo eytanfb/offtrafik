@@ -10,6 +10,7 @@ $.rails.allowAction = function(element){
 $.rails.confirmed = function(element){
     element.removeAttr('data-confirm');
     element.trigger('click.rails');
+		return false;
 };
 
 $.rails.showConfirmDialog = function(element){
@@ -22,7 +23,7 @@ $.rails.showConfirmDialog = function(element){
         if(e){
           $.rails.confirmed(element);
 					alertify.success(element.data('positive'));
-					return true;
+					return false;
         } else {
         	alertify.error(element.data('negative'));
         }
