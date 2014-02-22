@@ -80,11 +80,46 @@
 		}
 	}
 	
-	.posting-image-container {
-		border: 1px solid blue;
-		height: 40%;
-		.posting-image {
-			height: 100%;
+	.posting-image {
+		.posting-date {
+			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			-webkit-border-radius: 0 3px 0 3px;
+			-moz-border-radius: 0 3px 0 3px;
+			-ms-border-radius: 0 3px 0 3px;
+			-o-border-radius: 0 3px 0 3px;
+			border-radius: 0 3px 0 3px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 10px;
+			margin: 0;
+			line-height: 1;
+			background-color: #fff;
+			color: #6d6d6d;
+		  opacity: 0.8;
+		  filter: alpha(opacity=20);
+		}
+		.posting-time {
+			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			-webkit-border-radius: 0 3px 3px 0;
+			-moz-border-radius: 0 3px 3px 0;
+			-ms-border-radius: 0 3px 3px 0;
+			-o-border-radius: 0 3px 3px 0;
+			border-radius: 0 3px 3px 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 10px;
+			margin: 0;
+			line-height: 1;
+			background-color: #fff;
+			color: #6d6d6d;
+		  opacity: 0.8;
+		  filter: alpha(opacity=20);
 		}
 	}
 	
@@ -173,7 +208,7 @@ section.span9.postings-list
 .posting {
 	float: left;
 	height: 325px;
-	width: 200px;
+	width: 275px;
 	background: white;
 	margin: 10px 10px 10px 10px;
 	border-radius: 5px;
