@@ -29,13 +29,20 @@ Offtrafik::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
+  # Asset Handling
+  
   # Do not compress assets
   config.assets.compress = false
+  config.assets.compile = true
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  config.serve_static_assets = true
+  
+  # Mailer settings
   
   # Don't care if the mailer can't send
+  config.action_mailer.asset_host = "offtrafik-staging.herokuapp.com"
   config.action_mailer.default_url_options = { :host => 'offtrafik-staging.herokuapp.com' }
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
@@ -49,7 +56,6 @@ Offtrafik::Application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :letter_opener
-  
+  # config.action_mailer.delivery_method = :letter_opener
   
 end
