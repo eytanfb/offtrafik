@@ -1,5 +1,4 @@
 $("#<%= @posting_response.responder.name.parameterize %>-answer").html("Geliyor");
 $("#<%= @posting_response.responder.name.parameterize %>-response").addClass("responder-true");
-// $("#enter-phone-button").click();
-$("#enter-phone-modal-window").html("<%= escape_javascript(render 'postings/enter_phone') %>");
+$("#enter-phone-button").click();
 console.log("called");
