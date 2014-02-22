@@ -31,14 +31,14 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :confirmable
+         :recoverable, :rememberable, :trackable, :confirmable, :validatable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :summary, :neighborhood, :first_name, :last_name, :agreed_to_terms_and_conditions, :trip_rating
   
   validates_presence_of :first_name, :last_name, :email, :password, :password_confirmation, message: "alani bos olamaz"
   validates_inclusion_of :agreed_to_terms_and_conditions, in: [true], on: :create
-  validates_length_of :password, within: 6..20, on: :create
+  validates_length_of :password, within: 8..20, on: :create
   validate :valid_email_domain
   
   has_many :postings
