@@ -399,9 +399,9 @@ section.span9.postings-list
 }
 
 #posting-find {
-	@include background-box;
 	min-height: 300px;
 	margin-top: 25px;
+	height: 100%;
 	.field-part {
 		margin-bottom: 5px;
 }
@@ -414,6 +414,7 @@ section.span9.postings-list
 
 #show-results {
 	margin-top: 20px;
+	height: 100%;
 }
 
 #past-postings-button:visited {
