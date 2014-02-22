@@ -1,9 +1,9 @@
 <div class="row">
   <%= render partial: "shared/sidebar" %>
-  <section class="span9 postings-list">
-    <h3>İlanlar</h3>
+  <section class="span12 postings-list">
+    <h3>İlanlarim</h3>
     <div id="user-postings">
-      <%= render 'shared/posting_table', posting_list: @live_postings, param_name: "live_postings_page" %>
+      <%= render 'shared/posting_table', posting_list: @live_postings, param_name: "page" %>
     </div>
     <p><%= link_to "Gecmis Ilanlar", user_past_postings_path(current_user), class: "btn btn-primary", id: "past-postings-button" %></p>
   </section>

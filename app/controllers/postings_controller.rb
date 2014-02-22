@@ -66,7 +66,7 @@ class PostingsController < ApplicationController
 
     @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving) : Posting.live_postings
     
-    @postings = @postings.paginate(page: params[:page], per_page: 8, order: "date asc") if @postings.present?
+    @postings = @postings.paginate(page: params[:page], per_page: 6, order: "date asc") if @postings.present?
     
     respond_to do |format|
       format.html
@@ -86,7 +86,7 @@ class PostingsController < ApplicationController
        postings_found = Posting.live_postings if postings_found.blank?
        flash.now[:warning] = "Bulundugunuz yerden aradıgınız adrese ilan bulunamadı. Ama belki aşagıdakiler hoşunuza gider!"
      end
-    @postings = postings_found.paginate page: params[:page], per_page: 8, order: "date asc"
+    @postings = postings_found.paginate page: params[:page], per_page: 6, order: "date asc"
     @from_address = from_address
     @to_address = to_address
     @driving = driving

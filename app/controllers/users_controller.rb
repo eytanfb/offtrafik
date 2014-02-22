@@ -6,11 +6,11 @@ class UsersController < Devise::RegistrationsController
   before_filter :notifications, except: [:enter_phone]
   
   def postings
-    @live_postings = current_user.postings.live_postings.paginate(page: params[:live_postings_page], per_page: 5)
+    @live_postings = current_user.postings.live_postings.paginate(page: params[:page], per_page: 6)
   end
   
   def past_postings
-    @past_postings = current_user.postings.past_postings.paginate(page: params[:past_postings_page], per_page: 5)
+    @past_postings = current_user.postings.past_postings.paginate(page: params[:page], per_page: 6)
   end
   
   def show
