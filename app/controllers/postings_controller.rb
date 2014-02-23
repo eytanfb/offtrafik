@@ -4,7 +4,7 @@ class PostingsController < ApplicationController
   before_filter :authenticate_user!, only: [:show, :share_posting, :full, :respond, :create, :new]
   before_filter :driving_options, only: [:new, :find, :find_from_home_page]
   before_filter :notifications, only: [:share_posting, :find, :show]
-  before_filter :set_districts, only: [:find, :find_from_home_page]
+  # before_filter :set_districts, only: [:find, :find_from_home_page]
   
   def new
     @posting = current_user.postings.new params[:posting]
@@ -56,9 +56,8 @@ class PostingsController < ApplicationController
   
   def find
     @posting = Posting.new params[:posting]
-    @driving = if params[:posting].present? 
-                params[:posting][:driving] == "Farketmez" ? "" : params[:posting][:driving]
-              end
+    @driving = params[:posting][:driving] if params[:posting].present?
+    @driving = "Taksi" if @driving == "Taksi Paylasimi"
     @from_address = params[:posting][:from_address] if params[:posting].present?
     @to_address   = params[:posting][:to_address] if params[:posting].present?
 
@@ -88,6 +87,11 @@ class PostingsController < ApplicationController
     @from_address = from_address
     @to_address = to_address
     @driving = driving
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def all_postings

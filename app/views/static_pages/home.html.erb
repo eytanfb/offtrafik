@@ -3,10 +3,10 @@
 <% end %>
 <div class="i-main-container">
   <div class="center" id="home-search-container">
-    <%= simple_form_for :find_from_home, method: "get", url: { controller: "postings", action: "find_from_home_page" }, html: { id: "home-search" } do |f| %>
+    <%= simple_form_for @posting, method: "get", url: { controller: "postings", action: "find" }, html: { id: "home-search" } do |f| %>
       <div class="form-inline">
         <%= f.input :to_address, label: false, placeholder: "Nereye gitmek istiyorsun", as: :string, input_html: { id: "home-search-input" } %>
-        <%= f.input :from_address, label: false, class: "hidden", input_html: { value: "#{request.location.city}", class: "hidden" } %>
+        <%= f.hidden_field :from_address, label: false %>
         <%= f.button :submit, "İlan Ara", class: 'btn btn-primary btn-medium', id: "home-search-button" %>
       </div>
     <% end %>
