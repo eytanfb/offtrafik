@@ -42,6 +42,7 @@ body
 
 #second-wrapper 
 {
+	padding-top:20px;
 	padding-bottom:60px; /* Height of the footer element */
   	background-size: cover;
 	

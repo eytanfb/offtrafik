@@ -197,7 +197,8 @@ input[type="radio"], input[type="checkbox"]
   color: white;
   width: 40%;.
   margin-top: 5px;
-	&:hover {
+	&:hover 
+	{
 		background-color: orange;
 	}
 }
@@ -276,7 +277,36 @@ input[type="radio"], input[type="checkbox"]
 	.form-actions
 	{
 		background-color:transparent;
-		border-style:none;
-		
+		border-style:none;	
 	}
+}
+
+/*Why.html.erb*/
+
+#why-title
+{
+	margin-top:30px;
+}
+
+@for $i from 1 through 4
+{
+	.why-paragraph-#{$i}
+	{
+		@if $i%2==0
+		{
+			padding-left:36%;
+		}@else{
+			
+			padding-left:3%;
+		}
+		
+		margin-left:7%;
+	}
+}
+
+/*About.html/erb*/
+
+.about-row
+{
+	padding-left:25%;
 }

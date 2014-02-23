@@ -163,7 +163,8 @@
 	text-align:center;
 	padding-bottom:10px;
 	
-	#user-postings {
+	#user-postings
+	{
 		min-height: 500px;
 	}
 	
@@ -449,7 +450,9 @@
 	}
 }
 
-#posting-find {
+#posting-find 
+{
+	overflow-y:hidden;
 	min-height: 300px;
 	margin-top: 25px;
 	height: 100%;
@@ -463,7 +466,9 @@
 	}
 }
 
-#show-results {
+#show-results 
+{
+	overflow-y:auto; 
 	margin-top: 20px;
 	height: 100%;
 }
