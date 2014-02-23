@@ -152,7 +152,7 @@
 
 //Customized by Igal 
 
-section.span9.postings-list
+.postings-list
 {
 	border-style:solid;
    background: rgba(252, 252, 255, 0.6);
@@ -269,8 +269,11 @@ section.span9.postings-list
 	}
 }
 
-#posting {
-	#map {
+#posting 
+{
+	margin-top:20px;
+	#map 
+	{
 		height: 70%;
 		width: 95%;
 		border-style:solid;
@@ -279,10 +282,14 @@ section.span9.postings-list
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
-		label { 
+		
+		label 
+		{ 
 		  width: auto; display:inline; 
 		}	
-		img {
+		
+		img 
+		{
 			max-width: none;
 		}
 	}
