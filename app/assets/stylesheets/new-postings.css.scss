@@ -1,5 +1,12 @@
 /* Styles for New Post* postings/new.html.ern */
 
+@mixin background-box
+{
+  background: rgba(252, 252, 255, 0.6);
+	border-color: rgba(252, 252, 255, 0.6);
+	border-radius:15px;
+}
+
 h3.center
 {
 	font-size:3em;
@@ -20,6 +27,7 @@ h3.center
 
 #posting-selection
 {
+	@include background-box;
 	float:left;
 	width:38%;
 	margin-left:30px;
@@ -60,9 +68,7 @@ h3.center
 	display:block;
 }
 
-
-
-#frequent-postngs
+#frequent-postings
 {
 	text-align:center;
 }
