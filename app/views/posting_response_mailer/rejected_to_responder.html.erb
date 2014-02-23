@@ -1,9 +1,9 @@
 <meta content="text/html" http-equiv="Content-Type"/>
 <p>Sevgili <%= @responder.name %></p>
 
-<p>Basvurdugunuz <%= link_to "#{@to_from}", posting_url(@posting) %> yolculugu malesef dolu.</p>
+<p><%= link_to "#{@to_from}", posting_url(@posting) %> yolculuğuna yaptığın başvuru için olumlu yanıt alamadık.</p>
 
-<p><%= Posting.format(@posting.to_address) %> yonune giden baska ilanlara <%= link_to "buradan", find_posting_url(to_address: Posting.format(@posting.to_address)) %> bakabilirsin.</p>
+<p>Yolculuğuna uygun diğer ilanlarla iletişime geçmek için <%= link_to "buraya", find_posting_url(to_address: Posting.format(@posting.to_address)) %> linkine tıklayabilirsin.</p>
 
 <p>Offtrafik</p>
 
