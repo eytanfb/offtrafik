@@ -11,6 +11,7 @@
         <%= f.input :neighborhood, label: "Hangi Semttensiniz", collection: DISTRICTS, input_html: { id: "user-neighborhood", data: { placeholder: "Semtiniz" } } %>
         <%= f.input :summary, label: "Kendinizi Tek Cumleyle Ozetleyin", as: :text, input_html: { cols: 30, rows: 2 } %>
         <%= f.input :driver, label: "Kampuse kendi arabanizla mi geliyorsunuz?", required: false, collection: yes_no, as: :radio_buttons, item_wrapper_class: "inline" %>
+        <%= f.input :phone, label: false, as: :string %>
         <%= f.input :email, disabled: true, required: false %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

@@ -5,20 +5,20 @@
 <section id="user_info">
   <p>Yolculuk Puanı: <%= current_user.calculate_rating != 0 ? "#{current_user.trip_rating}/5" : "N/A" %> </p>
   <p class="side-button-p">
-    <a class="btn btn-primary btn-mini i-button" href="<%= new_posting_path %>" style="color:white;">
-      <i class="icon-edit icon-white"></i>
+    <a class="btn btn-primary i-button" href="<%= new_posting_path %>" style="color:white;">
+      <i class="fa fa-edit fa-lg"></i>
       İlan Oluştur
     </a>
   </p>
   <p class="side-button-p">
-    <a class="btn btn-primary btn-mini side-button-search i-button" href="<%= find_posting_path %>">
-      <i class="icon-search icon-white"></i>
+    <a class="btn btn-primary side-button-search i-button" href="<%= find_posting_path %>">
+      <i class="fa fa-search fa-lg"></i>
       İlan Ara
     </a>
   </p>
   <p class="side-button-p">
-    <a class="btn btn-primary btn-mini side-button-list i-button" href="<%= user_postings_path(current_user) %>">
-      <i class="icon-list icon-white"></i>
+    <a class="btn btn-primary side-button-list i-button" href="<%= user_postings_path(current_user) %>">
+      <i class="fa fa-list fa-lg"></i>
       İlanlarim
     </a>
   </p>

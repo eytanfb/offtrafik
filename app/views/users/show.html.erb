@@ -13,20 +13,22 @@
         <div class="span6">
           <h4>Yolculuk Puanı: <%= @user.trip_rating %></h4>
         </div>
+        <% if @user == current_user %>
         <div class="span6">
           <h4 id='total-journey-count'>Toplam Yolculuklar: <%= @user.total_journeys %> </h4>
         </div>
+        <% end %>
       </div>
     </section>
     <div class="row">
       <div class="span6">
         <h3>Yorumlar</h3>
-        <% if user != current_user %>
-          <%= link_to "Yorum Yaz", new_comment_path(is_about: user.id), class: "btn btn-small", id: "write_comment" %>
+        <% if @user != current_user %>
+          <%= link_to "Yorum Yaz", new_comment_path(is_about: @user.id), class: "btn btn-small", id: "write_comment" %>
         <% end %>
-        <%= render 'display_comments', comments: @comments, user: @user %>
+        <%= render 'display_comments', comments: @comments %>
       </div>
-      <% if current_user %>
+      <% if @user == current_user %>
       <div class="span6">
         <h3 id="past-journeys">Gecmis Yolculuklar</h3>
         <%= will_paginate @agreed_journeys, param_name: "journey_page" %>
