@@ -55,6 +55,8 @@ class Posting < ActiveRecord::Base
     address = address.chomp(", Turkey")
     address = address.chomp(", Istanbul")
     address = address.chomp(", Istanbul, Turkey")
+    address = address.chomp(", Türkiye")
+    address = address.chomp(", İstanbul")
   end
 
   def self.count
