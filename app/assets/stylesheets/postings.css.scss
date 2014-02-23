@@ -317,25 +317,29 @@ section.span9.postings-list
 	.control-group {
 		float: left;
 		padding: 0px;
+		margin-bottom: 20px;
 	}
 	input[type=checkbox] {
 	    visibility: hidden;
 	    margin-left: 10px;
 	    float: left;
 	    width: 30px;
+			height: 40px;
 	}
 	input[type=checkbox]:before {
-	    content:attr(data-title);
-	    display:inline-block;
-	    width: 35px;
-	    height:20px;
-	    background:red;
+	    display: inline-block;
+	    width: 70px;
+	    height: 40px;
+	    background: red;
 	    visibility: visible;
 	    color: white;
+	    content: attr(data-title);
 	    text-align: center;
+			vertical-align: middle;
+			font-size: x-large;
 	}
 	input[type=checkbox]:checked:before {
-	    background:green;
+	    background: green;
 	}
 }
 
