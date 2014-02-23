@@ -329,17 +329,17 @@ section.span9.postings-list
 	input[type=checkbox]:before {
 	    display: inline-block;
 	    width: 70px;
-	    height: 40px;
-	    background: red;
+	    height: 30px;
+	    background: #E74C3C;
 	    visibility: visible;
 	    color: white;
 	    content: attr(data-title);
 	    text-align: center;
-			vertical-align: middle;
-			font-size: x-large;
+			font-size: medium;
+			border-radius: 5px;
 	}
 	input[type=checkbox]:checked:before {
-	    background: green;
+	    background: #27AE60;
 	}
 }
 
