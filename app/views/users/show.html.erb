@@ -21,8 +21,12 @@
     <div class="row">
       <div class="span6">
         <h3>Yorumlar</h3>
+        <% if user != current_user %>
+          <%= link_to "Yorum Yaz", new_comment_path(is_about: user.id), class: "btn btn-small", id: "write_comment" %>
+        <% end %>
         <%= render 'display_comments', comments: @comments, user: @user %>
       </div>
+      <% if current_user %>
       <div class="span6">
         <h3 id="past-journeys">Gecmis Yolculuklar</h3>
         <%= will_paginate @agreed_journeys, param_name: "journey_page" %>
@@ -44,6 +48,7 @@
         </table>
       </div>
     </div>
+    <% end %>
   </section>
 </div>
 <% content_for :javascripts do %>
