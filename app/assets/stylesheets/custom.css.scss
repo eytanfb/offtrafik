@@ -227,9 +227,12 @@ input[type="radio"], input[type="checkbox"]
 
 /* Links */
 
-#user_info {
-	a {
-		&:visited {
+#user_info 
+{
+	a 
+	{
+		&:visited 
+		{
 			color: white;
 		}
 	}
@@ -246,3 +249,26 @@ input[type="radio"], input[type="checkbox"]
 
 /*New Sessions - new.html.erb*/
 
+#login-page-content
+{
+	padding-top:10px;
+		
+	h2
+	{
+		color:black;
+		margin-bottom:10px;
+	}
+	.span6
+	{
+	   margin-left: auto;
+	   margin-right: auto;
+		float:none;
+	}
+	
+	.form-actions
+	{
+		background-color:transparent;
+		border-style:none;
+		
+	}
+}
