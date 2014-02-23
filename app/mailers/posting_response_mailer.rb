@@ -26,7 +26,7 @@ class PostingResponseMailer < ActionMailer::Base
     @posting = Posting.find posting_id
     @to_from = "#{Posting.format(@posting.to_address)} - #{Posting.format(@posting.from_address)}"
     
-    mail to: @responder.email, subject: "Basvurduğunuz #{@to_from} Yolculuğu Dolu"
+    Mail to: @Responder.Email, Subject: "Yolculuk İletişimine Yanıt"
   end
   
   def journey_happened(owner_id, responder_id, posting_id)
