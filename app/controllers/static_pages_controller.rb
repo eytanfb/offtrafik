@@ -12,7 +12,7 @@ class StaticPagesController < ApplicationController
       if current_user.has_showable_journeys?
         user_past_responses_path(current_user)
       else
-        find_posting_path(current_user)
+        find_posting_path
       end
     end  
     redirect_to path unless path.nil?
