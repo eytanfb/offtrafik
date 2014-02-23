@@ -3,10 +3,10 @@
 <% end %>
 <div class="i-main-container">
   <div class="center" id="home-search-container">
-    <%= simple_form_for :find_from_home, method: "get", url: { controller: "postings", action: "find_from_home_page" }, html: { id: "home-search" } do |f| %>
+    <%= simple_form_for @posting, method: "get", url: { controller: "postings", action: "find" }, html: { id: "home-search" } do |f| %>
       <div class="form-inline">
         <%= f.input :to_address, label: false, placeholder: "Nereye gitmek istiyorsun", as: :string, input_html: { id: "home-search-input" } %>
-        <%= f.input :from_address, label: false, class: "hidden", input_html: { value: "#{request.location.city}", class: "hidden" } %>
+        <%= f.hidden_field :from_address, label: false %>
         <%= f.button :submit, "İlan Ara", class: 'btn btn-primary btn-medium', id: "home-search-button" %>
       </div>
     <% end %>
@@ -15,29 +15,22 @@
   </div>
 </div><!-- i-main-container -->
 <div id="why-offtrafik">
-  <h2 style="vertical-align: middle">Offtrafik'e Neden Bayilacaksiniz</h2>
+  <h2 style="vertical-align: middle">Offtrafik'e Neden Bayılacaksın</h2>
   <div class="row">
     <div class="offset3 center featurette">
-      <%= image_tag "myku-logosu.jpg", style: "width: 200px; height: 130px" %>
-      <h4>KU Mailizinile Uye Olun</h4>
-      <p style="text-align: left">Offtrafik'e Koc Universitesi mailinizle uye olun, ozel bir grubun parcasi olmaya devam edin</p>
+      <%= image_tag "landing-page-register.png", style: "width: 200px; height: 130px" %>
+      <h4>KU Mailinle Üye Ol</h4>
+      <p style="text-align: left">Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl.</p>
     </div>
     <div class="center featurette">
       <%= image_tag "search-post.png", style: "width: 200px; height: 130px" %>
-      <h4>Ilan Verin/Arayin</h4>
-      <p>Offtrafik'te verilmis ilanlari arayabilir, veya kendi ilaninizi verebilirsiniz.</p>
+      <h4>İlan Ver/Ara</h4>
+      <p>Offtrafik'te yolculuk ilanlarını oluştur ve ilan sahipleriyle iletişime geç.</p>
     </div>
     <div class="center featurette">
       <%= image_tag "landing-page-share.png", style: "width: 200px; height: 130px" %>
-      <h4>Paylasin</h4>
+      <h4>Paylaş</h4>
+      <p>Yolculuklarını paylaşarak bu ulaşım ve çevre hareketinin kahramanlarından ol.</p>
     </div>
   </div>
 </div>
-
-<!-- <div id="newest-postings">
-  <% @last_3_postings.each do |posting| %>
-    <div class="small-posting clickable" href="<%= posting_preview_path(posting) %>">
-      <%= render partial: "postings/small_posting", locals: { posting: posting }  %>
-    </div>
-  <% end %>
-</div> -->

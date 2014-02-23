@@ -41,8 +41,8 @@
 	}
 	
 	&:nth-child(5n) {
-		-webkit-transform: rotate(5deg);
-	  -moz-transform: rotate(5deg);
+		-webkit-transform: rotate(-3deg);
+	  -moz-transform: rotate(-3deg);
 	  position: relative;
 	  right: 5px;
 	}
@@ -80,11 +80,48 @@
 		}
 	}
 	
-	.posting-image-container {
-		border: 1px solid blue;
-		height: 40%;
-		.posting-image {
-			height: 100%;
+	.posting-image {
+		width: 265px;
+		height: 209px;
+		.posting-date {
+			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			-webkit-border-radius: 0 3px 0 3px;
+			-moz-border-radius: 0 3px 0 3px;
+			-ms-border-radius: 0 3px 0 3px;
+			-o-border-radius: 0 3px 0 3px;
+			border-radius: 0 3px 0 3px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 10px;
+			margin: 0;
+			line-height: 1;
+			background-color: #fff;
+			color: #6d6d6d;
+		  opacity: 0.8;
+		  filter: alpha(opacity=20);
+		}
+		.posting-time {
+			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+			-webkit-border-radius: 0 3px 3px 0;
+			-moz-border-radius: 0 3px 3px 0;
+			-ms-border-radius: 0 3px 3px 0;
+			-o-border-radius: 0 3px 3px 0;
+			border-radius: 0 3px 3px 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 10px;
+			margin: 0;
+			line-height: 1;
+			background-color: #fff;
+			color: #6d6d6d;
+		  opacity: 0.8;
+		  filter: alpha(opacity=20);
 		}
 	}
 	
@@ -173,7 +210,7 @@ section.span9.postings-list
 .posting {
 	float: left;
 	height: 325px;
-	width: 200px;
+	width: 275px;
 	background: white;
 	margin: 10px 10px 10px 10px;
 	border-radius: 5px;
@@ -251,15 +288,59 @@ section.span9.postings-list
 	}
 }
 
-.address-input {
-	background-color: #fff;
-  padding: 0px 11px 0 13px;
-  width: 200px;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  text-overflow: ellipsis;
-	margin-bottom: 20px;
+.place-input {
+	
+	.posting_from_address {
+		margin-left: 5px;
+	}
+	.control-group {
+		float: left;
+		padding-right: 20px;
+	}
+	.controls {
+		margin-left: 0px;
+		width: 200px;
+	}
+	.address-input {
+		background-color: #fff;
+	  padding: 0px 11px 0 13px;
+	  width: 200px;
+	  font-family: Roboto;
+	  font-size: 15px;
+	  font-weight: 300;
+	  text-overflow: ellipsis;
+		margin-bottom: 20px;
+	}
+}
+
+#frequency-days {
+	.control-group {
+		float: left;
+		padding: 0px;
+		margin-bottom: 20px;
+	}
+	input[type=checkbox] {
+	    visibility: hidden;
+	    margin-left: 10px;
+	    float: left;
+	    width: 30px;
+			height: 40px;
+	}
+	input[type=checkbox]:before {
+	    display: inline-block;
+	    width: 70px;
+	    height: 40px;
+	    background: red;
+	    visibility: visible;
+	    color: white;
+	    content: attr(data-title);
+	    text-align: center;
+			vertical-align: middle;
+			font-size: x-large;
+	}
+	input[type=checkbox]:checked:before {
+	    background: green;
+	}
 }
 
 .facebook {
@@ -362,9 +443,9 @@ section.span9.postings-list
 }
 
 #posting-find {
-	@include background-box;
 	min-height: 300px;
 	margin-top: 25px;
+	height: 100%;
 	.field-part {
 		margin-bottom: 5px;
 }
@@ -377,6 +458,7 @@ section.span9.postings-list
 
 #show-results {
 	margin-top: 20px;
+	height: 100%;
 }
 
 #past-postings-button:visited {

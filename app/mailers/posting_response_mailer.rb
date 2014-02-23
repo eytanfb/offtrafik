@@ -17,7 +17,7 @@ class PostingResponseMailer < ActionMailer::Base
     @posting = Posting.find posting_id
     @to_from = "#{Posting.format(@posting.to_address)} - #{Posting.format(@posting.from_address)}"
     
-    mail to: @owner.email, subject: "#{@owner.name} ile #{@to_from} Yolculuğunu Paylaşacaksınız"
+    mail to: @responder.email, subject: "#{@owner.name} ile #{@to_from} Yolculuğunu Paylaşacaksınız"
   end
   
   def rejected_to_responder(owner_id, responder_id, posting_id)

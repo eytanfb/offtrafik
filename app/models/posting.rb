@@ -24,6 +24,8 @@ class Posting < ActiveRecord::Base
   belongs_to :user
   has_many :posting_responses, :class_name => "PostingResponse", :foreign_key => "posting_id", dependent: :destroy
   
+  before_validation :change_taxi_sharing_to_taxi
+  
   validates_presence_of :from_address, :to_address, :date, :starting_time, :ending_time, :user_id
   validates_inclusion_of :driving, in: %w(Sürücü Yolcu Taksi)
   validate :ending_time_is_later_than_starting_time?
@@ -80,6 +82,10 @@ class Posting < ActiveRecord::Base
       if self.starting_time && self.ending_time
         errors.add(:starting_time, "Baslangıç zamanı bitiş zamanından daha önce olmalı") unless self.starting_time < self.ending_time
       end
+    end
+    
+    def change_taxi_sharing_to_taxi
+      self.driving = "Taksi" if self.driving == "Taksi Paylasimi"
     end
   
 end

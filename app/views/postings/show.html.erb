@@ -13,7 +13,7 @@
       <p><span class='detail'>Cıkış Zamani:</span> <span class='answer'><%= @posting.starting_time.to_s(:time) %></span></p>
       <p><span class='detail'>Varış Zamani:</span> <span class='answer'><%=@posting.ending_time.to_s(:time) %></span></p>
       <p><span class='detail'>Sigara:</span> <span class='answer'><%= @posting.smoking? %></span></p>
-      <p><span class='detail'>Ihtiyaç:</span> <span class='answer'><%= @posting.driving %></span></p>
+      <p><span class='detail'>Rol:</span> <span class='answer'><%= image_tag "posting-#{@posting.driving.downcase.parameterize}.png", style: "width: 100px; height: 100px"%></span></p>
       <% if @posting.comments.present? %>
         <p><span class='detail'>Ekstra:</span> <span class='answer'><%= @posting.comments %></span></p>
       <% end %>
@@ -32,9 +32,9 @@
       <h5 style="text-decoration:underline">Cevap Verenler</h5>
       <% @posting.posting_responses.each do |response| %>
       <p id="<%= response.responder.name.parameterize %>-response" class="responder-<%= response.accepted %>" style="line-height:25px;"><%= link_to (gravatar_for response.responder, size: 30), user_path(response.responder)%><%= link_to response.responder.name, user_path(response.responder) %>
+        <%= link_to "enter phone", "#", data: { toggle: 'modal', target: '#enter-phone-modal-window', keyboard: "false", backdrop: "static" }, class: "hidden", id: "enter-phone-button" %>
         <span id="<%= response.responder.name.parameterize %>-answer" class="pull-right">
           <% if response.accepted %>
-            <%= link_to "enter phone", "#", data: { toggle: 'modal', target: '#enter-phone-modal-window', keyboard: "false", backdrop: "static" }, class: "hidden", id: "enter-phone-button" %>
             Geliyor            
           <% elsif response.rejected %>
             Gelmiyor

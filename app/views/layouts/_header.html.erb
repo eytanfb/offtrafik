@@ -46,13 +46,13 @@
           <% else %>
             <li>
               <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: false, html: { id: "header-login", class: "form-inline", novalidate: false } do |f| %>
-                <%= f.input_field :email, label: false, placeholder: "Email", required: true, autofocus: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "Lutfen emailinizi girin" %>
-                <%= f.input_field :password, label: false, placeholder: "Şifre", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalidir" %>
+                <%= f.input_field :email, label: false, placeholder: "Email", required: true, autofocus: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "Lütfen emailinizi girin" %>
+                <%= f.input_field :password, label: false, placeholder: "Şifre", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalıdır" %>
                 <%= f.button :submit, "Giriş", class: "btn btn-primary" %>
               <% end %>
             </li>
             <li>
-              <%= link_to "Bize Katil", new_user_registration_path, class: "btn btn-primary", id: "header-sign-up-button" %>
+              <%= link_to "Bize Katıl", new_user_registration_path, class: "btn btn-primary", id: "header-sign-up-button" %>
             </li>
           <% end %>
         </ul>

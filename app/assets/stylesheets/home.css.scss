@@ -55,6 +55,14 @@
 			background: transparent;
 			border: 1px solid #D35400;
 			color: rgba(255,255,255,0.8);
+			&:hover {
+				background-color: white;
+				color: black;
+				-webkit-transition: background-color 0.25s linear;
+			  -moz-transition: background-color 0.25s linear;
+				-o-transition: background-color 0.25s linear;
+				-ms-transition: background-color 0.25s linear;
+			}
 		}
 	
 		#home-search-input {
@@ -80,6 +88,32 @@
 			&:-ms-input-placeholder {
 			    color: white;
 					filter:alpha(opacity=50);
+			}
+			
+			&:hover  {
+				background-color: white;
+				color: black;
+				-webkit-transition: background-color 0.25s linear;
+			  -moz-transition: background-color 0.25s linear;
+				-o-transition: background-color 0.25s linear;
+				-ms-transition: background-color 0.25s linear;
+				
+				&::-webkit-input-placeholder { 
+				    color: black;
+						opacity: 0.5;
+				}
+				&:-moz-placeholder {
+				    color: black;
+						opacity: 0.5;
+				}
+				&::-moz-placeholder {
+				    color: black;
+						opacity: 0.5;
+				}
+				&:-ms-input-placeholder {
+				    color: black;
+						filter:alpha(opacity=50);
+				}				
 			}
 		}
 	}

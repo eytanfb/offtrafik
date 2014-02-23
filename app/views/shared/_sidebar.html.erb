@@ -3,7 +3,7 @@
     <%= render 'shared/user_info' %>
   </section>
   <section id="notifications">
-    <h2 style="color: black; margin-bottom: 10px">Notifications: <%= @notifications.count %></h2>
+    <h2 style="color: black; margin-bottom: 10px">Bildirimler: <%= @notifications.count %></h2>
     <% @notifications.each do |notification| %>
       <div class="clickable" href="<%= posting_path(notification.posting) %>">
         <p><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{notification.responder.name}".html_safe %></p>

@@ -3,8 +3,14 @@
   <section class="span8">
     <h3>Geçmiş İlanlar</h3>
     <% if @past_postings %>
-      <%= will_paginate @past_postings, param_name: "past_postings_page" %>
+      <%= will_paginate @past_postings, param_name: "page" %>
       <%= render 'shared/posting_table', posting_list: @past_postings %>
+    <% else %>
+      <h5>Yolculuk bulunmamaktadir.</h5>
+      <a class="btn btn-primary btn-large" href="<%= new_posting_path %>" style="color:white">
+        <i class="icon-edit icon-white"></i>
+        İlan Oluştur
+      </a>
     <% end %>
   </section>
 </div>

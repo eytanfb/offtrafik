@@ -7,12 +7,10 @@ class FrequentPostingsController < ApplicationController
   end
   
   def create
-    params[:frequent_posting][:from_address] = params[:from_address]
-    params[:frequent_posting][:to_address] = params[:to_address]
     @frequent_posting = current_user.frequent_postings.new params[:frequent_posting]  
-    if @frequent_posting.save
-      fp = params[:frequent_posting]
-      days = fp[:days].reject { |k,v| v == "0" }.keys
+    fp = params[:frequent_posting]
+    days = fp[:days].reject { |k, v| v == "0" }.keys
+    if !days.empty? && @frequent_posting.save
       today = Date.today
       date = Date.parse(fp[:last_date])
       from_address = fp[:from_address]
@@ -29,6 +27,7 @@ class FrequentPostingsController < ApplicationController
       flash[:success] = "Ilan verildi"
       redirect_to share_posting_path(posting_id: @frequent_posting.id)
     else
+      flash[:warning] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
       driving_options
       @posting = current_user.postings.new params[:posting]
       render template: "postings/new"
@@ -38,9 +37,6 @@ class FrequentPostingsController < ApplicationController
   private
   
   def driving_options
-    @driving_options = %w(Sürücü Yolcu Taksi)
+    @driving_options = %w(Sürücü Yolcu Taksi\ Paylasimi)
   end
 end
-
-# sample params
-# {"days"=>{"Sunday"=>"0", "Monday"=>"1", "Tuesday"=>"0", "Wednesday"=>"1", "Thursday"=>"0", "Friday"=>"1", "Saturday"=>"0"}, "last_date"=>"23-04-2014", "starting_time"=>"10:41", "ending_time"=>"11:11", "driving"=>"Sürücü", "smoking"=>"Hayır", "comments"=>"Okula her sabah zamaninda gitmek istiyorum. Muhtemelen Resitpasadan gidecegim.", "from_address"=>"Ortakoy", "to_address"=>"Koc Universitesi"}

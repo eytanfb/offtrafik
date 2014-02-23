@@ -1,27 +1,41 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="row">
+  <%= render partial: 'shared/sidebar' %>
+  <section class="span8" id="edit-user">
+    <h2><%= resource_name.to_s.humanize %> Profilinizi Guncelleyin</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= f.error_notification %>
+    <%= simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal" } do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
+      <div class="form-inputs">
+        <%= f.input :first_name, label: "Ad", required: true, autofocus: true %>
+        <%= f.input :last_name, label: "Soyad", required: true %>
+        <%= f.input :neighborhood, label: "Hangi Semttensiniz", collection: DISTRICTS, input_html: { id: "user-neighborhood", data: { placeholder: "Semtiniz" } } %>
+        <%= f.input :summary, label: "Kendinizi Tek Cumleyle Ozetleyin", as: :text, input_html: { cols: 30, rows: 2 } %>
+        <%= f.input :driver, label: "Kampuse kendi arabanizla mi geliyorsunuz?", required: false, collection: yes_no, as: :radio_buttons, item_wrapper_class: "inline" %>
+        <%= f.input :email, disabled: true, required: false %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+        
+        <h3>Sifre Degistir</h3>
+        <%= f.input :password, required: false, label: "Yeni Sifre", autocomplete: "off", hint: "degistirmek istemiyorsaniz bos birakin" %>
+        <%= f.input :password_confirmation, required: false, label: "Sifre Onaylama" %>
+        <%= f.input :current_password, label: "Guncel Sifre", hint: "degisiklikleri onaylamamiz icin sifrenize ihtiyacimiz var" %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Guncelle" %>
+      </div>
     <% end %>
 
-    <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-    <%= f.input :password_confirmation, :required => false %>
-    <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
-  </div>
+    <!-- <h3>Cancel my account</h3> -->
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
+    <!-- <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p> -->
+
+    <%= link_to "Geri", :back, class: "btn btn-primary", style: "color: white" %>
+  </section>
+</div>
+
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag "users.js" %>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>

@@ -6,11 +6,11 @@ class UsersController < Devise::RegistrationsController
   before_filter :notifications, except: [:enter_phone]
   
   def postings
-    @live_postings = current_user.postings.live_postings.paginate(page: params[:live_postings_page], per_page: 5)
+    @live_postings = current_user.postings.live_postings.paginate(page: params[:page], per_page: 6)
   end
   
   def past_postings
-    @past_postings = current_user.postings.past_postings.paginate(page: params[:past_postings_page], per_page: 5)
+    @past_postings = current_user.postings.past_postings.paginate(page: params[:page], per_page: 6)
   end
   
   def show
@@ -32,6 +32,32 @@ class UsersController < Devise::RegistrationsController
     PostingResponseMailer.accepted_to_owner(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
     PostingResponseMailer.accepted_to_responder(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
     redirect_to @posting_response.posting
+  end
+  
+  def update
+    @user = User.find current_user.id
+
+    successfully_updated = unless params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      @user.update_with_password params[:user]
+    else
+      params[:user].delete :password
+      params[:user].delete :current_password
+      @user.update_without_password params[:user]
+    end
+
+    if successfully_updated
+      set_flash_message :notice, :updated
+      sign_in @user, bypass: true
+      redirect_to after_update_path_for @user
+    else
+      render "edit"
+    end
+  end
+  
+  protected
+
+  def after_update_path_for(resource)
+    user_path resource
   end
   
   private

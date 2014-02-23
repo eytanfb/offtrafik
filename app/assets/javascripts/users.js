@@ -93,4 +93,5 @@ $(function(){
     $.getScript(this.href);
 		return false;
   });
+	$("#user-neighborhood").chosen({no_result_text: "Ilce bulunamadi"});
 });

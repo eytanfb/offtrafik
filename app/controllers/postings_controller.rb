@@ -4,7 +4,7 @@ class PostingsController < ApplicationController
   before_filter :authenticate_user!, only: [:show, :share_posting, :full, :respond, :create, :new]
   before_filter :driving_options, only: [:new, :find, :find_from_home_page]
   before_filter :notifications, only: [:share_posting, :find, :show]
-  before_filter :set_districts, only: [:find, :find_from_home_page]
+  # before_filter :set_districts, only: [:find, :find_from_home_page]
   
   def new
     @posting = current_user.postings.new params[:posting]
@@ -12,15 +12,13 @@ class PostingsController < ApplicationController
   end
   
   def create
-    params[:posting][:from_address] = params[:from_address]
-    params[:posting][:to_address] = params[:to_address]
-
     @posting = current_user.postings.new params[:posting]
     if @posting.save
       flash[:success] = "Ilan verildi"
       PostingMailer.new_one_time_posting_given(current_user.id, @posting.id).deliver
       redirect_to share_posting_path(posting_id: @posting.id)
     else
+      flash[:warning] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
       driving_options
       @frequent_posting = current_user.frequent_postings.new params[:frequent_posting]
       render 'new'
@@ -58,15 +56,14 @@ class PostingsController < ApplicationController
   
   def find
     @posting = Posting.new params[:posting]
-    @driving = if params[:posting].present? 
-                params[:posting][:driving] == "Farketmez" ? "" : params[:posting][:driving]
-              end
+    @driving = params[:posting][:driving] if params[:posting].present?
+    @driving = "Taksi" if @driving == "Taksi Paylasimi"
     @from_address = params[:posting][:from_address] if params[:posting].present?
     @to_address   = params[:posting][:to_address] if params[:posting].present?
 
     @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving) : Posting.live_postings
     
-    @postings = @postings.paginate(page: params[:page], per_page: 8, order: "date asc") if @postings.present?
+    @postings = @postings.paginate(page: params[:page], per_page: 6, order: "date asc") if @postings.present?
     
     respond_to do |format|
       format.html
@@ -86,10 +83,15 @@ class PostingsController < ApplicationController
        postings_found = Posting.live_postings if postings_found.blank?
        flash.now[:warning] = "Bulundugunuz yerden aradıgınız adrese ilan bulunamadı. Ama belki aşagıdakiler hoşunuza gider!"
      end
-    @postings = postings_found.paginate page: params[:page], per_page: 8, order: "date asc"
+    @postings = postings_found.paginate page: params[:page], per_page: 6, order: "date asc"
     @from_address = from_address
     @to_address = to_address
     @driving = driving
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def all_postings
@@ -111,7 +113,7 @@ class PostingsController < ApplicationController
       text = params[:contact_posting_owner][:content]
       PostingMailer.posting_contact(@posting.user_id, current_user.id, @posting.id, text).deliver
       flash[:success] = "Yanıt isteğiniz yollandı"
-      redirect_to user_postings_path(current_user)
+      redirect_to find_posting_path
     else
       flash[:warning] = "Yanit isteginiz olustrulurken bir sorun cikti. Lutfen tekrar deneyiniz "
     end
@@ -130,7 +132,7 @@ class PostingsController < ApplicationController
   end
   
   def driving_options
-    @driving_options = %w(Sürücü Yolcu Taksi)
+    @driving_options = %w(Sürücü Yolcu Taksi\ Paylasimi)
   end
   
 end

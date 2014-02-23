@@ -4,7 +4,6 @@ var intervalID = -1000;
 function checkScroll() {
   if (nearBottomOfPage()) {
     currentPage++;
-		console.log("endless request "+ currentPage);
     jQuery.ajax('?page=' + currentPage, {asynchronous:true, evalScripts:true, method:'get', success: function(data, textStatus, jqXHR) {
 		$('.postings').append(jQuery(data).find('.postings').html());
 		if(typeof jQuery(data).find('.postings').html() == 'undefined' || jQuery(data).find('.postings').html().trim().length == 0){
