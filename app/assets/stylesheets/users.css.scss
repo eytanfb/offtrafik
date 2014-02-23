@@ -1,6 +1,9 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin background-box
+{
+  background: rgba(252, 252, 255, 0.6);
+	border-color: rgba(252, 252, 255, 0.6);
+	border-radius:15px;
+}
 
 #user-name-heading {
 	text-align: left;
@@ -48,5 +51,12 @@
 				color:black;
 				cursor: pointer;
 			}
+	}
+}
+
+#user-registration-form {
+	@include background-box;
+	.form-actions {
+		background: none;
 	}
 }
