@@ -313,6 +313,32 @@ section.span9.postings-list
 	}
 }
 
+#frequency-days {
+	.control-group {
+		float: left;
+		padding: 0px;
+	}
+	input[type=checkbox] {
+	    visibility: hidden;
+	    margin-left: 10px;
+	    float: left;
+	    width: 30px;
+	}
+	input[type=checkbox]:before {
+	    content:attr(data-title);
+	    display:inline-block;
+	    width: 35px;
+	    height:20px;
+	    background:red;
+	    visibility: visible;
+	    color: white;
+	    text-align: center;
+	}
+	input[type=checkbox]:checked:before {
+	    background:green;
+	}
+}
+
 .facebook {
 	padding:15px 20px;
 /*		margin-top: .75em; */

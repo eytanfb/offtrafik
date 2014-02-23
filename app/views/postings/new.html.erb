@@ -27,11 +27,13 @@
               <%= f.input :from_address, label: false, placeholder: "Nereden", id: "frequent_posting_to_address", onblur: "calcRoute()", class: "address-input" %>
               <%= f.input :to_address, label: false, placeholder: "Nereye", id: "frequent_posting_from_address", onblur: "calcRoute()", class: "address-input" %>
 			    </div><!--place-input-->
+          <div id="frequency-days">
             <%= f.fields_for :days do |field| %>
               <% Date::DAYNAMES.each do |day| %>
-                <%= field.input "#{day}", as: :boolean  %>
+                <%= field.input "", as: :boolean, input_html: { data: { title: turkish_day(day) }, name: "frequent_posting[days][#{day}]"  }  %>
               <% end %>
             <% end %>
+          </div>
             <%= f.input :last_date, label: "Son Ilan Tarihi", as: :string, default: Date.today + 2.weeks, input_html: { class: "frequent-datepicker" } %>
             <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
             <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
