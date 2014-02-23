@@ -14,12 +14,16 @@
 
 .i-main-container
 {
-	border-style:solid;
-	border-color:blue;
-
-	background: url("background-image.png") no-repeat center center;
-	height: 475px;
+	background: url("background-image.png") no-repeat top left;
 	background-size: cover;
+	height: 560px;
+	width:auto;
+	padding-top:5px;
+	
+	
+	//-moz-background-size: cover;
+//	-webkit-background-size: cover;
+//	-o-background-size: cover;
 	
 	text-align:center;
 	font-family:'Quando';
@@ -174,22 +178,40 @@
   z-index: 12;
 }
 
-#why-offtrafik {
+#why-offtrafik 
+{
+	padding-top:10px;
 	background: white;
 	width: 100%;
 	height: 300px;
-	.row {
-		margin-left: 250px;
-	}
-	h2 {
+	
+	h2 
+	{
+		margin-bottom:18px;
+		margin-top:0;
 		color: gray;
 	}
-	.featurette {
-		text-align: left;
-		width: 300px;
-		margin-left: 50px;
+	
+	.featurette 
+	{
+		text-align: center;
 		float: left;
+		width:20%;
 	}
+	
+	p
+	{
+		text-align:left;
+	}
+	
+	img
+	{
+		display:block;
+		margin:auto;
+		height:150px;
+		width:auto;
+	}
+
 }
 
 #headlines

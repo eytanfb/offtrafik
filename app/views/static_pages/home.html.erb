@@ -5,30 +5,29 @@
   <div class="center" id="home-search-container">
     <%= simple_form_for @posting, method: "get", url: { controller: "postings", action: "find" }, html: { id: "home-search" } do |f| %>
       <div class="form-inline">
-        <%= f.input :to_address, label: false, placeholder: "Nereye gitmek istiyorsun", as: :string, input_html: { id: "home-search-input" } %>
+        <%= f.input :to_address, label: false, placeholder: "Nereye gitmek istiyorsun ?", as: :string, input_html: { id: "home-search-input" } %>
         <%= f.hidden_field :from_address, label: false %>
         <%= f.button :submit, "İlan Ara", class: 'btn btn-primary btn-medium', id: "home-search-button" %>
       </div>
     <% end %>
-    
-    <p id="check-all-postings">veya <%= link_to "Butun Ilanlara Bak", find_posting_path %> </p> 
+    <p id="check-all-postings">veya <%= link_to "tüm ilanlar için TIKLA", find_posting_path %> </p> 
   </div>
 </div><!-- i-main-container -->
 <div id="why-offtrafik">
   <h2 style="vertical-align: middle">Offtrafik'e Neden Bayılacaksın</h2>
   <div class="row">
-    <div class="offset3 center featurette">
-      <%= image_tag "landing-page-register.png", style: "width: 200px; height: 130px" %>
+    <div class="span3 offset2 center featurette">
+      <%= image_tag "landing-page-register.png" %>
       <h4>KU Mailinle Üye Ol</h4>
-      <p style="text-align: left">Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl.</p>
+      <p>Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl.</p>
     </div>
-    <div class="center featurette">
-      <%= image_tag "search-post.png", style: "width: 200px; height: 130px" %>
+    <div class="offset1 span3 center featurette ">
+      <%= image_tag "search-post.png" %>
       <h4>İlan Ver/Ara</h4>
       <p>Offtrafik'te yolculuk ilanlarını oluştur ve ilan sahipleriyle iletişime geç.</p>
     </div>
-    <div class="center featurette">
-      <%= image_tag "landing-page-share.png", style: "width: 200px; height: 130px" %>
+    <div class="offset1 span3 center featurette">
+      <%= image_tag "landing-page-share.png"%>
       <h4>Paylaş</h4>
       <p>Yolculuklarını paylaşarak bu ulaşım ve çevre hareketinin kahramanlarından ol.</p>
     </div>

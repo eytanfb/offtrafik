@@ -16,7 +16,8 @@
  *= require chosen
  *= require_tree .
  */
-html {
+html 
+{
 	font-family:'Quando';
 	overflow-y: scroll;
 }
@@ -26,7 +27,7 @@ body
 	background: url("base-background-2.png") repeat-y center center;
 	background-size:100%;
 	height:100%;
- 	padding-top: 50px;
+ 	padding-top: 42px;
 
   	display: block;
 }
@@ -41,9 +42,7 @@ body
 
 #second-wrapper 
 {
-	padding:10px;
 	padding-bottom:60px; /* Height of the footer element */
-  	background: url("background-image.png") no-repeat center center;
   	background-size: cover;
 	
 }
