@@ -253,7 +253,7 @@
 }
 
 #show-map {
-	height: 250px;
+	height: 265px;
 	width: 99%;
 	border-style:solid;
   border-width:1px;
@@ -433,6 +433,9 @@
 }		
 
 #posting-details{
+	h3 {
+		margin-top: 10px;
+	}
 	
 	.detail {
 		width: 200px;
@@ -497,4 +500,8 @@
 .posting-filter-search {
 	width: 200px;
 	margin-right: 20px;
+}
+
+#posting-show {
+	padding-top: 8px;
 }
