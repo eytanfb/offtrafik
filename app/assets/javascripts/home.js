@@ -25,4 +25,8 @@ $(function(){
 	$("#home-search-input").on('focus', function(){
 		geolocate();
 	});
+	
+	$("#home-search-button").on('click', function(){
+		$("#home-search").submit();
+	});
 });
