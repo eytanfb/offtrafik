@@ -25,6 +25,8 @@
 #  first_name                     :string(255)
 #  last_name                      :string(255)
 #  unconfirmed_email              :string(255)
+#  phone                          :string(255)
+#  driver                         :boolean
 #
 
 require 'spec_helper'
