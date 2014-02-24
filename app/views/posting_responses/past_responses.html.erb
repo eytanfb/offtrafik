@@ -24,7 +24,7 @@
             <p><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{response.posting.starting_time.strftime("%H:%M")} - #{response.posting.ending_time.strftime("%H:%M")}".html_safe %></p>
             <% if response.posting.comments.present? %>
               <h6>Notlar</h6>
-              <p><%= reponse.posting.comments %></p>
+              <p><%= response.posting.comments %></p>
             <% end %>
           </div>
           <div class="center" id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-answer-<%= response.posting.id %>"><%= link_to "Evet", posting_response_happened_path(response), class: "btn btn-mini btn-success", remote: true, data: { confirm: "#{response.posting.user.name} ile #{response.responder.name} bulustu mu?", positive: "Tebrikler! Yolculuk paylastiniz!", negative: "Bulusamadiniz mi?" } %> <%= link_to "Hayir", posting_response_not_happened_path(response), class: "btn btn-mini btn-danger", remote: true, data: { confirm: "#{response.posting.user.name} ile #{response.responder.name} bulusmadiniz mi?", positive: "Bir dahaki sefere!", negative: "Bulustunuz mu yoksa?" } %></div>
