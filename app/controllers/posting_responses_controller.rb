@@ -1,5 +1,6 @@
 class PostingResponsesController < ApplicationController
   before_filter :notifications, only: [:past_responses]
+  before_filter :get_past_responses, only: [:past_responses]
   
   def accept
     @posting_response = PostingResponse.find params[:posting_response_id]
@@ -15,12 +16,7 @@ class PostingResponsesController < ApplicationController
   end
   
   def past_responses
-    @postings_with_past_responses = []
-    user_postings  = current_user.unagreed_postings
-    user_responses = current_user.accepted_past_responses
-    @postings_with_past_responses << user_postings
-    @postings_with_past_responses << user_responses
-    @postings_with_past_responses.flatten!
+    get_past_responses
   end
   
   def happened

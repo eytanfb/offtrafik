@@ -34,6 +34,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'guard-zeus'
   gem 'listen', '2.4.0'
+  gem 'bullet'
 end
 
 group :production do
@@ -54,6 +55,8 @@ end
 gem 'devise'
 gem 'geocoder'
 gem 'chosen-rails'
+gem 'paperclip'
+gem 'aws-sdk'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

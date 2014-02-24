@@ -4,6 +4,11 @@
   </section>
   <section id="notifications">
     <h2 style="color: black; margin-bottom: 10px">Bildirimler: <%= @notifications.count %></h2>
+    <% if @postings_with_past_responses.present? %>
+      <p id="waiting-past-responses"><%= link_to "Onaylamadiginiz gecmis yolculuklariniz var", user_past_responses_path(current_user)
+ %></p>
+      <hr />
+    <% end %>
     <% @notifications.each do |notification| %>
       <div class="clickable" href="<%= posting_path(notification.posting) %>">
         <p><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{notification.responder.name}".html_safe %></p>

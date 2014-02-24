@@ -51,8 +51,51 @@ aside.span4
   }
 }
 
-.gravatar
-{
-  float: left;
-  margin-right: 10px;
+#notifications {
+	
+	#waiting-past-responses {
+		background: #E74C3C;
+		a {
+			color: white;
+			&:visited {
+				color: white;
+			}
+		}
+	}
+	
+	div {
+		&:hover {
+			background-color:rgba(11,99,157,0.5);
+			color:black;
+			cursor: pointer;
+		}
+	}
+	
+	.green {
+		color: #27AE60;
+	}
+	
+	.blue {
+		color: #2980B9;
+	}
+	
+	.red {
+		color: #C0392B;
+	}
+	
+	.orange {
+		color: #D35400;
+	}
+	
+	.midnight {
+		color: #2C3E50;
+	}
+	
+	.fa {
+		margin-right: 10px;
+	}
+	
+	.fa-user {
+		font-size: 1.45em;
+	}
 }

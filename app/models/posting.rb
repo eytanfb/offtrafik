@@ -76,7 +76,7 @@ class Posting < ActiveRecord::Base
   end
   
   def people_who_completed_journey(dont_include_this_name)
-    self.posting_responses.map { |response| [response.responder.name, response.posting.user.name] if response.accepted && response.poster_agreed && response.responder_agreed }.flatten.delete_if {|name| (name.nil? || name == dont_include_this_name) }
+    self.posting_responses.includes(:user).includes(:posting).map { |response| [response.responder.name, response.posting.user.name] if response.accepted && response.poster_agreed && response.responder_agreed }.flatten.delete_if {|name| (name.nil? || name == dont_include_this_name) }
   end
   
   private

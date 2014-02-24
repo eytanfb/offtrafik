@@ -10,6 +10,9 @@ function checkScroll() {
 			clearInterval(intervalID);
 		}
 	},});
+  $(".clickable").click(function() {
+        window.document.location = $(this).attr("href");
+	});
   }
 }
  

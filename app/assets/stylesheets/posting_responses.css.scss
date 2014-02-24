@@ -1,6 +1,9 @@
-// Place all the styles related to the posting_responses controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin background-box
+{
+  background: rgba(252, 252, 255, 0.6);
+	border-color: rgba(252, 252, 255, 0.6);
+	border-radius:15px;
+}
 
 .responder-true {
 	color: #468847;
@@ -12,4 +15,52 @@
 	color: #B94A48;
 	background: #F2DEDE;
 	border: 1px solid #EED3D7;
+}
+
+.past-responses-list {
+	list-style: none;
+}
+
+.past-response-content {
+	@include background-box;
+	height: 220px;
+	.past-response-images {
+		div {
+			width: 120px;
+			height: 80px;
+			p {
+				margin: 0px;
+			}
+		}
+		img {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
+	}
+	
+	.green {
+		color: #27AE60;
+	}
+	
+	.blue {
+		color: #2980B9;
+	}
+	
+	.red {
+		color: #C0392B;
+	}
+	
+	.orange {
+		color: #D35400;
+	}
+	
+	.midnight {
+		color: #2C3E50;
+	}
+	
+	.fa {
+		margin-right: 10px;
+	}
+	
 }

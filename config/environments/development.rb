@@ -44,5 +44,5 @@ Offtrafik::Application.configure do
   config.action_mailer.delivery_method = :letter_opener
   
   config.middleware.use('SpoofIp', '64.71.24.19')
-  
+    
 end

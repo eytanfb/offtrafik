@@ -27,6 +27,10 @@
 #  unconfirmed_email              :string(255)
 #  phone                          :string(255)
 #  driver                         :boolean
+#  avatar_file_name               :string(255)
+#  avatar_content_type            :string(255)
+#  avatar_file_size               :integer
+#  avatar_updated_at              :datetime
 #
 
 class User < ActiveRecord::Base
@@ -36,7 +40,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :confirmable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :summary, :neighborhood, :first_name, :last_name, :agreed_to_terms_and_conditions, :trip_rating, :current_password, :driver
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :summary, :neighborhood, :first_name, :last_name, :agreed_to_terms_and_conditions, :trip_rating, :current_password, :driver, :phone, :avatar
   
   validates_presence_of :first_name, :last_name, :email, message: "alani bos olamaz"
   validates_inclusion_of :agreed_to_terms_and_conditions, in: [true], on: :create
@@ -50,6 +54,17 @@ class User < ActiveRecord::Base
   has_many :posting_responses, :class_name => "PostingResponse", :foreign_key => "responder_id"
 
   before_save :titleize_name
+  
+  # This method associates the attribute ":avatar" with a file attachment
+  has_attached_file :avatar, styles: {
+    icon: '45x45',
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }, :default_url => "missing.png"
+
+  # Validate the attached image is image/jpg, image/png, etc
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
   def confirm!
     send_welcome_message
@@ -90,7 +105,7 @@ class User < ActiveRecord::Base
   
   def accepted_past_responses
     responses = []
-    self.posting_responses.past.each do |response|
+    self.posting_responses.includes(:user).past.each do |response|
       responses << response if response.accepted == true && response.responder_agreed.nil?
     end
     responses
@@ -99,7 +114,7 @@ class User < ActiveRecord::Base
   def unagreed_postings
     responses = []
     self.postings.past_postings.each do |posting|
-      posting.posting_responses.each do |response|
+      posting.posting_responses.includes(:user).includes(:posting).each do |response|
         responses << response if response.accepted && response.poster_agreed.nil?
       end
     end

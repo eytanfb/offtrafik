@@ -4,29 +4,21 @@
     <div class="span12">
       <div id="show-map" style="margin-top:20px"></div>
     </div>
-    <div class="span6" id="posting-details" onload="calcRouteForShow()">
-      <h3 class="center" style="text-decoration: underline">İlan Detayları</h3>
-      <p><span class='detail'>Ilan Sahibi:</span> <span class='answer'><%= link_to @user.name, user_path(@user) %></span></p>
-      <p><span class='detail'>Nereden:</span> <span class='answer' id='from_address'><%= Posting.format(@posting.from_address) %></span></p>
-      <p><span class='detail'>Nereye:</span> <span class='answer' id='to_address'><%= Posting.format(@posting.to_address) %></span></p>
-      <p><span class='detail'>Tarih:</span> <span class='answer'><%= l @posting.date, format: :default %></span></p>
-      <p><span class='detail'>Cıkış Zamani:</span> <span class='answer'><%= @posting.starting_time.to_s(:time) %></span></p>
-      <p><span class='detail'>Varış Zamani:</span> <span class='answer'><%=@posting.ending_time.to_s(:time) %></span></p>
-      <p><span class='detail'>Sigara:</span> <span class='answer'><%= @posting.smoking? %></span></p>
-      <p><span class='detail'>Rol:</span> <span class='answer'><%= image_tag "posting-#{@posting.driving.downcase.parameterize}.png", style: "width: 100px; height: 100px"%></span></p>
-      <% if @posting.comments.present? %>
-        <p><span class='detail'>Ekstra:</span> <span class='answer'><%= @posting.comments %></span></p>
-      <% end %>
-      <% if @posting.user_id != current_user.id && @posting.active? %>
-        <% if @respondable %>
-          <p><%= link_to "Iletişime Geç", posting_contact_posting_owner_path(@posting.id), class: "btn btn-primary btn-warning answer", style: "margin-left: 220px; width: 100px", id: "respond-button", data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true %></p>
+    <div class="span6 row" id="posting-details" onload="calcRouteForShow()">
+      <%= render :partial => 'posting_details_card' %>
+      <div class="span6 center">
+        <% if @posting.user_id != current_user.id && @posting.active? %>
+          <% if @respondable %>
+            <%= link_to "Iletişime Geç", posting_contact_posting_owner_path(@posting.id), class: "btn btn-primary btn-warning", id: "respond-button", data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true %>
+          <% else %>
+            <%= link_to "Iletişime Geçildi", "#", class: "btn disabled", id: "respond-button" %>
+          <% end %>
         <% else %>
-          <p><%= link_to "Iletişime Geçildi", "#", class: "btn disabled answer", style: "margin-left: 220px; width: 120px; color: black", id: "respond-button" %></p>
+          <%= link_to "Ilanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger", id: "respond-button" %>
         <% end %>
-      <% else %>
-        <p><%= link_to "Ilanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger answer", style: "width: 60px; margin-left: 113px" %></p>
-      <% end %>
+      </div>
     </div>
+    
   <% if @posting.user_id == current_user.id && @posting.posting_responses.count > 0 %>
     <div class="span5" id="posting-responders">
       <h5 style="text-decoration:underline">Cevap Verenler</h5>
@@ -53,3 +45,26 @@
 <% content_for :javascripts do %>
   <%= javascript_include_tag "maps_for_show.js" %>
 <% end %>
+
+<!-- <div class="span6" id="posting-details" onload="calcRouteForShow()">
+      <h3 class="center" style="text-decoration: underline">İlan Detayları</h3>
+      <p><span class='detail'>Ilan Sahibi:</span> <span class='answer'><%= link_to @user.name, user_path(@user) %></span></p>
+      <p><span class='detail'>Nereden:</span> <span class='answer' id='from_address'><%= Posting.format(@posting.from_address) %></span></p>
+      <p><span class='detail'>Nereye:</span> <span class='answer' id='to_address'><%= Posting.format(@posting.to_address) %></span></p>
+      <p><span class='detail'>Tarih:</span> <span class='answer'><%= l @posting.date, format: :default %></span></p>
+      <p><span class='detail'>Cıkış Zamani:</span> <span class='answer'><%= @posting.starting_time.to_s(:time) %></span></p>
+      <p><span class='detail'>Varış Zamani:</span> <span class='answer'><%=@posting.ending_time.to_s(:time) %></span></p>
+      <p><span class='detail'>Sigara:</span> <span class='answer'><%= @posting.smoking? %></span></p>
+      <p><span class='detail'>Rol:</span> <span class='answer'><%= image_tag "posting-#{@posting.driving.downcase.parameterize}.png", style: "width: 100px; height: 100px"%></span></p>      
+    </div> 
+    
+    <% if @posting.user_id != current_user.id && @posting.active? %>
+      <% if @respondable %>
+        <p><%= link_to "Iletişime Geç", posting_contact_posting_owner_path(@posting.id), class: "btn btn-primary btn-warning answer", style: "margin-left: 220px; width: 100px", id: "respond-button", data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true %></p>
+      <% else %>
+        <p><%= link_to "Iletişime Geçildi", "#", class: "btn disabled answer", style: "margin-left: 220px; width: 120px; color: black", id: "respond-button" %></p>
+      <% end %>
+    <% else %>
+      <p><%= link_to "Ilanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger answer", style: "width: 60px; margin-left: 113px" %></p>
+    <% end %>
+-->

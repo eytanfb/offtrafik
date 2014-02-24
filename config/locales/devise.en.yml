@@ -49,6 +49,10 @@ en:
       send_paranoid_instructions: "Eğer emailiniz bizde kayıtlıysa birazdan hesabnızı onaylamak için gereken bilgileri içeren bir email alacaksınız."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
       unlocked: "Hesabınız başarıyla açıldı. Lütfen giriş yapın."
+    users:
+      user:
+        signed_up_but_unconfirmed: "Onaylama linkini içeren bir email adresinize gönderildi. Lütfen linke gidip hesabınızı onaylayın"
+        updated: "Güncelleme başarılı"
   errors:
     messages:
       already_confirmed: "zaten onaylandı, lütfen giriş yapın."
@@ -59,10 +63,6 @@ en:
       not_saved:
         one: "1 hata yüzünden %{resource} kaydedilemedi:"
         other: "%{count} hata yüzünden %{resource} kaydedilemedi:"
-  users:
-    user:
-      signed_up_but_unconfirmed: "Onaylama linkini içeren bir email adresinize gönderildi. Lütfen linke gidip hesabınızı onaylayın"
-
 
 # en:
 #   devise:

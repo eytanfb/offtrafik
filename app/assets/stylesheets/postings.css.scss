@@ -255,7 +255,7 @@
 }
 
 #show-map {
-	height: 265px;
+	height: 290px;
 	width: 99%;
 	border-style:solid;
   border-width:1px;
@@ -435,8 +435,52 @@
 }		
 
 #posting-details{
+	@include background-box;
+	
+	#respond-button {
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	#details-of-posting {
+		margin-top: 15px;
+		margin-left: 0px;
+		#posting-user {
+			font-size: large;
+			img {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+			}
+		}
+	}
+	
 	h3 {
 		margin-top: 10px;
+	}
+	
+	#posting-image-container {
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		overflow: hidden;
+		margin-top: 10px;
+		
+		#posting-image {
+			height: inherit;
+			width: auto;
+		}
+	}
+	
+	#no-smoking-container {
+		height: 10px;
+		#no-smoking-img {
+			border-radius: 50%;
+			position: relative;
+			right: 45px;
+			top: 115px;
+		}
 	}
 	
 	.detail {
@@ -457,6 +501,26 @@
 		&:visited {
 			color: white;
 		}
+	}
+	
+	.green {
+		color: #27AE60;
+	}
+	
+	.blue {
+		color: #2980B9;
+	}
+	
+	.red {
+		color: #C0392B;
+	}
+	
+	.orange {
+		color: #D35400;
+	}
+	
+	.midnight {
+		color: #2C3E50;
 	}
 }
 

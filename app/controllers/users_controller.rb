@@ -4,20 +4,21 @@
 class UsersController < Devise::RegistrationsController
   before_filter :authenticate_user!, only: [:index, :edit, :update, :show]
   before_filter :notifications, except: [:enter_phone]
+  before_filter :get_past_responses, except: [:enter_phone]
   
   def postings
-    @live_postings = current_user.postings.live_postings.paginate(page: params[:page], per_page: 6)
+    @live_postings = current_user.postings.live_postings.includes(:user).paginate(page: params[:page], per_page: 6)
   end
   
   def past_postings
-    @past_postings = current_user.postings.past_postings.paginate(page: params[:page], per_page: 6)
+    @past_postings = current_user.postings.past_postings.includes(:user).paginate(page: params[:page], per_page: 6)
   end
   
   def show
     @user = User.find(params[:id])
     @user.calculate_rating
     @agreed_journeys = @user.agreed_journeys.paginate(page: params[:journey_page], per_page: 3)
-    @comments = Comment.find_all_by_is_about(@user.id).paginate(page: params[:comments_page], per_page: 3)
+    @comments = Comment.includes(:user).find_all_by_is_about(@user.id).paginate(page: params[:comments_page], per_page: 3)
   end
   
   def find
