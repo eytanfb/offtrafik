@@ -24,8 +24,6 @@ en:
             password:
               blank: "Şifre boş olamaz"
               too_short: "Şifre 8 karakterden uzun olmalı"
-            password_digest:
-              blank: "Şifre boş olamaz"
             password_confirmation:
               blank: "Şifre doğrulama boş olamaz"
             agreed_to_terms_and_conditions:
