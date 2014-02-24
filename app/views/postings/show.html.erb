@@ -7,7 +7,7 @@
     <div class="span6 row" id="posting-details" onload="calcRouteForShow()">
       <div class="span3">
         <div id="posting-image-container" class="span3">
-          <%= image_tag "posting-#{@posting.driving.downcase.parameterize}.png", id: "posting-image" %>          
+          <%= image_tag "posting-#{@posting.driving.downcase.parameterize}.png", id: "posting-image" %>
         </div>
         <div id="no-smoking-container">
           <% unless @posting.smoking %>
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div id="details-of-posting" class="span3">
-        <p id="posting-user"><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{link_to @posting.user.name, @posting.user}".html_safe %></p>
+        <p id="posting-user"><%= "#{link_to (image_tag @posting.user.avatar.url(:thumb)), @posting.user }  #{link_to @posting.user.name, @posting.user}".html_safe %></p>
         <p id='from_address'><%= "<i class='fa fa-map-marker  fa-lg green' ></i>  Nereden: #{truncate(Posting.format(@posting.from_address), length: 30)}".html_safe %></p>
         <p id='to_address'><%= "<i class='fa fa-map-marker  fa-lg red'></i>  Nereye: #{truncate(Posting.format(@posting.to_address), length: 30)}".html_safe %></p>
         <p><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{l @posting.date, format: :default}".html_safe %></p>
