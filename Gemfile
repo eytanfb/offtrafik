@@ -54,6 +54,8 @@ end
 gem 'devise'
 gem 'geocoder'
 gem 'chosen-rails'
+gem 'paperclip'
+gem 'aws-sdk'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
