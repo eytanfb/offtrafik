@@ -1,4 +1,5 @@
-<%= link_to (gravatar_for current_user, size: 52), user_path(current_user)%>
+<%= link_to (image_tag current_user.avatar.url(:thumb)), user_path(current_user), style: "float: left;
+margin-right: 10px; width: 67px; height: 100px" %>
 <h1>
   <%= link_to current_user.name, user_path(current_user) %>
 </h1>
