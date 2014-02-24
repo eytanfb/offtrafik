@@ -8,17 +8,16 @@ footer
   padding-top: 20px;
   padding-bottom: 20px;
   border-top: 2px solid $grayMediumLight;
-  /*color: $grayLight; Need a fix*/
   background: linear-gradient(0deg, gray, white);
 
-	border-style:none;
-	border-bottom-style:outset;
-	border-width: 3px;
+  border-style:none;
+  border-bottom-style:outset;
+  border-width: 3px;
 
   /*Keep it at the bottom*/
   position:absolute;
   bottom:0;
-  width: 100%;
+  width: auto;
   height:20px;
   
   .span5
