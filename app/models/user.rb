@@ -113,7 +113,7 @@ class User < ActiveRecord::Base
   
   def unagreed_postings
     responses = []
-    self.postings.past_postings.includes(:user).each do |posting|
+    self.postings.past_postings.each do |posting|
       posting.posting_responses.includes(:user).includes(:posting).each do |response|
         responses << response if response.accepted && response.poster_agreed.nil?
       end

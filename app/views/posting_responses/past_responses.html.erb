@@ -2,32 +2,62 @@
   <%= render partial: "shared/sidebar" %>
   <div class="span12 boxed" style="margin-top: 25px">
     <h3>Bu yolculuklar gerceklesti mi?</h3>
-
-    <table>
-      <tr>
-        <td id="driver">Surucu</td>
-        <td id="rider">Yolcu</td>
-        <td id="date-time">Tarih</td>
-        <td id="journey">Yolculuk</td>
-        <td id="have-met">Bulustunuz mu?</td>
-      </tr>
-      <tbody id="posting-responses">
-        <% @postings_with_past_responses.each do |response| %>
-          <tr id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-<%= response.posting.id %>">
-            <td id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-driver-<%= response.posting.id %>"><%= response.posting.user.name %></td>
-            <td id="<%= response.responder.name.parameterize %>-<%= response.responder.name.parameterize %>-rider-<%= response.posting.id %>"><%= response.responder.name %></td>
-            <td><%= "#{response.posting.date} #{response.posting.starting_time.strftime("%H:%M")} - #{response.posting.ending_time.strftime("%H:%M")}" %></td>
-            <td><%= "#{response.posting.from_address} - #{response.posting.to_address}" %></td>
-            <% if (current_user == response.posting.user && !response.poster_agreed.nil? && response.poster_agreed) || (current_user == response.responder && !response.responder_agreed.nil? && response.responder_agreed) %>
-              <td class="responder-true">Bulustuk</td>
-            <% elsif (current_user == response.posting.user && !response.poster_agreed.nil? && !response.poster_agreed) || (current_user == response.responder && !response.responder_agreed.nil? && !response.responder_agreed) %>
-              <td class="responder-false">Bulusamadik</td>
-            <% else %>
-              <td id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-answer-<%= response.posting.id %>"><%= link_to "Evet", posting_response_happened_path(response), class: "btn btn-mini btn-success", remote: true, data: { confirm: "#{response.posting.user.name} ile #{response.responder.name} bulustu mu?", positive: "Tebrikler! Yolculuk paylastiniz!", negative: "Bulusamadiniz mi?" } %> <%= link_to "Hayir", posting_response_not_happened_path(response), class: "btn btn-mini btn-danger", remote: true, data: { confirm: "#{response.posting.user.name} ile #{response.responder.name} bulusmadiniz mi?", positive: "Bir dahaki sefere!", negative: "Bulustunuz mu yoksa?" } %></td>
+    
+    <ol class="past-responses-list">
+      <% @postings_with_past_responses.each do |response| %>
+      <li class="past-response">
+        <div class='past-response-content span4'>
+          <div class='past-response-images'>
+            <div class="span2 past-response-poster">
+              <%= link_to (image_tag response.posting.user.avatar.url(:thumb)) %>
+              <p><%= response.posting.user.name %></p>
+            </div>
+            <div class="span2 past-response-responder">
+              <%= link_to (image_tag response.responder.avatar.url(:thumb)) %>
+              <p><%= response.responder.name %></p>
+            </div>
+          </div>
+          <div class="span4">
+            <p id='from_address'><%= "<i class='fa fa-map-marker  fa-lg green' ></i>  Nereden: #{truncate(Posting.format(response.posting.from_address), length: 30)}".html_safe %></p>
+            <p id='to_address'><%= "<i class='fa fa-map-marker  fa-lg red'></i>  Nereye: #{truncate(Posting.format(response.posting.to_address), length: 30)}".html_safe %></p>
+            <p><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{l response.posting.date, format: :default}".html_safe %></p>
+            <p><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{response.posting.starting_time.strftime("%H:%M")} - #{response.posting.ending_time.strftime("%H:%M")}".html_safe %></p>
+            <% if response.posting.comments.present? %>
+              <h6>Notlar</h6>
+              <p><%= reponse.posting.comments %></p>
             <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+          </div>
+          <div class="center" id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-answer-<%= response.posting.id %>"><%= link_to "Evet", posting_response_happened_path(response), class: "btn btn-mini btn-success", remote: true, data: { confirm: "#{response.posting.user.name} ile #{response.responder.name} bulustu mu?", positive: "Tebrikler! Yolculuk paylastiniz!", negative: "Bulusamadiniz mi?" } %> <%= link_to "Hayir", posting_response_not_happened_path(response), class: "btn btn-mini btn-danger", remote: true, data: { confirm: "#{response.posting.user.name} ile #{response.responder.name} bulusmadiniz mi?", positive: "Bir dahaki sefere!", negative: "Bulustunuz mu yoksa?" } %></div>
+        </div>
+      </li>
+      <% end %>
+    </ol>    
   </div>
 </div>
+
+<!-- <table>
+  <tr>
+    <td id="driver">Surucu</td>
+    <td id="rider">Yolcu</td>
+    <td id="date-time">Tarih</td>
+    <td id="journey">Yolculuk</td>
+    <td id="have-met">Bulustunuz mu?</td>
+  </tr>
+  <tbody id="posting-responses">
+    <% @postings_with_past_responses.each do |response| %>
+      <tr id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-<%= response.posting.id %>">
+        <td id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-driver-<%= response.posting.id %>"><%= response.posting.user.name %></td>
+        <td id="<%= response.responder.name.parameterize %>-<%= response.responder.name.parameterize %>-rider-<%= response.posting.id %>"><%= response.responder.name %></td>
+        <td><%= "#{response.posting.date} #{response.posting.starting_time.strftime("%H:%M")} - #{response.posting.ending_time.strftime("%H:%M")}" %></td>
+        <td><%= "#{response.posting.from_address} - #{response.posting.to_address}" %></td>
+        <% if (current_user == response.posting.user && !response.poster_agreed.nil? && response.poster_agreed) || (current_user == response.responder && !response.responder_agreed.nil? && response.responder_agreed) %>
+          <td class="responder-true">Bulustuk</td>
+        <% elsif (current_user == response.posting.user && !response.poster_agreed.nil? && !response.poster_agreed) || (current_user == response.responder && !response.responder_agreed.nil? && !response.responder_agreed) %>
+          <td class="responder-false">Bulusamadik</td>
+        <% else %>
+          <td id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-answer-<%= response.posting.id %>"></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table> -->
