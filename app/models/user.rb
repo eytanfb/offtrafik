@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :confirmable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :summary, :neighborhood, :first_name, :last_name, :agreed_to_terms_and_conditions, :trip_rating, :current_password, :driver
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :summary, :neighborhood, :first_name, :last_name, :agreed_to_terms_and_conditions, :trip_rating, :current_password, :driver, :phone
   
   validates_presence_of :first_name, :last_name, :email, message: "alani bos olamaz"
   validates_inclusion_of :agreed_to_terms_and_conditions, in: [true], on: :create
