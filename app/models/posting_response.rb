@@ -21,6 +21,7 @@ class PostingResponse < ActiveRecord::Base
   validates :posting_id, :responder_id, presence: true
 
   scope :past, -> { joins(:posting).where("date < ?", Date.today) }
+  scope :future, -> { joins(:posting).where("date >= ?", Date.today) }
   
   def responder
     self.user

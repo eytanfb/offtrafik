@@ -49,3 +49,15 @@
 		background: none;
 	}
 }
+
+#edit-user {
+	@include background-box;
+	
+	h2 {
+		color: black;
+	}
+	
+	.form-actions {
+		background: none;
+	}
+}

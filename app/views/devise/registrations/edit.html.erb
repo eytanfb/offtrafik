@@ -1,7 +1,7 @@
 <div class="row">
   <%= render partial: 'shared/sidebar' %>
   <section class="span8" id="edit-user">
-    <h2><%= resource_name.to_s.humanize %> Profilinizi Guncelleyin</h2>
+    <h2>Profilinizi Guncelleyin</h2>
 
     <%= simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal" } do |f| %>
 
@@ -13,13 +13,13 @@
         <%= f.input :driver, label: "Kampuse kendi arabanizla mi geliyorsunuz?", required: false, collection: yes_no, as: :radio_buttons, item_wrapper_class: "inline" %>
         <%= f.input :phone, label: false, as: :string %>
         <%= f.input :email, disabled: true, required: false %>
-        <%= f.input :avatar %>
+        <%= f.input :avatar, label: "Profil Resmi" %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
         
-        <h3>Sifre Degistir</h3>
+        <h4>Sifre Degistir</h4>
         <%= f.input :password, required: false, label: "Yeni Sifre", autocomplete: "off", hint: "degistirmek istemiyorsaniz bos birakin" %>
         <%= f.input :password_confirmation, required: false, label: "Sifre Onaylama" %>
         <%= f.input :current_password, label: "Guncel Sifre", hint: "degisiklikleri onaylamamiz icin sifrenize ihtiyacimiz var" %>
