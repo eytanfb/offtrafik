@@ -63,23 +63,6 @@ textarea {
 	}
 }
 
-/* comments */
-
-.comments {
-  list-style: none;
-  margin: 10px 0 0 0;
-
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-}
-.content {
-  display: block;
-}
-.timestamp {
-  color: $grayLight;
-}
 
 /* typography */
 
@@ -309,4 +292,10 @@ input[type="radio"], input[type="checkbox"]
 .about-row
 {
 	padding-left:25%;
+}
+
+/*Contact.html.erb*/
+#contact-us
+{
+	text-align:center;
 }
