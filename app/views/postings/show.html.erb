@@ -27,6 +27,30 @@
         <p><%= link_to "Ilanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger answer", style: "width: 60px; margin-left: 113px" %></p>
       <% end %>
     </div>
+    
+    <div class="span6" id="posting-details" onload="calcRouteForShow()">
+        <p id="posting-image-container"><%= image_tag "posting-#{@posting.driving.downcase.parameterize}.png", id: "posting-image" %></p>
+        <div style="margin-left: 50px">
+          <p><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{@posting.user.name}".html_safe %></p>
+          <p><%= "<i class='fa fa-map-marker  fa-lg green' ></i>  Nereden: #{truncate(Posting.format(@posting.from_address), length: 30)}".html_safe %></p>
+          <p><%= "<i class='fa fa-map-marker  fa-lg red'></i>  Nereye: #{truncate(Posting.format(@posting.to_address), length: 30)}".html_safe %></p>
+          <p><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{l @posting.date, format: :default}".html_safe %></p>
+          <p><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{@posting.starting_time.strftime("%H:%M")} - #{@posting.ending_time.strftime("%H:%M")}".html_safe %></p>
+        </div>        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   <% if @posting.user_id == current_user.id && @posting.posting_responses.count > 0 %>
     <div class="span5" id="posting-responders">
       <h5 style="text-decoration:underline">Cevap Verenler</h5>
