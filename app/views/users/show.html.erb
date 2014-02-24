@@ -30,8 +30,11 @@
       </div>
       <% if @user == current_user %>
       <div class="span6">
-        <h3 id="past-journeys">Gecmis Yolculuklar</h3>
-        <%= will_paginate @agreed_journeys, param_name: "journey_page" %>
+        <h3 id="past-journeys-title">Gecmis Yolculuklar</h3>
+        <div id="past-journeys">
+          <%= will_paginate @agreed_journeys, param_name: "journey_page" %>
+          
+        </div>        
         <table>
           <tr>
             <td id="date-time"><strong>Tarih</strong></td>

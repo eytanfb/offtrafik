@@ -19,7 +19,7 @@
       </div>
     </div>
     
-  <% if @posting.user_id == current_user.id && @posting.posting_responses.count > 0 %>
+  <% if @posting.user_id == current_user.id && @posting.posting_responses.count > 0 && @posting.date >= Date.today %>
     <div class="span5" id="posting-responders">
       <h5 style="text-decoration:underline">Cevap Verenler</h5>
       <% @posting.posting_responses.each do |response| %>
