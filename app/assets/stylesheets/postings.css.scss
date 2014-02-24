@@ -255,7 +255,7 @@
 }
 
 #show-map {
-	height: 265px;
+	height: 290px;
 	width: 99%;
 	border-style:solid;
   border-width:1px;
@@ -436,6 +436,21 @@
 
 #posting-details{
 	@include background-box;
+	
+	#respond-button {
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	#details-of-posting {
+		margin-top: 15px;
+		margin-left: 0px;
+		#posting-user {
+			font-size: large;
+		}
+	}
+	
 	h3 {
 		margin-top: 10px;
 	}
@@ -445,11 +460,21 @@
 		height: 150px;
 		border-radius: 50%;
 		overflow: hidden;
-		margin-left: auto;
-		margin-right: auto;
+		margin-top: 10px;
+		
 		#posting-image {
 			height: inherit;
 			width: auto;
+		}
+	}
+	
+	#no-smoking-container {
+		height: 10px;
+		#no-smoking-img {
+			border-radius: 50%;
+			position: relative;
+			right: 45px;
+			top: 115px;
 		}
 	}
 	
