@@ -34,6 +34,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'guard-zeus'
   gem 'listen', '2.4.0'
+  gem 'bullet'
 end
 
 group :production do

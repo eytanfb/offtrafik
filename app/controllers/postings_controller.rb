@@ -31,7 +31,7 @@ class PostingsController < ApplicationController
     to_address = Posting.format(@posting.to_address)
     from_address = Posting.format(@posting.from_address)
     @to_from = "#{to_address} - #{from_address}"
-    @respondable = !@posting.posting_responses.collect(&:responder_id).include?(current_user.id)
+    @respondable = !@posting.posting_responses.includes(:user).collect(&:responder_id).include?(current_user.id)
   end
   
   def preview
@@ -64,7 +64,7 @@ class PostingsController < ApplicationController
     @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving) : Posting.live_postings
     
     @postings = @postings.blank? ? Posting.live_postings : @postings
-    @postings = @postings.paginate(page: params[:page], per_page: 6, order: "date asc") if @postings.present?
+    @postings = @postings.includes(:user).paginate(page: params[:page], per_page: 6, order: "date asc") if @postings.present?
     
     respond_to do |format|
       format.html
