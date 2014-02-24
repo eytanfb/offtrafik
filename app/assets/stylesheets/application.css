@@ -54,14 +54,14 @@ body
   	background-size: cover;
 }
 
-#float-wrapper
+.float-wrapper
 {
 	overflow-x:scroll;
 }
 
-#float-fixer
+.float-fixer
 {
-	width:1400px;
+	width:1600px;
 	overflow:auto;
 }
 
