@@ -230,12 +230,9 @@ ol.postings {
 	@include posting-features
 }
 
-#posting {
+#posting
+{
 	margin-top: 50px;
-}
-
-#standard-posting {
-	margin-bottom: 10px;
 }
 
 .hidden {
@@ -253,10 +250,6 @@ ol.postings {
 	&:visited {
 		color: white;
 	}
-}
-
-.posting-submit {
-	margin-left: 180px;
 }
 
 #show-map {
@@ -302,68 +295,9 @@ ol.postings {
 	}
 }
 
-.place-input {
-	
-	.posting_from_address {
-		margin-left: 5px;
-	}
-	.control-group {
-		float: left;
-		padding-right: 20px;
-	}
-	.controls {
-		margin-left: 0px;
-		width: 200px;
-	}
-	.address-input {
-		background-color: #fff;
-	  padding: 0px 11px 0 13px;
-	  width: 200px;
-	  font-family: Roboto;
-	  font-size: 15px;
-	  font-weight: 300;
-	  text-overflow: ellipsis;
-		margin-bottom: 20px;
-	}
-}
 
-#frequency-days {
-	.control-group {
-		margin-left: 15px;
-		float: left;
-		padding: 0px;
-		margin-bottom: 20px;
-		margin-right: 10px;
-		width: 50px;
-	}
-	.controls {
-		margin-left: 20px;
-	}
-	input[type=checkbox] {
-	    visibility: hidden;
-/*	    margin-left: 15px;*/
-	    float: left;
-	    width: 70px;
-			height: 40px;
-	}
-	input[type=checkbox]:before {
-	    display: inline-block;
-	    width: 70px;
-	    height: 30px;
-	    background: #E74C3C;
-	    visibility: visible;
-	    color: white;
-	    content: attr(data-title);
-	    text-align: center;
-			font-size: medium;
-			border-radius: 5px;
-	}
-	input[type=checkbox]:checked:before {
-	    background: #27AE60;
-	}
-}
-
-.facebook {
+.facebook 
+{
 	padding:15px 20px;
 /*		margin-top: .75em; */
 /*		margin-bottom: 1em;*/

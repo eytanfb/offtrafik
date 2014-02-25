@@ -22,28 +22,33 @@ h3.center
 #map-container
 {
 	float:right;
-	margin-right:30px;
+	margin-right:100px;
 }
 
 #posting-selection
 {
 	@include background-box;
 	float:left;
-	width:38%;
+	width:33%;
 	margin-left:80px;
 	padding:5px;
-	min-height: 750px;
 }
 
-#standad-postings
+#standard-posting
 {
 	text-align:center;
+	margin:10px 0 10px 0;
 }
 
 .control-group 
 {
 	margin:0;
 	padding: 0 50px 0 35px;
+	
+	&.posting_from_address &.posting_to_address
+	{
+		
+	}
 	
 	&.optional.posting_comments
 	{	
@@ -55,15 +60,10 @@ h3.center
 	}
 }
 
-.place-input
-{
-	margin-bottom:20px;
-	display:block;
-}
-
-#frequent-postings
+#frequent-posting
 {
 	text-align:center;
+	margin:10px 0 10px 0;
 }
 
 .control-label
@@ -75,3 +75,91 @@ h3.center
 {
 	display:inline;
 }
+
+.posting-submit
+{
+	margin:0;
+}
+
+.place-input 
+{
+	margin-bottom: 0px;
+	display:block;
+
+	.posting_from_address 
+	{
+		margin-left: 5px;
+	}
+	.control-group 
+	{
+		float: left;
+		padding-right: 20px;
+		margin-top:20px;
+	}
+	
+	.controls 
+	{
+		margin-left: 0px;
+		width: 200px;
+	}
+	
+	.address-input 
+	{
+	  background-color: #fff;
+	  padding: 0px 11px 0 13px;
+	  width: 200px;
+	  font-family: Roboto;
+	  font-size: 15px;
+	  font-weight: 300;
+	  text-overflow: ellipsis;
+	}
+}
+
+#frequency-days 
+{
+	.control-group 
+	{
+		margin-left: 15px;
+		float: left;
+		padding: 0px;
+		margin-right: 5px;
+		width: 50px;
+	}
+	
+	.controls
+	{
+		margin-left: 20px;
+	}
+	
+	input[type=checkbox] 
+	{
+	    visibility: hidden;
+/*	    margin-left: 15px;*/
+	    float: left;
+	    width: 70px;
+			height: 40px;
+	}
+	
+	input[type=checkbox]:before 
+	{
+	    display: inline-block;
+	    width: 50px;
+	    height: 25px;
+	    background: #E74C3C;
+	    visibility: visible;
+	    color: white;
+	    content: attr(data-title);
+	    text-align: center;
+		 font-size: medium;
+		 border-radius: 10px;
+		 padding-top:7px;
+	}
+	
+	input[type=checkbox]:checked:before 
+	{
+	    background: #27AE60;
+	}
+}
+
+
+/*Day Selection Check Box*/
