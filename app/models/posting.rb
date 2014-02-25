@@ -44,7 +44,7 @@ class Posting < ActiveRecord::Base
   end
   
   def active?
-    self.date >= Time.current.to_date
+    self.date >= Date.today
   end
   
   def formatted_date

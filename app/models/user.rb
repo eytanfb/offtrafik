@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 # == Schema Information
 #
 # Table name: users
@@ -159,7 +162,7 @@ class User < ActiveRecord::Base
     if valid
       return true
     else
-      errors.add(:email, "gecerli bir adres degil")
+      errors.add(:email, "lütfen KU mailini gir")
     end
   end
   

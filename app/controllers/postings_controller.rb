@@ -120,6 +120,10 @@ class PostingsController < ApplicationController
     end
   end
   
+  def enter_phone
+    format.js
+  end
+  
   private
   
   def set_districts

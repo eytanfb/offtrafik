@@ -3,9 +3,16 @@ class PostingResponsesController < ApplicationController
   before_filter :get_past_responses, only: [:past_responses]
   
   def accept
+    if params[:enter_phone][:phone].present?
+      current_user.update_attribute(:phone, params[:enter_phone][:phone])
+    end
     @posting_response = PostingResponse.find params[:posting_response_id]
     @posting_response.accepted = true
-    @posting_response.save
+    if @posting_response.save
+      PostingResponseMailer.accepted_to_owner(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
+      PostingResponseMailer.accepted_to_responder(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
+    end
+    redirect_to @posting_response.posting
   end
   
   def reject

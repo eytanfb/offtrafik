@@ -8,7 +8,6 @@ Offtrafik::Application.routes.draw do
     get 'users/:id/past_responses' => 'posting_responses#past_responses', as: :user_past_responses
     match 'users/:id' => 'users#show', as: :user
     match 'users/:id/edit' => 'users#edit', as: :edit_user
-    post 'users/:id/enter_phone' => 'users#enter_phone', as: :user_enter_phone
   end
   
   root to: 'static_pages#home'
@@ -39,10 +38,11 @@ Offtrafik::Application.routes.draw do
   resources :frequent_postings
   resources :comments
   resources :posting_responses do
-    get 'accept'
+    post 'accept'
     get 'reject'
     get 'happened'
     get 'not_happened'
+    get 'enter_phone'
   end
 
   # The priority is based upon order of creation:
