@@ -23,7 +23,7 @@ en:
               invalid: "Email ******@ku.edu.tr formatını taşımamaktadır"
             password:
               blank: "Şifre boş olamaz"
-              too_short: "Şifre 8 karakterden uzun olmalı"
+              too_short: "Şifre en az 8 karakter olmalı"
             password_confirmation:
               blank: "Şifre doğrulama boş olamaz"
             agreed_to_terms_and_conditions:
