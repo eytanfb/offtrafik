@@ -526,14 +526,17 @@
 
 #posting-find 
 {
-	overflow-y:hidden;
 	min-height: 300px;
 	margin-top: 25px;
 	height: 100%;
-	.field-part {
+	
+	.field-part 
+	{
 		margin-bottom: 5px;
-}
-	.controls {		
+	}
+	
+	.controls 
+	{		
 		width: 200px;
 		margin-left: 10px;
 		float: left;
@@ -542,10 +545,10 @@
 
 #show-results 
 {
-	overflow-y:auto; 
 	margin-top: 20px;
 	height: 100%;
 }
+
 
 #past-postings-button:visited {
 	color: white;
