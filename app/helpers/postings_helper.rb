@@ -3,7 +3,7 @@
 module PostingsHelper
   
   def yes_no
-    ["Evet", "Hayır"]
+    [["Evet", true], ["Hayır", false]]
   end
   
   def turkish_day(day)
