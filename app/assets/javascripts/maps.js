@@ -77,6 +77,26 @@ function calcRoute()
   });
 }
 
+function calcRouteForFrequent() 
+{	
+  var start = document.getElementById('frequent_posting_from_address').value;
+  var	end = document.getElementById('frequent_posting_to_address').value;
+		
+  var request = {
+      origin:start,
+      destination:end,
+			region: "tr",
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}
+
+
+
 function setMarkerOptions(marker, map, position, icon)
 {
 	marker.setMap(map);
