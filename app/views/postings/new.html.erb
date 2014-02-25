@@ -6,8 +6,8 @@
         <div class="items hidden">
           <%= simple_form_for @posting, html: { class: "form-horizontal" } do |f| %>
    			 <div class = "place-input">
-   				  <%= f.input :from_address, label: false, placeholder: "Nereden", id: "posting_to_address", onblur: "calcRoute()", class: "address-input", input_html: { style: "float: left" } %>
-   				  <%= f.input :to_address, label: false, placeholder: "Nereye", id: "posting_from_address", onblur: "calcRoute()", class: "address-input ", input_html: { style: "float: left" } %>
+   				  <%= f.input :from_address, label: false, placeholder: "Nereden", id: "posting_to_address", class: "address-input", input_html: { style: "float: left", onblur: "calcRoute()" } %>
+   				  <%= f.input :to_address, label: false, placeholder: "Nereye", id: "posting_from_address", class: "address-input ", input_html: { style: "float: left", onblur: "calcRoute()" } %>
    			 </div><!--place-input-->
             <%= f.input :date, label: "Tarih", as: :string, default: Date.today, item_wrapper_class: "inline", input_html: { class: "standard-datepicker" } %>
             <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
