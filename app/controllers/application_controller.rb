@@ -17,5 +17,4 @@ class ApplicationController < ActionController::Base
       @postings_with_past_responses.flatten!
     end
   end
-  
 end
