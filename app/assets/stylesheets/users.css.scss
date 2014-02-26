@@ -43,9 +43,15 @@
 	}
 }
 
-#user-registration-form {
+#user-registration-form 
+{
 	@include background-box;
-	.form-actions {
+	
+	padding-top:10px;
+	margin:auto;
+	
+	.form-actions 
+	{
 		background: none;
 	}
 }
