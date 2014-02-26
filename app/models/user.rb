@@ -108,7 +108,7 @@ class User < ActiveRecord::Base
   
   def accepted_past_responses
     responses = []
-    self.posting_responses.includes([:user, user: :postings]).past.each do |response|
+    self.posting_responses.includes([posting: :user, user: :postings]).past.each do |response|
       responses << response if response.accepted == true && response.responder_agreed.nil?
     end
     responses
@@ -116,8 +116,8 @@ class User < ActiveRecord::Base
   
   def unagreed_postings
     responses = []
-    self.postings.past_postings.each do |posting|
-      posting.posting_responses.includes(:posting).each do |response|
+    self.postings.past_postings.includes(:posting_responses).each do |posting|
+      posting.posting_responses.each do |response|
         responses << response if response.accepted && response.poster_agreed.nil?
       end
     end

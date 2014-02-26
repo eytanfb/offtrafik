@@ -63,7 +63,12 @@ class PostingsController < ApplicationController
 
     @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving) : Posting.live_postings
     
-    @postings = @postings.blank? ? Posting.live_postings : @postings
+    @postings = if @postings.blank? 
+                  flash[:notice] = "Aradiginiz kriterlerde bir sonuc bulunamadi"
+                  Posting.live_postings
+                else 
+                  @postings
+                end
     @postings = @postings.includes(:user).paginate(page: params[:page], per_page: 6, order: "date asc") if @postings.present?
     
     respond_to do |format|

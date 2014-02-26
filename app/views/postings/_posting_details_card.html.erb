@@ -10,8 +10,8 @@
 </div>
 <div id="details-of-posting" class="span3">
   <p id="posting-user"><%= "#{link_to (image_tag @posting.user.avatar.url(:thumb)), @posting.user }  #{link_to @posting.user.name, @posting.user}".html_safe %></p>
-  <p id='from_address'><%= "<i class='fa fa-map-marker  fa-lg green' ></i>  Nereden: #{truncate(Posting.format(@posting.from_address), length: 30)}".html_safe %></p>
-  <p id='to_address'><%= "<i class='fa fa-map-marker  fa-lg red'></i>  Nereye: #{truncate(Posting.format(@posting.to_address), length: 30)}".html_safe %></p>
+  <p id='from_address'><%= "<i class='fa fa-map-marker  fa-lg green' ></i>  Nereden: #{Posting.format(@posting.from_address)}".html_safe %></p>
+  <p id='to_address'><%= "<i class='fa fa-map-marker  fa-lg red'></i>  Nereye: #{Posting.format(@posting.to_address)}".html_safe %></p>
   <p><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{l @posting.date, format: :default}".html_safe %></p>
   <p><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{@posting.starting_time.strftime("%H:%M")} - #{@posting.ending_time.strftime("%H:%M")}".html_safe %></p>
   <% if @posting.comments.present? %>
