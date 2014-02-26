@@ -63,6 +63,6 @@ Offtrafik::Application.configure do
   }
   
   # log sql queries in staging
-  config.log_level = :debug
+  config.logger = Logger.new(STDOUT)
   
 end
