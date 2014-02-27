@@ -36,7 +36,6 @@ $(function() {
 	$("#driving").chosen({no_results_text: "Bulunamadi"});
 	
   $("#show-results .pagination a").bind("click", function(event) {
-		$(".pagination").html("Yukleniyor...");
     $.getScript(this.href);
 		return false;
   });
