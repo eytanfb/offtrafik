@@ -44,5 +44,11 @@ Offtrafik::Application.configure do
   config.action_mailer.delivery_method = :letter_opener
   
   config.middleware.use('SpoofIp', '64.71.24.19')
+  
+  config.middleware.use ExceptionNotification::Rack,
+    email: {
+      sender_address: %{"hata" <hata@offtrafik.com>},
+      :exception_recipients => %w{eytanfb@gmail.com}
+    }
     
 end

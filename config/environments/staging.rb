@@ -65,4 +65,10 @@ Offtrafik::Application.configure do
   # log sql queries in staging
   config.log_level = :debug
   
+  config.middleware.use ExceptionNotification::Rack,
+    email: {
+      sender_address: %{"staging-hata" <hata@offtrafik-staging.com>},
+      :exception_recipients => %w{eytanfb@gmail.com}
+    }
+  
 end
