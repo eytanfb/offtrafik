@@ -45,10 +45,10 @@ Offtrafik::Application.configure do
   
   config.middleware.use('SpoofIp', '64.71.24.19')
   
-  config.middleware.use ExceptionNotification::Rack,
-    email: {
-      sender_address: %{"hata" <hata@offtrafik.com>},
-      :exception_recipients => %w{eytanfb@gmail.com}
-    }
+  # config.middleware.use ExceptionNotification::Rack,
+#     email: {
+#       sender_address: %{"hata" <hata@offtrafik.com>},
+#       :exception_recipients => %w{eytanfb@gmail.com}
+#     }
     
 end
