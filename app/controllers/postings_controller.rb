@@ -110,6 +110,9 @@ class PostingsController < ApplicationController
     @posting = Posting.find params[:posting_id]
     posting_response = @posting.posting_responses.new(responder_id: current_user.id)
     if posting_response.save
+      if params[:contact_posting_owner][:phone].present?
+        current_user.update_attribute(:phone, params[:contact_posting_owner][:phone])
+      end
       text = params[:contact_posting_owner][:content]
       PostingMailer.posting_contact(@posting.user_id, current_user.id, @posting.id, text).deliver
       flash[:success] = "Yanıt isteğiniz yollandı"

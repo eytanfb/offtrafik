@@ -3,8 +3,10 @@
   <h3 id="claim-event-modal-label">Iletişime Geç</h3>
 </div>
 <div class="modal-body">
-  <%= simple_form_for :contact_posting_owner, url: posting_respond_path(params[:posting_id])  do |f| %>
+  <%= simple_form_for :contact_posting_owner, url: posting_respond_path(params[:posting_id]), html: { novalidate: false }  do |f| %>
     <%= f.input :content, label: false, as: :text, placeholder: "Mailinize ekstra bir not eklemek isterseniz (örnek: telefon numaraniz) lütfen buraya yazın. İletişim emailinde yazan standart yazılar yine de gönderilecektir.", input_html: { cols: 150, rows: 5, style: "resize: none" } %>
+    <h5>Telefon Numaran</h5>
+    <%= f.input :phone, label: false, as: :string, placeholder: "İletişim için telefon numaranızı ekleyin (11 hane. Ornek: 05xxxxxxxxx)", input_html: { value: current_user.phone, required: true, pattern: '\d{11}', title: "11 hane (Orn. 05551111111)" } %>
     <%= f.button :submit, "Yolla", class: "btn btn-primary" %>
   <% end %>
 </div>

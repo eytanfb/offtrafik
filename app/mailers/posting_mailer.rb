@@ -21,6 +21,6 @@ class PostingMailer < ActionMailer::Base
     @posting = Posting.find posting_id
     @to_from = "#{Posting.format(@posting.to_address)} - #{Posting.format(@posting.from_address)}"
     
-    mail to: @owner.email, subject: "Kıtaları Değil İnsanları Birleştirmek"
+    mail to: @owner.email, subject: "İlanın kaydedildi"
   end
 end
