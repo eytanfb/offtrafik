@@ -18,7 +18,7 @@ class PostingsController < ApplicationController
       PostingMailer.new_one_time_posting_given(current_user.id, @posting.id).deliver
       redirect_to share_posting_path(posting_id: @posting.id)
     else
-      flash[:warning] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
+      flash[:error] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
       driving_options
       @frequent_posting = current_user.frequent_postings.new params[:frequent_posting]
       render 'new'
