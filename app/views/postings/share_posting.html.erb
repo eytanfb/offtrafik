@@ -1,19 +1,25 @@
 <div class="row">
   <%= render partial: "shared/sidebar" %>
-  <div class="span8" id="posting-sharing">
-    <!-- <div id="facebook"> -->
-      <div id="fb-root"></div>
-      <div class="fb-post" data-href="http://www.offtrafik.com/posting/#{@posting.id}" data-width="500"></div>
-    <!-- </div> -->
+  <div class="span4" id="posting-sharing">
 	<div id="twitter" style: "margin-top: 20px">
-		<div class="twitter-share-button" data-url="www.offtrafik.com/postings/#{@posting.id}" data-text="@Offtrafik'te ilan verdim. #{Posting.format(@posting.from_address)}-#{Posting.format(@posting.to_address)} arasi #{@posting.date.strftime(\"%d/%m/%Y\")} gununde yolculuk paylasacak insan ariyorum." data-count="none">
-      <a href="https://twitter.com/share">Tweet</a>
+		<div data-count="none">
+      <a href="https://twitter.com/share?text=@Offtrafik'te ilan verdim. <%= Posting.format(@posting.from_address) %> - <%= Posting.format(@posting.to_address) %> arasi <%= l @posting.date, format: :default %> gununde yolculuk paylasacak insan ariyorum.&url=<%= request.protocol + request.host_with_port %>/postings/<%= @posting.id %>&count=none" class="twitter-share-button">Tweet</a>
 		</div>
 	</div>
-    <div style="margin-top: 20px"></div>
-    <%= link_to "İlanlara Dön", find_posting_path, class: "btn btn-primary green-button" %>
-  </div>
+  <div class="fb-share-button" data-href="<%= request.protocol + request.host_with_port %>/postings/<%= @posting.id %>" data-type="button"></div>  
+  <div style="margin-top: 20px"></div>
+  <%= link_to "İlanlara Dön", find_posting_path, class: "btn btn-primary green-button" %>
 </div>
+</div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=280608882095657";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <% content_for :javascripts do %>
   <%= javascript_include_tag "sharing.js" %>
