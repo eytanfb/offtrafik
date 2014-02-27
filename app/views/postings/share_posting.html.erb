@@ -1,12 +1,13 @@
 <div class="row">
   <%= render partial: "shared/sidebar" %>
-  <div class="span8">
-    <div id="facebook">
-    	<div id="fb-share-button" data-href = "http://facebook.com/offtrafik/postings/#{@posting.id}" data-type: "buttonm" style: "height: 20px; width: 157px;">  </div>
-    </div>
+  <div class="span8" id="posting-sharing">
+    <!-- <div id="facebook"> -->
+      <div id="fb-root"></div>
+      <div class="fb-post" data-href="http://www.offtrafik.com/posting/#{@posting.id}" data-width="500"></div>
+    <!-- </div> -->
 	<div id="twitter" style: "margin-top: 20px">
-		<div class = "twitter-share-button" dat-url: "www.offtrafik.com/postings/#{@posting.id}" data-text: "@Offtrafik'te ilan verdim. #{Posting.format(@posting.from_address)}-#{Posting.format(@posting.to_address)} arasi #{@posting.date.strftime(\"%d/%m/%Y\")} gununde yolculuk paylasacak insan ariyorum." data-count: "none" >
-			<a href = "https://twitter.com/share">Tweet</a>
+		<div class="twitter-share-button" data-url="www.offtrafik.com/postings/#{@posting.id}" data-text="@Offtrafik'te ilan verdim. #{Posting.format(@posting.from_address)}-#{Posting.format(@posting.to_address)} arasi #{@posting.date.strftime(\"%d/%m/%Y\")} gununde yolculuk paylasacak insan ariyorum." data-count="none">
+      <a href="https://twitter.com/share">Tweet</a>
 		</div>
 	</div>
     <div style="margin-top: 20px"></div>
