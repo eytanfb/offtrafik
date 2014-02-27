@@ -1,0 +1,11 @@
+@mixin background-box
+{
+  background: rgba(252, 252, 255, 0.6);
+	border-color: rgba(252, 252, 255, 0.6);
+	border-radius:15px;
+}
+
+#posting-sharing {
+	@include background-box;
+	margin-top: 25px;
+}

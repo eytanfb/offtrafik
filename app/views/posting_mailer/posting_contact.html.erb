@@ -3,7 +3,7 @@
 
 <p><%= @responder.name %> seninle <%= link_to "#{@to_from}", posting_url(@posting) %> yolculuğunu paylaşmak istiyor.</p>
 
-<% if @text %>
+<% unless @text.blank? %>
   <h4 style="text-decoration: underline; margin-bottom: 0px"><%= "#{@responder.name} size ozel bir mesaj yolladı" %></h4>
   <p style="margin-top: 0px"><%= @text %></p>
 <% end %>

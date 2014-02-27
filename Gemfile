@@ -57,6 +57,7 @@ gem 'geocoder'
 gem 'chosen-rails'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'exception_notification'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

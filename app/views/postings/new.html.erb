@@ -5,6 +5,7 @@
         <p><%= link_to "Günlük İlan", "#", class: "btn btn-primary btn-large posting-button" %></p>
         <div class="items hidden">
           <%= simple_form_for @posting, html: { class: "form-horizontal" } do |f| %>
+            <%= f.error_notification %>
    			 <div class = "place-input">
    				  <%= f.input :from_address, label: false, placeholder: "Nereden", id: "posting_from_address", class: "address-input", input_html: { style: "float: left", onblur: "calcRoute()" } %>
    				  <%= f.input :to_address, label: false, placeholder: "Nereye", id: "posting_to_address", class: "address-input ", input_html: { style: "float: left", onblur: "calcRoute()" } %>
@@ -23,6 +24,7 @@
         <p><%= link_to "Rutin İlan", "#", class: "btn btn-primary btn-large posting-button", style: "background: orange" %></p>
         <div class="items hidden">
           <%= simple_form_for @frequent_posting, html: { class: "form-horizontal" } do |f| %>
+            <%= f.error_notification %>
    			  <div class = "place-input">  			 
               <%= f.input :from_address, label: false, placeholder: "Nereden", id: "frequent_posting_from_address", class: "address-input", input_html: { onblur: "calcRouteForFrequent()" } %>
               <%= f.input :to_address, label: false, placeholder: "Nereye", id: "frequent_posting_to_address", class: "address-input", input_html: { onblur: "calcRouteForFrequent()" } %>

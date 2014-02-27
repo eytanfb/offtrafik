@@ -1,9 +1,9 @@
 <div class="modal-header">
-  <h3 id="enter-phone-modal-label">Telefon Numaranizi Girin</h3>
+  <h3 id="enter-phone-modal-label">Telefon Numaranı Gir</h3>
 </div>
 <div class="modal-body">
   <%= simple_form_for :enter_phone, url: posting_response_accept_path(params[:posting_response_id]), html: { novalidate: false }  do |f| %>
-    <%= f.input :phone, label: false, as: :string, placeholder: "Iletisim icin telefon numaranizi ekleyin (11 hane. Ornek: 05xxxxxxxxx)", input_html: { value: current_user.phone, required: true, pattern: '\d{11}' } %>
+    <%= f.input :phone, label: false, as: :string, placeholder: "İletişim için telefon numaranızı ekleyin (11 hane. Ornek: 05xxxxxxxxx)", input_html: { value: current_user.phone, required: true, pattern: '\d{11}', title: "11 hane (Orn. 05551111111)" } %>
     <%= f.button :submit, "Yolla", class: "btn btn-primary" %>
   <% end %>
 </div>

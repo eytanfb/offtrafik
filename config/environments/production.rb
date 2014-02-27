@@ -86,4 +86,10 @@ Offtrafik::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+  
+  config.middleware.use ExceptionNotification::Rack,
+    email: {
+      sender_address: %{"production-hata" <hata@offtrafik.com>},
+      :exception_recipients => %w{eytanfb@gmail.com}
+    }
 end
