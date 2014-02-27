@@ -1,4 +1,5 @@
 $("#show-results").html("<%= escape_javascript(render('shared/posting_table', posting_list: @postings, param_name: 'page')) %>");
+$('.pagination a').attr('data-remote', 'true');
 $(".clickable").click(function() {
       window.document.location = $(this).attr("href");
 });
