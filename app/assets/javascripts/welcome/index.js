@@ -73,7 +73,7 @@ $(document).ready(function() {
 	
 	new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );
 
-	$('.button').click(function(e){
+	$('.scroll-button').click(function(e){
 		$('html,body').scrollTo(this.hash,this.hash);
 		e.preventDefault();
 	});

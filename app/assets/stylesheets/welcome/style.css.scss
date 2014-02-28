@@ -2,6 +2,8 @@
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700);
 @import url(http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
+$font: "Quando";
+
 .navbar-brand, .font-titi-semib {
   font-family: 'Titillium Web', sans-serif;
   font-weight: 600;
@@ -17,7 +19,7 @@ body, html {
 	top: 0px;
 	left: 0px;
 	bottom: 0px;
-	font-family: 'Lato', sans-serif; 
+	font-family: $font, sans-serif; 
 	font-weight: 400;
 }
 
@@ -30,7 +32,7 @@ body, html {
 }
 
 h1 {
-  	font-family: 'Lato', sans-serif;
+  	font-family: $font, sans-serif;
   	font-weight: 300;
   	margin: 0.75em 0.75em 0.25em;
   	font-size:2.70em;
@@ -39,14 +41,14 @@ h1 {
 h2 {
 	font-size:30px;
 	line-height: 1.3em;
-  	font-family: 'Lato', sans-serif;
+  	font-family: $font, sans-serif;
   	font-weight: 300;
   	margin-top: 0.33em;
 }
   
 h3 {    
 	color: #303333;
-	font:30px 'Lato', sans-serif;
+	font:30px $font, sans-serif;
 	font-weight: 300;
 	text-transform: uppercase;
 	padding-bottom: 10px;
@@ -55,15 +57,15 @@ h3 {
 
 h4 {    
 	color: #303333;
-	font:1.2em 'Lato', sans-serif;
+	font:1.2em $font, sans-serif;
 	font-weight: 700;
-	text-transform: uppercase;
+/*	text-transform: uppercase;*/
 }
 
 
 span {
 	color: #303333;
-	font:1.5em 'Lato', sans-serif;
+	font:1.5em $font, sans-serif;
 	font-weight: 700;
 	opacity: 0.4;
 	padding-top: 0px;
@@ -71,7 +73,7 @@ span {
 	
 .lead {
 	font-size:18px; 
-	font-family: 'Lato', sans-serif;
+	font-family: $font, sans-serif;
 	font-weight: 300;
 	color:#777;
   	font-weight: 300;
@@ -87,7 +89,7 @@ a:hover {
 }  
 
 p {
-	font-family: 'Lato', sans-serif;
+	font-family: $font, sans-serif;
 	font-weight: 300;
 	color: #858C91;
 }
@@ -105,27 +107,28 @@ p a:hover {
 	color:#111;
 }
 
-.button {
+.button, .scroll-button {
 	border-radius: 7px;
 	border: 1px solid rgba(255,255,255,0.53);
-    color: #FFF;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    text-transform: uppercase;
-    padding:15px 20px;
-    font-size: 16px;
-    min-width: 150px;
-    line-height: 90px;
-    text-align: center;}
+  color: #FFF;
+  font-family: $font, sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding:15px 20px;
+  font-size: 16px;
+  min-width: 150px;
+  line-height: 90px;
+  text-align: center;
+	&:hover {
+		color:#FFF;
+		border:1px solid #FFF;
+		 -webkit-transition: all 0.2s ease-in-out;
+	    -moz-transition: all 0.2s ease-in-out;
+	    -ms-transition: all 0.2s ease-in-out;
+	    -o-transition: all 0.2s ease-in-out;
+	    transition: all 0.2s ease-in-out;
+	}
 
-.button:hover {
-	color:#FFF;
-	border:1px solid #FFF;
-	 -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -ms-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
 }
 
 .fade1,
@@ -166,7 +169,7 @@ nav {
 	display: block;
 	padding: 0px 0px 0 30px;
 
-	font-family: 'Lato', sans-serif;
+	font-family: $font, sans-serif;
 	font-weight: 300;
 	font-size: 16px;
 	color: #999;
@@ -208,7 +211,7 @@ nav {
 }
 
 .cbp-af-header.cbp-af-header-shrink #logo { 
-	padding:25px 20px 0px 0px; 
+	padding:10px 20px 0px 0px; 
 	width:170px;
 }
 
@@ -414,7 +417,7 @@ form {
 	overflow: hidden;}
 
 input {
-	font-family: 'Lato', sans-serif;
+	font-family: $font, sans-serif;
 	font-weight: 300;
 	-moz-transition:all .3s ease-in-out;
 	-ms-transition:all .3s ease-in-out;
@@ -434,13 +437,13 @@ input {
 
 #signup .spam {
 	padding:21px 0 0 0;
-	font-family: 'Lato', sans-serif;
+	font-family: $font, sans-serif;
 	font-weight: 300;
 	color: #BBB;
 }
 
 #signup .msg-ok {
-	font-family: 'Lato', sans-serif;
+	font-family: $font, sans-serif;
 	font-weight: 300;
 	color: #FFF;}
 
@@ -471,7 +474,7 @@ input {
 #navfirst>li>a {
 	display: block;
 	padding: 15px 0px 0 30px;
-	font-family: 'Lato', sans-serif;
+	font-family: $font, sans-serif;
 	font-weight: 300;
 	font-size: 14px;
 	color: #858C91;
@@ -576,9 +579,49 @@ input {
 
 ::-moz-selection{
 	background: #e74c3c;
-	color:white
+	color:white;
 }
 
 ::selection{background:#e74c3c;color:white}
 
 
+.about-us-img {
+	width: 33%;
+	position: relative;
+	&#left {
+		left: 35px;
+		top: 8px;
+		-webkit-transform: rotate(-7deg);
+		-moz-transform: rotate(-7deg);
+		-o-transform: rotate(-7deg);
+		-ms-transform: rotate(-7deg);
+		z-index: 1;
+	}
+	&#center {
+		z-index: 2;
+		-webkit-transform: rotate(-2deg);
+		-moz-transform: rotate(-2deg);
+		-o-transform: rotate(-2deg);
+		-ms-transform: rotate(-2deg);
+	}
+	&#right {
+		z-index: 3;
+		-webkit-transform: rotate(7deg);
+		-moz-transform: rotate(7deg);
+		-o-transform: rotate(7deg);
+		-ms-transform: rotate(7deg);
+		left: -40px;
+		top: 10px;
+	}
+}
+
+#header-sign-up-button {
+	padding: 4px 12px 4px 12px;
+	margin-left: 5px;
+	color: white;
+	background: #D35400;
+	font-size: 22px;
+	&:hover {
+		cursor: pointer;
+	}
+}
