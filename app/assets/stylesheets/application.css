@@ -9,13 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require chosen
  *= require jquery.ui.datepicker
  *= require font-awesome
- *= require alertify.core.css
- *= require alertify.bootstrap.css
- *= require chosen
- *= require_tree .
+ *= require_tree ./sitewide
  */
-
-
-
