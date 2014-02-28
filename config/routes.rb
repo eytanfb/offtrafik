@@ -10,7 +10,7 @@ Offtrafik::Application.routes.draw do
     match 'users/:id/edit' => 'users#edit', as: :edit_user
   end
   
-  root to: 'static_pages#home'
+  root to: 'static_pages#welcome'
   
   # Matching static_pages
   match '/', to: 'static_pages#home'
