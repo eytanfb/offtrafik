@@ -212,7 +212,7 @@ input[type="radio"], input[type="checkbox"]
 
 .side-button-p 
 {
-	margin-bottom: 2px;
+	margin-bottom: 5px;
 }
 
 .side-button-search {
@@ -261,9 +261,10 @@ input[type="radio"], input[type="checkbox"]
 .i-button
 {
 	width: 60%;
-	height: 30px;
+	height: 22px;
 	bottom-margin: 15px;
 	border-radius:10px;
+	paddintg-top:8px;
 }
 
 /* Links */
@@ -349,6 +350,4 @@ input[type="radio"], input[type="checkbox"]
 	text-align:center;
 }
 
-
-/*new registration styles*/
 
