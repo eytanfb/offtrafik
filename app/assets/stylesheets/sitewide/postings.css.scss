@@ -375,19 +375,26 @@ ol.postings {
 
 #posting-details{
 	@include background-box;
+	padding-bottom:5px;
 	
-	#respond-button {
+	#respond-button 
+	{
 		margin-top: 10px;
 		margin-left: auto;
 		margin-right: auto;
 	}
 	
-	#details-of-posting {
+	#details-of-posting 
+	{
 		margin-top: 15px;
 		margin-left: 0px;
-		#posting-user {
+	
+		#posting-user 
+		{
 			font-size: large;
-			img {
+		
+			img 
+			{
 				width: 50px;
 				height: 50px;
 				border-radius: 50%;
@@ -497,8 +504,14 @@ ol.postings {
 	margin-bottom: 10px;
 }
 
-#posting-responders {
+#posting-responders 
+{
 	height: 300px;
+	
+	.responder-name
+	{
+		padding-left:5px;
+	}
 }
 
 #posting-search-results {
@@ -517,3 +530,24 @@ ol.postings {
 #posting-show {
 	padding-top: 8px;
 }
+
+
+/*PAGINATION*/
+.pagination
+{
+	text-align:center;
+	height:100%;
+	
+	ul
+	{
+		margin-top:12px;
+		margin-right:auto;
+		margin:auto;
+		padding-top:10px;
+	}
+}
+
+
+
+
+
