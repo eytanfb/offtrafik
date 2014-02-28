@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Offtrafik</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <%= stylesheet_link_tag "welcome/gumby.css", media: 'all' %>
+  <%= stylesheet_link_tag "welcome/style.css", media: 'all' %>
+  
+	<script type="text/javascript">
+		function load() {
+			$(document).ready(function() {
+				var desiredHeight = $("body").height();
+				$("#header").css("height", desiredHeight);
+			});
+		}
+	</script>
+  <%= javascript_include_tag "welcome/modernizr.min.js" %>
+  <%= javascript_include_tag "welcome/jquery.min.js" %>
+  
+</head>
+<body onload="load()">
+
+<div class="cbp-af-header">
+	<nav class="row">
+		 <div id="logo"><a class="navbar-brand" href="#"><%= image_tag "offtrafik-no-background-logo.png" %></a></div>
+		 <ul id="nav">
+			<li><a href="#joinus"><i class="icon-envelope"></i> Subscribe</a></li>
+			<li><a href="#aboutus"><i class="icon-info-sign"></i> About Us</a></li>
+			<li><a href="index.html"><i class="icon-home"></i> Home</a></li>
+		 </ul>
+	</nav>
+</div> 
+
+<section id="header">
+    <div class="row">
+    	<div class="twelve columns centered">
+	      	<div class="fade1 font-titi-semib" style="font-size: 110px;"><%= image_tag "offtrafik-no-background-logo.png" %></div>     
+	        <h2 class="fade2">yolculuk paylaşın, yeni insanlarla tanışın</h2>      
+	        <a class="button fade3" style="font-size: 20px" href="#about">Offtrafik Nedir?</a>
+      </div>                 
+    </div>
+</section>
+
+<div id="container" class="container">
+	<div id="cbp-so-scroller" class="cbp-so-scroller">
+
+<section id="about" class="cbp-so-section thumbs">
+	<div class="row">
+		<div class="twelve columns centered">
+			<h3>Offtrafik'e Hoşgeldin</h3>	
+			<p class="lead"><span class="font-titi-semib" style="font-size:24px;">Offtrafik</span>  İstanbul'daki üniversiteli öğrencilerle yolculuk paylaşabileceğin ve yeni insanlarla tanışabileceğin bir platform. <br>You want to go places. But you can never remember the recommendations your friends make!<br>With customizable geolocation reminders, you'll never forget another recommendation again.</p>
+
+			<div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9b">	         
+                <ul class="three_up tiles centered hi-icon-effect-9 hi-icon-effect-9b">
+                    
+                    <li>
+                    <a href="#" class="hi-icon hi-icon-facebook">Facebook</a>
+                    <div class="clear"></div>
+                    <h4>Starting Social</h4>
+                    <p>Sign in with Facebook: one click is all it takes to share recommendations with friends.</p>
+                    </li>
+                    
+                    <li>
+                    <a href="#" class="hi-icon hi-icon-foursquare">Foursquare</a>
+                    <div class="clear"></div>
+                    <h4>Finding Places</h4>
+                    <p>We use Foursquare for location data. If you can find it on Foursquare, you can find it in our app!</p>
+                    </li>
+                    
+                    <li>
+                    <a href="#" class="hi-icon hi-icon-compass">Compass</a>
+                    <div class="clear"></div>
+                    <h4>Geolocation Powered</h4>
+                    <p>Using your phone's geofencing capabilities, we'll remind you of nearby places you've queued up. </p>
+                    </li>
+                
+                </ul> 
+  			</div>          
+		</div>
+	</div>		
+</section>
+
+<section id="aboutus" class="cbp-so-section work1">
+	<div class="row">
+		<div class="five columns cbp-so-side cbp-so-side-left">
+		
+			<h3>Search Made Easy.</h3>
+			<p><span class="font-titi-semib" style="font-size:24px">wanderr</span> allows you to search by both map and list views. Results are populated by our API providers such as Foursquare, Yelp, and Google Maps. With the touch of a button you can add places to your queue. If you really enjoy a place, you can share it with your friends too!</p>
+		
+		</div>
+	
+		<div class="seven columns cbp-so-side cbp-so-side-right">
+      <%= image_tag "welcome/searchMapTransparent.png", width: "45%" %>
+      <%= image_tag "welcome/searchListTransparent.png", width: "50.5%" %>
+		</div>
+	</div>
+</section>
+
+<section class="cbp-so-section work2 padding-top-80">
+	<div class="row">
+		<div class="five columns cbp-so-side cbp-so-side-right" style="float:right;">
+		
+			<h3>Life Is Easier With Reminders.</h3>
+			<h4>You'll never forget to wander around</h4>
+			<p><span class="font-titi-semib" style="font-size:24px">wanderr</span> uses your iPhone's geolocation coordinates to remind you of the spots you want to visit most. The app seamlessly reminds you of these locations whenever you're nearby, just set it and we'll remind you! Take a little stress out of your life and have some fun; we've got your back.</p>
+						
+		</div>		
+		
+		<div class="six columns cbp-so-side-img cbp-so-side-left" style="margin-top:-60px;" >	
+      <%= image_tag "welcome/alert.png", width: "70%" %>      
+		</div>	
+	</div>
+</section>
+
+<section class="cbp-so-section work1">
+	<div class="row">
+		<div class="six columns cbp-so-side cbp-so-side-left">
+		
+			<h3>When and Where You Need It!</h3>
+			<p><span class="font-titi-semib" style="font-size:24px">wanderr</span> is committed to helping users remember how to have fun! We want you to enjoy life and our queue will help you manage your needs. We offer both public and private queues for keeping track of locations; you can browse all the places you've been and all the places you want to go!
+			</p>
+			<div class="download-button" style="padding-top:30px;">
+        <%= image_tag "welcome/appstore.png" %>
+			</div>
+		
+		</div>
+	
+		<div class="six columns cbp-so-side-img cbp-so-side-right" style="margin-bottom:-60px;" >
+      <%= image_tag "welcome/myQueueTransparent.png", width: "75%" %>
+		</div>
+	</div>
+</section>
+
+<section id="joinus">
+	<div class="row">
+		<div class="eight columns centered">	
+			<h2>Sign up for our mailing list to get an alert when
+			<div class="font-titi-semib"><i class="icon-globe"></i> wanderr</div> 
+			is released!</h2>		
+		</div>
+	</div>
+</section>
+
+<section id="signup">
+	<div class="row centered"> 
+		<div class="seven columns centered">				
+			<form action="" method="post">  
+				<div class="seven columns">
+					<input id="input_email" name="email" class="email" type="text" placeholder="what is your email address?">
+				</div>
+				<div class="five columns">
+					 <input type="submit"></button>
+			    </div>
+			</form> 
+
+			<div class="twelve columns centered">
+				<p class="spam">We will never send you any junk mail!</p>
+			</div>			
+		</div>
+	</div>
+</section>
+
+</div>
+
+<div id="footerSpacer"></div>
+
+<section id="footer">
+	<div class="row">		
+		<div class="seven columns pull_left">	
+			<p>© 2014 wanderr</p>
+		</div>
+
+		<div class="five columns text-right social">
+			<ul id="navfirst">
+				<li><a href="#joinus"><i class="icon-envelope"></i> Subscribe</a></li>
+				<li><a href="#aboutus"><i class="icon-info-sign"></i> About Us</a></li>
+				<li><a href="index.html"><i class="icon-home"></i> Home</a></li>		 
+			</ul>
+		</div>
+	</div>
+</section>
+
+</div>
+<%= javascript_include_tag "welcome/index.js" %>
+<%= javascript_include_tag "welcome/cbpScroller.js" %>
+<%= javascript_include_tag "welcome/classie.js" %>
+<%= javascript_include_tag "welcome/jquery.parallax.js" %>
+<%= javascript_include_tag "welcome/jquery.scrollto.js" %>
+<%= javascript_include_tag "welcome/jquery.ui" %>
+</body>
+  
+</html>

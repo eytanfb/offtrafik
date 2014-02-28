@@ -20,6 +20,7 @@ Offtrafik::Application.routes.draw do
   match '/why', to: 'static_pages#why'
   match '/terms_and_conditions', to: 'static_pages#terms_and_conditions'
   match '/admin', to: 'static_pages#admin'
+  match '/welcome', to: 'static_pages#welcome'
   
   # Matching postings
   match '/find_posting', to: 'postings#find'
