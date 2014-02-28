@@ -6,7 +6,8 @@
       <a href="https://twitter.com/share?text=@Offtrafik'te ilan verdim. <%= Posting.format(@posting.from_address) %> - <%= Posting.format(@posting.to_address) %> arasi <%= l @posting.date, format: :default %> gununde yolculuk paylasacak insan ariyorum.&url=<%= request.protocol + request.host_with_port %>/postings/<%= @posting.id %>&count=none" class="btn btn-twitter"><i class="fa fa-twitter"></i>|Tweet</a>
 		</div>
 	</div>
-  <div class="fb-share-button" data-href="<%= request.protocol + request.host_with_port %>/postings/<%= @posting.id %>" data-type="button"></div>  
+  <fb:share-button data-href="<%= request.protocol + request.host_with_port %>/postings/<%= @posting.id %>" data-type="button"></fb:share-button>
+  <!-- <div class="fb-share-button" data-href="<%= request.protocol + request.host_with_port %>/postings/<%= @posting.id %>" data-type="button"></div>   -->
   <div style="margin-top: 20px"></div>
   <%= link_to "İlanlara Dön", find_posting_path, class: "btn btn-primary green-button" %>
 </div>
@@ -17,7 +18,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
+  js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&status=0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
