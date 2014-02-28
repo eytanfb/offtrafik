@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
       @postings_with_past_responses.flatten!
     end
   end
+  
+  def after_sign_in_path_for(user)
+    find_posting_path
+  end
 end
