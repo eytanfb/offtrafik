@@ -1,11 +1,6 @@
 @import "bootstrap";
 
-$pink1: #6699CC;
-$pink1_: saturate(lighten($pink1, 4%), 4%);
-$pink1__: saturate(darken($pink1, 4%), 4%);
-$pink2: #0B639D;
-$pink2_: saturate(lighten($pink2, 4%), 4%);
-$pink2__: saturate(darken($pink2, 4%), 4%);
+$background_color:darken(#F8f8f8, 8%);
 
 @font-face
 {
@@ -44,7 +39,7 @@ html
 
 body
 {
-	background: url("base-background-2.png") repeat-y center center;
+	background-color: $background_color;
 	background-size:cover;
 	height:100%;
 	width:100%;
@@ -53,7 +48,7 @@ body
 }
 
 #wrapper 
-{
+{	
 	min-height:100%;
 	width:100%;
 	position:relative;
@@ -62,23 +57,23 @@ body
 }
 
 #second-wrapper 
-{
+{	
 	width:100%;
 	padding-top:20px;
 	padding-bottom:60px; /* Height of the footer element */
   	background-size: cover;
 }
 
-.float-wrapper
-{
-	//overflow-x:scroll;
-}
-
-.float-fixer
-{
-	width:1440px;
-	overflow:auto;
-}
+//.float-wrapper
+//{
+//	//overflow-x:scroll;
+//}
+//
+//.float-fixer
+//{
+//	width:1440px;
+//	overflow:auto;
+//}
 
 /*-----!!!----*/
 
