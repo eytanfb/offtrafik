@@ -34,12 +34,19 @@
 
 <section id="header">
     <div class="row">
-    	<div class="twelve columns centered">
-	      	<div class="fade1 font-titi-semib" style="font-size: 110px;"><%= image_tag "offtrafik-no-background-logo.png" %></div>     
-	        <h2 class="fade2">yolculuk paylaşın, yeni insanlarla tanışın</h2>
-          <%= link_to "OFFTRAFİK NEDİR?", "#about", style: "font-size: 20px", class: "scroll-button fade3" %>
-          <%= link_to "OFFTRAFİK'E GİR", home_path, style: "font-size: 20px; margin-left: 20px", class: "button fade3" %>
-      </div>                 
+    	<div style="height: 94px">
+        <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: false, html: { id: "header-login", class: "form-inline", novalidate: false } do |f| %>
+          <%= f.input_field :email, label: false, placeholder: "Email", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "Lütfen emailinizi girin" %>
+          <%= f.input_field :password, label: false, placeholder: "Şifre", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalıdır" %>
+          <%= f.button :submit, "Giriş" %>
+        <% end %>
+    	</div>
+        <div class="twelve columns centered" style="margin-top: 0px">
+	          <div class="fade1 font-titi-semib" style="font-size: 110px;"><%= image_tag "offtrafik-no-background-logo.png" %></div>     
+	          <h2 class="fade2">yolculuk paylaşın, yeni insanlarla tanışın</h2>
+            <%= link_to "OFFTRAFİK NEDİR?", "#about", style: "font-size: 20px", class: "scroll-button fade3" %>
+            <%= link_to "OFFTRAFİK'E GİR", home_path, style: "font-size: 20px; margin-left: 20px", class: "button fade3" %>
+	      </div>
     </div>
 </section>
 
