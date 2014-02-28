@@ -32,7 +32,56 @@ $grayLight: #eaeaea;
 	border-color: rgba(252, 252, 255, 0.6);
 	border-radius:15px;
 }
-/*Sudo class for the background container*/
+
+/*MAIN ELEMENTS*/
+html 
+{
+	font-family:'Quando';
+	overflow-y: scroll;
+	min-width:700;
+	overflow-x:none !important;
+}
+
+body
+{
+	background: url("base-background-2.png") repeat-y center center;
+	background-size:cover;
+	height:100%;
+	width:100%;
+ 	padding-top: 42px;
+  	display: block;
+}
+
+#wrapper 
+{
+	min-height:100%;
+	width:100%;
+	position:relative;
+	padding-bottom:20px; /* Height of the footer element */
+	
+}
+
+#second-wrapper 
+{
+	width:100%;
+	padding-top:20px;
+	padding-bottom:60px; /* Height of the footer element */
+  	background-size: cover;
+}
+
+.float-wrapper
+{
+	//overflow-x:scroll;
+}
+
+.float-fixer
+{
+	width:1440px;
+	overflow:auto;
+}
+
+/*-----!!!----*/
+
 
 /* universal */
 

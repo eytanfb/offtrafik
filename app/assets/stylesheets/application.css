@@ -16,53 +16,6 @@
  *= require chosen
  *= require_tree .
  */
-html 
-{
-	font-family:'Quando';
-	overflow-y: scroll;
-	overflow-x:scroll;
-	min-width:700;
-}
-
-body
-{
-	background: url("base-background-2.png") repeat-y center center;
-	background-size:cover;
-	height:100%;
-	width:100%;
- 	padding-top: 42px;
-
-  	display: block;
-}
-
-#wrapper 
-{
-	min-height:100%;
-	width:100%;
-	position:relative;
-	padding-bottom:20px; /* Height of the footer element */
-	
-}
-
-#second-wrapper 
-{
-	width:100%;
-	padding-top:20px;
-	padding-bottom:60px; /* Height of the footer element */
-  	background-size: cover;
-}
-
-.float-wrapper
-{
-	overflow-x:scroll;
-}
-
-.float-fixer
-{
-	width:1600px;
-	overflow:auto;
-}
-
 
 
 

@@ -21,15 +21,17 @@ h3.center
 
 #map-container
 {
+	width:700px;
+	height:auto;
 	float:right;
-	margin-right:100px;
+	margin-right:80px;
 }
 
 #posting-selection
 {
 	@include background-box;
 	float:left;
-	width:33%;
+	width:35%;
 	margin-left:80px;
 	padding:5px;
 }
@@ -40,15 +42,25 @@ h3.center
 	margin:10px 0 10px 0;
 }
 
+.posting_from_address 
+{
+	padding:0 !important;
+	margin-left:20px !important;
+}
+
+.posting_to_address
+{
+	padding:0 !important;
+	margin-left:30px !important;
+}
+
+
 .control-group 
 {
 	margin:0;
 	padding: 0 50px 0 35px;
 	
-	&.posting_from_address &.posting_to_address
-	{
-		
-	}
+	&
 	
 	&.optional.posting_comments
 	{	
