@@ -1,5 +1,12 @@
+@mixin background-box
+{
+  background: rgba(252, 252, 255, 0.6);
+	border-color: rgba(252, 252, 255, 0.6);
+	border-radius:15px;
+}
+
 #comment {
-	
+	@include background-box;	
 	#comment-user-photo {
 		img {
 			border-radius: 50%;

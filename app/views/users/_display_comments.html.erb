@@ -1,6 +1,6 @@
 <div id="user-comments">  
-  <ol class="comments">
-      <%= will_paginate comments, param_name: 'comments_page' %>
+  <ol class="comments">      
       <%= render comments %>
   </ol>
+  <%= will_paginate comments, param_name: 'comments_page' %>
 </div>

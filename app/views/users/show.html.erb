@@ -3,14 +3,14 @@
   <%= render partial: 'shared/sidebar' %>
   <section id="user-show" style="margin-top: 25px">
     <div style="min-height: 100px; margin-bottom: 10px"><%= image_tag current_user.avatar.url(:thumb), style: "float:left" %>
-        <div style="float:left;">
+        <div style="float:left; margin-left: 5px">
           <h1 id="user-name-heading">
             <%= @user.name %>
           </h1>
           <p style="font-size: 14px; margin-bottom: 10px;"> <%= @user.summary %></p>
         </div></div>
     <div id="map"></div>
-    <section>
+    <section style="margin-left: 10px">
       <h4 style="display: none">Semt: <span id="neighborhood"><%= @user.neighborhood %></span></h4>
       <div class="row">
         <div class="span6">
@@ -22,7 +22,6 @@
         </div>
         <% end %>
       </div>
-    </section>
     <div class="row">
       <div class="span6">
         <h3>Yorumlar</h3>
@@ -54,8 +53,9 @@
           <%= will_paginate @agreed_journeys, param_name: "journey_page" %>
         </div> 
       </div>
+      <% end %>
     </div>
-    <% end %>
+    </section>
   </section>
 </div>
 <% content_for :javascripts do %>
