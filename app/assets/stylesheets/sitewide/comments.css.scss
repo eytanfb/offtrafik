@@ -5,16 +5,24 @@
 	border-radius:15px;
 }
 
-#comment {
+.comment {
 	@include background-box;	
-	#comment-user-photo {
+	.comment-user-photo {
 		img {
 			border-radius: 50%;
 		}
 	}
 	
-	#comment-details {
+	.comment-details {
 		margin: 0px;
 	}
-	
+}
+
+.comments {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+  }
 }

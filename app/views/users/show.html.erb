@@ -34,22 +34,9 @@
       <div class="span6">
         <h3 id="past-journeys-title">Gecmis Yolculuklar</h3>
         <div id="past-journeys">                           
-        <table>
-          <tr>
-            <td id="date-time"><strong>Tarih</strong></td>
-            <td id="journey"><strong>Yolculuk</strong></td>
-            <td id="with-who"><strong>Kiminle</strong></td>
-          </tr>
-          <tbody>
-            <% @agreed_journeys.each do |journey| %>
-              <tr id="<%= journey.user.name.parameterize %>-<%= journey.id %>">
-                <td><%= "#{journey.formatted_date} #{journey.starting_time.strftime("%H:%M")} - #{journey.ending_time.strftime("%H:%M")}" %></td>
-                <td><%= "<span class='past-from-address'>#{Posting.format(journey.from_address)}</span> - <span class='past-to-address'>#{Posting.format(journey.to_address)}</span>".html_safe %></td>
-                <td><%= journey.people_who_completed_journey(current_user.name).join(',').present? ? journey.people_who_completed_journey(current_user.name).join(',') : "Yalniz" %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+          <% @agreed_journeys.each do |journey| %>
+            <%= render "agreed_journey_card", journey: journey %>
+          <% end %>
           <%= will_paginate @agreed_journeys, param_name: "journey_page" %>
         </div> 
       </div>

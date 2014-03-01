@@ -1,19 +1,36 @@
 /*Style for show.html.erb*/
 
+@mixin background-box
+{
+  background: rgba(252, 252, 255, 0.6);
+	border-color: rgba(252, 252, 255, 0.6);
+	border-radius:15px;
+}
+
+
+.details-of-agreed-journey {
+	@include background-box;
+	
+	.green {
+		color: #27AE60;
+	}
+	
+	.red {
+		color: #C0392B;
+	}
+	
+	.midnight {
+		color: #2C3E50;
+	}
+}
 
 /* comments */
 
-.comments {
-  list-style: none;
-  margin: 10px 0 0 0;
 
-  li {
-    padding: 10px 0;
-  }
-}
 .content {
   display: block;
 }
 .timestamp {
   color: gray;
 }
+
