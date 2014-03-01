@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_in_path_for(user)
-    find_posting_path
+      if user.has_showable_journeys?
+        user_past_responses_path(user)
+      else
+        find_posting_path
+      end
   end
 end
