@@ -33,13 +33,14 @@
           <%= f.input_field :password, label: false, placeholder: "Şifre", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalıdır" %>
           <%= f.button :submit, "Giriş", id: "login-submit" %>
         <% end %>
+        <!-- <%= link_to "Bize Katıl", new_user_registration_path, class: "header-sign-up-button" %></div> -->
      </ul>
   </nav>
 </div>
 
 <section id="header">
     <div class="row">
-    	<div style="height: 94px">
+    	<div style="height: 50px">
         <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: false, html: { id: "welcome-login", class: "form-inline", novalidate: false }, method: :post do |f| %>
           <%= f.input_field :email, label: false, placeholder: "Email", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "Lütfen emailinizi girin" %>
           <%= f.input_field :password, label: false, placeholder: "Şifre", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalıdır" %>
@@ -49,7 +50,9 @@
         <div class="twelve columns centered" style="margin-top: 0px">
 	          <div class="fade1 font-titi-semib" style="font-size: 110px;"><%= image_tag "offtrafik-no-background-logo.png" %></div>     
 	          <h2 class="fade2">yolculuk paylaşın, yeni insanlarla tanışın</h2>
-            <%= link_to "OFFTRAFİK NEDİR?", "#about", style: "font-size: 20px", class: "scroll-button fade3" %>
+            <%= link_to "OFFTRAFİK NEDİR?", "#about", class: "scroll-button fade3" %>
+            <br />
+            <%= link_to "Bize Katil", new_user_registration_path, class: "button fade3" %>
 	      </div>
     </div>
 </section>
@@ -141,7 +144,7 @@
 	<div class="row centered"> 
 		<div class="seven columns centered">				
       <div class="twelve columns centered">
-        <%= link_to "Bize Katıl", new_user_registration_path, class: "btn btn-primary", id: "header-sign-up-button" %></div>
+        <%= link_to "Bize Katıl", new_user_registration_path, class: "header-sign-up-button" %></div>
 		</div>
 	</div>
 </section>
