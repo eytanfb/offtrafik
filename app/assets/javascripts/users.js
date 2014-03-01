@@ -10,27 +10,39 @@ function initialize()
 {
 	var hometown = document.getElementById("neighborhood").innerHTML;
 	var name = document.getElementById("user-name-heading").innerHTML;
-	var favoritesElements = document.getElementsByClassName("favorite");
-	var favorites = [];
+	var pastFromAddressElements = document.getElementsByClassName("past-from-address");
+	var pastFromAddress = [];
+	var pastToAddressElements = document.getElementsByClassName("past-to-address");
+	var pastToAddress = [];
 	geocoder = new google.maps.Geocoder();
 	
-	for(var i = 0; i < favoritesElements.length; i++)
+	for(var i = 0; i < pastFromAddressElements.length; i++)
 	{
-		favorites[i] = favoritesElements[i].innerHTML;
+		pastFromAddress[i] = pastFromAddressElements[i].innerHTML;
+	}
+	
+	for(var i = 0; i < pastToAddressElements.length; i++)
+	{
+		pastToAddress[i] = pastToAddressElements[i].innerHTML;
 	}
 
-	var latlng = new google.maps.LatLng(41.055408, 29.995667);
+	var latlng = new google.maps.LatLng(41.1136, 28.9750);
 	var myOptions = {
-	  zoom: 3,
+	  zoom: 9,
 	  center: latlng,
 	  mapTypeId: 'roadmap'
 	}
 	map = new google.maps.Map(document.getElementById("map"), myOptions);
-	setCenterToAddress('Istanbul');
+	// setCenterToAddress('Istanbul');
 	addHomeTownMarker(hometown, name);
-	for(var i = 0; i < favorites.length; i++)
+	addMarkers(pastFromAddress, "http://maps.google.com/mapfiles/ms/icons/red-dot.png");
+	addMarkers(pastToAddress, "http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+}
+
+function addMarkers(addresses, icon) {
+	for(var i = 0; i < addresses.length; i++)
 	{
-		addFavoritesMarker(favorites[i]);
+		addAddressMarker(addresses[i], icon);
 	}
 }
 
@@ -55,25 +67,27 @@ function addHomeTownMarker(hometown, name)
   });
 }
 
-function addFavoritesMarker(favorite)
+function addAddressMarker(address, icon)
 {
-  geocoder.geocode({'address': favorite}, function(results, status)
+  geocoder.geocode({'address': address}, function(results, status)
   {
       if (status == google.maps.GeocoderStatus.OK) {
           var marker = new google.maps.Marker({
               position: results[0].geometry.location,
-              map: map
+              map: map,
+							icon: icon
           });
           google.maps.event.addListener(marker, 'click', function() {
               if (!infowindow) {
                   infowindow = new google.maps.InfoWindow();
               }
-              infowindow.setContent(favorite);
+              infowindow.setContent(address);
               infowindow.open(map, marker);
           });					
       }
   });
 }
+
 
 function setCenterToAddress(address)
 {
