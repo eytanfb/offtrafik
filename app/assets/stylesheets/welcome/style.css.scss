@@ -627,7 +627,6 @@ input {
 }
 
 #header-login {
-	$display: none;
 	text-align: right;
 	margin-top: 18px;
 	input[type="text"], input[type="password"] {
@@ -642,18 +641,11 @@ input {
 		&:focus, &:valid {
 		  background: white;
 		}
-		&:invalid {
-			$display: none;
-		}
-		&:valid {
-			$display: inline-block;
-		}
 	}
 	input[type="submit"] {
 		width: 50px;
 		height: 28px;
 		padding: 0px;
 		background-color: aliceblue;
-		display: $display;
 	}
 }

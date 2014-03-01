@@ -25,7 +25,7 @@
     <div class="span5" id="posting-responders">
       <h5 style="text-decoration:underline">Cevap Verenler</h5>
       <% @posting.posting_responses.each do |response| %>
-      <p id="<%= response.responder.name.parameterize %>-response" class="responder-<%= response.accepted %>" style="line-height:25px;"><%= link_to (gravatar_for response.responder, size: 30), user_path(response.responder)%><%= link_to response.responder.name, user_path(response.responder), class:"responder-name"side %>
+      <p id="<%= response.responder.name.parameterize %>-response" class="responder-<%= response.accepted %>" style="line-height:25px;"><%= link_to (gravatar_for response.responder, size: 30), user_path(response.responder)%><%= link_to response.responder.name, user_path(response.responder), class:"responder-name" %>
         <span id="<%= response.responder.name.parameterize %>-answer" class="pull-right">
           <% if response.accepted %>
             Geliyor            

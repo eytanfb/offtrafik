@@ -6,28 +6,6 @@ $(document).ready(function() {
 		$('#header').parallax("center", 0.5, false);
 	});
 
-	$('form').submit(function() {
-		
-		var form_data = $(this).serialize();
-
-		if ($.trim($("#input_email").val()).length <= 0){
-			$('p.spam').text('Javascript: Please enter an e-mail address').effect("pulsate", { times:4 }, 700);
-			return false;
-		}
-		else{
-			if (typeof ajax_form !== "undefined" && ajax_form === true)
-			{
-				$.post($(this).attr('action'), form_data, function(data) {
-					$('form').show('slow', function() { $(this).after('<div class="clear"></div> <p class="msg-ok">'+ data + '</p>'); });
-					$('.spam').hide();
-					$('.msg-ok').delay(300).effect("pulsate", { times:1 }, 1000);
-				});
-				
-				return false;
-			}
-		}
-	});
-
 	var cbpAnimatedHeader = (function() {
 
 		var docElem = document.documentElement,
@@ -76,6 +54,10 @@ $(document).ready(function() {
 	$('.scroll-button').click(function(e){
 		$('html,body').scrollTo(this.hash,this.hash);
 		e.preventDefault();
+	});
+	
+	$("#login-submit").click(function(e){
+		$("#header-login").submit();
 	});
 	
 });
