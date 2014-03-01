@@ -1,6 +1,141 @@
 /*FOOTER*/
 
-$grayMediumLight: #eaeaea;
+.cf:after,
+.cf:before {
+  content: "";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+.cf {
+  zoom: 1;
+}
+.wrapper {
+  margin: 0 auto;
+  width: 1020px;
+  position: relative;
+}
+
+.alignleft {
+  float: left;
+  margin: 5px 10px 5px 0;
+}
+.alignright {
+  float: right;
+  margin: 5px 0px 5px 10px;
+}
+
+.pull-left { float: left; }
+.pull-right { float: right; }
+
+.section-div {
+  height: 54px;
+  border-top: 1px solid #ccc;
+}
+#logo {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  float: left;
+}
+#logo:hover {
+  opacity: 0.8;
+}
+
+/* WIDGET COLS ------------------------------------------------------------*/
+.widget-cols {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.widget-col2 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.widget-cols h4 {
+  margin-bottom: 30px;
+  font-weight: normal;
+  text-align: center;
+}
+.widget-cols > li {
+  width: 220px;
+  float: left;
+  margin-right: 20px;
+}
+.widget-cols > li.fourth-col {
+  margin-right: 0px;
+  float:right;
+}
+
+/* FOOTER ------------------------------------------------------------*/
+footer {
+  font-size: 11px;
+	background: url('../welcome/debut_dark.png'); 
+}
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6 {
+  text-shadow: 4px 4px 0 rgba(255, 255, 255, 0.1);
+}
+/* FOOTER BOTTOM ------------------------------------------------------------*/
+.footer-bottom {
+  padding-top: 20px;
+  padding-bottom: 60px;
+  overflow: hidden;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+.footer-bottom .left {
+  width: 50%;
+  padding-top: 10px;
+  float: left;
+}
+.footer-bottom .right {
+  width: 50%;
+  float: right;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  display: inline-block;
+}
+* html .clearfix {
+  height: 1%;
+} /* Hides from IE-mac \*/
+.clearfix {
+  display: block;
+}
+.navcontainer {float:right;}
+.navcontainer ul li { display: inline-block; }
+
+span.tab{
+    padding: 0 7px; /* Or desired space*/
+}
+
+/* CAT ITEMS -----------------------------------------------*/
+.widget-cols .cat-item a,
+.widget-cols .page_item a {
+  display: inline;
+}
+.widget-cols .cat-item a .post-counter,
+.widget-cols .page_item a .post-counter {
+  color: #f1f1f1;
+}
+.widget-cols .cat-item:last-child a,
+.widget-cols .page_item:last-child a {
+  border-bottom: none;
+}
+
+/*$grayMediumLight: #eaeaea;
 
 footer 
 {
@@ -14,7 +149,7 @@ footer
   border-bottom-style:outset;
   border-width: 3px;
 
-  /*Keep it at the bottom*/
+  Keep it at the bottom
   position:absolute;
   bottom:0;
   width: 100%;
@@ -22,7 +157,6 @@ footer
   
   .span5
   {
-	  /*float: right;*/
 
     .links
     {
@@ -54,7 +188,7 @@ footer
   }  
 }
 
-/* clearfix */
+ clearfix 
   
 .group:before,
 .group:after {
@@ -67,3 +201,4 @@ footer
 .group {
   zoom: 1;
 }
+*/

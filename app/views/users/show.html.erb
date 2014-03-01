@@ -1,11 +1,14 @@
 <%= provide(:title, @user.name) %>
 <div class="row">
   <%= render partial: 'shared/sidebar' %>
-  <section id="user-show">
-    <h1 id="user-name-heading">
-      <%= @user.name %>
-    </h1>
-    <p style="font-size: 14px; margin-bottom: 10px"> <%= @user.summary %></p>
+  <section id="user-show" style="margin-top: 25px">
+    <div style="min-height: 100px; margin-bottom: 10px"><%= image_tag current_user.avatar.url(:thumb), style: "float:left" %>
+        <div style="float:left;">
+          <h1 id="user-name-heading">
+            <%= @user.name %>
+          </h1>
+          <p style="font-size: 14px; margin-bottom: 10px;"> <%= @user.summary %></p>
+        </div></div>
     <div id="map"></div>
     <section>
       <h4 style="display: none">Semt: <span id="neighborhood"><%= @user.neighborhood %></span></h4>
@@ -31,10 +34,7 @@
       <% if @user == current_user %>
       <div class="span6">
         <h3 id="past-journeys-title">Gecmis Yolculuklar</h3>
-        <div id="past-journeys">
-          <%= will_paginate @agreed_journeys, param_name: "journey_page" %>
-          
-        </div>        
+        <div id="past-journeys">                           
         <table>
           <tr>
             <td id="date-time"><strong>Tarih</strong></td>
@@ -51,6 +51,8 @@
             <% end %>
           </tbody>
         </table>
+          <%= will_paginate @agreed_journeys, param_name: "journey_page" %>
+        </div> 
       </div>
     </div>
     <% end %>

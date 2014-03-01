@@ -1,30 +1,64 @@
-<footer class="footer">
-	<nav class = "group">
-		<div class="span5">
-			<span id="siteseal"><script type="text/javascript" 		src="https://seal.godaddy.com/getSeal?sealID=2IQ7ahhGhnt9tNMbqxSW0CUjCO7IpPRClsZ2h3u3w8a5JbXf5vsb71"></script></span>
-		</div>
-		<div class="span6">
-			<div class="fb-like" data-colorscheme="light" data-href="http://facebook.com/offtrafik" data-show-count="true" data-action="like" data-width="250px" data-show-faces= "true" data-layout="standard">
-			</div>
-		 <%= link_to "Follow @Offtrafik", "#", href: """https://twitter.com/offtrafik", class: "twitter-follow-button", data: { "show-count" => 			"false", lang: "en", size: "large" } %>
-		</div>
+<footer>
+	<div class="wrapper cf">
+		<!-- widgets -->
+		<ul  class="widget-cols cf">
+				<div class="navcontainer">
+					<ul>
+						<li class="cat-item"><%= link_to 'About', "#" %></li><span class="tab"></span>&#124;<span class="tab"></span>
+						<li class="cat-item"><%= link_to 'Contact',  "#" %></li><span class="tab"></span>&#124;<span class="tab"></span>
+						<li class="cat-item"><%= link_to 'Advertise',  "#" %></li><span class="tab"></span>&#124;<span class="tab"></span>
+						<!-- <li class="cat-item"><%= link_to 'Press', "#" %></li><span class="tab"></span>&#124;<span class="tab"></span> -->
+						<li class="cat-item"><%= link_to 'Blog', "http://blog.racevine.com" %></li>
+					</ul>
+				</div>
 		
-	 	<div class="span5 links">
-			 <ul>
-				<li>
-					<%= link_to "Neden?", why_path, class: "footer-links" %>
-				</li>
-				<li>
-					<%= link_to "Hakkımızda", about_path, class: "footer-links" %>
-				</li>
-				<li>
-					<%= link_to "Bize Ulaşın", contact_path, class: "footer-links" %>
-				</li>
-			 </ul>
-		</div>
-	</nav>
+		</ul>
+		<!-- ENDS widgets -->	
+		
+		<!-- bottom -->
+		<div class="navcontainer">
+			<ul class="widget-col2 cf">
+			<li class="cat-item"><a href="#" > &#169; 2013 Racevine.com</a></li><span class="tab"></span><span class="tab"></span>
+			<li class="cat-item"><%= link_to 'Terms of Service', "#" %></li><span class="tab"></span><span class="tab"></span>
+			<li class="cat-item"><%= link_to 'Privacy Policy', "#" %></li><span class="tab"></span><span class="tab"></span>
+			<li class="cat-item"><%= link_to 'Send Feedback', "#", data: { toggle: 'modal', target: '#feedback-modal-window' }, remote: true %></li> 
+			</ul>
+			<div class="clearfix"></div><br />
+			<div class="clearfix"></div><br />
+	  </div>	
+		<!-- ENDS bottom -->
+		<%= image_tag("racevine_bw.png", :alt => "Racevine", :style => "float:left; margin-top:-40px; height:142px") %>		
+    </div>
+  </div>
+<div id="feedback-modal-window" class="modal hide fade" role="dialog" aria-labelledby="feedback-modal-label" aria-hidden="true"></div>
+</footer>
+<!-- <footer class="footer">
+  <nav class = "group">
+    <div class="span5">
+      <span id="siteseal"><script type="text/javascript"     src="https://seal.godaddy.com/getSeal?sealID=2IQ7ahhGhnt9tNMbqxSW0CUjCO7IpPRClsZ2h3u3w8a5JbXf5vsb71"></script></span>
+    </div>
+    <div class="span6">
+      <div class="fb-like" data-colorscheme="light" data-href="http://facebook.com/offtrafik" data-show-count="true" data-action="like" data-width="250px" data-show-faces= "true" data-layout="standard">
+      </div>
+     <%= link_to "Follow @Offtrafik", "#", href: """https://twitter.com/offtrafik", class: "twitter-follow-button", data: { "show-count" =>       "false", lang: "en", size: "large" } %>
+    </div>
+    
+     <div class="span5 links">
+       <ul>
+        <li>
+          <%= link_to "Neden?", why_path, class: "footer-links" %>
+        </li>
+        <li>
+          <%= link_to "Hakkımızda", about_path, class: "footer-links" %>
+        </li>
+        <li>
+          <%= link_to "Bize Ulaşın", contact_path, class: "footer-links" %>
+        </li>
+       </ul>
+    </div>
+  </nav>
 </footer>
 
 <% content_for :javascripts do %>
   <%= javascript_include_tag "sharing.js" %>
-<% end %>
+<% end %> -->
