@@ -626,7 +626,7 @@ input {
 	}
 }
 
-#header-login {
+#welcome-login {
 	text-align: right;
 	margin-top: 18px;
 	input[type="text"], input[type="password"] {
@@ -646,6 +646,40 @@ input {
 		width: 50px;
 		height: 28px;
 		padding: 0px;
-		background-color: aliceblue;
+		background-color: #006ccc;
+		color: white;
+		&:hover {
+			cursor: pointer;
+			background-color: darken(#006ccc, 8%);
+		}
+	}
+}
+
+#header-login {
+	text-align: right;
+	margin-top: 18px;
+	input[type="text"], input[type="password"] {
+		width: 200px;
+		height: 30px;
+		margin-top: 0px;
+		background: white;
+		border-radius: 5px;
+	  box-shadow: inset 0 1px 2px rgba(0,0,0, .55), 0px 1px 1px rgba(255,255,255,.5);
+	  border: 1px solid #666;
+		&:hover,
+		&:focus, &:valid {
+		  background: white;			
+		}
+	}
+	input[type="submit"] {
+		width: 50px;
+		height: 28px;
+		padding: 0px;
+		background-color: #006ccc;
+		color: white;
+		&:hover {
+			cursor: pointer;
+			background-color: darken(#006ccc, 8%);
+		}
 	}
 }
