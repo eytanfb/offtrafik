@@ -48,12 +48,15 @@ body
   	display: block;
 }
 
+.container {
+	padding-bottom: 20px;
+}
+
 #wrapper 
 {	
 	min-height:100%;
 	width:100%;
 	position:relative;
-	padding-bottom:20px; /* Height of the footer element */
 	
 }
 
@@ -61,7 +64,7 @@ body
 {	
 	width:100%;
 	padding-top:20px;
-	padding-bottom:60px; /* Height of the footer element */
+	/*padding-bottom:60px; /* Height of the footer element */
   	background-size: cover;
 }
 
@@ -283,6 +286,13 @@ input[type="radio"], input[type="checkbox"]
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+/* New Registration */
+#user-registration-form {
+	label.checkbox {
+		display: block;
+	}
 }
 
 /*New Sessions - new.html.erb*/

@@ -64,13 +64,13 @@
 	<div class="row">
 		<div class="twelve columns centered">
 			<h3>Offtrafik'e Hoşgeldin</h3>	
-			<p class="lead"><span class="font-titi-semib" style="font-size:24px;">Offtrafik</span>  İstanbul'daki üniversiteli öğrencilerle yolculuk paylaşabileceğin ve yeni insanlarla tanışabileceğin bir platform. <br>İster okula giderken, ister şehir içinde dolaşırken yeni insanlarla buluşup yolculuk paylaşabilirsin.<br>Trafikten araba sayısı azalt, çevre kirliliğini azaltmaya yardımcı ol.</p>
+			<p class="lead"><span class="font-titi-semib" style="font-size:24px;">Offtrafik</span>  İstanbul'daki üniversiteli öğrencilerle yolculuk paylaşabileceğin ve yeni insanlarla tanışabileceğin bir platform. <br>İster rutin, ister tek seferlik yolculuklarını KU’lularla paylaş; hem masrafları, hem çevre kirliliğini, hem de trafiği azalt.</p>
 
 			<div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9b">	         
                 <ul class="three_up tiles centered hi-icon-effect-9 hi-icon-effect-9b">
                     
                     <li>
-                    <%= link_to (image_tag "landing-page-register.png", class: "hi-icon"), "#joinus" %>
+                    <%= link_to (image_tag "landing-page-register.png", class: "hi-icon"), new_user_registration_path %>
                     <div class="clear"></div>
                     <h4>KU Mailinle Üye Ol</h4>
                     <p>Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl.</p>
@@ -100,8 +100,12 @@
 	<div class="row">
 		<div class="five columns cbp-so-side cbp-so-side-left">
 		
+			
 			<h3>Yolculuk Paylaş</h3>
-			<p><span class="font-titi-semib" style="font-size:24px">Offtrafik</span> ile yolculuk paylaşabilirsin. İster sürücü olarak ilanını ver, ister yolcu olarak... Hatta Offtrafik'le taksi paylaşmak için bile arama yapabilirsin. İlan sahipleriyle iletişime geçip yolculuk gerçekleştir, bazen masraflardan kıs, bazen yeni insanlarla tanış.</p>
+			<p><span class="font-titi-semib" style="font-size:24px">Offtrafik</span> ile ister yolcu, ister sürücü olarak ilanlarını oluşturabilir, başka ilanlara başvurabilirsin. <br/>Havaalanına ya da içmeye mi gideceksin? Arabaları evde bırakmakta fayda var, o zaman da taksini paylaş!</p> 
+      <!-- yolculuk paylaşabilirsin. İster sürücü olarak ilanını ver, ister yolcu olarak... Hatta Offtrafik'le taksi paylaşmak için bile arama yapabilirsin. İlan sahipleriyle iletişime geçip yolculuk gerçekleştir, bazen masraflardan kıs, bazen yeni insanlarla tanış.</p> -->
+      <!-- <h3>Yolculuk Paylaş</h3>
+      <p><span class="font-titi-semib" style="font-size:24px">Offtrafik</span> ile yolculuk paylaşabilirsin. İster sürücü olarak ilanını ver, ister yolcu olarak... Hatta Offtrafik'le taksi paylaşmak için bile arama yapabilirsin. İlan sahipleriyle iletişime geçip yolculuk gerçekleştir, bazen masraflardan kıs, bazen yeni insanlarla tanış.</p> -->
 		
 		</div>
 	
@@ -117,9 +121,11 @@
 	<div class="row">
 		<div class="five columns cbp-so-side cbp-so-side-right" style="float:right;">
 		
-			<h3>Kontrol Tamamen Senin Elinde</h3>
-			<h4>Yolculuklarını kiminle yapmak istediğine sen karar ver</h4>
-			<p><span class="font-titi-semib" style="font-size:24px">Offtrafik</span> yolculuk yaparken kiminle gidmek istediğinin kontrolünü tamamen sana bırakıyor. İlanına gelen talepler olursa biz seni hem email ile hem de site üzerinden uyaracağız, sana taleplere cevap vermek kalıcak. İşte bu kadar basit!</p>
+      <h3>Yol Arkadaşlarını Seç</h3>
+        <p><span class="font-titi-semib" style="font-size:24px">Yolculuklarını</span> paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın.</p>
+			<!-- <h3>Kontrol Tamamen Senin Elinde</h3>
+      <h4>Yolculuklarını kiminle yapmak istediğine sen karar ver</h4>
+      <p><span class="font-titi-semib" style="font-size:24px">Offtrafik</span> yolculuk yaparken kiminle gidmek istediğinin kontrolünü tamamen sana bırakıyor. İlanına gelen talepler olursa biz seni hem email ile hem de site üzerinden uyaracağız, sana taleplere cevap vermek kalıcak. İşte bu kadar basit!</p> -->
 						
 		</div>		
 		
@@ -161,7 +167,7 @@
 
 		<div class="five columns text-right social">
 			<ul id="navfirst">
-				<li><a href="#joinus"><i class="icon-envelope"></i> Bize Katıl</a></li>
+        <li><%= link_to "<i class='icon-envelope'></i> Bize Katıl".html_safe, new_user_registration_path %></li>				
 				<li><a href="#aboutus"><i class="icon-info-sign"></i> Offtrafik Nedir?</a></li>
 				<li><a href="#"><i class="icon-home"></i> Hoşgeldin</a></li>		 
 			</ul>
