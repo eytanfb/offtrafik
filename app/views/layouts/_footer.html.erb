@@ -4,10 +4,8 @@
 		<ul  class="widget-cols cf">
 				<div class="navcontainer">
 					<ul>
-						<li class="cat-item"><%= link_to 'About', "#" %></li><span class="tab"></span>&#124;<span class="tab"></span>
-						<li class="cat-item"><%= link_to 'Contact',  "#" %></li><span class="tab"></span>&#124;<span class="tab"></span>
-						<li class="cat-item"><%= link_to 'Advertise',  "#" %></li><span class="tab"></span>&#124;<span class="tab"></span>
-						<!-- <li class="cat-item"><%= link_to 'Press', "#" %></li><span class="tab"></span>&#124;<span class="tab"></span> -->
+						<li class="cat-item"><%= link_to 'Hakkımızda', about_path %></li><span class="tab"></span>&#124;<span class="tab"></span>
+						<li class="cat-item"><%= link_to 'Bize Ulaşın',  contact_path %></li><span class="tab"></span>&#124;<span class="tab"></span>
 						<li class="cat-item"><%= link_to 'Blog', "http://blog.racevine.com" %></li>
 					</ul>
 				</div>
@@ -18,19 +16,17 @@
 		<!-- bottom -->
 		<div class="navcontainer">
 			<ul class="widget-col2 cf">
-			<li class="cat-item"><a href="#" > &#169; 2013 Racevine.com</a></li><span class="tab"></span><span class="tab"></span>
-			<li class="cat-item"><%= link_to 'Terms of Service', "#" %></li><span class="tab"></span><span class="tab"></span>
-			<li class="cat-item"><%= link_to 'Privacy Policy', "#" %></li><span class="tab"></span><span class="tab"></span>
-			<li class="cat-item"><%= link_to 'Send Feedback', "#", data: { toggle: 'modal', target: '#feedback-modal-window' }, remote: true %></li> 
+			<li class="cat-item"><a href="#" > &#169; 2014 Offtrafik.com</a></li><span class="tab"></span><span class="tab"></span>
+			<li class="cat-item"><%= link_to 'Kullanıcı Kullanım Şartları', terms_and_conditions_path %></li><span class="tab"></span><span class="tab"></span>
+			<li class="cat-item"><%= link_to 'Geri Bildirim Yapın', "#", href: "mailto:leri@offtrafik.com" %></li> 
 			</ul>
 			<div class="clearfix"></div><br />
 			<div class="clearfix"></div><br />
 	  </div>	
 		<!-- ENDS bottom -->
-		<%= image_tag("racevine_bw.png", :alt => "Racevine", :style => "float:left; margin-top:-40px; height:142px") %>		
+		<%= image_tag("offtrafik-no-background-logo.png", :alt => "Racevine", :style => "float:left; margin-top:-40px; height: 62px;") %>
     </div>
   </div>
-<div id="feedback-modal-window" class="modal hide fade" role="dialog" aria-labelledby="feedback-modal-label" aria-hidden="true"></div>
 </footer>
 <!-- <footer class="footer">
   <nav class = "group">
