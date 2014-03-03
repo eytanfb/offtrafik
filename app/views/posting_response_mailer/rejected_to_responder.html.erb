@@ -3,7 +3,7 @@
 
 <p><%= link_to "#{@to_from}", posting_url(@posting) %> yolculuğuna yaptığın başvuru için olumlu yanıt alamadık.</p>
 
-<p>Yolculuğuna uygun diğer ilanlarla iletişime geçmek için <%= link_to "buraya", find_posting_url(to_address: Posting.format(@posting.to_address)) %> linkine tıklayabilirsin.</p>
+<p>Yolculuğuna uygun diğer ilanlarla iletişime geçmek için <%= link_to "buraya tıklayabilirsin.", find_posting_url(to_address: Posting.format(@posting.to_address)) %></p>
 
 <p>Offtrafik</p>
 
