@@ -51,6 +51,35 @@ aside.span4
   }
 }
 
+
+#user_info 
+{
+	text-align:center;
+	/*Igal Button Customization*/
+	.i-button
+	{
+		text-align:center;
+		width: 50%;
+		height: 22px;
+		bottom-margin: 15px;
+		border-radius:10px;
+		padding-top:8px;
+	}
+	
+	.side-button-p 
+	{
+		margin:0 auto 5px auto;
+	}
+	
+	a 
+	{
+		&:visited 
+		{
+			color: white;
+		}
+	}
+}
+
 #notifications {
 	
 	#waiting-past-responses {

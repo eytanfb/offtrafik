@@ -263,21 +263,11 @@ input[type="radio"], input[type="checkbox"]
 	height: 22px;
 	bottom-margin: 15px;
 	border-radius:10px;
-	paddintg-top:8px;
+	padding-top:8px;
 }
 
 /* Links */
 
-#user_info 
-{
-	a 
-	{
-		&:visited 
-		{
-			color: white;
-		}
-	}
-}
 /* Miscellaneous */
 
 .debug_dump{
