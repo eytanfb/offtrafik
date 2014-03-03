@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :authenticate_user!, only: [:create]
-  before_filter :notifications, only: [:new]
+  before_filter :notifications, except: [:create]
   
   def new
     if params[:is_about]
@@ -20,5 +20,9 @@ class CommentsController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def show
+    @comment = Comment.find params[:id]
   end
 end

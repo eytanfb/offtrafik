@@ -30,3 +30,12 @@
 select#comment_rating {
 	width: 60px;
 }
+
+#full-comment {
+	@include background-box;
+	margin-top: 15px;
+	
+	.span1, .span3 {
+		margin-top: 5px;
+	}
+}

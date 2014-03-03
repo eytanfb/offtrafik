@@ -1,0 +1,15 @@
+<div class="row">
+  <%= render partial: 'shared/sidebar' %>
+  <div class="row">
+    <div class="span5" id="full-comment">
+        <div class="span1">
+          <%= link_to (image_tag @comment.user.avatar.url(:square)), @comment.user %>
+        </div>
+        <div class="span3 comment-details">
+          <p><h4>Kimden: <%= link_to @comment.user.name, @comment.user %></h4></p>
+          <p><h5>Puan: <%= @comment.rating %></h5></p>
+          <p><h5><span style="text-decoration:underline">Yorumu</span><br /> <%= @comment.text %></h5></p>
+        </div>
+      </div>
+    </div>
+</div>
