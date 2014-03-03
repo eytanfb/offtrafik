@@ -51,6 +51,10 @@ class UsersController < Devise::RegistrationsController
     user_path resource
   end
   
+  def after_inactive_sign_up_path_for(resource)
+    find_posting_path
+  end
+  
   private
     def correct_user
       @user = User.find(params[:id])

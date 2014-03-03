@@ -3,19 +3,19 @@
 en:
   devise:
     confirmations:
-      confirmed: "Hesabınız onaylandı."
-      send_instructions: "Hesabınızı onaylamak için bir kaç dakika içerisinde bir email alacaksınız."
-      send_paranoid_instructions: "Eğer emailiniz bizde kayıtlıysa birazdan hesabnızı onaylamak için gereken bilgileri içeren bir email alacaksınız."
+      confirmed: "Hesabın onaylandı."
+      send_instructions: "Hesabını onaylamak için bir kaç dakika içerisinde bir email alacaksın."
+      send_paranoid_instructions: "Eğer emailin bizde kayıtlıysa birazdan hesabnı onaylamak için gereken bilgileri içeren bir email alacaksın."
     failure:
-      already_authenticated: "Giriş yapmış durumdasınız."
-      inactive: "Hesabınız henüz aktive edilmemiştir."
+      already_authenticated: "Giriş zaten yapılmış."
+      inactive: "Hesabın henüz aktive edilmemiş."
       invalid: "Email veya Şifre yanlış."
-      locked: "Hesabınız kilitlendi."
-      last_attempt: "Hesabınız kilitlenmeden önce son hakkınız."
+      locked: "Hesabın kilitlendi."
+      last_attempt: "Hesabın kilitlenmeden önce son hakkın."
       not_found_in_database: "Email veya Şifre yanlış."
-      timeout: "Aktif oturumunuz kapanmıştır. Lütfen tekrar giriş yapın."
-      unauthenticated: "Devam etmeden giriş yapmalı veya kayıt olmalısınız."
-      unconfirmed: "Devam etmek için hesabınızı onaylamanız gerekiyor."
+      timeout: "Aktif oturumun kapanmıştır. Lütfen tekrar giriş yap."
+      unauthenticated: "Devam etmeden giriş yapmalı veya kayıt olmalısın."
+      unconfirmed: "Devam etmek için hesabını onaylaman gerekiyor."
     mailer:
       confirmation_instructions:
         subject: "Hesap onaylama bilgileri"
@@ -27,37 +27,34 @@ en:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:
-      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
-      updated: "Your password was changed successfully. You are now signed in."
-      updated_not_active: "Your password was changed successfully."
+      no_token: "Şifremi unuttum emailine gitmeden bu sayfaya gelemezsin. Eğer emailden geliyorsan, bütün linki kopyaladığına emin ol."
+      send_instructions: "Birazdan şifreni yenilemen için gereken bilgilerli içeren bir email alacaksın."
+      send_paranoid_instructions: "Eğer emailin bizde kayıtlıysa birazdan şifreni yenilemen için gereken bilgilerli içeren bir email alacaksın"
+      updated: "Şifren başarıyla değiştirildi."
     registrations:
-      destroyed: "Hesabınız başarıyla silinmiştir. Umarız tekrar aramıza dönersiniz."
-      signed_up: "Hoşgeldiniz! Başarıyla giriş yaptınız."
-      signed_up_but_inactive: "Hesabınız başarıyle oluşturuldu ancak henüz aktıve edilmediği için giriş yapamamaktasınız."
-      signed_up_but_locked: "Hesabınız başarıyle oluşturuldu ancak kilitli olduğu için giriş yapamamaktasınız."
-      signed_up_but_unconfirmed: "Onaylama linkini içeren bir email adresinize gönderildi. Lütfen linke gidip hesabınızı onaylayın"
-      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
-      update_needs_confirmation: "Hesabınız başarıyla güncellendi ancak emailinizi onaylamamız gerekiyor. Lütfen emailinizi kontrol edin ve oradaki onaylama linkine basın."
-      updated: "Hesabınız başarıyla güncellendi."
+      destroyed: "Hesabın başarıyla silindı. Umarız tekrar aramıza dönersin."
+      signed_up: "Hoşgeldin! Başarıyla giriş yaptın."
+      signed_up_but_inactive: "Hesabın başarıyla oluşturuldu ancak henüz aktive edilmediği için giriş yapamamaktasın."
+      signed_up_but_locked: "Hesabın başarıyle oluşturuldu ancak kilitli olduğu için giriş yapamamaktasın."
+      signed_up_but_unconfirmed: "Onaylama linkini içeren bir email adresine gönderildi. Lütfen linke gidip hesabını onayla. Ama arada bu ilanlara bakarak oyalanabilirsin."
+      update_needs_confirmation: "Hesabın başarıyla güncellendi ancak emailini onaylamamız gerekiyor. Lütfen emailini kontrol et ve oradaki onaylama linkine bas."
+      updated: "Hesabın başarıyla güncellendi."
     sessions:
-      signed_in: "Başarıyla giriş yapıldı."
-      signed_out: "Başarıyla çıkış yapıldı."
+      signed_in: "Başarıyla giriş yaptın."
+      signed_out: "Başarıyla çıkış yaptın."
     unlocks:
-      send_instructions: "Hesabınızı onaylamak için bir kaç dakika içerisinde bir email alacaksınız."
-      send_paranoid_instructions: "Eğer emailiniz bizde kayıtlıysa birazdan hesabnızı onaylamak için gereken bilgileri içeren bir email alacaksınız."
-      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
-      unlocked: "Hesabınız başarıyla açıldı. Lütfen giriş yapın."
+      send_instructions: "Hesabını onaylamak için bir kaç dakika içerisinde bir email alacaksın."
+      send_paranoid_instructions: "Eğer emailin bizde kayıtlıysa birazdan hesabnı onaylamak için gereken bilgileri içeren bir email alacaksın."
+      unlocked: "Hesabın başarıyla açıldı. Lütfen giriş yap."
     users:
       user:
-        signed_up_but_unconfirmed: "Onaylama linkini içeren bir email adresinize gönderildi. Lütfen linke gidip hesabınızı onaylayın"
+        signed_up_but_unconfirmed: "Onaylama linkini içeren bir email adresine gönderildi. Lütfen linke gidip hesabını onayla"
         updated: "Güncelleme başarılı"
   errors:
     messages:
-      already_confirmed: "zaten onaylandı, lütfen giriş yapın."
-      confirmation_period_expired: "%{period} içerisinde onaylanması gerekiyor, lütfen yenisini isteyin"
-      expired: "süresi geçti, lütfen yenisini isteyin"
+      already_confirmed: "zaten onaylandı, lütfen giriş yap."
+      confirmation_period_expired: "%{period} içerisinde onaylanması gerekiyor, lütfen yenisini iste"
+      expired: "süresi geçti, lütfen yenisini iste"
       not_found: "bulunamadı"
       not_locked: "kilitlenmedi"
       not_saved:
