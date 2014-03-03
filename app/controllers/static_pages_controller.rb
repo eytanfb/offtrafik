@@ -2,6 +2,8 @@
 
 class StaticPagesController < ApplicationController
   
+  caches_action :welcome
+  
   def help
   end
   
