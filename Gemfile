@@ -40,7 +40,6 @@ end
 
 group :production, :staging do
   gem 'pg'
-  gem 'memcachier'
 end
 
 # Gems used only for assets and not required
@@ -60,9 +59,6 @@ gem 'chosen-rails'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'exception_notification'
-
-# Performance
-gem 'dalli'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
