@@ -14,6 +14,7 @@ gem 'font-awesome-rails'
 gem 'jquery_datepicker'
 gem 'jquery-ui-rails'
 gem 'jquery-rails'
+gem 'jquery-raty-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

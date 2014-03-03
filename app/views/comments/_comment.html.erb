@@ -2,8 +2,20 @@
   <div class="row span4 comment clickable">
     <div class="span1 comment-user-photo"><%= link_to (image_tag comment.user.avatar.url(:square)), comment.user %></div>
     <div class="span3 comment-details">
-      <p><%= link_to comment.user.name, comment.user %> <span class="pull-right"><%= comment.rating %></span></p>
+      <p><%= link_to comment.user.name, comment.user %> <span class="pull-right comment-card-rating" data-score="<%= comment.rating %>"></span></p>
       <p><%= "#{truncate comment.text, length: 50} #{link_to 'Yorumu Gor', comment_path(comment)}".html_safe %></p>
     </div>
   </div>
 </li>
+
+<script>
+  $('.comment-card-rating').raty({ 
+      starOff: 'star-off.png',
+      starOn: 'star-on.png',
+      size: 16,
+      readOnly: true,
+  	  score: function() {
+  	    return $(this).attr('data-score');
+  	  }
+  });
+</script>

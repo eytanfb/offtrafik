@@ -1,4 +1,4 @@
-<div class="span4">
+<!-- <div class="span4">
   <%= form_for @comment do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <%= f.hidden_field :is_about, value: @is_about %>
@@ -8,4 +8,28 @@
     <%= f.text_area :text, cols: 40, rows: 10     %>
     <%= f.submit "Kaydet", class: "btn btn-primary" %>
   <% end %>
+</div> -->
+
+<div class="span4">
+  <%= simple_form_for @comment, html: { id: "new-comment-form" } do |f| %>
+    <%= f.error_notification %>
+    <div id="comment-trip-rating-containter">
+      <div>Puan</div><div id="new-comment-rating" data-score="<%= f.object.rating %>" name="comment[rating]"><%= f.input :rating, label: "Puan", min: 0, max: 5 %></div>
+    </div>
+    <%= f.input :text, label: "Yorum", as: :text, input_html: { cols: 60, rows: 6, maxlength: 140 } %>
+    <%= f.hidden_field :is_about, value: @is_about %>
+    <%= f.button :submit, "Yorumu Kaydet", style: "margin-left: 35px", class: "btn btn-primary" %>
+  <% end %>
 </div>
+
+<script>
+  $('#new-comment-rating').raty({ 
+      scoreName: 'comment[rating]',
+        starOff: 'star-off-big.png',
+        starOn: 'star-on-big.png',
+        size: 36,
+  		  score: function() {
+  		    return $(this).attr('data-score');
+  		  }
+  });
+</script>

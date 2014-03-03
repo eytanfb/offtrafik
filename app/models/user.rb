@@ -81,11 +81,12 @@ class User < ActiveRecord::Base
   def calculate_rating
     comments_sum = Comment.find_all_by_is_about(self.id).collect { |comment| comment.rating }.sum
     total_comments = Comment.find_all_by_is_about(self.id).count
+    result = 0
     if total_comments > 0
-      self.trip_rating = comments_sum / total_comments
-    else
-      0
+      result = self.trip_rating = comments_sum / total_comments
     end
+    self.update_attribute(:trip_rating, result)
+    result
   end
 
   def has_past_postings?
