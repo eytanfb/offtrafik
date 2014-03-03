@@ -2,7 +2,7 @@
 <div class="row">
   <%= render partial: 'shared/sidebar' %>
   <section id="user-show" style="margin-top: 25px">
-    <div style="min-height: 100px; margin-bottom: 10px"><%= image_tag @user.avatar.url(:thumb), style: "float:left" %>
+    <div style="min-height: 100px; margin-bottom: 10px" id="profile-photo"><%= image_tag @user.avatar.url(:thumb), style: "float:left" %>
         <div style="float:left; margin-left: 5px">
           <h1 id="user-name-heading">
             <%= @user.name %>
