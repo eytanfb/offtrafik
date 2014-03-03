@@ -2,7 +2,7 @@
 <div class="row">
   <%= render partial: 'shared/sidebar' %>
   <section id="user-show" style="margin-top: 25px">
-    <div style="min-height: 100px; margin-bottom: 10px"><%= image_tag @user.avatar.url(:thumb), style: "float:left" %>
+    <div style="min-height: 100px; margin-bottom: 10px" id="profile-photo"><%= image_tag @user.avatar.url(:thumb), style: "float:left" %>
         <div style="float:left; margin-left: 5px">
           <h1 id="user-name-heading">
             <%= @user.name %>
@@ -14,7 +14,7 @@
       <h4 style="display: none">Semt: <span id="neighborhood"><%= @user.neighborhood %></span></h4>
       <div class="row">
         <div class="span6">
-          <h4>Yolculuk Puanı: <%= @user.trip_rating %></h4>
+          <h4>Yolculuk Puanı: <span id="user-trip-rating" data-score="<%= @user.trip_rating %>"></span></h4>
         </div>
         <% if @user == current_user %>
         <div class="span6">
@@ -48,3 +48,15 @@
 <% content_for :javascripts do %>
   <%= javascript_include_tag "users.js" %>
 <% end %>
+
+<script>
+  $('#user-trip-rating').raty({ 
+      starOff: 'star-off-big.png',
+      starOn: 'star-on-big.png',
+      size: 36,
+      readOnly: true,
+  	  score: function() {
+  	    return $(this).attr('data-score');
+  	  }
+  });
+</script>

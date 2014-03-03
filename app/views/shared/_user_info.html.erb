@@ -4,7 +4,6 @@ margin-right: 10px; width: 67px; height: 100px" %> -->
   <%= link_to current_user.name, user_path(current_user) %>
 </h1>
 <section id="user_info">
-  <p>Yolculuk Puanı: <%= current_user.calculate_rating != 0 ? "#{current_user.trip_rating}/5" : "N/A" %> </p>
   <p class="side-button-p">
     <a class="btn btn-primary i-button" href="<%= new_posting_path %>" style="color:white;">
       <i class="fa fa-edit fa-lg"></i>

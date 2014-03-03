@@ -14,6 +14,7 @@ gem 'font-awesome-rails'
 gem 'jquery_datepicker'
 gem 'jquery-ui-rails'
 gem 'jquery-rails'
+gem 'jquery-raty-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -37,8 +38,9 @@ group :development, :test do
   gem 'bullet'
 end
 
-group :production do
+group :production, :staging do
   gem 'pg'
+  gem 'memcachier'
 end
 
 # Gems used only for assets and not required
@@ -58,6 +60,9 @@ gem 'chosen-rails'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'exception_notification'
+
+# Performance
+gem 'dalli'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
