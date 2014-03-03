@@ -507,6 +507,16 @@ ol.postings {
 #posting-responders 
 {
 	height: 300px;
+
+	img {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+	}
+	
+	.posting-answers {
+		margin-top: 13px;
+	}
 	
 	.responder-name
 	{
