@@ -1,30 +1,34 @@
 development:
-  adapter: mysql2
+  adapter: postgresql
+  encoding: utf-8
   database: offtrafik_development
   pool: 5
-  timeout: 5000
-  reconnect: true
+  username: eytananjel
+  password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: mysql2
+  adapter: postgresql
+  encoding: utf-8
   database: offtrafik_test
   pool: 5
-  timeout: 5000
-  reconnect: true
+  username: eytananjel
+  password:
 
-staging:
-  adapter: mysql2
-  database: offtrafik_staging
-  pool: 5
-  timeout: 5000
-  reconnect: true
-
-production:
-  adapter: mysql2
-  database: offtrafik_production
-  pool: 5
-  timeout: 5000
-  reconnect: true
+# staging:
+# 	adapter: postgresql
+#   encoding: utf-8
+#   database: offtrafik_staging
+#   pool: 5
+#   username: eytananjel
+#   password:
+# 
+# production:
+# 	adapter: postgresql
+#   encoding: utf-8
+#   database: offtrafik_production
+#   pool: 5
+#   username: eytananjel
+#   password:
