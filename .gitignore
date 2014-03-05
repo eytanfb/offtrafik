@@ -33,5 +33,6 @@ extra_stuff.txt
 
 
 *.dump
+*.csv
 *.sql
 .DS_Store#
