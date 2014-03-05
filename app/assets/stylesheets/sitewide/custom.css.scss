@@ -256,16 +256,6 @@ input[type="radio"], input[type="checkbox"]
 	}
 }
 
-/*Igal Button Customization*/
-.i-button
-{
-	width: 60%;
-	height: 22px;
-	bottom-margin: 15px;
-	border-radius:10px;
-	padding-top:8px;
-}
-
 /* Links */
 
 /* Miscellaneous */
@@ -344,6 +334,14 @@ input[type="radio"], input[type="checkbox"]
 #contact-us
 {
 	text-align:center;
+}
+
+/*Links*/
+
+#check-links
+{
+	text-align: left;
+	padding-left:35px;
 }
 
 
