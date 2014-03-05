@@ -21,6 +21,10 @@
 	list-style: none;
 }
 
+#past-responses {
+	margin-left: 0px;
+}
+
 .past-response-content {
 	@include background-box;
 	.past-response-images {
