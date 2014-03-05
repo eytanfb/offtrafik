@@ -155,15 +155,12 @@
 
 .postings-list
 {
-	border-style:solid;
-   background: rgba(252, 252, 255, 0.6);
-	border-color: rgba(252, 252, 255, 0.6);
-	border-radius:15px;
 	
 	margin-top:25px;
 	text-align:center;
 	padding-bottom:10px;
 	list-style: none;
+	margin-left: 0px;
 	
 	#user-postings
 	{
@@ -540,7 +537,6 @@ ol.postings {
 #posting-show {
 	padding-top: 8px;
 }
-
 
 /*PAGINATION*/
 .pagination

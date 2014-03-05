@@ -1,6 +1,6 @@
 <div class="row">
   <%= render partial: "shared/sidebar" %>
-  <section class="span8">
+  <section class="span12 postings-list">
     <h3>Geçmiş İlanlar</h3>
     <% if @past_postings %>
       <%= will_paginate @past_postings, param_name: "page" %>
