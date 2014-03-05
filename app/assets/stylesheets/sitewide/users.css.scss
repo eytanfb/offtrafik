@@ -65,11 +65,14 @@
 	@include background-box;
 	
 	padding-top:10px;
+	padding-bottom:10px;
 	margin:auto;
 	
 	.form-actions 
 	{
 		background: none;
+		text-align:center;	
+		padding-bottom:0;
 	}
 }
 

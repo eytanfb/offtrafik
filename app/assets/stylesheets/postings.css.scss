@@ -188,7 +188,8 @@
 
 //Already Existing CSS Code
 
-.small-posting {
+.small-posting 
+{
 	float: left;
 	height: 165px;
 	width: 200px;
@@ -203,18 +204,21 @@
   opacity: 0.8;
   filter: alpha(opacity=20);
 	
-	.posting-details {
+	.posting-details 
+	{
 		margin-top: 10px;
 	}
 	
 	@include posting-features
 }
 
-ol.postings {
+ol.postings 
+{
 	list-style: none;
 }
 
-.posting {
+.posting 
+{
 	float: left;
 	height: 330px;
 	width: 275px;
