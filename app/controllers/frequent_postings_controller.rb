@@ -20,12 +20,25 @@ class FrequentPostingsController < ApplicationController
       driving = fp[:driving]
       smoking = fp[:smoking]
       comments = fp[:comments]
+      first_posting_recorded = true
+      first_posting = nil
       while today < date do
-        current_user.postings.create!(date:today, to_address:to_address, from_address: from_address, starting_time: starting_time, ending_time: ending_time, driving: driving, smoking: smoking, comments: comments) if days.include? Date::DAYNAMES[today.wday]
+        if first_posting_recorded
+          first_posting = current_user.postings.create!(date:today, to_address:to_address, from_address: from_address, starting_time: starting_time, ending_time: ending_time, driving: driving, smoking: smoking, comments: comments) if days.include? Date::DAYNAMES[today.wday]
+          first_posting_recorded = false
+        else
+          current_user.postings.create!(date:today, to_address:to_address, from_address: from_address, starting_time: starting_time, ending_time: ending_time, driving: driving, smoking: smoking, comments: comments) if days.include? Date::DAYNAMES[today.wday]
+        end
         today += 1
       end
-      flash[:success] = "Ilan verildi"
-      redirect_to share_posting_path(posting_id: @frequent_posting.id)
+      if first_posting
+        flash[:success] = "Ilan verildi"
+        redirect_to share_posting_path(posting_id: first_posting.id) and return
+      end
+      flash[:warning] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
+      driving_options
+      @posting = current_user.postings.new params[:posting]
+      render template: "postings/new"
     else
       flash[:warning] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
       driving_options
