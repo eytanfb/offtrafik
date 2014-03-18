@@ -4,7 +4,7 @@
   <div class="span4" id="posting-sharing">
 	<div id="twitter" style: "margin-top: 20px">
 		<div data-count="none">
-      <a href="https://twitter.com/share?text=@Offtrafik'te ilan verdim. <%= Posting.format(@posting.from_address) %> - <%= Posting.format(@posting.to_address) %> arasi <%= l @posting.date, format: :default %> gununde yolculuk paylasacak insan ariyorum.&url=<%= request.protocol + request.host_with_port %>/postings/<%= @posting.id %>&count=none" class="btn btn-twitter" target="_blank"><i class="fa fa-twitter"></i>|Tweet</a>
+      <a href="https://twitter.com/share?text=@Offtrafik'te ilan verdim. <%= Posting.format(@posting.from_address) %> - <%= Posting.format(@posting.to_address) %> arasi <%= l @posting.date, format: :default %> gununde yolculuk paylasacak arkadaş ariyorum.&url=<%= request.protocol + request.host_with_port %>/postings/<%= @posting.id %>&count=none" class="btn btn-twitter" target="_blank"><i class="fa fa-twitter"></i>|Tweet</a>
 		</div>
 	</div>
       <!-- <button data-href="<%= request.protocol + request.host_with_port %>/postings/<%= @posting.id %>" data-type="button" class="btn btn-facebook"><i class="fa fa-facebook"></i> |Share</button> -->
