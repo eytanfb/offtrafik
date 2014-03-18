@@ -247,11 +247,14 @@ ol.postings
 	display: block;
 }
 
-.posting-button {
+.posting-button 
+{
 	width: 300px;
 	margin-left: auto;
 	margin-right: auto;
-	&:visited {
+
+	&:visited 
+	{
 		color: white;
 	}
 }

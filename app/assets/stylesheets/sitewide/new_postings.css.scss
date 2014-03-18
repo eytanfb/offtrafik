@@ -142,9 +142,15 @@ h3.center
 
 #frequency-days 
 {
+	border:1px solid red;
+	width:98%;
+	height: auto;
+	display:inline-block;
+	text-align:center;
+	
 	.control-group 
 	{
-		margin-left: 15px;
+		margin-left: 12px;
 		float: left;
 		padding: 0px;
 		margin-right: 5px;
