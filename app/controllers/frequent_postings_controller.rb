@@ -24,21 +24,27 @@ class FrequentPostingsController < ApplicationController
       first_posting = nil
       while today < date do
         if first_posting_recorded
-          first_posting = current_user.postings.create!(date:today, to_address:to_address, from_address: from_address, starting_time: starting_time, ending_time: ending_time, driving: driving, smoking: smoking, comments: comments) if days.include? Date::DAYNAMES[today.wday]
-          first_posting_recorded = false
+          if days.include? Date::DAYNAMES[today.wday]
+            current_user.postings.create!(date:today, to_address:to_address, from_address: from_address, starting_time: starting_time, ending_time: ending_time, driving: driving, smoking: smoking, comments: comments) 
+            first_posting = current_user.postings.last
+            first_posting_recorded = false
+            logger.debug "First posting #{first_posting} and first posting recorded: #{first_posting_recorded}"
+            logger.debug "Just to make sure: #{today}"
+          end
         else
           current_user.postings.create!(date:today, to_address:to_address, from_address: from_address, starting_time: starting_time, ending_time: ending_time, driving: driving, smoking: smoking, comments: comments) if days.include? Date::DAYNAMES[today.wday]
         end
         today += 1
       end
-      if first_posting
+      if first_posting.present?
         flash[:success] = "Ilan verildi"
         redirect_to share_posting_path(posting_id: first_posting.id) and return
+      else
+        flash[:warning] = "Ilan verilemedi."
+        driving_options
+        @posting = current_user.postings.new params[:posting]
+        render template: "postings/new"
       end
-      flash[:warning] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
-      driving_options
-      @posting = current_user.postings.new params[:posting]
-      render template: "postings/new"
     else
       flash[:warning] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
       driving_options
