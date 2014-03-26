@@ -27,6 +27,18 @@ h3.center
 	margin-right:4.6%;
 }
 
+.posting-button 
+{
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+
+	&:visited 
+	{
+		color: white;
+	}
+}
+
 #posting-selection
 {
 	@include background-box;
