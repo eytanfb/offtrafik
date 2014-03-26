@@ -1,8 +1,34 @@
 <h3 class="center" id ="new-title">Yeni İlan</h3>
 <div class="row float-fixer" id="posting">
     <div class="span6 center" id ="posting-selection">
+       <div id="frequent-posting"><em></em>
+         <p><%= link_to "Rutin İlan", "#", class: "btn btn-primary btn-large posting-button btn-foursquare" %></p>
+         <div class="items hidden">
+           <%= simple_form_for @frequent_posting, html: { class: "form-horizontal" } do |f| %>
+             <%= f.error_notification %>
+    			  <div class = "place-input">  			 
+               <%= f.input :from_address, label: false, placeholder: "Nereden", id: "frequent_posting_from_address", class: "address-input", input_html: { onblur: "calcRouteForFrequent()" } %>
+               <%= f.input :to_address, label: false, placeholder: "Nereye", id: "frequent_posting_to_address", class: "address-input", input_html: { onblur: "calcRouteForFrequent()" } %>
+ 			    </div><!--place-input-->
+           <div id="frequency-days">
+             <%= f.fields_for :days do |field| %>
+               <% Date::DAYNAMES.each do |day| %>
+                 <%= field.input "", as: :boolean, input_html: { data: { title: turkish_day(day) }, name: "frequent_posting[days][#{day}]"  }  %>
+               <% end %>
+             <% end %>
+           </div>
+             <%= f.input :last_date, label: "Son Ilan Tarihi", as: :string, default: Date.today + 2.weeks, input_html: { class: "frequent-datepicker" } %>
+             <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
+             <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
+             <%= f.input :driving, label: "Rolunuz", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
+             <%= f.input :smoking, label: "Sigara", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
+             <%= f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)" %>
+             <%= f.submit "Ilan Ver", class: "btn btn-primary posting-submit btn-google-plus" %>            
+           <% end %>
+         </div>
+       </div><!--frequent-posting-->
       <div id="standard-posting">
-        <p><%= link_to "Günlük İlan", "#", class: "btn btn-primary btn-large posting-button" %></p>
+        <p><%= link_to "Günlük İlan", "#", class: "btn btn-primary btn-large posting-button btn-renren" %></p>
         <div class="items hidden">
           <%= simple_form_for @posting, html: { class: "form-horizontal" } do |f| %>
             <%= f.error_notification %>
@@ -16,36 +42,10 @@
             <%= f.input :driving, label: "Rolunuz", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
             <%= f.input :smoking, label: "Sigara", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
             <%= f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)" %>
-            <%= f.submit "Ilan Ver", class: "btn btn-primary posting-submit", style: "width: 280px;" %>
+            <%= f.submit "Ilan Ver", class: "btn btn-primary posting-submit btn-google-plus" %>
           <% end %>
         </div>
-      </div>
-      <div id="frequent-posting"><em></em>
-        <p><%= link_to "Rutin İlan", "#", class: "btn btn-primary btn-large posting-button", style: "background: orange" %></p>
-        <div class="items hidden">
-          <%= simple_form_for @frequent_posting, html: { class: "form-horizontal" } do |f| %>
-            <%= f.error_notification %>
-   			  <div class = "place-input">  			 
-              <%= f.input :from_address, label: false, placeholder: "Nereden", id: "frequent_posting_from_address", class: "address-input", input_html: { onblur: "calcRouteForFrequent()" } %>
-              <%= f.input :to_address, label: false, placeholder: "Nereye", id: "frequent_posting_to_address", class: "address-input", input_html: { onblur: "calcRouteForFrequent()" } %>
-			    </div><!--place-input-->
-          <div id="frequency-days">
-            <%= f.fields_for :days do |field| %>
-              <% Date::DAYNAMES.each do |day| %>
-                <%= field.input "", as: :boolean, input_html: { data: { title: turkish_day(day) }, name: "frequent_posting[days][#{day}]"  }  %>
-              <% end %>
-            <% end %>
-          </div>
-            <%= f.input :last_date, label: "Son Ilan Tarihi", as: :string, default: Date.today + 2.weeks, input_html: { class: "frequent-datepicker" } %>
-            <%= f.input :starting_time, label: "Çıkış Zamanı", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
-            <%= f.input :ending_time, label: "Varış Zamanı", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
-            <%= f.input :driving, label: "Rolunuz", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
-            <%= f.input :smoking, label: "Sigara", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
-            <%= f.input :comments, label: "Ekstra", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)" %>
-            <%= f.submit "Ilan Ver", class: "btn btn-primary posting-submit", style: "width: 280px;" %>            
-          <% end %>
-        </div>
-      </div>
+      </div><!--standard-posting-->
     </div>
     <div class="span10" id = "map-container">
       <div class="pull-right" id="map"></div>
