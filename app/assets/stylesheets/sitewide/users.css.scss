@@ -80,8 +80,14 @@
 {
 	@include background-box;
 	
-	h2 {
+	h2 
+	{
 		color: black;
+	}
+	
+	h4
+	{
+		text-align:center;
 	}
 	
 	.form-actions 
