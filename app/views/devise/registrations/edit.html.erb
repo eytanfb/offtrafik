@@ -19,14 +19,14 @@
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
         
-        <h4>Sifre Degistir</h4>
-        <%= f.input :password, required: false, label: "Yeni Sifre", autocomplete: "off", hint: "degistirmek istemiyorsaniz bos birakin" %>
-        <%= f.input :password_confirmation, required: false, label: "Sifre Onaylama" %>
-        <%= f.input :current_password, label: "Guncel Sifre", hint: "degisiklikleri onaylamamiz icin sifrenize ihtiyacimiz var" %>
+        <h4>Şifre Değiştir</h4>
+        <%= f.input :password, required: false, label: "Yeni Şifre", autocomplete: "off", hint: "degistirmek istemiyorsaniz bos birakin" %>
+        <%= f.input :password_confirmation, required: false, label: "Şifre Onaylama" %>
+        <%= f.input :current_password, label: "Güncel Şifre", hint: "değişiklikleri onaylamamiz için şifrenize ihtiyacımız var" %>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Guncelle" %>
+        <%= f.button :submit, "Güncelle" %>
       </div>
     <% end %>
 
@@ -34,7 +34,7 @@
 
     <!-- <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p> -->
 
-    <%= link_to "Geri", :back, class: "btn btn-primary", style: "color: white" %>
+    <%= link_to "Geri", :back, class: "btn btn-primary back-button", style: "color: white" %>
   </section>
 </div>
 

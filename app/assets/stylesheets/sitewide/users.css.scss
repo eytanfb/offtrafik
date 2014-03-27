@@ -76,14 +76,24 @@
 	}
 }
 
-#edit-user {
+#edit-user 
+{
 	@include background-box;
 	
 	h2 {
 		color: black;
 	}
 	
-	.form-actions {
+	.form-actions 
+	{
 		background: none;
+		margin-left:44.8%;
+		padding:0px;
+	}
+	
+	.back-button
+	{
+		margin-left:47%;
+		margin-bottom:6px;
 	}
 }
