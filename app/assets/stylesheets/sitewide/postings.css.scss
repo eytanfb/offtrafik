@@ -401,12 +401,13 @@ ol.postings {
 		margin-top: 10px;
 	}
 	
-	#posting-image-container {
+	#posting-image-container 
+	{
 		width: 150px;
 		height: 150px;
 		border-radius: 50%;
 		overflow: hidden;
-		margin-top: 10px;
+		margin-top: 18px;
 		
 		#posting-image {
 			height: inherit;
