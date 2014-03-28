@@ -32,7 +32,7 @@
       </div>
       <% if @user == current_user %>
       <div class="span6">
-        <h3 id="past-journeys-title">Gecmis Yolculuklar</h3>
+        <h3 id="past-journeys-title">Geçmiş Yolculuklar</h3>
         <div id="past-journeys">                           
           <% @agreed_journeys.each do |journey| %>
             <%= render "agreed_journey_card", journey: journey %>
