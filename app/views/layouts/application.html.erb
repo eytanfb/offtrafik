@@ -13,9 +13,9 @@
 	    <%= render 'layouts/header' %>
 		 <div id = "second-wrapper">
 		    <% unless current_page?(new_posting_path) %>
-		    <div class="container float-wrapper">      
+		    <div class="container">      
 		    <% else %>
-		    <div class = "float-wrapper">
+		    <div>
 		    <% end %>
 		      <% flash.each do |key, value| %>
 		        <div class="alert-<%= key %> alert">
