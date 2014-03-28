@@ -8,8 +8,11 @@
 }
 
 
-.details-of-agreed-journey {
+.details-of-agreed-journey 
+{
 	@include background-box;
+	padding: 5px;
+	margin-bottom: 5px;
 	
 	.green {
 		color: #27AE60;
