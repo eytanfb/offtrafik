@@ -36,3 +36,4 @@ extra_stuff.txt
 *.csv
 *.sql
 .DS_Store#
+*.swp

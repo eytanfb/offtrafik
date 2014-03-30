@@ -11,7 +11,7 @@ class PostingMailer < ActionMailer::Base
     to_address = Posting.format(@posting.to_address)
     from_address = Posting.format(@posting.from_address)
     @text = text
-    @to_from = "#{to_address} - #{from_address}"
+    @to_from = "#{from_address} - #{to_address}"
     
     mail to: @owner.email, subject: "İlanina Başvuran Var!"
   end
@@ -19,7 +19,7 @@ class PostingMailer < ActionMailer::Base
   def new_one_time_posting_given(owner_id, posting_id)
     @owner = User.find owner_id
     @posting = Posting.find posting_id
-    @to_from = "#{Posting.format(@posting.to_address)} - #{Posting.format(@posting.from_address)}"
+    @to_from = "#{Posting.format(@posting.from_address)} - #{Posting.format(@posting.to_address)}"
     
     mail to: @owner.email, subject: "İlanın kaydedildi"
   end
