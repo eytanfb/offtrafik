@@ -29,7 +29,39 @@ header
 /* Navbar */
 .nav.pull-right
 {
-    height: 40px;
+	height: 40px;
+	font-family:'Quando';
+	font-size:1.44em;
+	font-weight:300;
+		
+	li
+	{		
+		a
+		{
+			color:white;
+			
+			&:hover
+			{
+				color:#999999;
+			}
+		}
+	}
+	
+	.dropdown-menu
+	{
+		li
+		{
+			a
+			{
+				color:#536878;
+		
+				&:hover
+				{
+					color:white;
+				}
+			}
+		}
+	}
 }
 
 .user-search

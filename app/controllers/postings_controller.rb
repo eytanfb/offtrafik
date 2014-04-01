@@ -118,7 +118,7 @@ class PostingsController < ApplicationController
       flash[:success] = "Yanıt isteğiniz yollandı"
       redirect_to find_posting_path
     else
-      flash[:warning] = "Yanit isteginiz olustrulurken bir sorun cikti. Lutfen tekrar deneyiniz "
+      flash[:warning] = "Yanıt isteğiniz oluştrulurken bir sorun çıktı. Lütfen tekrar deneyiniz."
     end
   end
   
