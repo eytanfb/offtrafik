@@ -29,7 +29,39 @@ header
 /* Navbar */
 .nav.pull-right
 {
-    height: 40px;
+	height: 40px;
+	font-family:'Quando';
+	font-size:1.44em;
+	letter-spacing:1px;
+		
+	li
+	{		
+		a
+		{
+			color:white;
+			
+			&:hover
+			{
+				color:#999999;
+			}
+		}
+	}
+	
+	.dropdown-menu
+	{
+		li
+		{
+			a
+			{
+				color:#536878;
+		
+				&:hover
+				{
+					color:white;
+				}
+			}
+		}
+	}
 }
 
 .user-search
@@ -55,25 +87,32 @@ li.nav-user-search
 	position: fixed;
 }
 
-#notification-box 
-{
-	border-radius:100%;
-	border: 1px solid white;
-	box-shadow: 1px 1px 5px rgba(0,0,0,.75);
-	box-shadow: 1px 1px 5px rgba(0,0,0,.75);
-	display: block;
-	background: #C91F0D;
-	background-repeat: repeat-x;
-	font-size: 9px;
-	color: white;
-	padding: 3px 4px;
-	line-height: 90%;
-	text-shadow: none;
-	margin-top: 10px;
-}
 
 #header-notifications 
-{	
+{
+	#notification-box 
+	{
+		font-family:'Quando';
+		font-size:0.65em;
+		width:5px;
+		height:5px;
+		padding:8px 8px 8px 8px;
+		border-radius:50%;
+		border: 1px solid white;
+		box-shadow: 1px 1px 5px rgba(0,0,0,.75);
+		box-shadow: 1px 1px 5px rgba(0,0,0,.75);
+		display: block;
+		background: #C91F0D;
+		color: white;
+		line-height: 62%;
+		margin-top: 6px;
+	}
+	
+	.clickable
+	{
+		padding-left:4px;
+	}
+	
 	li 
 	{
 		.notification-element 
