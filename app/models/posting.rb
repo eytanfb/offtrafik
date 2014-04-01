@@ -44,7 +44,13 @@ class Posting < ActiveRecord::Base
   end
   
   def active?
-    self.date >= Date.today
+    active = false
+    if self.date > Date.today
+      active = true
+    else
+      active = true if self.date == Date.today && self.starting_time > Time.now.change(month: 1, day: 1, year: 2000)  
+    end
+    active
   end
   
   def formatted_date
