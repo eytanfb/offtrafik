@@ -33,7 +33,7 @@ class Posting < ActiveRecord::Base
   default_scope order: 'postings.starting_time ASC'
   
   scope :live_postings
-  scope :past_postings,       lambda { where("date < ?", Date.today) }
+  scope :past_postings
   scope :with_from_address,   lambda { |value| where("from_address ILIKE ? and from_address ILIKE ?", "%#{Posting.format(value)}%", "%#{(value.split & (DISTRICTS + NEIGHBORHOODS.collect(&:last))).first}%") if value }
   scope :with_to_address,     lambda { |value| where("to_address ILIKE ? and to_address ILIKE ?", "%#{Posting.format(value)}%", "%#{(value.split & (DISTRICTS + NEIGHBORHOODS.collect(&:last))).first}%") if value }
   scope :with_driving,        lambda { |value| where("driving LIKE ?", "%#{value}%") if value }
@@ -43,6 +43,10 @@ class Posting < ActiveRecord::Base
     where("date > ? or (date = ? and starting_time >= ?)", Date.today, Date.today, Time.now.change(month: 1, day: 1, year: 2000))
   end  
 
+  def self.past_postings
+    where("date < ? or (date = ? and starting_time <= ?)", Date.today, Date.today, Time.now.change(month: 1, day: 1, year: 2000))
+  end
+  
   def smoking?
     self.smoking ? 'Evet' : 'Hayır'
   end
