@@ -21,5 +21,16 @@ class StaticPagesController < ApplicationController
   def welcome
     render layout: false
   end
+  
+  def admin
+    if current_user.email == "lsaduk@ku.edu.tr" || current_user.email == "eyanjel@ku.edu.tr"
+      @user_count = User.count
+      @posting_count = Posting.count
+      @live_posting_count = Posting.live_postings.count
+    else
+      flash[:notice] = "Bu sayfaya erişiminiz yoktur."
+      redirect_to find_posting_path 
+    end
+  end
     
 end
