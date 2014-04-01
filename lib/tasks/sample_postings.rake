@@ -9,8 +9,8 @@ namespace :db do
       from_address = ['Beşiktaş, Istanbul', "Beyoğlu, Istanbul", "Sarıyer, Istanbul"]
       to_address = ['Koc Universitesi, Istanbul', "Pendik, Istanbul", "Bakırköy, Istanbul"]
       date = Date.today + 1.week
-      starting_time = Time.now
-      ending_time = Time.now + rand(30...60).minutes
+      starting_time = Time.now + rand(30...60).minutes
+      ending_time = Time.now + rand(90...120).minutes
       driving = ["Sürücü", "Yolcu", "Taksi"]
       users.each { |user| user.postings.create!(from_address: from_address.sample, to_address: to_address.sample, date: date, 
         starting_time: starting_time, ending_time: ending_time, smoking: true, driving: driving.sample) }

@@ -16,7 +16,6 @@
 #  from_address  :string(255)
 #  to_address    :string(255)
 #
-
 #!/bin/env ruby
 class Posting < ActiveRecord::Base
   attr_accessible :date, :ending_time, :from_address, :starting_time, :to_address, :comments, :smoking, :driving
@@ -31,6 +30,7 @@ class Posting < ActiveRecord::Base
   validate :ending_time_is_later_than_starting_time?
   
   default_scope order: 'postings.date ASC'
+  default_scope order: 'postings.starting_time ASC'
   
   scope :live_postings,       lambda { where("date >= ?", Date.today) }
   scope :past_postings,       lambda { where("date < ?", Date.today) }
