@@ -37,3 +37,4 @@ extra_stuff.txt
 *.sql
 .DS_Store#
 *.swp
+*.swo
