@@ -7,11 +7,11 @@ class UsersController < Devise::RegistrationsController
   before_filter :get_past_responses, except: [:enter_phone]
   
   def postings
-    @live_postings = current_user.postings.live_postings.includes(:user).paginate(page: params[:page], per_page: 6)
+    @live_postings = current_user.postings.live_postings.includes(:user).paginate(page: params[:page], per_page: 9)
   end
   
   def past_postings
-    @past_postings = current_user.postings.past_postings.includes(:user).paginate(page: params[:page], per_page: 6)
+    @past_postings = current_user.postings.past_postings.includes(:user).paginate(page: params[:page], per_page: 9)
   end
   
   def show
