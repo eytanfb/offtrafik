@@ -193,6 +193,17 @@ input[type="radio"], input[type="checkbox"]
  margin-right: 10px;
 }
 
+.user_remember_me label {
+  padding: 0px;
+}
+
+.user_agreed_to_terms_and_conditions label {
+  padding: 0px;
+}
+.inline-checkbox-customized {
+  margin-left: 0px !important;
+}
+
 /* users index */
 .users {
   list-style: none;

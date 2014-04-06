@@ -16,7 +16,7 @@
   
   <div id="terms_and_conditions">
     <br />
-    <%= f.input :agreed_to_terms_and_conditions, label: false, inline_label: "Offtrafik #{link_to 'Kullanım Koşullarını', terms_and_conditions_url} kabul ediyorum".html_safe, as: :boolean, required: true %>
+    <%= f.input :agreed_to_terms_and_conditions, label: false, inline_label: "Offtrafik #{link_to 'Kullanım Koşullarını', terms_and_conditions_url} kabul ediyorum".html_safe, as: :boolean, input_html: { class: "inline-checkbox-customized" }, required: true %>
   </div>
   
   <div class="form-actions">
