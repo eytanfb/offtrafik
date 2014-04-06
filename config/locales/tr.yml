@@ -49,3 +49,23 @@ tr:
   static_pages:
     welcome:
       tagline: "Hey Koçlu, yolculuk nereye?"
+      about_link: "OFFTRAFİK NEDİR?"
+      join_us_link: "BİZE KATIL"
+      user_greeting: "Hoşgeldin" 
+      enter_link: "Offtrafik'e Git"
+      login-form:
+        password: "Şifre" 
+        submit: "Giriş"
+      about:
+        title: "Offtrafik'e Hoşgeldin"
+        subtitle_part_one: "Koç üniversiteli öğrencilerle yolculuk paylaşabileceğin ve yeni insanlarla tanışabileceğin bir platform."
+        subtitle_part_two: "İster rutin, ister tek seferlik yolculuklarını KU’lularla paylaş; hem masrafları, hem çevre kirliliğini, hem de trafiği azalt."
+        featurette_one:
+          title: "KU Mailinle Üye Ol"
+          text: "Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl." 
+        featurette_two:
+          title: "İlan Ver/Ara"
+          text: "Offtrafik'te yolculuk ilanlarını oluştur ve ilan sahipleriyle iletişime geç." 
+        featurette_three:
+          title: "Paylaş"
+          text: "Yolculuklarını paylaşarak bu ulaşım ve çevre hareketinin kahramanlarından ol." 

@@ -52,3 +52,9 @@ en:
   static_pages:
     welcome:
       tagline: "Hey you, where are you off to?"
+      about_link: "WHAT IS OFFTRAFIK?"
+      join_us_link: "JOIN US"
+      user_greeting: "Welcome" 
+      login-form:
+        password: "Password" 
+        submit: "Submit"
