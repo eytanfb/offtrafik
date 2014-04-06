@@ -49,3 +49,6 @@ en:
             text:
               blank: "Yorum alanı boş"
               too_long: "Yorum 140 karakterden fazla olamaz"
+  static_pages:
+    welcome:
+      tagline: "Hey you, where are you off to?"

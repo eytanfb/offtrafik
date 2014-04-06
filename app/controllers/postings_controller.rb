@@ -14,11 +14,11 @@ class PostingsController < ApplicationController
   def create
     @posting = current_user.postings.new params[:posting]
     if @posting.save
-      flash[:success] = "Ilan verildi"
+      flash[:success] = "İlan verildi"
       PostingMailer.new_one_time_posting_given(current_user.id, @posting.id).deliver
       redirect_to share_posting_path(posting_id: @posting.id)
     else
-      flash[:error] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
+      flash[:error] = "İlan verirken bir sorun oluştu. Lütfen hataları kontrol edip tekrar deneyin."
       driving_options
       @frequent_posting = current_user.frequent_postings.new params[:frequent_posting]
       render 'new'
@@ -47,10 +47,10 @@ class PostingsController < ApplicationController
   def destroy
     @posting = Posting.find params[:id]
     if @posting.destroy
-      flash[:success] = "Ilan silinmiştir!"
+      flash[:success] = "İlan silinmiştir!"
       redirect_to current_user
     else
-      flash[:warning] = "Ilan silinememiştir. Lütfen tekrar deneyiniz."
+      flash[:warning] = "İlan silinememiştir. Lütfen tekrar deneyiniz."
       redirect_to @posting
     end
   end
@@ -82,7 +82,7 @@ class PostingsController < ApplicationController
      if postings_found.blank?
        postings_found = Posting.live_postings.with_from_address(from_address)
        postings_found = Posting.live_postings if postings_found.blank?
-       flash.now[:warning] = "Bulundugunuz yerden aradıgınız adrese ilan bulunamadı. Ama belki aşagıdakiler hoşunuza gider!"
+       flash.now[:warning] = "Bulunduğunuz yerden aradığınız adrese ilan bulunamadı. Ama belki aşagıdakiler hoşunuza gider!"
      end
     @postings = postings_found.paginate page: params[:page], per_page: 9, order: "date asc"
     @from_address = from_address
