@@ -25,15 +25,15 @@
   <nav class="row">
      <div id="logo"><a class="navbar-brand" href="#"><%= image_tag "offtrafik-no-background-logo.png" %></a></div>
      <ul id="nav">
-			<!-- <li><a href="#joinus"><i class="icon-envelope"></i> Bize Katıl</a></li>
-      <li><a href="#aboutus"><i class="icon-info-sign"></i> Offtrafik Nedir?</a></li>
-      <li><a href="#"><i class="icon-home"></i> Hoşgeldin</a></li> -->
-        <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: false, html: { id: "header-login", class: "form-inline", novalidate: false }, method: :post do |f| %>
+      <% unless user_signed_in? %> 
+        <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: false, html: { id: "welcome-login", class: "form-inline", novalidate: false }, method: :post do |f| %>
           <%= f.input_field :email, label: false, placeholder: "Email", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "Lütfen emailinizi girin" %>
           <%= f.input_field :password, label: false, placeholder: "Şifre", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalıdır" %>
           <%= f.button :submit, "Giriş", id: "login-submit" %>
         <% end %>
-        <!-- <%= link_to "Bize Katıl", new_user_registration_path, class: "header-sign-up-button" %></div> -->
+      <% else %>
+       <span class="pull-right" id="no-header-logged-in-user">Hoşgeldin <%= link_to current_user.name, current_user %></span>
+      <% end %>
      </ul>
   </nav>
 </div>
@@ -41,12 +41,16 @@
 <section id="header" style="background-repeat:no-repeat no-repeat;">
     <div class="row">
     	<div style="height: 50px">
+      <% unless user_signed_in? %> 
         <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: false, html: { id: "welcome-login", class: "form-inline", novalidate: false }, method: :post do |f| %>
           <%= f.input_field :email, label: false, placeholder: "Email", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "Lütfen emailinizi girin" %>
           <%= f.input_field :password, label: false, placeholder: "Şifre", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalıdır" %>
           <%= f.button :submit, "Giriş", id: "login-submit" %>
         <% end %>
-    	</div>
+    	<% else %>
+       <span class="pull-right" id="header-logged-in-user">Hoşgeldin <%= link_to current_user.name, current_user %></span>
+      <% end %>
+      </div>
         <div class="twelve columns centered" style="margin-top: 0px">
 	          <div class="fade1 font-titi-semib" style="font-size: 110px;"><%= image_tag "offtrafik-no-background-logo.png" %></div>     
 	          <h2 class="fade2">Hey Koçlu, yolculuk nereye?</h2>
