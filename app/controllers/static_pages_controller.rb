@@ -27,6 +27,7 @@ class StaticPagesController < ApplicationController
       @user_count = User.count
       @posting_count = Posting.count
       @live_posting_count = Posting.live_postings.count
+      @number_of_users_posted = Posting.pluck(:user_id).uniq.count
     else
       flash[:notice] = "Bu sayfaya erişiminiz yoktur."
       redirect_to find_posting_path 
