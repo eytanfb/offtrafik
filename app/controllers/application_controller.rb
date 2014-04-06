@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :notifications
   
+  before_filter :set_locale
+
   def notifications
     @notifications = PostingResponse.future.includes(:posting).where(posting_id: current_user.postings).limit(3).select { |response| response.accepted.nil? } if user_signed_in?
   end
@@ -24,5 +26,19 @@ class ApplicationController < ActionController::Base
       else
         find_posting_path
       end
+  end
+
+  private
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present?
+    # current_user.locale
+    # request.subdomain
+    # request.env["HTTP_ACCEPT_LANGUAGE"]
+    # request.remote_ip
+  end
+
+  def default_url_options(options = {})
+    {locale: I18n.locale}
   end
 end
