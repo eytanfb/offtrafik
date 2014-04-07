@@ -35,6 +35,7 @@ Offtrafik::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   config.serve_static_assets = true
+  config.action_controller.asset_host = "http://s3.amazonaws.com/#{ENV['S3_BUCKET_NAME']}/"
   
   # Mailer settings
   
