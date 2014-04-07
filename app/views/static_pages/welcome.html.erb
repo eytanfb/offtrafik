@@ -32,7 +32,7 @@
           <%= f.button :submit, "Giriş", id: "login-submit" %>
         <% end %>
       <% else %>
-       <span class="pull-right" id="no-header-logged-in-user">Hoşgeldin <%= link_to current_user.name, current_user %></span>
+       <span class="pull-right" id="no-header-logged-in-user">Hoşgeldin <%= current_user.name %> <span><%= link_to "Offtrafik'e Git", find_posting_path %></span></span>
       <% end %>
      </ul>
   </nav>
@@ -48,7 +48,7 @@
           <%= f.button :submit, "Giriş", id: "login-submit" %>
         <% end %>
     	<% else %>
-       <span class="pull-right" id="header-logged-in-user">Hoşgeldin <%= link_to current_user.name, current_user %></span>
+       <span class="pull-right" id="header-logged-in-user">Hoşgeldin <%= current_user.name %> <span style="opacity: 1.0"><%= link_to "Offtrafik'e Git", find_posting_path %></span></span>
       <% end %>
       </div>
         <div class="twelve columns centered" style="margin-top: 0px">

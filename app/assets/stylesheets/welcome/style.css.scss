@@ -729,14 +729,31 @@ input {
   color: white;
   font-size: 1.0em;
   margin-top: 10px;
+  opacity: 1.0;
 }
 
 #no-header-logged-in-user {
   color: white;
   font-size: 1.0em;
+  opacity: 1.0;
 }
 
 #no-header-logged-in-user a {
   color: white;
+  font-size: 1.0em;
+}
+
+#header-logged-in-user span {
+  margin-left: 10px; 
+  font-size: 1.0em;
+}
+
+#no-header-logged-in-user span {
+  margin-left: 10px;
+  font-size: 1.0em;
+}
+
+#header-logged-in-user span a {
+  color: #006633;
   font-size: 1.0em;
 }
