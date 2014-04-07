@@ -23,7 +23,7 @@
         <% end %>
       </div>
     <div class="row">
-      <div class="span6">
+      <div class="span5">
         <h3>Yorumlar</h3>
         <% if @user != current_user %>
           <%= link_to "Yorum Yaz", new_comment_path(is_about: @user.id), class: "btn btn-small", id: "write_comment" %>
