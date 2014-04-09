@@ -69,3 +69,17 @@ tr:
         featurette_three:
           title: "Paylaş"
           text: "Yolculuklarını paylaşarak bu ulaşım ve çevre hareketinin kahramanlarından ol." 
+      aboutus:
+        title: "Yolculuk Paylaş" 
+        text_part_one: "ile ister yolcu, ister sürücü olarak ilanlarını oluşturabilir, başka ilanlara başvurabilirsin. "
+        text_part_two: "Havaalanına ya da içmeye mi gideceksin? Arabaları evde bırakmakta fayda var, o zaman da taksini paylaş!"
+      control:
+        title: "Yol Arkadaşlarını Seç" 
+        text: "Yolculuklarını paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın."
+      joinus_html: "Sen de gel bize katıl ve
+			<div class='font-titi-semib'> Offtrafik'le</div> 
+			neler yapabileceğini gör!"
+      joinus_button: "Bize Katıl"
+      joinus_link_at_bottom: "Bize Katıl"
+      about_link_at_bottom: "Offtrafik Nedir?"
+      welcome_link_at_bottom: "Hoşgeldin"

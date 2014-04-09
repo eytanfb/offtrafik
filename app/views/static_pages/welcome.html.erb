@@ -103,16 +103,9 @@
 <section id="aboutus" class="cbp-so-section work1 padding-top-80">
 	<div class="row">
 		<div class="five columns cbp-so-side cbp-so-side-left">
-		
-			
-			<h3>Yolculuk Paylaş</h3>
-			<p><span class="font-titi-semib" style="font-size:24px">Offtrafik</span> ile ister yolcu, ister sürücü olarak ilanlarını oluşturabilir, başka ilanlara başvurabilirsin. <br/>Havaalanına ya da içmeye mi gideceksin? Arabaları evde bırakmakta fayda var, o zaman da taksini paylaş!</p> 
-      <!-- yolculuk paylaşabilirsin. İster sürücü olarak ilanını ver, ister yolcu olarak... Hatta Offtrafik'le taksi paylaşmak için bile arama yapabilirsin. İlan sahipleriyle iletişime geçip yolculuk gerçekleştir, bazen masraflardan kıs, bazen yeni insanlarla tanış.</p> -->
-      <!-- <h3>Yolculuk Paylaş</h3>
-      <p><span class="font-titi-semib" style="font-size:24px">Offtrafik</span> ile yolculuk paylaşabilirsin. İster sürücü olarak ilanını ver, ister yolcu olarak... Hatta Offtrafik'le taksi paylaşmak için bile arama yapabilirsin. İlan sahipleriyle iletişime geçip yolculuk gerçekleştir, bazen masraflardan kıs, bazen yeni insanlarla tanış.</p> -->
-		
+			<h3><%= t "static_pages.welcome.aboutus.title"  %></h3>
+			<p><span class="font-titi-semib" style="font-size:24px">Offtrafik</span> <%= t "static_pages.welcome.aboutus.text_part_one"  %><br/><%= t "static_pages.welcome.aboutus.text_part_two"  %></p> 
 		</div>
-	
 		<div class="seven columns cbp-so-side cbp-so-side-right">
       <%= image_tag "welcome/welcome-page-taxi-posting.png", class: "about-us-img", id: "left" %>
       <%= image_tag "welcome/welcome-page-driver-posting.png", class: "about-us-img", id: "center" %>
@@ -124,15 +117,9 @@
 <section id="control" class="cbp-so-section work2 padding-top-80">
 	<div class="row">
 		<div class="five columns cbp-so-side cbp-so-side-right" style="float:right;">
-		
-      <h3>Yol Arkadaşlarını Seç</h3>
-        <p><span class="font-titi-semib" style="font-size:24px">Yolculuklarını</span> paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın.</p>
-			<!-- <h3>Kontrol Tamamen Senin Elinde</h3>
-      <h4>Yolculuklarını kiminle yapmak istediğine sen karar ver</h4>
-      <p><span class="font-titi-semib" style="font-size:24px">Offtrafik</span> yolculuk yaparken kiminle gidmek istediğinin kontrolünü tamamen sana bırakıyor. İlanına gelen talepler olursa biz seni hem email ile hem de site üzerinden uyaracağız, sana taleplere cevap vermek kalıcak. İşte bu kadar basit!</p> -->
-						
+      <h3><%= t "static_pages.welcome.control.title" %></h3>
+        <p><%= t "static_pages.welcome.control.text" %></p>
 		</div>		
-		
 		<div class="seven columns cbp-so-side-img cbp-so-side-left" style="margin-top: 50px" >	
       <%= image_tag "welcome/welcome-page-control.png", width: "100%", style: "height: 300px;" %>      
 		</div>	
@@ -143,9 +130,7 @@
 <section id="joinus">
 	<div class="row">
 		<div class="eight columns centered">	
-			<h2>Sen de gel bize katıl ve
-			<div class="font-titi-semib"> Offtrafik'le</div> 
-			neler yapabileceğini gör!</h2>
+			<h2><%= t "static_pages.welcome.joinus_html" %></h2>
 		</div>
 	</div>
 </section>
@@ -154,7 +139,7 @@
 	<div class="row centered"> 
 		<div class="seven columns centered">				
       <div class="twelve columns centered">
-        <%= link_to "Bize Katıl", new_user_registration_path, class: "header-sign-up-button" %></div>
+        <%= link_to "#{t 'static_pages.welcome.joinus_button'}", new_user_registration_path, class: "header-sign-up-button" %></div>
 		</div>
 	</div>
 </section>
@@ -171,9 +156,9 @@
 
 		<div class="five columns text-right social">
 			<ul id="navfirst">
-        <li><%= link_to "<i class='icon-envelope'></i> Bize Katıl".html_safe, new_user_registration_path %></li>				
-				<li><a href="#aboutus"><i class="icon-info-sign"></i> Offtrafik Nedir?</a></li>
-				<li><a href="#"><i class="icon-home"></i> Hoşgeldin</a></li>		 
+        <li><%= link_to "<i class='icon-envelope'></i> #{t 'static_pages.welcome.joinus_link_at_bottom'}".html_safe, new_user_registration_path %></li>				
+				<li><a href="#aboutus"><i class="icon-info-sign"></i> <%= t 'static_pages.welcome.about_link_at_bottom' %></a></li>
+				<li><a href="#"><i class="icon-home"></i> <%= t 'static_pages.welcome.welcome_link_at_bottom' %></a></li>
 			</ul>
 		</div>
 	</div>
