@@ -38,3 +38,4 @@ extra_stuff.txt
 .DS_Store#
 *.swp
 *.swo
+rails_best_practices_output.html
