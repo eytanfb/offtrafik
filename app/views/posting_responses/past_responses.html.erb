@@ -34,30 +34,3 @@
     </ol>    
   </div>
 </div>
-
-<!-- <table>
-  <tr>
-    <td id="driver">Surucu</td>
-    <td id="rider">Yolcu</td>
-    <td id="date-time">Tarih</td>
-    <td id="journey">Yolculuk</td>
-    <td id="have-met">Bulustunuz mu?</td>
-  </tr>
-  <tbody id="posting-responses">
-    <% @postings_with_past_responses.each do |response| %>
-      <tr id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-<%= response.posting.id %>">
-        <td id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-driver-<%= response.posting.id %>"><%= response.posting.user.name %></td>
-        <td id="<%= response.responder.name.parameterize %>-<%= response.responder.name.parameterize %>-rider-<%= response.posting.id %>"><%= response.responder.name %></td>
-        <td><%= "#{response.posting.date} #{response.posting.starting_time.strftime("%H:%M")} - #{response.posting.ending_time.strftime("%H:%M")}" %></td>
-        <td><%= "#{response.posting.from_address} - #{response.posting.to_address}" %></td>
-        <% if (current_user == response.posting.user && !response.poster_agreed.nil? && response.poster_agreed) || (current_user == response.responder && !response.responder_agreed.nil? && response.responder_agreed) %>
-          <td class="responder-true">Bulustuk</td>
-        <% elsif (current_user == response.posting.user && !response.poster_agreed.nil? && !response.poster_agreed) || (current_user == response.responder && !response.responder_agreed.nil? && !response.responder_agreed) %>
-          <td class="responder-false">Bulusamadik</td>
-        <% else %>
-          <td id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-answer-<%= response.posting.id %>"></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table> -->
