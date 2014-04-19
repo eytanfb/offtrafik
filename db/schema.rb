@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140224110652) do
+ActiveRecord::Schema.define(:version => 20140419212834) do
 
   create_table "comments", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20140224110652) do
     t.integer  "is_about"
     t.integer  "user_id"
   end
+
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "districts", :force => true do |t|
     t.string   "name"
@@ -35,12 +37,16 @@ ActiveRecord::Schema.define(:version => 20140224110652) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "favorites", ["user_id"], :name => "index_favorites_on_user_id"
+
   create_table "frequent_days", :force => true do |t|
     t.string   "day"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "frequent_posting_id"
   end
+
+  add_index "frequent_days", ["frequent_posting_id"], :name => "index_frequent_days_on_frequent_posting_id"
 
   create_table "frequent_postings", :force => true do |t|
     t.date     "last_date"
@@ -56,12 +62,16 @@ ActiveRecord::Schema.define(:version => 20140224110652) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "frequent_postings", ["user_id"], :name => "index_frequent_postings_on_user_id"
+
   create_table "neighborhoods", :force => true do |t|
     t.integer  "district_id"
     t.string   "name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "neighborhoods", ["district_id"], :name => "index_neighborhoods_on_district_id"
 
   create_table "posting_responses", :force => true do |t|
     t.integer  "responder_id"
@@ -72,6 +82,8 @@ ActiveRecord::Schema.define(:version => 20140224110652) do
     t.boolean  "poster_agreed"
     t.boolean  "responder_agreed"
   end
+
+  add_index "posting_responses", ["posting_id"], :name => "index_posting_responses_on_posting_id"
 
   create_table "postings", :force => true do |t|
     t.integer  "user_id"
@@ -86,6 +98,8 @@ ActiveRecord::Schema.define(:version => 20140224110652) do
     t.string   "from_address"
     t.string   "to_address"
   end
+
+  add_index "postings", ["user_id"], :name => "index_postings_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                          :default => "", :null => false
