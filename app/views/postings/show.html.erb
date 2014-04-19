@@ -5,7 +5,7 @@
       <div id="show-map" style="margin-top:20px"></div>
     </div>
     <div class="span7 row" id="posting-details" onload="calcRouteForShow()">
-      <%= render :partial => 'posting_details_card', locals: { posting: @posting } %>
+      <%= render 'posting_details_card', posting: @posting %>
       <div class="span6 center">
         <% if @posting.active?  %>
           <% if @posting.user_id != current_user.id %>

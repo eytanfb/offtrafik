@@ -1,6 +1,6 @@
 <div id="posting-find">
   <div id="filter-postings">
-    <%= render :partial => 'filter_postings', locals: { posting: posting, driving_options: driving_options } %>
+    <%= render 'filter_postings', posting: posting, driving_options: driving_options %>
   </div>
   <% if postings.present? %>
     <div id="show-results">
