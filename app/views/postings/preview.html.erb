@@ -13,7 +13,7 @@
       <p><span class='detail'>Varış Zamanı:</span> <span class='answer'><%=@posting.ending_time.to_s(:time) %></span></p>
       <p><span class='detail'>Sigara:</span> <span class='answer'><%= @posting.smoking? %></span></p>
       <p><span class='detail'>İhtiyaç:</span> <span class='answer'><%= @posting.driving %></span></p>
-      <% if @posting.comments.present? %>
+      <% if @posting.comments? %>
         <p><span class='detail'>Ekstra:</span> <span class='answer'><%= @posting.comments %></span></p>
       <% end %>
     </div>

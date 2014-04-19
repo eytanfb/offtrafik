@@ -28,16 +28,16 @@ Offtrafik::Application.routes.draw do
   match '/share_posting', to: 'postings#share_posting'
   match '/all_postings', to: 'postings#all_postings'
 
-  resources :postings do
+  resources :postings, except: [:update, :index] do
     post 'respond', as: :respond
     get 'contact_posting_owner'
     get 'full', as: :full
     get 'preview', as: :preview
   end
   
-  resources :frequent_postings
-  resources :comments
-  resources :posting_responses do
+  resources :frequent_postings, only: [:create]
+  resources :comments, only: [:show, :new, :create]
+  resources :posting_responses, only: [] do
     post 'accept'
     get 'reject'
     get 'happened'

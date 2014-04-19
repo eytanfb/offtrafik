@@ -14,7 +14,7 @@
   <p id='to_address'><%= "<i class='fa fa-map-marker  fa-lg red'></i>  Nereye: #{Posting.format(posting.to_address)}".html_safe %></p>
   <p><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{l posting.date, format: :default}".html_safe %></p>
   <p><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{posting.starting_time.strftime("%H:%M")} - #{posting.ending_time.strftime("%H:%M")}".html_safe %></p>
-  <% if posting.comments.present? %>
+  <% if posting.comments? %>
     <h6>Notlar</h6>
     <p><%= posting.comments %></p>
   <% end %>
