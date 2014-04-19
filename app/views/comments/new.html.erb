@@ -1,9 +1,9 @@
 <div class="row">
-  <%= render partial: "shared/sidebar" %>
+  <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <section class="span8">
     <h3>
       Yeni Yorum
     </h3>
-    <%= render 'form' %>
+    <%= render 'form', comment: @comment, is_about: @is_about %>
   </section>
 </div>

@@ -1,5 +1,5 @@
 <div class="row">
-  <%= render partial: 'shared/sidebar' %>
+  <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <section class="span8" id="edit-user">
     <h2>Profilinizi Guncelleyin</h2>
 

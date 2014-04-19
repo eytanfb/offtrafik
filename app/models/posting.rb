@@ -65,7 +65,6 @@ class Posting < ActiveRecord::Base
     self.user_id == user.id && self.posting_responses.count > 0 && self.date >= Date.today 
   end
 
-
   def formatted_date
     self.date.strftime("%b %d")
   end

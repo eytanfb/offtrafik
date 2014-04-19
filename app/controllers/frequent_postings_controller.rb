@@ -28,8 +28,6 @@ class FrequentPostingsController < ApplicationController
             current_user.postings.create!(date:today, to_address:to_address, from_address: from_address, starting_time: starting_time, ending_time: ending_time, driving: driving, smoking: smoking, comments: comments) 
             first_posting = current_user.postings.last
             first_posting_recorded = false
-            logger.debug "First posting #{first_posting} and first posting recorded: #{first_posting_recorded}"
-            logger.debug "Just to make sure: #{today}"
           end
         else
           current_user.postings.create!(date:today, to_address:to_address, from_address: from_address, starting_time: starting_time, ending_time: ending_time, driving: driving, smoking: smoking, comments: comments) if days.include? Date::DAYNAMES[today.wday]

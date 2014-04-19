@@ -1,10 +1,10 @@
 <div id="posting-find">
   <div id="filter-postings">
-    <%= render :partial => 'filter_postings' %>
+    <%= render :partial => 'filter_postings', locals: { posting: posting, driving_options: driving_options } %>
   </div>
-  <% if @postings.present? %>      
+  <% if postings.present? %>
     <div id="show-results">
-      <%= render 'shared/posting_table', posting_list: @postings, param_name: "page" %>
+      <%= render 'shared/posting_table', posting_list: postings, param_name: "page" %>
     </div>
   <% end %>
 </div>

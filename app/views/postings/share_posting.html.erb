@@ -1,6 +1,6 @@
 <div id="fb-root"></div>
 <div class="row">
-  <%= render partial: "shared/sidebar" %>
+  <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <div class="span4" id="posting-sharing">
 	<div id="twitter" style: "margin-top: 20px">
 		<div data-count="none">

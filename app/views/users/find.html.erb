@@ -1,6 +1,6 @@
 <%= provide(:title, "Kullanıcı Ara") %>
 <div class="row">
-  <%= render partial: "shared/sidebar" %>
+  <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <section>
     <h3>
       <%= = Kullanici Ara %>

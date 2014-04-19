@@ -1,5 +1,5 @@
 <div class="row">
-  <%= render partial: "shared/sidebar" %>
+  <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <section class="span12 postings-list">
     <h3>Geçmiş İlanlar</h3>
     <% if @past_postings %>

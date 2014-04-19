@@ -1,5 +1,5 @@
 <div class="row">
-  <%= render partial: "shared/sidebar" %>
+  <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <div class="span12 boxed" id="past-responses" style="margin-top: 25px">
     <h3>Bu kisilerle bulustunuz mu?</h3>
     
