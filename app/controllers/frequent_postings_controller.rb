@@ -41,13 +41,13 @@ class FrequentPostingsController < ApplicationController
         flash[:warning] = "Ilan verilemedi."
         driving_options
         @posting = current_user.postings.new params[:posting]
-        render template: "postings/new"
+        render "postings/new"
       end
     else
       flash[:warning] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
       driving_options
       @posting = current_user.postings.new params[:posting]
-      render template: "postings/new"
+      render "postings/new"
     end
   end
   
