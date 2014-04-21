@@ -21,6 +21,14 @@ gem 'jquery-raty-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :production, :staging do
+  #Memchached
+  gem 'memcachier'
+end
+
+#Performace
+gem 'dalli'
+
 
 group :development, :test do
   gem 'rspec-rails'

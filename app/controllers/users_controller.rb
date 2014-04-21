@@ -37,6 +37,7 @@ class UsersController < Devise::RegistrationsController
     end
 
     if successfully_updated
+      expire_fragment "users/#{current_user.id}/user_info"
       set_flash_message :notice, :updated
       sign_in @user, bypass: true
       redirect_to after_update_path_for @user

@@ -2,6 +2,7 @@
 <div class="row">
   <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <section id="user-show" style="margin-top: 25px">
+  <% cache "users/#{current_user.id}/show/top" do %>
     <div style="min-height: 100px; margin-bottom: 10px" id="profile-photo"><%= image_tag @user.avatar.url(:thumb), style: "float:left" %>
         <div style="float:left; margin-left: 5px">
           <h1 id="user-name-heading">
@@ -12,6 +13,7 @@
     <div id="map"></div>
     <section style="margin-left: 10px">
       <h4 style="display: none">Semt: <span id="neighborhood"><%= @user.neighborhood %></span></h4>
+  <% end %>
       <div class="row">
         <div class="span6">
           <h4>Yolculuk Puanım: <span id="user-trip-rating" data-score="<%= @user.trip_rating %>"></span></h4>

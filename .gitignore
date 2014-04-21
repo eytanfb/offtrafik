@@ -39,3 +39,4 @@ extra_stuff.txt
 *.swp
 *.swo
 rails_best_practices_output.html
+.powenv
