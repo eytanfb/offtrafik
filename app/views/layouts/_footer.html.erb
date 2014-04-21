@@ -1,34 +1,36 @@
-<footer>
-	<div class="wrapper cf">
-		<!-- widgets -->
-		<ul  class="widget-cols cf">
-				<div class="navcontainer">
-					<ul>            
-					</ul>
-				</div>
-		
-		</ul>
-		<!-- ENDS widgets -->	
-		
-		<!-- bottom -->
-		<div class="navcontainer">
-			<ul class="widget-col2 cf">
-  			<li class="cat-item"><a href="#" > &#169; 2014 Offtrafik.com</a></li><span class="tab"></span><span class="tab"></span>
-  			<li class="cat-item"><%= link_to 'Kullanıcı Kullanım Şartları', terms_and_conditions_path %></li><span class="tab"></span><span class="tab"></span>
-  			<li class="cat-item"><%= link_to 'Bize Ulaşın', "#", href: "mailto:leri@offtrafik.com" %></li><span class="tab"></span><span class="tab"></span>
-        <li class="cat-item"><%= link_to 'Hakkımızda', about_path %></li><span class="tab"></span>
-			</ul>
-			<div class="clearfix"></div><br />
-			<div class="clearfix"></div><br />
-	  </div>	
-		<!-- ENDS bottom -->
-		<a href="http://instagram.com/offtrafik?ref=badge" class="insta-button ig-b- ig-b-32"><img src="//badges.instagram.com/static/images/ig-badge-32.png" alt="Instagram" /></a>
-    <div class="fb-like" data-colorscheme="dark" data-href="http://facebook.com/offtrafik" data-show-count="true" data-action="like" data-width="250px" data-show-faces= "true" data-layout="standard" style="color: white">
+<% cache "footer" do %>
+  <footer>
+  	<div class="wrapper cf">
+  		<!-- widgets -->
+  		<ul  class="widget-cols cf">
+  				<div class="navcontainer">
+  					<ul>            
+  					</ul>
+  				</div>
+  		
+  		</ul>
+  		<!-- ENDS widgets -->	
+  		
+  		<!-- bottom -->
+  		<div class="navcontainer">
+  			<ul class="widget-col2 cf">
+    			<li class="cat-item"><a href="#" > &#169; 2014 Offtrafik.com</a></li><span class="tab"></span><span class="tab"></span>
+    			<li class="cat-item"><%= link_to 'Kullanıcı Kullanım Şartları', terms_and_conditions_path %></li><span class="tab"></span><span class="tab"></span>
+    			<li class="cat-item"><%= link_to 'Bize Ulaşın', "#", href: "mailto:leri@offtrafik.com" %></li><span class="tab"></span><span class="tab"></span>
+          <li class="cat-item"><%= link_to 'Hakkımızda', about_path %></li><span class="tab"></span>
+  			</ul>
+  			<div class="clearfix"></div><br />
+  			<div class="clearfix"></div><br />
+  	  </div>	
+  		<!-- ENDS bottom -->
+  		<a href="http://instagram.com/offtrafik?ref=badge" class="insta-button ig-b- ig-b-32"><img src="//badges.instagram.com/static/images/ig-badge-32.png" alt="Instagram" /></a>
+      <div class="fb-like" data-colorscheme="dark" data-href="http://facebook.com/offtrafik" data-show-count="true" data-action="like" data-width="250px" data-show-faces= "true" data-layout="standard" style="color: white">
+      </div>
+     <%= link_to "Follow @Offtrafik", "#", href: """https://twitter.com/offtrafik", class: "twitter-follow-button", data: { "show-count" =>       "false", lang: "en", size: "large" } %>
+      </div>
     </div>
-   <%= link_to "Follow @Offtrafik", "#", href: """https://twitter.com/offtrafik", class: "twitter-follow-button", data: { "show-count" =>       "false", lang: "en", size: "large" } %>
-    </div>
-  </div>
-</footer>
+  </footer>
+<% end %>
 <!-- <footer class="footer">
   <nav class = "group">
     <div class="span5">
