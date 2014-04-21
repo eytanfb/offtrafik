@@ -1,4 +1,4 @@
-<% cache posting do %>
+<% cache ["find", posting] do %>
   <div class="thumbnail clickable" href="<%= posting_path(posting) %>">
       <div class="posting-image">
         <%= image_tag "http://s3.amazonaws.com/#{ENV['S3_BUCKET_NAME']}/posting-#{posting.driving.downcase.parameterize}.png", class: "posting-image" %>
