@@ -1,12 +1,14 @@
-<div class="thumbnail clickable" href="<%= posting_path(posting) %>">
-    <div class="posting-image">
-      <%= image_tag "http://s3.amazonaws.com/#{ENV['S3_BUCKET_NAME']}/posting-#{posting.driving.downcase.parameterize}.png", class: "posting-image" %>
-      <div class="posting-date"><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{l posting.date, format: :short}".html_safe %></div>
-      <div class="posting-time"><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{posting.starting_time.strftime("%H:%M")}".html_safe %></div>
+<% cache posting do %>
+  <div class="thumbnail clickable" href="<%= posting_path(posting) %>">
+      <div class="posting-image">
+        <%= image_tag "http://s3.amazonaws.com/#{ENV['S3_BUCKET_NAME']}/posting-#{posting.driving.downcase.parameterize}.png", class: "posting-image" %>
+        <div class="posting-date"><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{l posting.date, format: :short}".html_safe %></div>
+        <div class="posting-time"><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{posting.starting_time.strftime("%H:%M")}".html_safe %></div>
+      </div>
+    <div class="posting-details">
+      <p><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{posting.user.name}".html_safe %></p>
+      <p><%= "<i class='fa fa-map-marker  fa-2x green' ></i>  Nereden: #{truncate(Posting.format(posting.from_address), length: 30)}".html_safe %></p>
+      <p><%= "<i class='fa fa-map-marker  fa-2x red'></i>  Nereye: #{truncate(Posting.format(posting.to_address), length: 30)}".html_safe %></p>
     </div>
-  <div class="posting-details">
-    <p><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{posting.user.name}".html_safe %></p>
-    <p><%= "<i class='fa fa-map-marker  fa-2x green' ></i>  Nereden: #{truncate(Posting.format(posting.from_address), length: 30)}".html_safe %></p>
-    <p><%= "<i class='fa fa-map-marker  fa-2x red'></i>  Nereye: #{truncate(Posting.format(posting.to_address), length: 30)}".html_safe %></p>
   </div>
-</div>
+<% end %>
