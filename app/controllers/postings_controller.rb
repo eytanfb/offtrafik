@@ -27,12 +27,11 @@ class PostingsController < ApplicationController
   
   def show
     @posting = Posting.find(params[:id])
-    if stale? @posting
+    fresh_when etag: [@posting, @posting.user]
       @user = User.find @posting.user_id
       to_address = Posting.format(@posting.to_address)
       from_address = Posting.format(@posting.from_address)
       @respondable = !@posting.posting_responses.includes(:user).collect(&:responder_id).include?(current_user.id)
-    end
   end
   
   def preview

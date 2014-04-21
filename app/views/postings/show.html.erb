@@ -1,7 +1,7 @@
 <div class="row">
   <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <section id="posting-show">
-    <% cache ["show", @posting] do %>
+    <% cache [@posting, "show", @posting.user] do %>
       <div class="span12">
         <div id="show-map" style="margin-top:20px"></div>
       </div>
