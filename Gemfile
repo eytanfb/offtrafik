@@ -29,7 +29,6 @@ end
 #Performace
 gem 'dalli'
 
-
 group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
