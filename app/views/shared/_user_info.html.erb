@@ -1,25 +1,25 @@
-<!-- <%= link_to (image_tag current_user.avatar.url(:thumb)), user_path(current_user), style: "float: left;
-margin-right: 10px; width: 67px; height: 100px" %> -->
-<h1>
-  <%= link_to current_user.name, user_path(current_user) %>
-</h1>
-<section id="user_info">
-  <p class="side-button-p">
-    <a class="btn i-button-first" href="<%= new_posting_path %>" style="color:white;">
-      <i class="fa fa-edit fa-lg"></i>
-      İlan Oluştur
-    </a>
-  </p>
-  <p class="side-button-p">
-    <a class="btn btn-primary btn-warning i-button-second" href="<%= find_posting_path %>">
-      <i class="fa fa-search fa-lg"></i>
-      İlan Ara
-    </a>
-  </p>
-  <p class="side-button-p">
-    <a class="btn side-button-list i-button-third" href="<%= user_postings_path(current_user) %>">
-      <i class="fa fa-list fa-lg"></i>
-      İlanlarim
-    </a>
-  </p>
-</section>
+<% cache "users/#{current_user.id}/user_info" do  %>
+  <h1>
+    <%= link_to current_user.name, user_path(current_user) %>
+  </h1>
+  <section id="user_info">
+    <p class="side-button-p">
+      <a class="btn i-button-first" href="<%= new_posting_path %>" style="color:white;">
+        <i class="fa fa-edit fa-lg"></i>
+        İlan Oluştur
+      </a>
+    </p>
+    <p class="side-button-p">
+      <a class="btn btn-primary btn-warning i-button-second" href="<%= find_posting_path %>">
+        <i class="fa fa-search fa-lg"></i>
+        İlan Ara
+      </a>
+    </p>
+    <p class="side-button-p">
+      <a class="btn side-button-list i-button-third" href="<%= user_postings_path(current_user) %>">
+        <i class="fa fa-list fa-lg"></i>
+        İlanlarim
+      </a>
+    </p>
+  </section>
+<% end %>
