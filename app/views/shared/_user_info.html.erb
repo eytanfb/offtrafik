@@ -1,4 +1,4 @@
-<% cache "users/#{current_user.id}/user_info" do  %>
+<% cache ["users", current_user, "user_info"] do  %>
   <h1>
     <%= link_to current_user.name, user_path(current_user) %>
   </h1>

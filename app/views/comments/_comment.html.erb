@@ -1,4 +1,4 @@
-<% cache comment do %>
+<% cache [comment, comment.user] do %>
   <li>
     <div class="row span4 comment clickable">
       <div class="span1 comment-user-photo"><%= link_to (image_tag comment.user.avatar.url(:square)), comment.user %></div>

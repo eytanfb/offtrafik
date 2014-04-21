@@ -1,4 +1,4 @@
-<% cache [posting, "details"] do %>
+<% cache [posting, "details", posting.user] do %>
   <div class="span3">
     <div id="posting-image-container" class="span3">
       <%= image_tag "posting-#{posting.driving.downcase.parameterize}.png", id: "posting-image" %>
