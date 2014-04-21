@@ -6,6 +6,8 @@
 	min-height:1200px;
 	height:auto;
 	overflow-y:hidden;
+	
+	border:solid 1px red;
 }
 
 .container
@@ -20,19 +22,27 @@
   }
 }
 
-#home-search-container {
+#home-search-container 
+{
 	margin-top: 25px;
-	#home-search {
+	
+	#home-search 
+	{
 		display: inline-block;
-		.control-group {
+	
+		.control-group 
+		{
 			float: left;
 			padding: 0px;
 		}
-		.find_from_home_from_address {
+		
+		.find_from_home_from_address 
+		{
 			display: none;
 		}
 	
-		#home-search-button {
+		#home-search-button 
+		{
 			margin-top: 0px;
 			height: 30px;
 			width: 40px;
