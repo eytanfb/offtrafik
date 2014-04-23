@@ -15,7 +15,7 @@
 class PostingResponse < ActiveRecord::Base
   attr_accessible :accepted, :responder_id
   
-  belongs_to :posting, :class_name => "Posting", :foreign_key => "posting_id"
+  belongs_to :posting, :class_name => "Posting", :foreign_key => "posting_id", touch: true
   belongs_to :user, :class_name => "User", :foreign_key => "responder_id"
   
   validates :posting_id, :responder_id, presence: true
