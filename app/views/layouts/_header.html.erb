@@ -18,7 +18,7 @@
                 <ul class="dropdown-menu">
                   <% notifications.each do |notification| %>
                     <li><em></em>
-                      <%= render 'header_notification', notification: notification %>
+                      <%= render partial: 'postings/header_notification', locals: { notification: notification } %>
                     </li>
                     <hr>
                   <% end %>
