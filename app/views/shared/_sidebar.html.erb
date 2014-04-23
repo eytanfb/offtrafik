@@ -10,7 +10,7 @@
       <hr />
     <% end %>
     <% notifications.each do |notification| %>
-        <%= render "sidebar_notification", notification: notification %>
+        <%= render partial: "postings/sidebar_notification", locals: { notification: notification } %>
       <hr/>
     <% end %>
   </section>
