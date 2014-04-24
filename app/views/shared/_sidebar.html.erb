@@ -3,12 +3,12 @@
     <%= render 'shared/user_info' %>
   </section>
   <section id="notifications">
-    <h2 style="color: black; margin-bottom: 10px">Bildirimler: <%= notifications.count %></h2>
-    <% if postings_with_past_responses.present? %>
+    <!-- <h2 style="color: black; margin-bottom: 10px">Bildirimler: <%= notifications.count %></h2> -->
+<!--    <% if postings_with_past_responses.present? %>
       <p id="waiting-past-responses"><%= link_to "Onaylamadiginiz gecmis yolculuklariniz var", user_past_responses_path(current_user)
  %></p>
       <hr />
-    <% end %>
+    <% end %>-->
     <% notifications.each do |notification| %>
         <%= render partial: "postings/sidebar_notification", locals: { notification: notification } %>
       <hr/>
