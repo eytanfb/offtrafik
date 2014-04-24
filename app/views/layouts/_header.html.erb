@@ -18,13 +18,7 @@
                 <ul class="dropdown-menu">
                   <% notifications.each do |notification| %>
                     <li><em></em>
-                      <div class="clickable" href="<%= posting_path(notification.posting) %>">
-                        <span class="notification-element"><%= "<i class='fa fa-user        fa-sm  blue'></i>  #{notification.responder.name}".html_safe %></span><br/>
-                        <span class="notification-element"><%= "<i class='fa fa-map-marker  fa-sm green' ></i> #{Posting.format(notification.posting.from_address)}".html_safe %></span><br/>
-                        <span class="notification-element"><%= "<i class='fa fa-map-marker  fa-sm'></i> #{Posting.format(notification.posting.to_address)}".html_safe %></span><br/>
-                        <span class="notification-element"><%= "<i class='fa fa-clock-o     fa-sm'></i>  #{notification.posting.starting_time.strftime("%H:%M")}".html_safe %></span><br/>
-                        <span class="notification-element"><%= "<i class='fa fa-calendar    fa-sm'></i>  #{notification.posting.formatted_date}".html_safe %></span><br/>
-                      </div>
+                      <%= render 'header_notification', notification: notification %>
                     </li>
                     <hr>
                   <% end %>

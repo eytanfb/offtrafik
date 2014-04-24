@@ -64,11 +64,12 @@ class PostingsController < ApplicationController
     @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving) : Posting.live_postings
     
     @postings = @postings.includes(:user).paginate(page: params[:page], per_page: 9, order: "date asc")
-    
-    respond_to do |format|
-      format.html
-      format.json { render :json => @postings.to_json }
-      format.js
+    if stale? last_modified: @postings.maximum(:updated_at)
+      respond_to do |format|
+        format.html
+        format.json { render :json => @postings.to_json }
+        format.js
+      end
     end
   end
   
