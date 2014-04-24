@@ -11,6 +11,7 @@ class PostingResponsesController < ApplicationController
     if @posting_response.save
       PostingResponseMailer.accepted_to_owner(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
       PostingResponseMailer.accepted_to_responder(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
+      Rails.cache.delete("notifications")
     end
     redirect_to @posting_response.posting
   end
@@ -20,6 +21,7 @@ class PostingResponsesController < ApplicationController
     @posting_response.accepted = false
     @posting_response.save
     PostingResponseMailer.rejected_to_responder(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
+    Rails.cache.delete("notifications")
   end
   
   def past_responses
