@@ -1,12 +1,15 @@
+require_dependency 'posting_response'
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :notifications
   
   def notifications
-    @notifications = PostingResponse.future.includes(:posting).where(posting_id: current_user.postings).limit(3).select { |response| response.accepted.nil? } if user_signed_in?
+    @notifications = Rails.cache.fetch("notifications") do
+      PostingResponse.future.includes(:posting).where(posting_id: current_user.postings).limit(3).select { |response| response.accepted.nil? } if user_signed_in?
+    end
   end
-  
+
   def get_past_responses
     if user_signed_in?
       @postings_with_past_responses = []
