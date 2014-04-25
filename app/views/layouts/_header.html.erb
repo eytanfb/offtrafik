@@ -1,11 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner" id="header-content">
     <div class="container">
-      <% if signed_in? %>
-        <%= link_to (image_tag "offtrafik-no-background-logo.png", id: "logo"), find_posting_path %>
-      <% else %>
-        <%= link_to (image_tag "offtrafik-no-background-logo.png", id: "logo"), root_path %>
-      <% end %>
+      <%= link_to (image_tag "offtrafik-no-background-logo.png", id: "logo"), find_posting_path %>
       <nav>
         <ul class="nav pull-right" style="margin-top: 10px">
           <% if signed_in? %>
