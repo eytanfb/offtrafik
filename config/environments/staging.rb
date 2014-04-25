@@ -28,7 +28,8 @@ Offtrafik::Application.configure do
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Asset Handling
-  
+  config.action_controller.asset_host = "d1n9w59wkawc32.cloudfront.net"
+
   # Do not compress assets
   config.assets.compress = false
   config.assets.compile = true
