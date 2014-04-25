@@ -28,6 +28,7 @@ end
 
 #Performace
 gem 'dalli'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'rspec-rails'
