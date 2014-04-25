@@ -30,3 +30,9 @@ class ApplicationController < ActionController::Base
       end
   end
 end
+
+private
+
+  def miniprofiler
+    Rack::MiniProfiler.authorize_request if Rails.env.staging? && current_user.email == "example-0@ku.edu.tr" 
+  end
