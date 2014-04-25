@@ -61,8 +61,8 @@ class PostingsController < ApplicationController
       driving = "Taksi" if driving == "Taksi Paylasimi"
       from_address = params[:posting][:from_address]
       to_address   = params[:posting][:to_address]
-      date = params[:posting][:date]
-    end
+      date = params[:posting][:date].present? ? Date.parse(params[:posting][:date]) : Date.today
+   end
     
     if stale? last_modified: Posting.maximum(:updated_at)
       @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(from_address)).with_to_address(Posting.format(to_address)).with_driving(driving).with_date(date) : Posting.live_postings
