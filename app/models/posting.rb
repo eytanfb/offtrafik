@@ -37,7 +37,7 @@ class Posting < ActiveRecord::Base
   scope :with_from_address,   lambda { |value| where("from_address ILIKE ? and from_address ILIKE ?", "%#{Posting.format(value)}%", "%#{(value.split & (DISTRICTS + NEIGHBORHOODS.collect(&:last))).first}%") if value }
   scope :with_to_address,     lambda { |value| where("to_address ILIKE ? and to_address ILIKE ?", "%#{Posting.format(value)}%", "%#{(value.split & (DISTRICTS + NEIGHBORHOODS.collect(&:last))).first}%") if value }
   scope :with_driving,        lambda { |value| where("driving LIKE ?", "%#{value}%") if value }
-  scope :with_date,           lambda { |value| where("date >= ?", "#{value}") if value }
+  scope :with_date,           lambda { |value| where("date >= ?", "#{value.year}-#{value.month}-#{value.day}") if value }
   scope :not_current_user,    lambda { |value| where("user_id <> #{value}") if value }
 
   def self.live_postings
