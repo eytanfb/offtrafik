@@ -80,9 +80,12 @@
 		}
 	}
 	
-	.posting-image {
+	.posting-image 
+	{
 		width: 265px;
 		height: 209px;
+		overflow:hidden;
+		
 		.posting-date {
 			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 			-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -179,8 +182,30 @@
 	}
 }
 
+//Sprites 
+.posting-surucu
+{
+	background:url('../posting-sprites.png') -300 0;
+	max-width:none;
+	width: 831px;
+	height: 210px;
+}
 
+.posting-taksi
+{
+	background:url('../posting-sprites.png') -100px 0;
+	max-width:none;
+	width: 831px;
+	height: 210px;
+}
 
+.posting-yolcu
+{
+	background:url('../posting-sprites.png') -300px 0;
+	max-width:none;
+	width: 831px;
+	height: 210px;
+}
 
 
 //Already Existing CSS Code
@@ -361,7 +386,8 @@ ol.postings {
 	color:white;
 }		
 
-#posting-details{
+#posting-details
+{
 	@include background-box;
 	padding-bottom:5px;
 	
@@ -409,7 +435,8 @@ ol.postings {
 		overflow: hidden;
 		margin-top: 18px;
 		
-		#posting-image {
+		#posting-image 
+		{
 			height: inherit;
 			width: auto;
 		}

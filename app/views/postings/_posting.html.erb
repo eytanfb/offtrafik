@@ -1,7 +1,7 @@
-<% cache [posting, "find", posting.user] do %>
+git <% cache [posting, "find", posting.user] do %>
   <div class="thumbnail clickable" href="<%= posting_path(posting) %>">
       <div class="posting-image">
-        <%= image_tag "posting-#{posting.driving.downcase.parameterize}.png", class: "posting-image" %>
+        <%= image_tag "posting-sprites.png", class: "posting-#{posting.driving.downcase.parameterize}" %>
         <div class="posting-date"><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{l posting.date, format: :short}".html_safe %></div>
         <div class="posting-time"><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{posting.starting_time.strftime("%H:%M")}".html_safe %></div>
       </div>
