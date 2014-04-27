@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(params[:comment])
     if @comment.save
+      Rails.cache.delete "users/#{params[:comment][:is_about]}/rating"
       flash[:success] = "Yorum Yapildi"
       redirect_to User.find(params[:comment][:is_about])
     else
