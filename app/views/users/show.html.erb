@@ -16,11 +16,9 @@
         <div class="span6">
           <h4>Yolculuk Puanım: <span id="user-trip-rating" data-score="<%= @user.trip_rating %>"></span></h4>
         </div>
-        <% if @user == current_user %>
         <div class="span6">
           <h4 id='total-journey-count'>Toplam Yolculuklar: <%= @user.total_journeys %> </h4>
         </div>
-        <% end %>
       </div>
     <div class="row">
       <div class="span5">
