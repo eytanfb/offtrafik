@@ -189,24 +189,24 @@
   height: 210px;
   width: 265px;
   max-width: none;
-  
-  &.posting-surucu 
-  {
-	 width: 265px;
-    background:url('posting-sprites.png') 0 0;
-  }
-  
-  &.posting-taksi 
-  {
-	 width: 265px;
-    background:url('posting-sprites.png') 266px 0;
-  }
-  
-  &.posting-yolcu 
-  {
-	 width: 265px;
-    background:url('posting-sprites.png') 266px 0;
-  }
+}
+
+.posting-surucu 
+{
+ width: 265px;
+  background:url('posting-sprites.png') 0 0;
+}
+
+.posting-taksi 
+{
+ width: 265px;
+  background:url('posting-sprites.png') 266px 0;
+}
+
+.posting-yolcu 
+{
+ width: 265px;
+  background:url('posting-sprites.png') 266px 0;
 }
 
 //Already Existing CSS Code
