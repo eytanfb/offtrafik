@@ -182,31 +182,32 @@
 	}
 }
 
-//Sprites 
-.posting-surucu
-{
-	background:url('../posting-sprites.png') -300 0;
-	max-width:none;
-	width: 831px;
-	height: 210px;
-}
 
-.posting-taksi
+//Sprites
+.posting-image-div 
 {
-	background:url('../posting-sprites.png') -2000px 50px;
-	max-width:none;
-	width: 831px;
-	height: auto;
+  height: 210px;
+  width: 265px;
+  max-width: none;
+  
+  &.posting-surucu 
+  {
+	 width: 265px;
+    background:url('posting-sprites.png') 0 0;
+  }
+  
+  &.posting-taksi 
+  {
+	 width: 265px;
+    background:url('posting-sprites.png') 266px 0;
+  }
+  
+  &.posting-yolcu 
+  {
+	 width: 265px;
+    background:url('posting-sprites.png') 266px 0;
+  }
 }
-
-.posting-yolcu
-{
-	background:url('../posting-sprites.png') -300px 0;
-	max-width:none;
-	width: 831px;
-	height: 210px;
-}
-
 
 //Already Existing CSS Code
 
