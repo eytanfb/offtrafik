@@ -35,8 +35,8 @@ no_smoking_icon.png: no_smoking_icon-0456ce68739843de4c58274d3fc097a5.png
 no_smoking_icon/index.png: no_smoking_icon-0456ce68739843de4c58274d3fc097a5.png
 offtrafik-no-background-logo.png: offtrafik-no-background-logo-97951ca77e3fc6511d97e4e956422079.png
 offtrafik-no-background-logo/index.png: offtrafik-no-background-logo-97951ca77e3fc6511d97e4e956422079.png
-posting-sprites.png: posting-sprites-0f6ea715773ef9a9b9abc760e8550cff.png
-posting-sprites/index.png: posting-sprites-0f6ea715773ef9a9b9abc760e8550cff.png
+posting-sprites.png: posting-sprites-d936cb150479a12d03de5337e46cb9fa.png
+posting-sprites/index.png: posting-sprites-d936cb150479a12d03de5337e46cb9fa.png
 postings/posting-surucu.png: postings/posting-surucu-370745f5c148ba75c88e60d36b9aa94e.png
 postings/posting-surucu/index.png: postings/posting-surucu-370745f5c148ba75c88e60d36b9aa94e.png
 postings/posting-taksi.png: postings/posting-taksi-d536d1463613921e9be19fc1349ce591.png
@@ -57,8 +57,8 @@ welcome/welcome-page-taxi-posting.png: welcome/welcome-page-taxi-posting-a342ad2
 welcome/welcome-page-taxi-posting/index.png: welcome/welcome-page-taxi-posting-a342ad272004803fc1abff0b4a1b80e0.png
 application.js: application-48fbb11991bf27ea041c0dc38f230f49.js
 application/index.js: application-48fbb11991bf27ea041c0dc38f230f49.js
-application.css: application-f9cd9fb693ced85c62e250d5b3c72b13.css
-application/index.css: application-f9cd9fb693ced85c62e250d5b3c72b13.css
+application.css: application-454340163ec9694d9c81fdfe01832cef.css
+application/index.css: application-454340163ec9694d9c81fdfe01832cef.css
 chosen-sprite.png: chosen-sprite-0b638291e3ab1e89592983b5810b9b79.png
 chosen-sprite/index.png: chosen-sprite-0b638291e3ab1e89592983b5810b9b79.png
 chosen-sprite@2x.png: chosen-sprite@2x-8fa0fb1eb347c8dc10a5381b22383ac6.png
