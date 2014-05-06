@@ -15,7 +15,7 @@ class UsersController < Devise::RegistrationsController
   end
   
   def show
-    @user = User.find(params[:id])
+    @user = User.find params[:id]
     @user.calculate_rating
     @agreed_journeys = @user.agreed_journeys.paginate(page: params[:journey_page], per_page: 3)
     @comments = Comment.includes(:user).find_all_by_is_about(@user.id).paginate(page: params[:comments_page], per_page: 3)
