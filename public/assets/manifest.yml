@@ -7,8 +7,8 @@ doga.png: doga-8bf451e76b768e75fd101dde58064e9f.png
 doga/index.png: doga-8bf451e76b768e75fd101dde58064e9f.png
 harita.png: harita-52a43f45e4b8f1c34f91e7165dc797b6.png
 harita/index.png: harita-52a43f45e4b8f1c34f91e7165dc797b6.png
-header-background.png: header-background-29b6c135895d58917b0b3e8da2c69bfb.png
-header-background/index.png: header-background-29b6c135895d58917b0b3e8da2c69bfb.png
+header-background.png: header-background-45d4e4ffa84b53d290b3fff98f4e8589.png
+header-background/index.png: header-background-45d4e4ffa84b53d290b3fff98f4e8589.png
 jquery.raty/star-half-big.png: jquery.raty/star-half-big-92ab2cd4c8523058d7e2c41f4f609769.png
 jquery.raty/star-half-big/index.png: jquery.raty/star-half-big-92ab2cd4c8523058d7e2c41f4f609769.png
 jquery.raty/star-half.png: jquery.raty/star-half-f9dac1a52861f6219d44fed292c7088e.png
@@ -57,8 +57,8 @@ welcome/welcome-page-taxi-posting.png: welcome/welcome-page-taxi-posting-a342ad2
 welcome/welcome-page-taxi-posting/index.png: welcome/welcome-page-taxi-posting-a342ad272004803fc1abff0b4a1b80e0.png
 application.js: application-48fbb11991bf27ea041c0dc38f230f49.js
 application/index.js: application-48fbb11991bf27ea041c0dc38f230f49.js
-application.css: application-9f38613bf6e72a61950d576fea9d9193.css
-application/index.css: application-9f38613bf6e72a61950d576fea9d9193.css
+application.css: application-31ff8b7c3d4345ce3735db9a94687f68.css
+application/index.css: application-31ff8b7c3d4345ce3735db9a94687f68.css
 chosen-sprite.png: chosen-sprite-0b638291e3ab1e89592983b5810b9b79.png
 chosen-sprite/index.png: chosen-sprite-0b638291e3ab1e89592983b5810b9b79.png
 chosen-sprite@2x.png: chosen-sprite@2x-8fa0fb1eb347c8dc10a5381b22383ac6.png

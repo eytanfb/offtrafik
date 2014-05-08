@@ -10,7 +10,7 @@ Offtrafik::Application.configure do
   config.cache_store = :dalli_store
 
   # Asset Handling
-  config.action_controller.asset_host = "d1n9w59wkawc32.cloudfront.net"
+  config.action_controller.asset_host = "d3qdnrqs6vltj1.cloudfront.net"
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = true
