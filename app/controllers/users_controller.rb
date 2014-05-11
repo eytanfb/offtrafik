@@ -53,10 +53,14 @@ class UsersController < Devise::RegistrationsController
     if user.valid_password? password 
       sign_in user 
       logger.info "Signed user in"
-      redirect_to user
+      respond_to do |format|
+        format.json { render json: user  }
+      end
     else
       logger.info "Not signed in"
-      redirect_to root_path
+      respond_to do |format|
+        format.json 
+      end
     end
   end
   
