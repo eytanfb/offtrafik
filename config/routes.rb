@@ -8,6 +8,7 @@ Offtrafik::Application.routes.draw do
     get 'users/:id/past_responses' => 'posting_responses#past_responses', as: :user_past_responses
     match 'users/:id' => 'users#show', as: :user
     match 'users/:id/edit' => 'users#edit', as: :edit_user
+    post 'users/mobile/sign_in' => 'users#mobile_sign_in', as: :mobile_sign_in
   end
   
   root to: 'static_pages#welcome'
