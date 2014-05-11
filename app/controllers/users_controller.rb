@@ -50,6 +50,20 @@ class UsersController < Devise::RegistrationsController
     end
   end
   
+  def mobile_sign_in
+    email = params[:user][:email]
+    password = params[:user][:password]
+    user = User.find_by_email email
+    if user.valid_password? password 
+      sign_in user 
+      logger.info "Signed user in"
+      redirect_to user
+    else
+      logger.info "Not signed in"
+      redirect_to root_path
+    end
+  end
+  
   protected
 
   def after_update_path_for(resource)
