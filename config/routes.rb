@@ -8,7 +8,6 @@ Offtrafik::Application.routes.draw do
     get 'users/:id/past_responses' => 'posting_responses#past_responses', as: :user_past_responses
     match 'users/:id' => 'users#show', as: :user
     match 'users/:id/edit' => 'users#edit', as: :edit_user
-    post 'users/mobile/sign_in' => 'users#mobile_sign_in', as: :mobile_sign_in
   end
   
   root to: 'static_pages#welcome'
@@ -34,6 +33,11 @@ Offtrafik::Application.routes.draw do
     get 'contact_posting_owner'
     get 'full', as: :full
     get 'preview', as: :preview
+  end
+  
+  post '/mobile/sign_in' => 'mobile#mobile_sign_in', as: :mobile_sign_in
+  resources :mobile, only: [] do
+    get 'user_request', as: :user_request
   end
   
   resources :frequent_postings, only: [:create]
