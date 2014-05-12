@@ -81,7 +81,7 @@ class PostingsController < ApplicationController
     @postings = Posting.live_postings
     
     respond_to do |format|
-      format.json { render json: @postings.to_json }
+      format.json { render json: @postings.to_json(include: :user) }
     end
   end
   
