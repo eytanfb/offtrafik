@@ -1,0 +1,1 @@
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST --data @lib/json_tests/sign_up.json offtrafik.dev/users
