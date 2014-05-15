@@ -12,14 +12,14 @@ class ApplicationController < ActionController::Base
   end
 
   def get_past_responses
-#    if user_signed_in?
-#      @postings_with_past_responses = []
-#      user_postings  = current_user.unagreed_postings
-#      user_responses = current_user.accepted_past_responses
-#      @postings_with_past_responses << user_postings
-#      @postings_with_past_responses << user_responses
-#      @postings_with_past_responses.flatten!
-#    end
+    if user_signed_in?
+      @postings_with_past_responses = []
+      user_postings  = current_user.unagreed_postings
+      user_responses = current_user.accepted_past_responses
+      @postings_with_past_responses << user_postings
+      @postings_with_past_responses << user_responses
+      @postings_with_past_responses.flatten!
+    end
   end
   
   def after_sign_in_path_for(user)
