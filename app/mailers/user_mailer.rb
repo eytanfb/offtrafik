@@ -6,6 +6,8 @@ class UserMailer < ActionMailer::Base
     @user = User.find user_id
     
     mail to: @user.email, subject: "Offtrafik’e Hoşgeldin"
+    
+    logger.info "MOTHERFUCKER"
   end
   
 end
