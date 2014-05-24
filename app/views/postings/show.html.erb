@@ -9,7 +9,6 @@
         <%= render 'posting_details_card', posting: @posting %>
         <div class="span6 center">
           <% if @posting.active?  %>
-            <% logger.debug "posting is active with id: #{@posting.id} and user_id: #{@posting.user_id}. Is @posting.user_id != current_user.id? #{@posting.user_id != current_user.id}. Also try @posting.user != current_user? #{@posting.user != current_user}" %>
             <% if @posting.user_id != current_user.id %>
               <% if @respondable %>
                 <%= link_to "Iletişime Geç", posting_contact_posting_owner_path(@posting.id), class: "btn btn-primary btn-warning", id: "respond-button", data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true %>
@@ -17,7 +16,6 @@
                 <%= link_to "İletişime Geçildi", "#", class: "btn disabled", id: "respond-button" %>
               <% end %>
             <% else %>
-            <% logger.debug "current_user: #{current_user.id} and posting user: #{@posting.user_id}" %>
               <%= link_to "İlanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger", id: "respond-button" %>
             <% end %>
           <% end %>
