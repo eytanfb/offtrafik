@@ -9,10 +9,10 @@
               <%= link_to "Ana Sayfa", find_posting_path %>
             </li>
             <li><%= link_to current_user.name, current_user %></li>
-            <% if notifications %>
-              <li class="dropdown" id="header-notifications"><%= link_to notifications.count, "#", class: "dropdown-toggle", id: "notification-box" , data: { toggle: "dropdown" } %>
+            <% if @notifications %>
+              <li class="dropdown" id="header-notifications"><%= link_to @notifications.count, "#", class: "dropdown-toggle", id: "notification-box" , data: { toggle: "dropdown" } %>
                 <ul class="dropdown-menu">
-                  <% notifications.each do |notification| %>
+                  <% @notifications.each do |notification| %>
                     <li><em></em>
                       <%= render partial: 'postings/header_notification', locals: { notification: notification } %>
                     </li>
