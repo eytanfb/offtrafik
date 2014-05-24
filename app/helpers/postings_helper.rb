@@ -17,4 +17,27 @@ module PostingsHelper
     return tr_day
   end
   
+
+  def display_option_buttons(posting, respondable)
+    content_tag("div", class: "span6 center") do
+      if posting.controllable_by?(current_user)
+        delete_posting_button
+      else
+        display_respondable_button respondable 
+      end
+    end
+  end
+
+  def display_respondable_button(respondable)
+    if respondable
+      link_to 'Iletişime Geç', posting_contact_posting_owner_path(@posting.id), class: 'btn btn-primary btn-warning', id: 'respond-button', data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true
+    else
+      link_to 'İletişime Geçildi', '#', class: 'btn disabled', id: 'respond-button'
+    end
+  end
+
+  def delete_posting_button
+    link_to 'İlanı Sil', '#', method: :delete, confirm: 'Emin Misiniz?', class: 'btn btn-primary btn-danger', id: 'respond-button'
+  end
+
 end

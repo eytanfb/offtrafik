@@ -1,5 +1,7 @@
 <div class="row">
-  <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
+  <aside>
+    <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
+  </aside>
   <section id="posting-show">
     <% cache [@posting, "show", @posting.user] do %>
       <div class="span12">
@@ -7,43 +9,23 @@
       </div>
       <div class="span7 row" id="posting-details" onload="calcRouteForShow()">
         <%= render 'posting_details_card', posting: @posting %>
-        <div class="span6 center">
-          <% if @posting.active?  %>
-            <% if @posting.user_id != current_user.id %>
-              <% if @respondable %>
-                <%= link_to "Iletişime Geç", posting_contact_posting_owner_path(@posting.id), class: "btn btn-primary btn-warning", id: "respond-button", data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true %>
-              <% else %>
-                <%= link_to "İletişime Geçildi", "#", class: "btn disabled", id: "respond-button" %>
-              <% end %>
-            <% else %>
-              <%= link_to "İlanı Sil", "#", method: :delete, confirm: "Emin Misiniz?", class: "btn btn-primary btn-danger", id: "respond-button" %>
-            <% end %>
-          <% end %>
-        </div>
+        <%= display_option_buttons(@posting, @respondable) if @posting.active? %>
       </div>
     <% end %>
-  <% if @posting.controllable_by?(current_user) %>
-    <div class="span5" id="posting-responders">
-      <h5 style="text-decoration:underline">Cevap Verenler</h5>
-      <% @posting.posting_responses.each do |response| %>
-      <p id="<%= response.responder.name.parameterize %>-response" class="responder-<%= response.accepted %>" style="line-height:25px;"><%= link_to (image_tag response.responder.avatar.url(:thumb), size: 30), user_path(response.responder)%><%= link_to response.responder.name, user_path(response.responder), class:"responder-name" %>
-        <span id="<%= response.responder.name.parameterize %>-answer" class="posting-answers pull-right">
-          <% if response.accepted %>
-            Geliyor            
-          <% elsif response.rejected %>
-            Gelmiyor
-          <% else %>
-            <%= link_to "<i class='icon-ok icon-white'></i><span style='color:white'>Gelsin</span>".html_safe, posting_response_enter_phone_path(response), class: "btn btn-mini btn-success", data: { toggle: "modal", target: "#enter-phone-modal-window" }, method: :get, remote: true %><%= link_to "<i class='icon-remove icon-white'></i><span style='color:white'>Gelmesin</span>".html_safe, posting_response_reject_path(response), class: "btn btn-mini btn-danger", style:"margin-left:20px; margin-right:20px;", method: :get, remote: true %>
-          <% end %>
-      </span>
-      </p>
+    <% if @posting.has_unanswered_responses_by_owner? current_user %>
+      <div class="span5" id="posting-responders">
+        <h5 style="text-decoration:underline">Cevap Verenler</h5>
+        <% @posting.posting_responses.each do |response| %>
+          <%= render "posting_responses/response_for_posting", response: response %>
+        <% end %>
+      </div>
     <% end %>
-    </div>
-  <% end %>
   </section>
 </div>
+
 <div aria-hidden="true" aria-labelledby="contact-posting-owner-modal-label" class="modal hide fade" id="contact-posting-owner-modal-window" role="dialog"></div>
 <div aria-hidden="true" aria-labelledby="enter-phone-modal-label" class="modal hide fade" id="enter-phone-modal-window" role="dialog"></div>
+
 <% content_for :javascripts do %>
   <%= javascript_include_tag "maps_for_show.js" %>
 <% end %>
