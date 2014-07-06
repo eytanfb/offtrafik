@@ -19,9 +19,9 @@ module PostingResponsesHelper
   def answer_or_options(response)
     content_tag("span", id: "#{response.responder.name.parameterize}-answer", class: "posting-answers pull-right") do
       if response.accepted
-        Geliyor            
+        "Geliyor"            
       elsif response.rejected
-        Gelmiyor
+        "Gelmiyor"
       else
         "#{accept_response_button(response)} #{reject_response_button(response)}".html_safe
       end
