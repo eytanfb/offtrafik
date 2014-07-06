@@ -21,6 +21,7 @@ module PostingsHelper
   def display_option_buttons(posting, respondable)
     content_tag("div", class: "span6 center") do
       if posting.controllable_by?(current_user)
+        logger.info "controllable_by? #{posting.user.id} == #{current_user.id}"
         delete_posting_button
       else
         display_respondable_button respondable 
