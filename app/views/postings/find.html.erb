@@ -1,7 +1,9 @@
 <%= provide(:title, 'İlan Ara') %>
 <div class="row" id = "content">
   <% if signed_in? %>
-    <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
+    <aside>
+      <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
+    </aside>
     <section class="span12" id="main-content">
       <%= render 'find_postings', posting: @posting, driving_options: @driving_options, postings: @postings %>
     </section>

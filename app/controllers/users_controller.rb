@@ -15,10 +15,14 @@ class UsersController < Devise::RegistrationsController
   end
   
   def show
+    logger.info "users#show started"
     @user = User.find params[:id]
     @user.calculate_rating
+    logger.info "calculating rating"
     @agreed_journeys = @user.agreed_journeys.paginate(page: params[:journey_page], per_page: 3)
+    logger.info "agreed journeys"
     @comments = Comment.includes(:user).find_all_by_is_about(@user.id).paginate(page: params[:comments_page], per_page: 3)
+    logger.info "comments"
   end
   
   def find
