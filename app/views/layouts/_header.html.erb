@@ -10,7 +10,7 @@
             </li>
             <li><%= link_to current_user.name, current_user %></li>
             <% if @notifications %>
-              <li class="dropdown" id="header-notifications"><%= link_to @notifications.count, "#", class: "dropdown-toggle", id: "notification-box" , data: { toggle: "dropdown" } %>
+              <li class="dropdown" id="header-notifications"><%= link_to @notifications_count, "#", class: "dropdown-toggle", id: "notification-box" , data: { toggle: "dropdown" } %>
                 <ul class="dropdown-menu">
                   <% @notifications.each do |notification| %>
                     <li><em></em>

@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
   
   def notifications
     logger.info "notifications"
-    @notifications = PostingResponse.future.where(posting_id: current_user.postings).limit(3).select { |response| response.accepted.nil? } if user_signed_in?
+    if user_signed_in?
+      @notifications = PostingResponse.future.where(posting_id: current_user.postings.pluck(:id)).limit(3).select { |response| response.accepted.nil? }
+      @notifications_count = @notifications.count
+    end
   end
 
   def get_past_responses
