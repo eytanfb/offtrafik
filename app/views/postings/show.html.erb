@@ -3,15 +3,15 @@
     <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   </aside>
   <section id="posting-show">
-    <% cache [@posting, "show", @posting.user] do %>
       <div class="span12">
         <div id="show-map" style="margin-top:20px"></div>
       </div>
       <div class="span7 row" id="posting-details" onload="calcRouteForShow()">
-        <%= render 'posting_details_card', posting: @posting %>
+        <% cache [@posting, "show", @posting.user] do %>
+          <%= render 'posting_details_card', posting: @posting %>
+        <% end %>
         <%= display_option_buttons(@posting, @respondable) if @posting.active? %>
       </div>
-    <% end %>
     <% if @posting.has_unanswered_responses_by_owner? current_user %>
       <div class="span5" id="posting-responders">
         <h5 style="text-decoration:underline">Cevap Verenler</h5>
