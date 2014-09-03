@@ -76,10 +76,74 @@ tr:
       control:
         title: "Yol Arkadaşlarını Seç" 
         text: "Yolculuklarını paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın."
-      joinus_html: "Sen de gel bize katıl ve
-			<div class='font-titi-semib'> Offtrafik'le</div> 
-			neler yapabileceğini gör!"
+      joinus_html: "Sen de gel bize katıl ve <div class='font-titi-semib'> Offtrafik\'le</div> neler yapabileceğini gör!"
       joinus_button: "Bize Katıl"
       joinus_link_at_bottom: "Bize Katıl"
       about_link_at_bottom: "Offtrafik Nedir?"
       welcome_link_at_bottom: "Hoşgeldin"
+
+  comments:
+		comment:
+			comment_detail_link:
+		form:
+		new:
+		show:
+	layouts:
+		footer:
+		header:
+		shim:
+		application:
+	posting_mailer:
+		new_one_time_posting_given:
+		posting_contact:
+	poting_response_mailer:
+		accepted_to_owner:
+		accepted_responder:
+		journey_happened:
+		rejected_to_responder:
+	posting_response:
+		enter_phone:
+		response_for_posting:
+		past_responses:
+	postings:
+		contact_posting_owner:
+		filter_postings:
+		find_postings:
+		header_notification:
+		posting_details_card:
+		posting:
+		sidebar_notification:
+		small_posting:
+		edit:
+		find_from_home_page:
+		find:
+		new:
+		preview:
+		respond:
+		share_posting:
+		show:	
+	shared:
+		error_message:
+		posting_table:
+		sidebar:
+		user_info:
+	static_pages:
+		about:
+		admin:
+		contact:
+		help:
+		welcome:
+		why:
+	user_mailer:
+		welcome:
+	users:
+		agreed_journey_card:
+		display_comments:
+		user:
+		find:
+		not_activated:
+		past_postings:
+		postings:
+		show:
+			
+		
