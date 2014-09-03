@@ -3,20 +3,14 @@
     <%= render 'shared/user_info' %>
   </section>
   <section id="notifications">
-    <h2 style="color: black; margin-bottom: 10px">Bildirimler: <%= notifications.count %></h2>
-    <% if postings_with_past_responses.present? %>
+    <h2 style="color: black; margin-bottom: 10px">Bildirimler: <%= @notifications_count %></h2>
+    <% if @postings_with_past_responses.present? %>
       <p id="waiting-past-responses"><%= link_to "Onaylamadiginiz gecmis yolculuklariniz var", user_past_responses_path(current_user)
  %></p>
       <hr />
     <% end %>
-    <% notifications.each do |notification| %>
-      <div class="clickable" href="<%= posting_path(notification.posting) %>">
-        <p><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{notification.responder.name}".html_safe %></p>
-        <p><%= "<i class='fa fa-map-marker  fa-2x green' ></i>  Nereden: #{Posting.format(notification.posting.from_address)}".html_safe %></p>
-        <p><%= "<i class='fa fa-map-marker  fa-2x red'></i>  Nereye: #{Posting.format(notification.posting.to_address)}".html_safe %></p>
-        <p><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{notification.posting.starting_time.strftime("%H:%M")}".html_safe %></p>
-        <p><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{notification.posting.formatted_date}".html_safe %></p>
-      </div>
+    <% @notifications.each do |notification| %>
+        <%= render partial: "postings/sidebar_notification", locals: { notification: notification } %>
       <hr/>
     <% end %>
   </section>

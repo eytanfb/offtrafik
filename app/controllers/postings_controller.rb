@@ -27,12 +27,10 @@ class PostingsController < ApplicationController
   
   def show
     @posting = Posting.find(params[:id])
-    if stale? @posting
-      @user = User.find @posting.user_id
-      to_address = Posting.format(@posting.to_address)
-      from_address = Posting.format(@posting.from_address)
-      @respondable = !@posting.posting_responses.includes(:user).collect(&:responder_id).include?(current_user.id)
-    end
+    @user = User.find @posting.user_id
+    to_address = Posting.format(@posting.to_address)
+    from_address = Posting.format(@posting.from_address)
+    @respondable = !@posting.posting_responses.includes(:user).collect(&:responder_id).include?(current_user.id)
   end
   
   def preview
@@ -56,44 +54,26 @@ class PostingsController < ApplicationController
   end
   
   def find
+    logger.info "find in controller"
     @posting = Posting.new params[:posting]
-    @driving = params[:posting][:driving] if params[:posting].present?
-    @driving = "Taksi" if @driving == "Taksi Paylasimi"
-    @from_address = params[:posting][:from_address] if params[:posting].present?
-    @to_address   = params[:posting][:to_address] if params[:posting].present?
-
-    @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(@from_address)).with_to_address(Posting.format(@to_address)).with_driving(@driving) : Posting.live_postings
+    if params[:posting].present?
+      driving = params[:posting][:driving]
+      driving = "Taksi" if driving == "Taksi Paylasimi"
+      from_address = params[:posting][:from_address]
+      to_address   = params[:posting][:to_address]
+      date = params[:posting][:date].present? ? Date.parse(params[:posting][:date]) : Date.today
+   end
     
-    @postings = @postings.includes(:user).paginate(page: params[:page], per_page: 9, order: "date asc")
-    
+    @postings = if params[:posting].present? 
+                  Posting.live_postings.includes(:user).with_from_address(Posting.format(from_address)).with_to_address(Posting.format(to_address)).with_driving(driving).with_date(date).paginate(page: params[:page], per_page: 9, order: "date asc")
+                else
+                   Posting.live_postings.includes(:user).paginate(page: params[:page], per_page: 9, order: "date asc")
+                end
     respond_to do |format|
       format.html
       format.json { render :json => @postings.to_json }
       format.js
     end
-  end
-  
-  def find_from_home_page
-    @posting = Posting.new params[:find_from_home]
-    driving = ""
-    to_address = params[:find_from_home][:to_address]
-    from_address = params[:find_from_home][:from_address]
-    postings_found = Posting.live_postings.with_from_address(Posting.format(from_address)).with_to_address(Posting.format(to_address)).with_driving(driving)
-     if postings_found.blank?
-       postings_found = Posting.live_postings.with_from_address(from_address)
-       postings_found = Posting.live_postings if postings_found.blank?
-       flash.now[:warning] = "Bulunduğunuz yerden aradığınız adrese ilan bulunamadı. Ama belki aşagıdakiler hoşunuza gider!"
-     end
-    @postings = postings_found.paginate page: params[:page], per_page: 9, order: "date asc"
-    @from_address = from_address
-    @to_address = to_address
-    @driving = driving
-    
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
   
   def all_postings
     @postings = Posting.live_postings

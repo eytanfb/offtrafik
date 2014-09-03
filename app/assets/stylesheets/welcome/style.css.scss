@@ -756,4 +756,25 @@ input {
 #header-logged-in-user span a {
   color: #006633;
   font-size: 1.0em;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+#no-header-logged-in-user span a {
+  color: #00CC33;
+  font-size: 1.0em;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+#header-logged-in-user a {
+  color: white;
+  font-size: 0.7em;
+  text-decoration: underline;
+}
+
+#no-header-logged-in-user a {
+  color: white;
+  font-size: 0.7em;
+  text-decoration: underline;
 }

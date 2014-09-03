@@ -12,6 +12,7 @@ Offtrafik::Application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
+  config.cache_store = :dalli_store
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -27,13 +28,14 @@ Offtrafik::Application.configure do
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Asset Handling
-  
+  config.action_controller.asset_host = "d1n9w59wkawc32.cloudfront.net"
+
   # Do not compress assets
   config.assets.compress = false
   config.assets.compile = true
 
   # Expands the lines which load the assets
-  config.assets.debug = true
+  config.assets.debug = false
   config.serve_static_assets = true
   
   # Mailer settings
@@ -63,6 +65,7 @@ Offtrafik::Application.configure do
   }
   
   # log sql queries in staging
+  config.log_level = :debug
   config.logger = Logger.new(STDOUT)
   
   config.middleware.use ExceptionNotification::Rack,

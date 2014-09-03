@@ -64,11 +64,9 @@ describe User do
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }
   it { should validate_presence_of(:password) }
-  it { should validate_presence_of(:password_confirmation) }
   it { should ensure_inclusion_of(:agreed_to_terms_and_conditions).in_array([true]) }
-  it { should ensure_length_of(:password).is_at_least(6).is_at_most(20) }
+  it { should ensure_length_of(:password).is_at_least(8).is_at_most(20) }
   it { should allow_value("abs@ku.edu.tr").for(:email) }
-  it { should allow_value("abs@alumni.ku.edu.tr").for(:email) }
   it { should_not allow_value("abs@asd.ku.edu.tr").for(:email) }
   
   describe ".has_past_postings?" do

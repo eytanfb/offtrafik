@@ -79,14 +79,16 @@ class User < ActiveRecord::Base
   end
   
   def calculate_rating
-    comments_sum = Comment.find_all_by_is_about(self.id).collect { |comment| comment.rating }.sum
-    total_comments = Comment.find_all_by_is_about(self.id).count
-    result = 0
-    if total_comments > 0
-      result = self.trip_rating = comments_sum / total_comments
+    Rails.cache.fetch("users/#{self.id}/rating") do
+      comments_sum = Comment.find_all_by_is_about(self.id).collect { |comment| comment.rating }.sum
+      total_comments = Comment.find_all_by_is_about(self.id).count
+      result = 0
+      if total_comments > 0
+        result = self.trip_rating = comments_sum / total_comments
+      end
+      self.update_attribute(:trip_rating, result)
+      result
     end
-    self.update_attribute(:trip_rating, result)
-    result
   end
 
   def has_past_postings?
@@ -126,7 +128,9 @@ class User < ActiveRecord::Base
   end
   
   def agreed_journeys
-    (self.postings.past_postings.includes(:user) << self.posting_responses.past.map { |response| response.posting if response.accepted && !response.responder_agreed.nil? }).flatten.delete_if { |posting| posting.nil? }.reverse
+    Rails.cache.fetch("users/#{self.id}/agreed_journeys") do 
+      (self.postings.past_postings.includes(:user) << self.posting_responses.past.map { |response| response.posting if response.accepted && !response.responder_agreed.nil? }).flatten.delete_if { |posting| posting.nil? }.reverse
+    end
   end
   
   def total_journeys

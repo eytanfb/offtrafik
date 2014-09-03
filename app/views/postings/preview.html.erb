@@ -1,22 +1,13 @@
 <div class="row">
   <section id="posting-show">
-    <div class="span12 offset4">
-      <div id="show-map" style="margin-top:20px"></div>
-    </div>
-    <div class="span6 offset4" id="posting-details" onload="calcRouteForShow()">
-      <h3 class="center" style="text-decoration: underline">İlan Detayları</h3>
-      <p><span class='detail'>İlan Sahibi:</span> <span class='answer'><%= link_to @user.name, user_path(@user) %></span></p>
-      <p><span class='detail'>Nereden:</span> <span class='answer' id='from_address'><%= Posting.format(@posting.from_address) %></span></p>
-      <p><span class='detail'>Nereye:</span> <span class='answer' id='to_address'><%= Posting.format(@posting.to_address) %></span></p>
-      <p><span class='detail'>Tarih:</span> <span class='answer'><%= l @posting.date, format: :default %></span></p>
-      <p><span class='detail'>Cıkış Zamanı:</span> <span class='answer'><%= @posting.starting_time.to_s(:time) %></span></p>
-      <p><span class='detail'>Varış Zamanı:</span> <span class='answer'><%=@posting.ending_time.to_s(:time) %></span></p>
-      <p><span class='detail'>Sigara:</span> <span class='answer'><%= @posting.smoking? %></span></p>
-      <p><span class='detail'>İhtiyaç:</span> <span class='answer'><%= @posting.driving %></span></p>
-      <% if @posting.comments? %>
-        <p><span class='detail'>Ekstra:</span> <span class='answer'><%= @posting.comments %></span></p>
-      <% end %>
-    </div>
+    <% cache [@posting, "preview", @posting.user] do %>
+      <div class="span12">
+        <div id="show-map" style="margin-top:20px"></div>
+      </div>
+      <div class="span7 row" id="posting-details" onload="calcRouteForShow()">
+        <%= render 'posting_details_card', posting: @posting %>
+      </div>
+    <% end %>
   </section>
 </div>
 

@@ -1,3 +1,4 @@
+require_dependency 'posting_response'
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -6,10 +7,15 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 
   def notifications
-    @notifications = PostingResponse.future.includes(:posting).where(posting_id: current_user.postings).limit(3).select { |response| response.accepted.nil? } if user_signed_in?
+    logger.info "notifications"
+    if user_signed_in?
+      @notifications = PostingResponse.future.where(posting_id: current_user.postings.pluck(:id)).limit(3).select { |response| response.accepted.nil? }
+      @notifications_count = @notifications.count
+    end
   end
-  
+
   def get_past_responses
+    logger.info "get_past_responses"
     if user_signed_in?
       @postings_with_past_responses = []
       user_postings  = current_user.unagreed_postings
@@ -42,3 +48,9 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}
   end
 end
+
+private
+
+  def miniprofiler
+    Rack::MiniProfiler.authorize_request if Rails.env.staging? && current_user.email == "example-0@ku.edu.tr" 
+  end

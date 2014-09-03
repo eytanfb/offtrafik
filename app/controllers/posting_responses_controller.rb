@@ -1,6 +1,5 @@
 class PostingResponsesController < ApplicationController
   before_filter :notifications, only: [:past_responses]
-  before_filter :get_past_responses, only: [:past_responses]
   
   def accept
     if params[:enter_phone][:phone].present?
@@ -11,6 +10,9 @@ class PostingResponsesController < ApplicationController
     if @posting_response.save
       PostingResponseMailer.accepted_to_owner(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
       PostingResponseMailer.accepted_to_responder(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
+      Rails.cache.delete("notifications")
+      Rails.cache.delete("users/#{@posting_response.responder.id}/agreed_journeys")
+      Rails.cache.delete("users/#{current_user.id}/agreed_journeys")
     end
     redirect_to @posting_response.posting
   end
@@ -20,6 +22,7 @@ class PostingResponsesController < ApplicationController
     @posting_response.accepted = false
     @posting_response.save
     PostingResponseMailer.rejected_to_responder(current_user.id, @posting_response.responder.id, @posting_response.posting.id).deliver
+    Rails.cache.delete("notifications")
   end
   
   def past_responses

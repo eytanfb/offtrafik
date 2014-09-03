@@ -13,6 +13,23 @@
 #user-show {
 	@include background-box;
 	width: 940px;
+  margin-top: 25px;
+
+  #profile-photo {
+    min-height: 100px;
+    margin-bottom: 10px;
+  }
+
+  #name-and-summary {
+    float: left;
+    margin-left: 5px;
+  }
+
+  p#summary {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
 	#map{
 		height: 235px;
 		width: 99%;
@@ -31,6 +48,11 @@
 			max-width: none;
 		}
 	}
+
+  #user-details{
+    margin-left: 10px;
+  }
+
 	.pagination
 	{
 		text-align:center;
