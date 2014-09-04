@@ -1,8 +1,8 @@
 <% cache ["past", journey] do %>
   <div class="details-of-agreed-journey span4">
     <p class="pull-right"><%= "<i class='fa fa-calendar    fa-sm midnight'></i> #{journey.formatted_date}".html_safe %></p>
-    <p><%= "<i class='fa fa-map-marker  fa-sm red' ></i>  Nereden: <span class='past-from-address'>#{Posting.format(journey.from_address)}</span>".html_safe %></p>
-    <p><%= "<i class='fa fa-map-marker  fa-sm green'></i>  Nereye: <span class='past-to-address'>#{Posting.format(journey.to_address)}</span>".html_safe %></p>
-    <p><%= journey.people_who_completed_journey(current_user.name).join(',').present? ? journey.people_who_completed_journey(current_user.name).join(',') : "Yalniz" %></p>
+    <p><%= "<i class='fa fa-map-marker  fa-sm red' ></i>  #{t "agreed_journey_card_from_address"}: <span class='past-from-address'>#{Posting.format(journey.from_address)}</span>".html_safe %></p>
+    <p><%= "<i class='fa fa-map-marker  fa-sm green'></i>  #{"agreed_journey_card_from_address"}: <span class='past-to-address'>#{Posting.format(journey.to_address)}</span>".html_safe %></p>
+    <p><%= journey.people_who_completed_journey(current_user.name).join(',').present? ? journey.people_who_completed_journey(current_user.name).join(',') : t "agreed_journey_card_alone_journey" %></p>
   </div>
 <% end %>

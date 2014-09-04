@@ -81,7 +81,7 @@ tr:
       joinus_link_at_bottom: "Bize Katıl"
       about_link_at_bottom: "Offtrafik Nedir?"
       welcome_link_at_bottom: "Hoşgeldin"
-
+			
   comments:
 		comment:
 			comment_detail_link:
@@ -138,8 +138,11 @@ tr:
 		welcome:
 	users:
 		agreed_journey_card:
-		display_comments:
-		user:
+			agreed_journey_card_from_address:
+			agreed_journey_card_to_address:	
+			agreed_journey_card_alone_journey:
+		display_comments: #No String 
+		user: #No string
 		find:
 		not_activated:
 		past_postings:
