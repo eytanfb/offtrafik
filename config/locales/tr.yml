@@ -107,21 +107,71 @@ tr:
 		past_responses:
 	postings:
 		contact_posting_owner:
+			postings_contact_posting_owner_contact: "İletişime Geç"
+			postings_contact_posting_owner_extra_notes: "Mailinize ekstra bir not eklemek isterseniz (örnek: telefon numaraniz) lütfen buraya yazın. İletişim emailinde yazan standart yazılar yine de gönderilecektir."
+			postings_contact_posting_owner_my_phone_number: "Telefon Numaram"
+			postings_contact_posting_owner_phone_number_placeholder: "İletişim için telefon numaranızı ekleyin (11 hane. Ornek: 05xxxxxxxxx)"
+			#Check the file for the last title
+			postings_contact_posting_owner_send: "Yolla"
 		filter_postings:
-		find_postings:
-		header_notification:
+			postings_filter_postings_from_address: "Nereden"
+			postings_filter_postings_to_address: "Nereye"
+			postings_filter_posting_all: "Hepsi"
+			posting_filter_posting_date: "Tarih"
+		find_postings: #No String
+		header_notification: #No String
 		posting_details_card:
+			postings_posting_details_card_from_address: "Nereden"
+			postings_posting_details_card_to_address: "Nereye"
+			postings_posting_details_card_notes: "Notlar"
 		posting:
+			postings_posting_from_address: "Nereden"
+			postings_posting_from_address: "Nereye"
 		sidebar_notification:
+			postings_sidebar_notification_from_address: "Nereden"
+			postings_sidebar_notification_to_address: "Nereye"
 		small_posting:
+			postings_small_postings_from_address: "Nereden"
+			postings_small_postings_to_address: "Nereye"
 		edit:
+			postings_edit_change_posting: "İlan Değiştir"
+			postings_edit_from_address: "Nereden"
+			postings_edit_date: "Tarih"
+			postings_edit_starting_time: "Çıkış Zamanı"
+			postings_edit_ending_time: "Varış Zamanı"
+			postings_edit_to_address: "Nereye"
+			postings_edit_looking_for: "Ne Ariyorum"
+			postings_edit_smoking: "Sigara"
+			postings_edit_extra: "Ekstra"
+			postings_edit_extra_placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)"
+			postings_edit_submit_posting: "İlan Ver"
 		find_from_home_page:
+			postings_find_from_home_page_search_postings: "İlan Ara"
 		find:
+			postings_find_search_postings: "İlan Ara"
 		new:
-		preview:
-		respond:
+			postings_new_new_posting: "Yeni İlan"
+			postings_new_frequent_posting: "Rutin İlan"
+			postings_new_from_address: "Nereye"
+			postings_new_to_address: "Nereden"
+			#Fix day names
+			postings_new_last_posting_date: "Son İlan Tarihi"
+			postings_new_starting_time: "Çıkış Zamanı"
+			postings_new_ending_time: "Varış Zamanı"
+			postings_new_role: "Rolünüz"
+			postings_new_smoking: "Sigara"
+			postings_new_extra: "Ekstra"
+			postings_new_extra_placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)"
+			postings_new_submit_posting: "İlan Ver"
+			postings_new_standard: "Günlük İlan"
+			postings_new_standard_post_date: "Tarih"
+		preview: #No String
+		respond: #No String (nothing actually)
 		share_posting:
+			#In link fixes required.
+			postings_share_posting_back_to_postings: "İlanlara Dön"
 		show:	
+		postings_show_replied_users: "Cevap Verenler"
 	shared:
 		error_message:
 			shared_error_message_contains_error: "Formda bir hata oluştu:"

@@ -1,8 +1,8 @@
 <% cache [notification, "sidebar"] do %>
   <div class="clickable" href="<%= posting_path(notification.posting) %>">
     <p><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{notification.responder.name}".html_safe %></p>
-    <p><%= "<i class='fa fa-map-marker  fa-2x green' ></i>  Nereden: #{Posting.format(notification.posting.from_address)}".html_safe %></p>
-    <p><%= "<i class='fa fa-map-marker  fa-2x red'></i>  Nereye: #{Posting.format(notification.posting.to_address)}".html_safe %></p>
+    <p><%= "<i class='fa fa-map-marker  fa-2x green' ></i>  #{t 'postings_sidebar_notification_from_address'}: #{Posting.format(notification.posting.from_address)}".html_safe %></p>
+    <p><%= "<i class='fa fa-map-marker  fa-2x red'></i>  #{t 'postings_sidebar_notification_to_address'}: #{Posting.format(notification.posting.to_address)}".html_safe %></p>
     <p><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{notification.posting.starting_time.strftime("%H:%M")}".html_safe %></p>
     <p><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{notification.posting.formatted_date}".html_safe %></p>
   </div>
