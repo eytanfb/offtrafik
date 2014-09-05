@@ -1,7 +1,7 @@
 <div class="row">
   <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <div class="span12 boxed" id="past-responses" style="margin-top: 25px">
-    <h3>Bu kisilerle bulustunuz mu?</h3>
+    <h3><%= "#{t 'posting_response_past_responses_have_you_meet'}"%></h3>
     
     <ol class="past-responses-list">
       <% @postings_with_past_responses.each do |response| %>
@@ -18,16 +18,16 @@
             </div>
           </div>
           <div class="span4">
-            <p id='from_address'><%= "<i class='fa fa-map-marker  fa-lg green' ></i>  Nereden: #{truncate(Posting.format(response.posting.from_address), length: 30)}".html_safe %></p>
-            <p id='to_address'><%= "<i class='fa fa-map-marker  fa-lg red'></i>  Nereye: #{truncate(Posting.format(response.posting.to_address), length: 30)}".html_safe %></p>
+            <p id='from_address'><%= "<i class='fa fa-map-marker  fa-lg green' ></i> #{t 'posting_response_past_response_from_address'} #{truncate(Posting.format(response.posting.from_address), length: 30)}".html_safe %></p>
+            <p id='to_address'><%= "<i class='fa fa-map-marker  fa-lg red'></i>  #{t 'posting_response_past_response_from_address'} #{truncate(Posting.format(response.posting.to_address), length: 30)}".html_safe %></p>
             <p><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{l response.posting.date, format: :default}".html_safe %></p>
             <p><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{response.posting.starting_time.strftime("%H:%M")} - #{response.posting.ending_time.strftime("%H:%M")}".html_safe %></p>
             <% if response.posting.comments.present? %>
-              <h6>Notlar</h6>
+              <h6><%= "#{t 'posting_response_past_response_notes'}"%></h6>
               <p><%= response.posting.comments %></p>
             <% end %>
           </div>
-          <div class="center" id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-answer-<%= response.posting.id %>"><%= link_to "Evet", posting_response_happened_path(response), class: "btn btn-mini btn-success", remote: true %> <%= link_to "Hayir", posting_response_not_happened_path(response), class: "btn btn-mini btn-danger", remote: true %></div>
+          <div class="center" id="<%= response.posting.user.name.parameterize %>-<%= response.responder.name.parameterize %>-answer-<%= response.posting.id %>"><%= link_to "#{t 'posting_response_past_response_yes'}", posting_response_happened_path(response), class: "btn btn-mini btn-success", remote: true %> <%= link_to "#{t 'posting_response_past_response_no'}", posting_response_not_happened_path(response), class: "btn btn-mini btn-danger", remote: true %></div>
         </div>
       </li>
       <% end %>
