@@ -124,29 +124,77 @@ tr:
 		show:	
 	shared:
 		error_message:
-		posting_table:
+			shared_error_message_contains_error: "Formda bir hata oluştu:"
+		posting_table: #No String
 		sidebar:
+			shared_sidebar_notifications: "Bildirimler:"
+			shared_sidebar_unapproved_postings: "Onaylamadiginiz gecmis yolculuklariniz var"
 		user_info:
+			shared_user_info_create_posting: "İlan Oluştur"
+			shared_user_info_search_posting: "İlan Ara"
+			shared_user_info_my_postings: "İlanlarım"
 	static_pages:
 		about:
+			static_pages_about_title: "Hakkımızda"
+			static_pages_about_first_paragraph: "Biz ders sıralarında kopya çekiştiğin arkadaşlarından başkası değiliz."
+			static_pages_about_second_paragraph: "Biz İstanbul trafiğinin yeni köprülerle sürdürülemeyeceğini düşünen mezun ve öğrencileriz. Okul yollarinda geçirdiğimiz zamani yeni insanlar ile tanışarak, sohbet ederek daha eğlenceli hale getirmek istiyoruz."
+			static_pages_about_third_paragraph: "Sen de yolculuklarını paylaşarak daha ekonomik, daha zeki bir şekilde ulaşım sağlayabilirsin."
+			static_pages_about_fourth_paragraph: "Bizimkisi tüketim kültürüne, doğaya zarar veren petrol şirketlerine, hep daha fazla satmaya çalışan otomobil şirketlerine bir meydan okuma! Bu siteyle yakıt masraflarından tasarruf sağlanması, şehir trafiğinin rahatlaması ve çevre kirliliğinin azalmasını sağlayabiliriz. İstanbullular’a bu yeni ulaşım alışkanlığını kazandırmak için sen de bize katıl, geleceğin sürdürülebilir, çevreci ve ekonomik ulaşımını birlikte şekillendirelim."
 		admin:
+			static_pages_admin_total_number_of_users: "Toplam Kullanıcı Sayısı:"
+			static_pages_admin_total_number_of_postings: "Toplam Ilan Sayısı:"
+			static_pages_admin_total_number_of_live_postings: "Canlı İlan Sayısı:"
+			static_pages_admin_total_number_of_posting_user: "Ilan veren Kullanıcı Sayısı:"	
 		contact:
+			static_pages_contact_contact_us: "Bize Ulasşın"
 		help:
+			static_pages_help_help: "Yardım"
+		#WILL BE COMPLETED LATER [welcome:]
 		welcome:
+			static_pages_welcome_enter_email: "Lütfen emailinizi girin"
 		why:
+			static_pages_why_title: "Neden"
+			static_pages_why_first_paragraph: "Dikkat edersen yolların, içinde yalnız sürücüsü olan arabalarla dolu olduğunu farkedeceksin."
+			static_pages_why_second_paragraph: "Aynı yöne giden sürücüleri ve toplu taşıma kullanıcılarını buluşturarak daha verimli ve sürdürülebilir bir ulaşım alışkanlığı kazandırmayı hedefliyoruz."
+			static_pages_why_third_paragraph: "Burada sadece KU’lular var! Yalnızca ku.edu.tr mail adresleriyle hesap oluşturarak bizbize bir ortam yaratıyoruz, güvenlik endişesini ortadan kaldırıyoruz."
+			static_pages_why_fourth_paragraph: "240 KU öğrencisi kampüslere nereden ulaştıklarını söyledi. Tüm okulda, senin geldiğin yerden de gelen başkaları kesin vardır!"
+			static_pages_why_fifth_paragraph: "Yolculuk paylaşarak ulaşım masraflarından tasarruf edecek, karbon salınımını azaltıp çevreyi koruyacaksın."
+			static_pages_why_sixth_paragraph: "Bunları yaparken yeni insanlar tanıma fırsatı bulacaksın."
 	user_mailer:
 		welcome:
+			user_mailer_welcome_greeting: "Sevgili"
+			user_mailer_welcome_welcome: "Aramıza hoş geldin."
+			user_mailer_welcome_first_paragraph: "Offtrafik'te yapacağın yolculuklar için ilan verebilir, başkalarının verdiği ilanlara cevap verip onlarla yolculuklarını paylaşabilirsin. Yolculuklarını sosyal medyada paylaşabilir, insanlarla yaptığın yolculuklar sonunda onları puanlayabilirsin ve yorumlarını gelecekteki yolculara iletebilirsin."
+			user_mailer_welcom_second_paragraph: "Offtrafik olarak bilinçli tercihler yapan bir topluluk yaratmaya çalışıyoruz ve seni aramızda görmek bize güç veriyor. Yola çıkarken sizlerin varlığından haberdardık; sadece bir araya gelmemiz gerekiyordu. Daha bilinçli tercihler yapan insanlar olarak güzel şeyler yapacağımız günler var önümüzde."
+			user_mailer_welcome_third_paragraph: "Bize katıldığın için mutluyuz!"
+			user_mailer_welcome_offtrafik: "Offtrafik"
+	#TAG CHANGE MIGHT BE IMPLEMENTED		
 	users:
 		agreed_journey_card:
-			agreed_journey_card_from_address:
-			agreed_journey_card_to_address:	
-			agreed_journey_card_alone_journey:
+			agreed_journey_card_from_address: "Nereden"
+			agreed_journey_card_to_address:	"Nereye"
+			agreed_journey_card_alone_journey: "Yanlız"
 		display_comments: #No String 
 		user: #No string
 		find:
+			find_user: "Kullanıcı Ara"
+			find_name: "İsim"
+			find_contact_choice: "İletişim Tercihi"
+			find_contact_information: "İletişim Bilgisi"
 		not_activated:
+			not_activated_user_warning: "Üyeliğiniz şu anda aktif değil. Eğer aktivasyon maili gelmemişse, veya aktivasyon mailini yeniden istiyorsaniz lütfen aşağıdaki butona tıklayın."
+			not_activated_activation_mail_link: "Aktivasyon Mailini Tekrar Gönder"
 		past_postings:
+			past_postings_title: "Geçmiş İlanlar"
+			past_postings_no_post_found: "Yolculuk bulunmamaktadır."
+			past_postings_create_posting: "İlan Oluştur"
 		postings:
+			postings_my_postings: "İlanlarım"
+			postings_past_postings: "Geçmiş İlanlar"
 		show:
-			
+			show_neighborhood: "Semt"
+			show_trip_rating: "Yolculuk Puanım"
+			show_total_journeys: "Toplam Yolculuklar"
+			show_comments: "Yorumlar"
+			show_past_journeys: "Geçmiş Yolculuklar"
 		

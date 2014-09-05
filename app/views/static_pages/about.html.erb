@@ -1,23 +1,15 @@
 <%= provide(:title, 'Hakkımızda') %>
-<h1>Hakkımızda</h1>
+<h1><%="#{t 'static_pages_about_title'}"%></h1>
 <div class="row about-row">
   <div class="span8">
-    <p>Biz ders sıralarında kopya çekiştiğin arkadaşlarından başkası değiliz.</p>
+    <p><%= "#{t "static_pages_about_first_paragraph"}"%></p>
   </div>
 </div>
 <div class="row about-row">
   <div class="span6">
-    <p>Biz İstanbul trafiğinin yeni köprülerle sürdürülemeyeceğini düşünen mezun ve 
-öğrencileriz. Okul yollarinda geçirdiğimiz zamani yeni insanlar ile tanışarak, 
-sohbet ederek daha eğlenceli hale getirmek istiyoruz. </p>
-    <p>Sen de yolculuklarını paylaşarak daha ekonomik, daha zeki bir şekilde ulaşım 
-sağlayabilirsin.</p>
-    <p>Bizimkisi tüketim kültürüne, doğaya zarar veren petrol şirketlerine, hep daha 
-fazla satmaya çalışan otomobil şirketlerine bir meydan okuma! Bu siteyle yakıt 
-masraflarından tasarruf sağlanması, şehir trafiğinin rahatlaması ve çevre 
-kirliliğinin azalmasını sağlayabiliriz. 
-İstanbullular’a bu yeni ulaşım alışkanlığını kazandırmak için sen de bize katıl, 
-geleceğin sürdürülebilir, çevreci ve ekonomik ulaşımını birlikte şekillendirelim. </p>
+    <p><%= "#{t "static_pages_about_second_paragraph"}"%></p>
+    <p><%= "#{t "static_pages_about_third_paragraph"}"%></p>
+    <p><%= "#{t "static_pages_about_fourth_paragraph"}"%></p>
   </div>
   <div class="span4">
     <%= image_tag 'trafik.png' %>

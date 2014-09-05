@@ -1,15 +1,15 @@
-<%= provide(:title, "Kullanıcı Ara") %>
+<%= provide(:title, "#{t 'find_user'})" %>
 <div class="row">
   <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <section>
     <h3>
-      <%= = Kullanici Ara %>
+      <%= "#{t "find_user"}" %>
     </h3>
     <table class="table table-hover">
       <tr>
-        <td>İsim</td>
-        <td>İletişim Tercihi</td>
-        <td>İletişim Bilgisi</td>
+        <td><%= "#{t 'find_name'}" %></td>
+        <td><%= "#{t 'find_contact_choice'}" %></td>
+        <td><%= "#{t 'find_contact_information'}" %></td>
       </tr>
       <tbody>
         <% @users.each do |user| %>

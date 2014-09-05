@@ -1,6 +1,6 @@
 <p>
-  <%= = Uyeliginiz su anda aktif degil. Eger aktivasyon maili gelmemisse, veya aktivasyon mailini yeniden istiyorsaniz lutfen asagidaki buton tiklayin. %>
+  <%= "#{t 'not_activated_user_warning'}" %>
 </p>
 <p>
-  <%= link_to "Aktivasyon Mailini Tekrar Gonder", user_resend_activation_path(@user), class: "btn btn-primary btn-large" %>
+  <%= link_to "# {t 'Aktivasyon Mailini Tekrar Gonder'}", user_resend_activation_path(@user), class: "btn btn-primary btn-large" %>
 </p>

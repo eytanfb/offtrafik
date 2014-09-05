@@ -27,7 +27,7 @@
      <ul id="nav">
       <% unless user_signed_in? %> 
         <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: false, html: { id: "welcome-login", class: "form-inline", novalidate: false }, method: :post do |f| %>
-          <%= f.input_field :email, label: false, placeholder: "Email", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "Lütfen emailinizi girin" %>
+          <%= f.input_field :email, label: false, placeholder: "Email", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "#{t 'static_pages_welcome_enter_email'}" %>
           <%= f.input_field :password, label: false, placeholder: "#{ t 'static_pages.welcome.login-form.password'}", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalıdır" %>
           <%= f.button :submit, "#{t 'static_pages.welcome.login-form.submit'}", id: "login-submit" %>
         <% end %>

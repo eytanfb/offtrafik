@@ -1,19 +1,13 @@
 <meta content="text/html" http-equiv="Content-Type"/>
-<p>Sevgili <%= @user.name %>,</p>
+<p><%= "#{t 'user_mailer_welcome_greeting'}" @user.name %>,</p>
 
-<p>Aramıza hoş geldin!</p>
+<p><%= "#{t 'user_mailer_welcome_welcome'}" %></p>
 
-<p>
-Offtrafik'te yapacağın yolculuklar için ilan verebilir, başkalarının verdiği ilanlara cevap verip onlarla yolculuklarını paylaşabilirsin. Yolculuklarını sosyal medyada paylaşabilir, insanlarla yaptığın yolculuklar sonunda onları puanlayabilirsin ve yorumlarını gelecekteki yolculara iletebilirsin.
-</p>
+<p><%="#{t 'user_mailer_welcome_first_paragraph'}"%></p>
 
-<p>
-Offtrafik olarak bilinçli tercihler yapan bir topluluk yaratmaya çalışıyoruz ve seni aramızda görmek bize 
-güç veriyor. Yola çıkarken sizlerin varlığından haberdardık; sadece bir araya gelmemiz gerekiyordu. Daha 
-bilinçli tercihler yapan insanlar olarak güzel şeyler yapacağımız günler var önümüzde.
-</p>
+<p><%="#{t 'user_mailer_welcom_second_paragraph'}"%></p>
 
-<p>Bize katıldığın için mutluyuz!</p>
+<p><%= "#{t 'user_mailer_welcom_third_paragraph'}"%></p>
 
 <p>Offtrafik</p>
 
