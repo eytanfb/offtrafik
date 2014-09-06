@@ -96,11 +96,19 @@ tr:
 	posting_mailer:
 		new_one_time_posting_given:
 		posting_contact:
-	poting_response_mailer:
+	posting_response_mailer:
 		accepted_to_owner:
 		accepted_responder:
 		journey_happened:
+			posting_response_mailer_journey_happened_congratulations: "Tebrikler!"
+			posting_response_mailer_journey_happened_paragraph_one:"Senin gibi düşünüp doğru tercihler yapanların arttığı bir gelecek hayal ediyoruz. Böylelikle hem çevreye verdiğimiz zararı azaltacak; hem de yakıtı, araçları ve yolları daha zekice kullanıyor olacağız."
+			posting_response_mailer_journey_happened_paragraph_two: "Biz bu hedefimizle gurur duyuyoruz ve sizler sayesinde başaracağız. Daha çevreci ve zeki bu ulaşım alışkanlığını yaymak için bizi sosyal medyada arkadaşlarına duyurabilirsin!"
+			posting_response_mailer_journey_happened_paragraph_profile_link:
 		rejected_to_responder:
+			posting_response_mailer_rejected_to_responder_dear: "Sevgili"
+			posting_response_mailer_rejected_to_responder_negative_message: "yolculuğuna yaptığın başvuru için olumlu yanıt alamadık."
+			posting_response_mailer_rejected_to_responder_other_link_text: "Yolculuğuna uygun diğer ilanlarla iletişime geçmek için"
+			posting_response_mailer_rejected_to_responder_click_here: "buraya tıklayabilirsin."
 	posting_response: #Some javascript files are not fixed
 		enter_phone:
 			posting_response_enter_phone_enter_phone_number: "Telefon Numaranı Gir"

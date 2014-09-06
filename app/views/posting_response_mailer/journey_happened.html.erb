@@ -1,9 +1,9 @@
 <meta content="text/html" http-equiv="Content-Type"/>
-<p>Tebrikler! <%= link_to @owner.name, user_url(@owner) %> ve <%= link_to @responder.name, user_url(@responder) %></p>
+<p><%="#{t 'posting_response_mailer_journey_happened_congratulations '}" link_to @owner.name, user_url(@owner) %> ve <%= link_to @responder.name, user_url(@responder) %></p>
 
-<p>Senin gibi düşünüp doğru tercihler yapanların arttığı bir gelecek hayal ediyoruz. Böylelikle hem çevreye verdiğimiz zararı azaltacak; hem de yakıtı, araçları ve yolları daha zekice kullanıyor olacağız.</p>
+<p><%= "#{t 'posting_response_mailer_journey_happened_paragraph_one'}"%></p>
 
-<p>Biz bu hedefimizle gurur duyuyoruz ve sizler sayesinde başaracağız. Daha çevreci ve zeki bu ulaşım alışkanlığını yaymak için bizi sosyal medyada arkadaşlarına duyurabilirsin</p>
+<p><%= "#{t 'posting_response_mailer_journey_happened_paragraph_profile_link'}"%></p>
 
 <p><%= link_to "Offtrafik'te", root_url %> birbirinizin profiline yorumlar yazmayı ve yolculukla ilgili anılarınızı sosyal medyada #offtrafik ile paylaşmayı unutmayın.</p>
 

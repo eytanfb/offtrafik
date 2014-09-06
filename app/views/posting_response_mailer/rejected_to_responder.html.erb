@@ -1,9 +1,9 @@
 <meta content="text/html" http-equiv="Content-Type"/>
-<p>Sevgili <%= @responder.name %></p>
+<p><%= "#{t 'posting_response_mailer_rejected_to_responder_dear '}" @responder.name %></p>
 
-<p><%= link_to "#{@to_from}", posting_url(@posting) %> yolculuğuna yaptığın başvuru için olumlu yanıt alamadık.</p>
+<p><%= link_to "#{@to_from}", posting_url(@posting) "#{t 'posting_response_mailer_rejected_to_responder_negative_message'}"%></p>
 
-<p>Yolculuğuna uygun diğer ilanlarla iletişime geçmek için <%= link_to "buraya tıklayabilirsin.", find_posting_url(to_address: Posting.format(@posting.to_address)) %></p>
+<p><%="#{t 'posting_response_mailer_rejected_to_responder_other_link_text'}" link_to "#{t 'posting_response_mailer_rejected_to_responder_click_here'}", find_posting_url(to_address: Posting.format(@posting.to_address)) %></p>
 
 <p>Offtrafik</p>
 
