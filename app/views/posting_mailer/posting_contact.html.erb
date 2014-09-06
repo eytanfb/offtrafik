@@ -1,14 +1,14 @@
 <meta content="text/html" http-equiv="Content-Type"/>
-<p>Sevgili <%= @owner.name %>,</p>
+<p><%="#{t 'posting_mailer_posting_contact_dear'}" @owner.name %>,</p>
 
 <p><%= @responder.name %> seninle <%= link_to "#{@to_from}", posting_url(@posting) %> yolculuğunu paylaşmak istiyor.</p>
 
 <% unless @text.blank? %>
-  <h4 style="text-decoration: underline; margin-bottom: 0px"><%= "#{@responder.name} size ozel bir mesaj yolladı" %></h4>
+  <h4 style="text-decoration: underline; margin-bottom: 0px"><%= "#{@responder.name} #{t 'posting_mailer_posting_contact_sent_message'}" %></h4>
   <p style="margin-top: 0px"><%= @text %></p>
 <% end %>
 
-<p>Linke tıklayıp ona cevap verebilir, daha keyifli ve çevreci bir yolculuk yapabilirsiniz.</p>
+<p><%= "#{t 'posting_mailer_posting_contact_click_link_sentence'}"%></p>
 
 <p>Offtrafik</p>
 

@@ -1,9 +1,9 @@
 <meta content="text/html" http-equiv="Content-Type"/>
-<p>Sevgili <%= @owner.name %>,</p>
+<p><%= "#{t 'posting_mailer_new_one_time_posting_given_dear'}" @owner.name %>,</p>
 
-<p>Teşekkürler!</p>
+<p><%= "#{t 'posting_mailer_new_one_time_posting_thanks'}"%></p>
 
-<p><%= @to_from %> yonunde yapicaginiz ilan basariyla kaydedildi.</p>
+<p><%= @to_from "#{t 'posting_mailer_new_one_time_posting_post_succes_sentence'}"%></p>
 
 <p>Ilanina cevap veren birilerini bulamaz isen, <a href="mailto:leri@offtrafik.com">bize</a> yaz, elimizden geleni yapalim.</p>
 
