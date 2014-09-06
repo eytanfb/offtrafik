@@ -98,12 +98,27 @@ tr:
 		posting_contact:
 	posting_response_mailer:
 		accepted_to_owner:
-		accepted_responder:
-		journey_happened:
+			posting_response_mailer_accepted_to_owner_dear: "Sevgili "
+			posting_response_mailer_accepted_to_owner_post_link: #Fix the html code
+			posting_response_mailer_accepted_to_owner_first_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
+			posting_response_mailer_accepted_to_owner_offtrafik_share_sentence: "Yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
+			posting_response_mailer_accepted_to_owner_safe_ride: "İyi yolculuklar,"
+			
+		accepted_responder:#Still need fixes
+			posting_response_mailer_accepted_responder_dear: "Sevgili "
+			posting_response_mailer_accepted_responder_positive_response: #Fix the html code
+			posting_response_mailer_accepted_responder_congratulations_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
+			posting_response_mailer_accepted_responder_offtrafik_share_sentence: "Yolculukla ilgili anılarınızı sosyal medyada #offtrafik ile paylaşmayı unutmayın." 
+			posting_response_mailer_accepted_responder_safe_ride: "İyi yolculuklar," 
+		journey_happened:#Still need fixes
 			posting_response_mailer_journey_happened_congratulations: "Tebrikler!"
 			posting_response_mailer_journey_happened_paragraph_one:"Senin gibi düşünüp doğru tercihler yapanların arttığı bir gelecek hayal ediyoruz. Böylelikle hem çevreye verdiğimiz zararı azaltacak; hem de yakıtı, araçları ve yolları daha zekice kullanıyor olacağız."
 			posting_response_mailer_journey_happened_paragraph_two: "Biz bu hedefimizle gurur duyuyoruz ve sizler sayesinde başaracağız. Daha çevreci ve zeki bu ulaşım alışkanlığını yaymak için bizi sosyal medyada arkadaşlarına duyurabilirsin!"
 			posting_response_mailer_journey_happened_paragraph_profile_link:
+			#Make the @offtrafik word as a link to the instagram account (below)
+			posting_response_mailer_journey_happened_offtrafik_link_sentence: "birbirinizin profiline yorumlar yazmayı ve yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
+			posting_response_mailer_journey_happened__mail_link_sentence: #Fix the html code for a single key
+				
 		rejected_to_responder:
 			posting_response_mailer_rejected_to_responder_dear: "Sevgili"
 			posting_response_mailer_rejected_to_responder_negative_message: "yolculuğuna yaptığın başvuru için olumlu yanıt alamadık."

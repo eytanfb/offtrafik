@@ -1,5 +1,5 @@
 <meta content="text/html" http-equiv="Content-Type"/>
-<p>Sevgili <%= @owner.name %></p>
+<p><%="#{t 'posting_response_mailer_accepted_to_owner_dear'}" @owner.name %></p>
 
 <p>Mutlulukla belirtmek isteriz ki <%= link_to "#{@to_from} ilanına", posting_url(@posting) %> başvuruyu kabul ettiğini <%= @responder.name %> ilettik. Artık sadece buluşup yolculuğu gerçekleştirmeniz kaldı.</p>
 
@@ -7,11 +7,11 @@
   <p><%= @responder.name %>: <%= @responder.phone %></p>
 <% end %>
 
-<p>Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!</p>
+<p><%= "#{t 'posting_response_mailer_accepted_to_owner_first_paragraph'}"%></p>
 
-<p>Yolculukla ilgili anılarınızı sosyal medyada #offtrafik ile paylaşmayı unutmayın.</p>
+<p><%= "#{t 'posting_response_mailer_accepted_to_owner_offtrafik_share_sentence'}"%></p>
 
-<p>İyi yolculuklar,</p>
+<p><%= "#{t 'posting_response_mailer_accepted_to_owner_safe_ride'}"%></p>
 
 <p>Offtrafik</p>
 
