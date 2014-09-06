@@ -84,15 +84,29 @@ tr:
 			
   comments:
 		comment:
-			comment_detail_link:
+			comments_comment_see_comment: "Yorumu Gör"
 		form:
+			comments_form_rating: "Puan"
+			comments_form_comment: "Yorum"
+			coments_form_submit_comment: "Yorumu Kaydet"
 		new:
+			comments_new_new_comment: "Yeni Yorum"
 		show:
+			comments_show_from_whom: "Kimden: "
+			comments_show_rating: "Puan: "
+			comments_show_comment: "Yorumu"
 	layouts:
 		footer:
+			layouts_footer_terms_and_conditions: "Kullanıcı Kullanım Şartları"
+			layouts_footer_contact_us: "Bize Ulaşın"
+			layouts_footer_about: "Hakkımızda"
 		header:
-		shim:
-		application:
+			layouts_header_main_page: "Ana Sayfa"
+			layouts_header_profile: "Profil"
+			layouts_header_settings: "Ayarlar"
+			layouts_header_logout: "Logout"
+		shim: #No Strings
+		application: #No Strings
 	posting_mailer:
 		new_one_time_posting_given:
 			posting_mailer_new_one_time_posting_given_dear:"Sevgili "
@@ -102,7 +116,7 @@ tr:
 		posting_contact:
 			posting_mailer_posting_contact_dear: "Sevgili "
 			posting_mailer_posting_contact_post_share_sentence: #Fix html code
-			posting_mailer_posting_contact_sent_message: " size ozel bir mesaj yolladı"
+			posting_mailer_posting_contact_sent_message: " size ozel bir mesaj yolladı."
 			posting_mailer_posting_contact_click_link_sentence: "Linke tıklayıp ona cevap verebilir, daha keyifli ve çevreci bir yolculuk yapabilirsiniz."
 	posting_response_mailer:
 		accepted_to_owner:
