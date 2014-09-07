@@ -95,6 +95,19 @@ tr:
 			comments_show_from_whom: "Kimden: "
 			comments_show_rating: "Puan: "
 			comments_show_comment: "Yorumu"
+	devise:
+		confirmations:
+			new:
+				devise_confirmations_new_activation_confirmation: "Aktivasyon Onayı"
+				devise_confirmations_new_send_activation_email_again: "Aktivasyon e-mailini tekrar yolla."
+		mailer:
+			confirmation_instructions:
+				devise_mailer_confirmation_instructions
+		passwords:
+		registrations:
+		sessions:
+		shared:
+		unlocks:
 	layouts:
 		footer:
 			layouts_footer_terms_and_conditions: "Kullanıcı Kullanım Şartları"
