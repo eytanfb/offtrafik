@@ -13,24 +13,24 @@
     </div>
     <div id="map"></div>
     <section id="user-details">
-      <h4 style="display:none"><%= "#{t 'show_neighborhood'}" %>: <span id="neighborhood"><%= @user.neighborhood %></span></h4>
+      <h4 style="display:none"><%= "#{t 'users_show_neighborhood'}" %>: <span id="neighborhood"><%= @user.neighborhood %></span></h4>
       <div class="row">
         <div class="span6">
-          <h4><%= "#{t 'show_trip_rating'}" %>: <span id="user-trip-rating" data-score="<%= @user.trip_rating %>"></span></h4>
+          <h4><%= "#{t 'users_show_trip_rating'}" %>: <span id="user-trip-rating" data-score="<%= @user.trip_rating %>"></span></h4>
         </div>
         <div class="span6">
-          <h4 id='total-journey-count'><%= "#{t 'show_total_journeys'}" %>: <%= @user.total_journeys %> </h4>
+          <h4 id='total-journey-count'><%= "#{t 'users_show_total_journeys'}" %>: <%= @user.total_journeys %> </h4>
         </div>
       </div>
     <div class="row">
       <div class="span5">
-        <h3><%= "#{t 'show_comments'}" %></h3>
+        <h3><%= "#{t 'users_show_comments'}" %></h3>
         <%= add_comment_about(current_user) unless @user == current_user %>
         <%= render 'display_comments', comments: @comments %>
       </div>
       <% if @user == current_user %>
         <div class="span6">
-          <h3 id="past-journeys-title"><%= "#{t 'show_past_journeys'}" %></h3>
+          <h3 id="past-journeys-title"><strong><%= "#{t 'users_show_past_journeys'}"%></strong></h3>
            <div id="past-journeys">
              <% @agreed_journeys.each do |journey| %>
                <%= render "agreed_journey_card", journey: journey %>
