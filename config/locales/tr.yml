@@ -102,7 +102,20 @@ tr:
 				devise_confirmations_new_send_activation_email_again: "Aktivasyon e-mailini tekrar yolla."
 		mailer:
 			confirmation_instructions:
-				devise_mailer_confirmation_instructions
+				devise_mailer_confirmation_instructions_hello: "Merhaba"
+				devise_mailer_confirmation_instructions_instruction: "Asagidaki linkten hesabını aktive edebilirsin:"
+				devise_mailer_confirmation_instructions_activate_link: "Aktive Et"
+			reset_password_instructions:
+				devise_mailer_reset_password_instructions_hello: "Merhaba"
+				devise_mailer_reset_password_instructions_instruction: "Biri şifrenizi değiştirmek için link istedi. Aşagidaki linkten bunu gerçekleştirebilirsiniz."
+				devise_mailer_reset_password_instructions_change_password_link: ""
+				devise_mailer_reset_password_instructions_info: "Eğer bunu siz istemediyseniz, bu emaili yok sayabilirsiniz."
+				devise_mailer_reset_password_instructions_last_info: "Şifreniz bu linke basıp yeni bir tane oluşturana kadar değişmeyecektir."
+			unlock_instructions:#Why in english ?
+				devise_mailer_unlock_instructions_hello:
+				devise_mailer_unlock_instructions_warning:
+				devise_mailer_unlock_instructions_instructions:
+				devise_mailer_unlock_instructions_link: 
 		passwords:
 		registrations:
 		sessions:
