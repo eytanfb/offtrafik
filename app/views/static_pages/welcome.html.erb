@@ -27,12 +27,12 @@
      <ul id="nav">
       <% unless user_signed_in? %> 
         <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: false, html: { id: "welcome-login", class: "form-inline", novalidate: false }, method: :post do |f| %>
-          <%= f.input_field :email, label: false, placeholder: "Email", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "#{t 'static_pages_welcome_enter_email'}" %>
-          <%= f.input_field :password, label: false, placeholder: "#{ t 'static_pages.welcome.login-form.password'}", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalıdır" %>
-          <%= f.button :submit, "#{t 'static_pages.welcome.login-form.submit'}", id: "login-submit" %>
+          <%= f.input_field :email, label: false, placeholder: "#{t 'static_pages_welcome_email_placeholder'}", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "#{t 'static_pages_welcome_enter_email'}" %>
+          <%= f.input_field :password, label: false, placeholder: "#{ t 'static_pages_welcome_login_password'}", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "#{t 'static_pages_welcome_password_requirement'}" %>
+          <%= f.button :submit, "#{t 'static_pages_welcome_login'}", id: "login-submit" %>
         <% end %>
       <% else %>
-       <span class="pull-right" id="no-header-logged-in-user">Hoşgeldin <%= current_user.name %> <span><%= link_to "Offtrafik'e Git", user_past_responses_path(current_user.id) %></span><%= link_to "#{current_user.name} degilim", destroy_user_session_path, method: "delete"  %></span>
+       <span class="pull-right" id="no-header-logged-in-user"><%= "#{t 'static_pages_welcome_welcome'} #{current_user.name}" %> <span><%= link_to "#{t 'static_pages_welcome_goto_offtrafik'}", user_past_responses_path(current_user.id) %></span><%= link_to "#{current_user.name} değilim", destroy_user_session_path, method: "delete"  %></span>
       <% end %>
      </ul>
   </nav>
@@ -43,20 +43,20 @@
     	<div style="height: 50px">
       <% unless user_signed_in? %> 
         <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: false, html: { id: "welcome-login", class: "form-inline", novalidate: false }, method: :post do |f| %>
-          <%= f.input_field :email, label: false, placeholder: "Email", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "Lütfen emailinizi girin" %>
-          <%= f.input_field :password, label: false, placeholder: "#{ t 'static_pages.welcome.login-form.password'}", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalıdır" %>
-          <%= f.button :submit, "#{t 'static_pages.welcome.login-form.submit'}", id: "login-submit" %>
+          <%= f.input_field :email, label: false, placeholder: "#{t 'static_pages_welcome_email_placeholder'}", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "Lütfen emailinizi girin" %>
+          <%= f.input_field :password, label: false, placeholder: "#{ t 'static_pages_welcome_login_password'}", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalıdır" %>
+          <%= f.button :submit, "#{t 'static_pages_welcome_login'}", id: "login-submit" %>
         <% end %>
     	<% else %>
-       <span class="pull-right" id="header-logged-in-user">Hoşgeldin <%= current_user.name %> <span><%= link_to "Offtrafik'e Git", user_past_responses_path(current_user.id) %></span> <%= link_to "#{current_user.name} degilim", destroy_user_session_path, method: "delete"  %></span>
+       <span class="pull-right" id="header-logged-in-user"><%="#{t 'static_pages_welcome_welcome'} #{current_user.name}" %> <span><%= link_to "Offtrafik'e Git", user_past_responses_path(current_user.id) %></span> <%= link_to "#{current_user.name} degilim", destroy_user_session_path, method: "delete"  %></span>
       <% end %>
       </div>
         <div class="twelve columns centered" style="margin-top: 0px">
 	          <div class="fade1 font-titi-semib" style="font-size: 110px;"><%= image_tag "offtrafik-no-background-logo.png" %></div>     
-	          <h2 class="fade2"><%= t "static_pages.welcome.tagline" %></h2>
-            <%= link_to  "#{ t 'static_pages.welcome.about_link'} ", "#about", class: "scroll-button fade3" %>
+	          <h2 class="fade2"><%= "#{t 'static_pages.welcome.static_pages_welcome_tagline'}" %></h2>
+            <%= link_to  "#{ t 'static_pages_welcome_about_link'} ", "#about", class: "scroll-button fade3" %>
             <br />
-            <%= link_to "#{ t 'static_pages.welcome.join_us_link'}", new_user_registration_path, class: "button fade3" %>
+            <%= link_to "#{ t 'static_pages_welcome_join_us'}", new_user_registration_path, class: "button fade3" %>
 	      </div>
     </div>
 </section>
@@ -67,8 +67,8 @@
 <section id="about" class="cbp-so-section thumbs">
 	<div class="row">
 		<div class="twelve columns centered">
-			<h3><%= "#{t 'static_pages.welcome.about.title'}" %></h3>	
-			<p class="lead"><span class="font-titi-semib" style="font-size:24px;">Offtrafik</span> <%= "#{t 'static_pages.welcome.about.subtitle_part_one'}" %><br><%= "#{t 'static_pages.welcome.about.subtitle_part_two'}" %></p>
+			<h3><%= "#{t 'static_pages_welcome_welcome_title'}" %></h3>	
+			<p class="lead"><span class="font-titi-semib" style="font-size:24px;">Offtrafik</span> <%= "#{t 'static_pages_welcome_subtitle_part_one'}" %><br><%= "#{t 'static_pages_welcome_subtitle_part_two'}" %></p>
 
 			<div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9b">	         
                 <ul class="three_up tiles centered hi-icon-effect-9 hi-icon-effect-9b">
@@ -76,22 +76,22 @@
                     <li>
                     <%= link_to (image_tag "landing-page-register.png", class: "hi-icon"), new_user_registration_path %>
                     <div class="clear"></div>
-                    <h4><%= t "static_pages.welcome.about.featurette_one.title" %></h4>
-                    <p><%= t "static_pages.welcome.about.featurette_one.text" %></p>
+                    <h4><%= t "static_pages_welcome_featurette_one_title" %></h4>
+                    <p><%= t "static_pages_welcome_featurette_one_text" %></p>
                     </li>
                     
                     <li>
                     <%= link_to (image_tag "landing-page-search-post.png", class: "hi-icon"), "#control", id: "img-to-aboutus" %>
                     <div class="clear"></div>                    
-                    <h4><%= t "static_pages.welcome.about.featurette_two.title" %></h4>
-                    <p><%= t "static_pages.welcome.about.featurette_two.text" %></p>
+                    <h4><%= t "static_pages_welcome_featurette_two_title" %></h4>
+                    <p><%= t "static_pages_welcome_featurette_two_text" %></p>
                     </li>
                     
                     <li>
                     <%= link_to (image_tag "landing-page-share.png", class: "hi-icon"), "#aboutus" %>
                     <div class="clear"></div>                    
-                    <h4><%= t "static_pages.welcome.about.featurette_three.title" %></h4>
-                    <p><%= t "static_pages.welcome.about.featurette_three.text" %></p>
+                    <h4><%= t "static_pages_welcome_featurette_three_title" %></h4>
+                    <p><%= t "static_pages_welcome_featurette_three_text" %></p>
                     </li>
                 
                 </ul> 
@@ -103,8 +103,8 @@
 <section id="aboutus" class="cbp-so-section work1 padding-top-80">
 	<div class="row">
 		<div class="five columns cbp-so-side cbp-so-side-left">
-			<h3><%= t "static_pages.welcome.aboutus.title"  %></h3>
-			<p><span class="font-titi-semib" style="font-size:24px">Offtrafik</span> <%= t "static_pages.welcome.aboutus.text_part_one"  %><br/><%= t "static_pages.welcome.aboutus.text_part_two"  %></p> 
+			<h3><%= t "static_pages_welcome_part_one_title"  %></h3>
+			<p><span class="font-titi-semib" style="font-size:24px">Offtrafik</span> <%= t "static_pages_welcome_part_one_paragraph_one"  %><br/><%= t "static_pages_welcome_part_one_paragraph_two"  %></p> 
 		</div>
 		<div class="seven columns cbp-so-side cbp-so-side-right">
       <%= image_tag "welcome/welcome-page-taxi-posting.png", class: "about-us-img", id: "left" %>
@@ -117,8 +117,8 @@
 <section id="control" class="cbp-so-section work2 padding-top-80">
 	<div class="row">
 		<div class="five columns cbp-so-side cbp-so-side-right" style="float:right;">
-      <h3><%= t "static_pages.welcome.control.title" %></h3>
-        <p><%= t "static_pages.welcome.control.text" %></p>
+      <h3><%= t "static_pages_welcome_part_two_title" %></h3>
+        <p><%= t "static_pages_welcome_part_two_paragraph" %></p>
 		</div>		
 		<div class="seven columns cbp-so-side-img cbp-so-side-left" style="margin-top: 50px" >	
       <%= image_tag "welcome/welcome-page-control.png", width: "100%", style: "height: 300px;" %>      
@@ -130,7 +130,7 @@
 <section id="joinus">
 	<div class="row">
 		<div class="eight columns centered">	
-			<h2><%= t "static_pages.welcome.joinus_html" %></h2>
+			<h2><%= t "static_pages_welcome_join_us_text" %></h2>
 		</div>
 	</div>
 </section>
@@ -139,7 +139,7 @@
 	<div class="row centered"> 
 		<div class="seven columns centered">				
       <div class="twelve columns centered">
-        <%= link_to "#{t 'static_pages.welcome.joinus_button'}", new_user_registration_path, class: "header-sign-up-button" %></div>
+        <%= link_to "#{t 'static_pages_welcome_join_us_button'}", new_user_registration_path, class: "header-sign-up-button" %></div>
 		</div>
 	</div>
 </section>
@@ -156,9 +156,9 @@
 
 		<div class="five columns text-right social">
 			<ul id="navfirst">
-        <li><%= link_to "<i class='icon-envelope'></i> #{t 'static_pages.welcome.joinus_link_at_bottom'}".html_safe, new_user_registration_path %></li>				
-				<li><a href="#aboutus"><i class="icon-info-sign"></i> <%= t 'static_pages.welcome.about_link_at_bottom' %></a></li>
-				<li><a href="#"><i class="icon-home"></i> <%= t 'static_pages.welcome.welcome_link_at_bottom' %></a></li>
+        <li><%= link_to "<i class='icon-envelope'></i> #{t 'static_pages_welcome_footer_join_us_link'}".html_safe, new_user_registration_path %></li>				
+				<li><a href="#aboutus"><i class="icon-info-sign"></i> <%= t 'static_pages_welcome_footer_whats_offtrafik_link' %></a></li>
+				<li><a href="#"><i class="icon-home"></i> <%= t 'static_pages_welcome_footer_welcome_link' %></a></li>
 			</ul>
 		</div>
 	</div>

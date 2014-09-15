@@ -81,6 +81,7 @@ tr:
       joinus_link_at_bottom: "Bize Katıl"
       about_link_at_bottom: "Offtrafik Nedir?"
       welcome_link_at_bottom: "Hoşgeldin"
+  #------------------------------------------NEW TAGS-----------------------------------------
   comments:
     comment:
       comments_comment_see_comment: "Yorumu Gör"
@@ -101,7 +102,7 @@ tr:
         devise_confirmations_new_send_activation_email_again: "Aktivasyon e-mailini tekrar yolla."
     mailer:
       confirmation_instructions:
-      devise_mailer_confirmation_instructions:
+        devise_mailer_confirmation_instructions:
     passwords:
     registrations:
     sessions:
@@ -150,7 +151,7 @@ tr:
       posting_response_mailer_journey_happened_paragraph_profile_link:
       #Make the @offtrafik word as a link to the instagram account (below)
       posting_response_mailer_journey_happened_offtrafik_link_sentence: "birbirinizin profiline yorumlar yazmayı ve yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
-      posting_response_mailer_journey_happened__mail_link_sentence: #Fix the html code for a single key
+      posting_response_mailer_journey_happened__mail_link_sentence: #Fix the html code for a single key			
     rejected_to_responder:
       posting_response_mailer_rejected_to_responder_dear: "Sevgili"
       posting_response_mailer_rejected_to_responder_negative_message: "yolculuğuna yaptığın başvuru için olumlu yanıt alamadık."
@@ -264,9 +265,37 @@ tr:
       static_pages_contact_contact_us: "Bize Ulasşın"
     help:
       static_pages_help_help: "Yardım"
-    #WILL BE COMPLETED LATER [welcome:]
     welcome:
+      static_pages_welcome_email_placeholder: "Email"
       static_pages_welcome_enter_email: "Lütfen emailinizi girin"
+      static_pages_welcome_login_password: "Şifre"
+      static_pages_welcome_password_requirement: "En az 8 karakter olmalıdır."
+      static_pages_welcome_login: "Giriş"
+      static_pages_welcome_welcome: "Hoşgeldin "
+      static_pages_welcome_goto_offtrafik: "Offtrafik'e Git"
+      static_pages_welcome_not_current_user: #Fix the html code
+      static_pages_welcome_tagline: "Hey Koçlu, yolculuk nereye?"
+      static_pages_welcome_about_link: "OFFTRAFİK NEDİR?"
+      static_pages_welcome_join_us: "BİZE KATIL"
+      static_pages_welcome_welcome_title: "Offtrafik'e Hoşgeldin"
+      static_pages_welcome_subtitle_part_one: "Koç üniversiteli öğrencilerle yolculuk paylaşabileceğin ve yeni insanlarla tanışabileceğin bir platform."
+      static_pages_welcome_subtitle_part_two: "İster rutin, ister tek seferlik yolculuklarını KU’lularla paylaş; hem masrafları, hem çevre kirliliğini, hem de trafiği azalt."
+      static_pages_welcome_featurette_one_title: "KU Mailinle Üye Ol"
+      static_pages_welcome_featurette_one_text: "Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl." 
+      static_pages_welcome_featurette_two_title: "İlan Ver/Ara"
+      static_pages_welcome_featurette_two_text: "Offtrafik'te yolculuk ilanlarını oluştur ve ilan sahipleriyle iletişime geç."
+      static_pages_welcome_featurette_three_title: "Paylaş"
+      static_pages_welcome_featurette_three_text: "Yolculuklarını paylaşarak bu ulaşım ve çevre hareketinin kahramanlarından ol." 
+      static_pages_welcome_part_one_title: "Yolculuk Paylaş" 
+      static_pages_welcome_part_one_paragraph_one: "ile ister yolcu, ister sürücü olarak ilanlarını oluşturabilir, başka ilanlara başvurabilirsin. "
+      static_pages_welcome_part_one_paragraph_two: "Havaalanına ya da içmeye mi gideceksin? Arabaları evde bırakmakta fayda var, o zaman da taksini paylaş!"
+      static_pages_welcome_part_two_title: "Yol Arkadaşlarını Seç" 
+      static_pages_welcome_part_two_paragraph: "Yolculuklarını paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın."
+      static_pages_welcome_join_us_text: "Sen de gel bize katıl ve <div class='font-titi-semib'> Offtrafik\'le</div> neler yapabileceğini gör!"
+      static_pages_welcome_join_us_button: "Bize Katıl"
+      static_pages_welcome_footer_join_us_link: "Bize Katıl"
+      static_pages_welcome_footer_whats_offtrafik_link: "Offtrafik Nedir?"
+      static_pages_welcome_footer_welcome_link: "Hoşgeldin"
     why:
       static_pages_why_title: "Neden"
       static_pages_why_first_paragraph: "Dikkat edersen yolların, içinde yalnız sürücüsü olan arabalarla dolu olduğunu farkedeceksin."
@@ -282,33 +311,32 @@ tr:
       user_mailer_welcome_first_paragraph: "Offtrafik'te yapacağın yolculuklar için ilan verebilir, başkalarının verdiği ilanlara cevap verip onlarla yolculuklarını paylaşabilirsin. Yolculuklarını sosyal medyada paylaşabilir, insanlarla yaptığın yolculuklar sonunda onları puanlayabilirsin ve yorumlarını gelecekteki yolculara iletebilirsin."
       user_mailer_welcom_second_paragraph: "Offtrafik olarak bilinçli tercihler yapan bir topluluk yaratmaya çalışıyoruz ve seni aramızda görmek bize güç veriyor. Yola çıkarken sizlerin varlığından haberdardık; sadece bir araya gelmemiz gerekiyordu. Daha bilinçli tercihler yapan insanlar olarak güzel şeyler yapacağımız günler var önümüzde."
       user_mailer_welcome_third_paragraph: "Bize katıldığın için mutluyuz!"
-      user_mailer_welcome_offtrafik: "Offtrafik"
-  #TAG CHANGE MIGHT BE IMPLEMENTED		
+      user_mailer_welcome_offtrafik: "Offtrafik"		
   users:
     agreed_journey_card:
-      agreed_journey_card_from_address: "Nereden"
-      agreed_journey_card_to_address:	"Nereye"
-      agreed_journey_card_alone_journey: "Yanlız"
-    display_comments: #No String 
+      users_agreed_journey_card_from_address: "Nereden"
+      users_agreed_journey_card_to_address:	"Nereye"
+      users_agreed_journey_card_alone_journey: "Yanlız"
+    display_acomments: #No String 
     user: #No string
     find:
-      find_user: "Kullanıcı Ara"
-      find_name: "İsim"
-      find_contact_choice: "İletişim Tercihi"
-      find_contact_information: "İletişim Bilgisi"
+      users_find_find_user: "Kullanıcı Ara"
+      users_find_find_name: "İsim"
+      users_find_find_contact_choice: "İletişim Tercihi"
+      users_find_find_contact_information: "İletişim Bilgisi"
     not_activated:
-      not_activated_user_warning: "Üyeliğiniz şu anda aktif değil. Eğer aktivasyon maili gelmemişse, veya aktivasyon mailini yeniden istiyorsaniz lütfen aşağıdaki butona tıklayın."
-      not_activated_activation_mail_link: "Aktivasyon Mailini Tekrar Gönder"
+      users_not_activated_user_warning: "Üyeliğiniz şu anda aktif değil. Eğer aktivasyon maili gelmemişse, veya aktivasyon mailini yeniden istiyorsaniz lütfen aşağıdaki butona tıklayın."
+      users_not_activated_activation_mail_link: "Aktivasyon Mailini Tekrar Gönder" #Problem detected !!
     past_postings:
-      past_postings_title: "Geçmiş İlanlar"
-      past_postings_no_post_found: "Yolculuk bulunmamaktadır."
-      past_postings_create_posting: "İlan Oluştur"
+      users_past_postings_title: "Geçmiş İlanlar"
+      users_past_postings_no_post_found: "Yolculuk bulunmamaktadır."
+      users_past_postings_create_posting: "İlan Oluştur"
     postings:
-      postings_my_postings: "İlanlarım"
-      postings_past_postings: "Geçmiş İlanlar"
+      users_postings_my_postings: "İlanlarım"
+      users_postings_past_postings: "Geçmiş İlanlar"
     show:
-      show_neighborhood: "Semt"
-      show_trip_rating: "Yolculuk Puanım"
-      show_total_journeys: "Toplam Yolculuklar"
-      show_comments: "Yorumlar"
-      show_past_journeys: "Geçmiş Yolculuklar"
+      users_show_neighborhood: "Semt"
+      users_show_trip_rating: "Yolculuk Puanım"
+      users_show_total_journeys: "Toplam Yolculuklar"
+      users_show_comments: "Yorumlar"
+      users_show_past_journeys: "Geçmiş Yolculuklar" #Check html line !
