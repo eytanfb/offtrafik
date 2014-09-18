@@ -32,7 +32,7 @@
           <%= f.button :submit, "#{t 'static_pages_welcome_login'}", id: "login-submit" %>
         <% end %>
       <% else %>
-       <span class="pull-right" id="no-header-logged-in-user"><%="#{t 'static_pages_welcome_welcome'}" current_user.name %> <span><%= link_to "#{t 'static_pages_welcome_goto_offtrafik'}", user_past_responses_path(current_user.id) %></span><%= link_to "#{current_user.name} değilim", destroy_user_session_path, method: "delete"  %></span>
+       <span class="pull-right" id="no-header-logged-in-user"><%= "#{t 'static_pages_welcome_welcome'} #{current_user.name}" %> <span><%= link_to "#{t 'static_pages_welcome_goto_offtrafik'}", user_past_responses_path(current_user.id) %></span><%= link_to "#{current_user.name} değilim", destroy_user_session_path, method: "delete"  %></span>
       <% end %>
      </ul>
   </nav>
@@ -48,12 +48,12 @@
           <%= f.button :submit, "#{t 'static_pages_welcome_login'}", id: "login-submit" %>
         <% end %>
     	<% else %>
-       <span class="pull-right" id="header-logged-in-user"><%="#{t 'static_pages_welcome_welcome'}" current_user.name %> <span><%= link_to "Offtrafik'e Git", user_past_responses_path(current_user.id) %></span> <%= link_to "#{current_user.name} degilim", destroy_user_session_path, method: "delete"  %></span>
+       <span class="pull-right" id="header-logged-in-user"><%="#{t 'static_pages_welcome_welcome'} #{current_user.name}" %> <span><%= link_to "Offtrafik'e Git", user_past_responses_path(current_user.id) %></span> <%= link_to "#{current_user.name} degilim", destroy_user_session_path, method: "delete"  %></span>
       <% end %>
       </div>
         <div class="twelve columns centered" style="margin-top: 0px">
 	          <div class="fade1 font-titi-semib" style="font-size: 110px;"><%= image_tag "offtrafik-no-background-logo.png" %></div>     
-	          <h2 class="fade2"><%= "#{t t 'static_pages_welcome_tagline'}" %></h2>
+	          <h2 class="fade2"><%= "#{t 'static_pages.welcome.static_pages_welcome_tagline'}" %></h2>
             <%= link_to  "#{ t 'static_pages_welcome_about_link'} ", "#about", class: "scroll-button fade3" %>
             <br />
             <%= link_to "#{ t 'static_pages_welcome_join_us'}", new_user_registration_path, class: "button fade3" %>
