@@ -81,7 +81,7 @@ tr:
       joinus_link_at_bottom: "Bize Katıl"
       about_link_at_bottom: "Offtrafik Nedir?"
       welcome_link_at_bottom: "Hoşgeldin"
-  #------------------------------------------NEW TAGS-----------------------------------------
+#------------------------------------------NEW TAGS-----------------------------------------
   comments:
     comment:
       see_comment: "Yorumu Gör"
@@ -95,6 +95,7 @@ tr:
       from_whom: "Kimden: "
       rating: "Puan: "
       comment: "Yorumu"
+#----------Devise---------		
   devise:
     confirmations:
       new:
@@ -108,16 +109,17 @@ tr:
     sessions:
     shared:
     unlocks:
+#----------Devise---------		
   layouts:
     footer:
-      layouts_footer_terms_and_conditions: "Kullanıcı Kullanım Şartları"
-      layouts_footer_contact_us: "Bize Ulaşın"
-      layouts_footer_about: "Hakkımızda"
+      terms_and_conditions: "Kullanıcı Kullanım Şartları"
+      contact_us: "Bize Ulaşın"
+      about: "Hakkımızda"
     header:
-      layouts_header_main_page: "Ana Sayfa"
-      layouts_header_profile: "Profil"
-      layouts_header_settings: "Ayarlar"
-      layouts_header_logout: "Logout"
+      main_page: "Ana Sayfa"
+      profile: "Profil"
+      settings: "Ayarlar"
+      logout: "Çıkış"
     shim: #No Strings
     application: #No Strings
   posting_mailer:
