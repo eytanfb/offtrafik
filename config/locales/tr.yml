@@ -124,15 +124,15 @@ tr:
     application: #No Strings
   posting_mailer:
     new_one_time_posting_given:
-      posting_mailer_new_one_time_posting_given_dear: "Sevgili "
-      posting_mailer_new_one_time_posting_thanks: "Teşekkürler!"
-      posting_mailer_new_one_time_posting_post_succes_sentence: "yönünde yapacağınız ilan başarıyla kaydedildi."
-      posting_mailer_new_one_time_posting_mail_link: #Fix html code
+      dear: "Sevgili "
+      thanks: "Teşekkürler!"
+      post_succes_sentence: "yönünde yapacağınız ilan başarıyla kaydedildi."
+      mail_link: #Fix html code
     posting_contact:
-      posting_mailer_posting_contact_dear: "Sevgili "
-      posting_mailer_posting_contact_post_share_sentence: #Fix html code
-      posting_mailer_posting_contact_sent_message: " size ozel bir mesaj yolladı."
-      posting_mailer_posting_contact_click_link_sentence: "Linke tıklayıp ona cevap verebilir, daha keyifli ve çevreci bir yolculuk yapabilirsiniz."
+      dear: "Sevgili "
+      post_share_sentence: #Fix html code
+      sent_message: " size ozel bir mesaj yolladı."
+      click_link_sentence: "Linke tıklayıp ona cevap verebilir, daha keyifli ve çevreci bir yolculuk yapabilirsiniz."
   posting_response_mailer:
     accepted_to_owner:
       posting_response_mailer_accepted_to_owner_dear: "Sevgili "
