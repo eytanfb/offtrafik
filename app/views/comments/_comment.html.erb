@@ -4,7 +4,7 @@
       <div class="span1 comment-user-photo"><%= link_to (image_tag comment.user.avatar.url(:square)), comment.user %></div>
       <div class="span3 comment-details">
         <p><%= link_to comment.user.name, comment.user %> <span class="pull-right comment-card-rating" data-score="<%= comment.rating %>"></span></p>
-        <p><%= "#{truncate comment.text, length: 50} #{link_to "#{t 'comments_comment_see_comment'}", comment_path(comment)}".html_safe %></p>
+        <p><%= "#{truncate comment.text, length: 50} #{link_to "#{t 'comments.comment.see_comment'}", comment_path(comment)}".html_safe %></p>
       </div>
     </div>
   </li>

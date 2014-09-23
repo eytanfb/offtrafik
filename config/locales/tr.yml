@@ -84,17 +84,17 @@ tr:
   #------------------------------------------NEW TAGS-----------------------------------------
   comments:
     comment:
-      comments_comment_see_comment: "Yorumu Gör"
+      see_comment: "Yorumu Gör"
     form:
-      comments_form_rating: "Puan"
-      comments_form_comment: "Yorum"
-      coments_form_submit_comment: "Yorumu Kaydet"
+      rating: "Puan"
+      comment: "Yorum"
+      submit_comment: "Yorumu Kaydet"
     new:
-      comments_new_new_comment: "Yeni Yorum"
+      new_comment: "Yeni Yorum"
     show:
-      comments_show_from_whom: "Kimden: "
-      comments_show_rating: "Puan: "
-      comments_show_comment: "Yorumu"
+      from_whom: "Kimden: "
+      rating: "Puan: "
+      comment: "Yorumu"
   devise:
     confirmations:
       new:

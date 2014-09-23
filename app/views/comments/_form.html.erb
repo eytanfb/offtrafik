@@ -14,11 +14,11 @@
   <%= simple_form_for comment, html: { id: "new-comment-form" } do |f| %>
     <%= f.error_notification %>
     <div id="comment-trip-rating-containter">
-      <div><%= "#{t 'comments_form_rating'}"%></div><div id="new-comment-rating" data-score="<%= f.object.rating %>" name="comment[rating]"><%= f.input :rating, label: "Puan", min: 0, max: 5 %></div>
+      <div><%= "#{t 'comments.form.rating'}"%></div><div id="new-comment-rating" data-score="<%= f.object.rating %>" name="comment[rating]"><%= f.input :rating, label: "Puan", min: 0, max: 5 %></div>
     </div>
-    <%= f.input :text, label: "#{t 'comments_comment_comment'}", as: :text, input_html: { cols: 60, rows: 6, maxlength: 140 } %>
+    <%= f.input :text, label: "#{t 'comments.comment.comment'}", as: :text, input_html: { cols: 60, rows: 6, maxlength: 140 } %>
     <%= f.hidden_field :is_about, value: is_about %>
-    <%= f.button :submit, "#{t 'coments_comment_submit_comment'}", style: "margin-left: 35px", class: "btn btn-primary" %>
+    <%= f.button :submit, "#{t 'coments.comment.submit_comment'}", style: "margin-left: 35px", class: "btn btn-primary" %>
   <% end %>
 </div>
 
