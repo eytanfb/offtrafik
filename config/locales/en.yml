@@ -1,7 +1,7 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
+tr:
   date:
     month_names: [~, Ocak, Şubat, Mart, Nisan, Mayıs, Haziran, Temmuz, Ağustos, Eylül, Ekim, Kasım, Aralık]
     abbr_month_names: [~, Oca, Şub, Mar, Nis, May, Haz, Tem, Ağu, Eyl, Eki, Kas, Ara]
@@ -49,3 +49,299 @@ en:
             text:
               blank: "Yorum alanı boş"
               too_long: "Yorum 140 karakterden fazla olamaz"
+  static_pages:
+    welcome:
+      tagline: "Hey Koçlu, yolculuk nereye?"
+      about_link: "OFFTRAFİK NEDİR?"
+      join_us_link: "BİZE KATIL"
+      user_greeting: "Hoşgeldin" 
+      enter_link: "Offtrafik'e Git"
+      login-form:
+        password: "Şifre" 
+        submit: "Giriş"
+      about:
+        title: "Offtrafik'e Hoşgeldin"
+        subtitle_part_one: "Koç üniversiteli öğrencilerle yolculuk paylaşabileceğin ve yeni insanlarla tanışabileceğin bir platform."
+        subtitle_part_two: "İster rutin, ister tek seferlik yolculuklarını KU’lularla paylaş; hem masrafları, hem çevre kirliliğini, hem de trafiği azalt."
+        featurette_one:
+          title: "KU Mailinle Üye Ol"
+          text: "Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl." 
+        featurette_two:
+          title: "İlan Ver/Ara"
+          text: "Offtrafik'te yolculuk ilanlarını oluştur ve ilan sahipleriyle iletişime geç." 
+        featurette_three:
+          title: "Paylaş"
+          text: "Yolculuklarını paylaşarak bu ulaşım ve çevre hareketinin kahramanlarından ol." 
+      aboutus:
+        title: "Yolculuk Paylaş" 
+        text_part_one: "ile ister yolcu, ister sürücü olarak ilanlarını oluşturabilir, başka ilanlara başvurabilirsin. "
+        text_part_two: "Havaalanına ya da içmeye mi gideceksin? Arabaları evde bırakmakta fayda var, o zaman da taksini paylaş!"
+      control:
+        title: "Yol Arkadaşlarını Seç" 
+        text: "Yolculuklarını paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın."
+      joinus_html: "Sen de gel bize katıl ve <div class='font-titi-semib'> Offtrafik\'le</div> neler yapabileceğini gör!"
+      joinus_button: "Bize Katıl"
+      joinus_link_at_bottom: "Bize Katıl"
+      about_link_at_bottom: "Offtrafik Nedir?"
+      welcome_link_at_bottom: "Hoşgeldin"
+#------------------------------------------NEW TAGS-----------------------------------------
+  comments:
+    comment:
+      see_comment: "Yorumu Gör"
+    form:
+      rating: "Puan"
+      comment: "Yorum"
+      submit_comment: "Yorumu Kaydet"
+    new:
+      new_comment: "Yeni Yorum"
+    show:
+      from_whom: "Kimden: "
+      rating: "Puan: "
+      comment: "Yorumu"
+#----------Devise---------		
+  devise:
+    confirmations:
+      new:
+        devise_confirmations_new_activation_confirmation: "Aktivasyon Onayı"
+        devise_confirmations_new_send_activation_email_again: "Aktivasyon e-mailini tekrar yolla."
+    mailer:
+      confirmation_instructions:
+        devise_mailer_confirmation_instructions:
+    passwords:
+    registrations:
+    sessions:
+    shared:
+    unlocks:
+#----------Devise---------		
+  layouts:
+    footer:
+      terms_and_conditions: "Kullanıcı Kullanım Şartları"
+      contact_us: "Bize Ulaşın"
+      about: "Hakkımızda"
+    header:
+      main_page: "Ana Sayfa"
+      profile: "Profil"
+      settings: "Ayarlar"
+      logout: "Çıkış"
+    shim: #No Strings
+    application: #No Strings
+  posting_mailer:
+    new_one_time_posting_given:
+      dear: "Sevgili "
+      thanks: "Teşekkürler!"
+      post_succes_sentence: "yönünde yapacağınız ilan başarıyla kaydedildi."
+      mail_link: #Fix html code
+    posting_contact:
+      dear: "Sevgili "
+      post_share_sentence: #Fix html code
+      sent_message: " size ozel bir mesaj yolladı."
+      click_link_sentence: "Linke tıklayıp ona cevap verebilir, daha keyifli ve çevreci bir yolculuk yapabilirsiniz."
+  posting_response_mailer:
+    accepted_to_owner:
+      dear: "Sevgili "
+      post_link: #Fix the html code
+      first_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
+      offtrafik_share_sentence: "Yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
+      safe_ride: "İyi yolculuklar,"
+    accepted_to_responder: #Still need fixes
+      dear: "Sevgili "
+      positive_response: #Fix the html code
+      congratulations_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
+      offtrafik_share_sentence: "Yolculukla ilgili anılarınızı sosyal medyada #offtrafik ile paylaşmayı unutmayın." 
+      safe_ride: "İyi yolculuklar," 
+    journey_happened: #Still need fixes
+      congratulations: "Tebrikler!"
+      paragraph_one: "Senin gibi düşünüp doğru tercihler yapanların arttığı bir gelecek hayal ediyoruz. Böylelikle hem çevreye verdiğimiz zararı azaltacak; hem de yakıtı, araçları ve yolları daha zekice kullanıyor olacağız."
+      paragraph_two: "Biz bu hedefimizle gurur duyuyoruz ve sizler sayesinde başaracağız. Daha çevreci ve zeki bu ulaşım alışkanlığını yaymak için bizi sosyal medyada arkadaşlarına duyurabilirsin!"
+      paragraph_profile_link:
+      #Make the @offtrafik word as a link to the instagram account (below)
+      offtrafik_link_sentence: "birbirinizin profiline yorumlar yazmayı ve yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
+      mail_link_sentence: #Fix the html code for a single key			
+    rejected_to_responder:
+      dear: "Sevgili"
+      negative_message: "yolculuğuna yaptığın başvuru için olumlu yanıt alamadık."
+      other_link_text: "Yolculuğuna uygun diğer ilanlarla iletişime geçmek için"
+      click_here: "buraya tıklayabilirsin."
+  posting_response: #Some javascript files are not fixed
+    enter_phone:
+      enter_phone_number: "Telefon Numaranı Gir"
+      placeholder: "İletişim için telefon numaranızı ekleyin (11 hane. Örnek: 05xxxxxxxxx)"
+      #One title to fix
+      send: "Yolla"
+    response_for_posting: #No String
+    past_responses:
+      have_you_meet: "Bu kişilerle buluştunuz mu?"
+      from_address: "Nereden"
+      to_address: "Nereye"
+      notes: "Notlar"
+      yes: "Evet"
+      no: "Hayır"
+  postings:
+    contact_posting_owner:
+      contact: "İletişime Geç"
+      extra_notes: "Mailinize ekstra bir not eklemek isterseniz (örnek: telefon numaraniz) lütfen buraya yazın. İletişim emailinde yazan standart yazılar yine de gönderilecektir."
+      my_phone_number: "Telefon Numaram"
+      phone_number_placeholder: "İletişim için telefon numaranızı ekleyin (11 hane. Ornek: 05xxxxxxxxx)"
+      #Check the file for the last title
+      send: "Yolla"
+    filter_postings:
+      from_address: "Nereden:"
+      to_address: "Nereye:"
+      all: "Hepsi"
+      date: "Tarih"
+    find_postings: #No String
+    header_notification: #No String
+    posting_details_card:
+      from_address: "Nereden"
+      to_address: "Nereye"
+      notes: "Notlar"
+    posting:
+      from_address: "Nereden"
+      from_address: "Nereye"
+    sidebar_notification:
+      from_address: "Nereden"
+      to_address: "Nereye"
+    small_posting:
+      from_address: "Nereden"
+      to_address: "Nereye"
+    edit:
+      change_posting: "İlan Değiştir"
+      from_address: "Nereden"
+      date: "Tarih"
+      starting_time: "Çıkış Zamanı"
+      ending_time: "Varış Zamanı"
+      to_address: "Nereye"
+      looking_for: "Ne Ariyorum"
+      smoking: "Sigara"
+      extra: "Ekstra"
+      extra_placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)"
+      submit_posting: "İlan Ver"
+    find_from_home_page:
+      search_postings: "İlan Ara"
+    find:
+      search_postings: "İlan Ara"
+    new:
+      new_posting: "Yeni İlan"
+      frequent_posting: "Rutin İlan"
+      from_address: "Nereye"
+      to_address: "Nereden"
+      #Fix day names
+      last_posting_date: "Son İlan Tarihi"
+      starting_time: "Çıkış Zamanı"
+      ending_time: "Varış Zamanı"
+      role: "Rolünüz"
+      smoking: "Sigara"
+      extra: "Ekstra"
+      extra_placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)"
+      submit_posting: "İlan Ver"
+      standard: "Günlük İlan"
+      standard_post_date: "Tarih"
+    preview: #No String
+    respond: #No String (nothing actually)
+    share_posting:
+      #In-link fixes required.
+      back_to_postings: "İlanlara Dön"
+    show:	
+    	replied_users: "Cevap Verenler"
+  shared:
+    error_message:
+      contains_error: "Formda bir hata oluştu:"
+    posting_table: #No String
+    sidebar:
+      notifications: "Bildirimler:"
+      unapproved_postings: "Onaylamadiginiz gecmis yolculuklariniz var"
+    user_info:
+      create_posting: "İlan Oluştur"
+      search_posting: "İlan Ara"
+      my_postings: "İlanlarım"
+  static_pages:
+    about:
+      title: "Hakkımızda"
+      first_paragraph: "Biz ders sıralarında kopya çekiştiğin arkadaşlarından başkası değiliz."
+      second_paragraph: "Biz İstanbul trafiğinin yeni köprülerle sürdürülemeyeceğini düşünen mezun ve öğrencileriz. Okul yollarinda geçirdiğimiz zamani yeni insanlar ile tanışarak, sohbet ederek daha eğlenceli hale getirmek istiyoruz."
+      third_paragraph: "Sen de yolculuklarını paylaşarak daha ekonomik, daha zeki bir şekilde ulaşım sağlayabilirsin."
+      fourth_paragraph: "Bizimkisi tüketim kültürüne, doğaya zarar veren petrol şirketlerine, hep daha fazla satmaya çalışan otomobil şirketlerine bir meydan okuma! Bu siteyle yakıt masraflarından tasarruf sağlanması, şehir trafiğinin rahatlaması ve çevre kirliliğinin azalmasını sağlayabiliriz. İstanbullular’a bu yeni ulaşım alışkanlığını kazandırmak için sen de bize katıl, geleceğin sürdürülebilir, çevreci ve ekonomik ulaşımını birlikte şekillendirelim."
+    admin:
+      total_number_of_users: "Toplam Kullanıcı Sayısı:"
+      total_number_of_postings: "Toplam Ilan Sayısı:"
+      total_number_of_live_postings: "Canlı İlan Sayısı:"
+      total_number_of_posting_user: "Ilan veren Kullanıcı Sayısı:"	
+    contact:
+      contact_us: "Bize Ulasşın"
+    help:
+      help: "Yardım"
+    welcome:
+      email_placeholder: "Email"
+      enter_email: "Lütfen emailinizi girin"
+      login_password: "Şifre"
+      password_requirement: "En az 8 karakter olmalıdır."
+      login: "Giriş"
+      welcome: "Hoşgeldin "
+      goto_offtrafik: "Offtrafik'e Git"
+      not_current_user: #Fix the html code
+      tagline: "Hey Koçlu, yolculuk nereye?"
+      about_link: "OFFTRAFİK NEDİR?"
+      join_us: "BİZE KATIL"
+      welcome_title: "Offtrafik'e Hoşgeldin"
+      subtitle_part_one: "Koç üniversiteli öğrencilerle yolculuk paylaşabileceğin ve yeni insanlarla tanışabileceğin bir platform."
+      subtitle_part_two: "İster rutin, ister tek seferlik yolculuklarını KU’lularla paylaş; hem masrafları, hem çevre kirliliğini, hem de trafiği azalt."
+      featurette_one_title: "KU Mailinle Üye Ol"
+      featurette_one_text: "Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl." 
+      featurette_two_title: "İlan Ver/Ara"
+      featurette_two_text: "Offtrafik'te yolculuk ilanlarını oluştur ve ilan sahipleriyle iletişime geç."
+      featurette_three_title: "Paylaş"
+      featurette_three_text: "Yolculuklarını paylaşarak bu ulaşım ve çevre hareketinin kahramanlarından ol." 
+      part_one_title: "Yolculuk Paylaş" 
+      part_one_paragraph_one: "ile ister yolcu, ister sürücü olarak ilanlarını oluşturabilir, başka ilanlara başvurabilirsin. "
+      part_one_paragraph_two: "Havaalanına ya da içmeye mi gideceksin? Arabaları evde bırakmakta fayda var, o zaman da taksini paylaş!"
+      part_two_title: "Yol Arkadaşlarını Seç" 
+      part_two_paragraph: "Yolculuklarını paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın."
+      join_us_text: "Sen de gel bize katıl ve <div class='font-titi-semib'> Offtrafik\'le</div> neler yapabileceğini gör!"
+      join_us_button: "Bize Katıl"
+      footer_join_us_link: "Bize Katıl"
+      footer_whats_offtrafik_link: "Offtrafik Nedir?"
+      footer_welcome_link: "Hoşgeldin"
+    why:
+      title: "Neden"
+      first_paragraph: "Dikkat edersen yolların, içinde yalnız sürücüsü olan arabalarla dolu olduğunu farkedeceksin."
+      second_paragraph: "Aynı yöne giden sürücüleri ve toplu taşıma kullanıcılarını buluşturarak daha verimli ve sürdürülebilir bir ulaşım alışkanlığı kazandırmayı hedefliyoruz."
+      third_paragraph: "Burada sadece KU’lular var! Yalnızca ku.edu.tr mail adresleriyle hesap oluşturarak bizbize bir ortam yaratıyoruz, güvenlik endişesini ortadan kaldırıyoruz."
+      fourth_paragraph: "240 KU öğrencisi kampüslere nereden ulaştıklarını söyledi. Tüm okulda, senin geldiğin yerden de gelen başkaları kesin vardır!"
+      fifth_paragraph: "Yolculuk paylaşarak ulaşım masraflarından tasarruf edecek, karbon salınımını azaltıp çevreyi koruyacaksın."
+      sixth_paragraph: "Bunları yaparken yeni insanlar tanıma fırsatı bulacaksın."
+  user_mailer:
+    welcome:
+      greeting: "Sevgili"
+      welcome: "Aramıza hoş geldin."
+      first_paragraph: "Offtrafik'te yapacağın yolculuklar için ilan verebilir, başkalarının verdiği ilanlara cevap verip onlarla yolculuklarını paylaşabilirsin. Yolculuklarını sosyal medyada paylaşabilir, insanlarla yaptığın yolculuklar sonunda onları puanlayabilirsin ve yorumlarını gelecekteki yolculara iletebilirsin."
+      second_paragraph: "Offtrafik olarak bilinçli tercihler yapan bir topluluk yaratmaya çalışıyoruz ve seni aramızda görmek bize güç veriyor. Yola çıkarken sizlerin varlığından haberdardık; sadece bir araya gelmemiz gerekiyordu. Daha bilinçli tercihler yapan insanlar olarak güzel şeyler yapacağımız günler var önümüzde."
+      third_paragraph: "Bize katıldığın için mutluyuz!"
+  users:
+    agreed_journey_card:
+      from_address: "Nereden"
+      to_address:	"Nereye"
+      alone_journey: "Yanlız"
+    display_acomments: #No String 
+    user: #No string
+    find:
+      find_user: "Kullanıcı Ara"
+      find_name: "İsim"
+      find_contact_choice: "İletişim Tercihi"
+      find_contact_information: "İletişim Bilgisi"
+    not_activated:
+      user_warning: "Üyeliğiniz şu anda aktif değil. Eğer aktivasyon maili gelmemişse, veya aktivasyon mailini yeniden istiyorsaniz lütfen aşağıdaki butona tıklayın."
+      activation_mail_link: "Aktivasyon Mailini Tekrar Gönder" 		
+			#Problem detected !!
+    past_postings:
+      title: "Geçmiş İlanlar"
+      no_post_found: "Yolculuk bulunmamaktadır."
+      create_posting: "İlan Oluştur"
+    postings:
+      my_postings: "İlanlarım"
+      past_postings: "Geçmiş İlanlar"
+    show:
+      neighborhood: "Semt"
+      trip_rating: "Yolculuk Puanım"
+      total_journeys: "Toplam Yolculuklar"
+      comments: "Yorumlar"
+      past_journeys: "Geçmiş Yolculuklar"
