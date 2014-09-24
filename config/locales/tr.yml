@@ -242,31 +242,31 @@ tr:
     	replied_users: "Cevap Verenler"
   shared:
     error_message:
-      shared_error_message_contains_error: "Formda bir hata oluştu:"
+      contains_error: "Formda bir hata oluştu:"
     posting_table: #No String
     sidebar:
-      shared_sidebar_notifications: "Bildirimler:"
-      shared_sidebar_unapproved_postings: "Onaylamadiginiz gecmis yolculuklariniz var"
+      notifications: "Bildirimler:"
+      unapproved_postings: "Onaylamadiginiz gecmis yolculuklariniz var"
     user_info:
-      shared_user_info_create_posting: "İlan Oluştur"
-      shared_user_info_search_posting: "İlan Ara"
-      shared_user_info_my_postings: "İlanlarım"
+      create_posting: "İlan Oluştur"
+      search_posting: "İlan Ara"
+      my_postings: "İlanlarım"
   static_pages:
     about:
-      static_pages_about_title: "Hakkımızda"
-      static_pages_about_first_paragraph: "Biz ders sıralarında kopya çekiştiğin arkadaşlarından başkası değiliz."
-      static_pages_about_second_paragraph: "Biz İstanbul trafiğinin yeni köprülerle sürdürülemeyeceğini düşünen mezun ve öğrencileriz. Okul yollarinda geçirdiğimiz zamani yeni insanlar ile tanışarak, sohbet ederek daha eğlenceli hale getirmek istiyoruz."
-      static_pages_about_third_paragraph: "Sen de yolculuklarını paylaşarak daha ekonomik, daha zeki bir şekilde ulaşım sağlayabilirsin."
-      static_pages_about_fourth_paragraph: "Bizimkisi tüketim kültürüne, doğaya zarar veren petrol şirketlerine, hep daha fazla satmaya çalışan otomobil şirketlerine bir meydan okuma! Bu siteyle yakıt masraflarından tasarruf sağlanması, şehir trafiğinin rahatlaması ve çevre kirliliğinin azalmasını sağlayabiliriz. İstanbullular’a bu yeni ulaşım alışkanlığını kazandırmak için sen de bize katıl, geleceğin sürdürülebilir, çevreci ve ekonomik ulaşımını birlikte şekillendirelim."
+      title: "Hakkımızda"
+      first_paragraph: "Biz ders sıralarında kopya çekiştiğin arkadaşlarından başkası değiliz."
+      second_paragraph: "Biz İstanbul trafiğinin yeni köprülerle sürdürülemeyeceğini düşünen mezun ve öğrencileriz. Okul yollarinda geçirdiğimiz zamani yeni insanlar ile tanışarak, sohbet ederek daha eğlenceli hale getirmek istiyoruz."
+      third_paragraph: "Sen de yolculuklarını paylaşarak daha ekonomik, daha zeki bir şekilde ulaşım sağlayabilirsin."
+      fourth_paragraph: "Bizimkisi tüketim kültürüne, doğaya zarar veren petrol şirketlerine, hep daha fazla satmaya çalışan otomobil şirketlerine bir meydan okuma! Bu siteyle yakıt masraflarından tasarruf sağlanması, şehir trafiğinin rahatlaması ve çevre kirliliğinin azalmasını sağlayabiliriz. İstanbullular’a bu yeni ulaşım alışkanlığını kazandırmak için sen de bize katıl, geleceğin sürdürülebilir, çevreci ve ekonomik ulaşımını birlikte şekillendirelim."
     admin:
-      static_pages_admin_total_number_of_users: "Toplam Kullanıcı Sayısı:"
-      static_pages_admin_total_number_of_postings: "Toplam Ilan Sayısı:"
-      static_pages_admin_total_number_of_live_postings: "Canlı İlan Sayısı:"
-      static_pages_admin_total_number_of_posting_user: "Ilan veren Kullanıcı Sayısı:"	
+      total_number_of_users: "Toplam Kullanıcı Sayısı:"
+      total_number_of_postings: "Toplam Ilan Sayısı:"
+      total_number_of_live_postings: "Canlı İlan Sayısı:"
+      total_number_of_posting_user: "Ilan veren Kullanıcı Sayısı:"	
     contact:
-      static_pages_contact_contact_us: "Bize Ulasşın"
+      contact_us: "Bize Ulasşın"
     help:
-      static_pages_help_help: "Yardım"
+      help: "Yardım"
     welcome:
       static_pages_welcome_email_placeholder: "Email"
       static_pages_welcome_enter_email: "Lütfen emailinizi girin"

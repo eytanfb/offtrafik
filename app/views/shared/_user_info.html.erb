@@ -6,19 +6,19 @@
     <p class="side-button-p">
       <a class="btn i-button-first" href="<%= new_posting_path %>" style="color:white;">
         <i class="fa fa-edit fa-lg"></i>
-        <%= "#{t 'shared_user_info_create_posting'}"%>
+        <%= "#{t 'shared.user_info.create_posting'}"%>
       </a>
     </p>
     <p class="side-button-p">
       <a class="btn btn-primary btn-warning i-button-second" href="<%= find_posting_path %>">
         <i class="fa fa-search fa-lg"></i>
-        <%= "#{t 'shared_user_info_search_posting'}"%>
+        <%= "#{t 'shared.user_info.search_posting'}"%>
       </a>
     </p>
     <p class="side-button-p">
       <a class="btn side-button-list i-button-third" href="<%= user_postings_path(current_user) %>">
         <i class="fa fa-list fa-lg"></i>
-        <%= "#{t 'shared_user_info_my_postings'}"%>
+        <%= "#{t 'shared.user_info.my_postings'}"%>
       </a>
     </p>
   </section>
