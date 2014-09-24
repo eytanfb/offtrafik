@@ -1,4 +1,4 @@
-<%= provide(:title, "#{t 'postings_find_from_home_page_search_postings'}") %>
+<%= provide(:title, "#{t 'postings.find_from_home_page.search_postings'}") %>
 <div class="row">
   <% if signed_in? %>
     <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>

@@ -14,7 +14,7 @@
       </div>
     <% if @posting.has_unanswered_responses_by_owner? current_user %>
       <div class="span5" id="posting-responders">
-        <h5 style="text-decoration:underline"><%= "#{t 'postings_show_replied_users'}"%></h5>
+        <h5 style="text-decoration:underline"><%= "#{t 'postings.show.replied_users'}"%></h5>
         <% @posting.posting_responses.each do |response| %>
           <%= render "posting_responses/response_for_posting", response: response %>
         <% end %>

@@ -1,9 +1,9 @@
-<h3 class="center"><%= "#{t 'postings_edit_change_posting'}"%></h3>
+<h3 class="center"><%= "#{t 'postings.edit.change_posting'}"%></h3>
 <div class="row" id="posting">
   <%= simple_form_for @posting, html: { class: "form-horizontal" } do |f| %>
     <div class="span6">
       <h2 class="posting_title">
-        <%= "#{t 'postings_edit_from_address'}"%>
+        <%= "#{t 'postings.edit.from_address'}"%>
       </h2>
       <%= f.fields_for :from_address, id: "from_address" do |from| %>
         <%= from.input :district, label: false, as: :select, class: "field-part", collection: @districts,  selected: "Koç Üniversitesi", include_blank: false, input_html: { id: "from_address_district", onchange: "calcRoute()" } %>
@@ -11,14 +11,14 @@
           <%= from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true %>
         <% end %>
       <% end %>
-      <%= f.input :date, label: "#{t 'postings_edit_date'}", as: :string, default: Date.today, item_wrapper_class: "inline" %>
-      <%= f.input :starting_time, label: "#{t 'postings_edit_starting_time'}", as: :string, input_html: { id: "starting_time",  value: "#{Time.now.strftime('%H:%M')}" } %>
-      <%= f.input :ending_time, label: "#{t 'postings_edit_ending_time'}" , as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}" } %>
+      <%= f.input :date, label: "#{t 'postings.edit.date'}", as: :string, default: Date.today, item_wrapper_class: "inline" %>
+      <%= f.input :starting_time, label: "#{t 'postings.edit.starting_time'}", as: :string, input_html: { id: "starting_time",  value: "#{Time.now.strftime('%H:%M')}" } %>
+      <%= f.input :ending_time, label: "#{t 'postings.edit.ending_time'}" , as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}" } %>
       <div class="pull-right" id="map"></div>
     </div>
     <div class="span6">
       <h2 class="posting_title">
-        <%= "#{t 'postings_edit_to_address'}"%>
+        <%= "#{t 'postings.edit.to_address'}"%>
       </h2>
       <%= f.fields_for :to_address, id: "to_address", class: "fields_for" do |from| %>
         <%= from.input :district, label: false, as: :select, class: "field-part", collection: @districts, selected: "Koç Üniversitesi", include_blank: false, input_html: { id: "to_address_district", onchange: "calcRoute()" } %>
@@ -26,10 +26,10 @@
           <%= from.grouped_collection_select :neighborhood, District.order(:id), :neighborhoods, :name, :name, :name, include_blank: true %>
         <% end %>
       <% end %>
-      <%= f.input :driving, label: "#{t 'postings_edit_looking_for'}", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
-      <%= f.input :smoking, label: "#{t 'postings_edit_smoking'}", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
-      <%= f.input :comments, label: "#{t 'postings_edit_extra'}", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "#{t 'postings_edit_extra_placeholder'}" %>
-      <%= f.submit "#{t 'postings_edit_submit_posting'}", class: "btn btn-primary pull-right span4", Fromstyle: "height: 50px" %>
+      <%= f.input :driving, label: "#{t 'postings.edit.looking_for'}", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
+      <%= f.input :smoking, label: "#{t 'postings.edit.smoking'}", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
+      <%= f.input :comments, label: "#{t 'postings.edit.extra'}", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "#{t 'postings.edit.extra_placeholder'}" %>
+      <%= f.submit "#{t 'postings.edit.submit_posting'}", class: "btn btn-primary pull-right span4", Fromstyle: "height: 50px" %>
     </div>
   <% end %>
 </div>

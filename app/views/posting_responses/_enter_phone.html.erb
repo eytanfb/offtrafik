@@ -1,9 +1,9 @@
 <div class="modal-header">
-  <h3 id="enter-phone-modal-label"><%= "#{t 'posting_response_enter_phone_enter_phone_number'}"%></h3>
+  <h3 id="enter-phone-modal-label"><%= "#{t 'posting_response.enter_phone_enter.phone_number'}"%></h3>
 </div>
 <div class="modal-body">
   <%= simple_form_for :enter_phone, url: posting_response_accept_path(params[:posting_response_id]), html: { novalidate: false }  do |f| %>
-    <%= f.input :phone, label: false, as: :string, placeholder: "#{t 'posting_response_enter_phone_placeholder'}", input_html: { value: current_user.phone, required: true, pattern: '\d{11}', title: "11 hane (Orn. 05551111111)" } %>
-    <%= f.button :submit, "#{t 'posting_response_enter_phone_send'}", class: "btn btn-primary" %>
+    <%= f.input :phone, label: false, as: :string, placeholder: "#{t 'posting_response.enter_phone.placeholder'}", input_html: { value: current_user.phone, required: true, pattern: '\d{11}', title: "11 hane (Orn. 05551111111)" } %>
+    <%= f.button :submit, "#{t 'posting_response.enter_phone.send'}", class: "btn btn-primary" %>
   <% end %>
 </div>

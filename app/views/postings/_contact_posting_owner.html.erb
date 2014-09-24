@@ -1,12 +1,12 @@
 <div class="modal-header">
   <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
-  <h3 id="claim-event-modal-label"><%= "#{t 'postings_contact_posting_owner_contact'}"%></h3>
+  <h3 id="claim-event-modal-label"><%= "#{t 'postings.contact_posting_owner.contact'}"%></h3>
 </div>
 <div class="modal-body">
   <%= simple_form_for :contact_posting_owner, url: posting_respond_path(params[:posting_id]), html: { novalidate: false }  do |f| %>
-    <%= f.input :content, label: false, as: :text, placeholder: "#{t 'postings_contact_posting_owner_extra_notes'}", input_html: { cols: 150, rows: 5, style: "resize: none" } %>
-    <h5><%= "#{t 'postings_contact_posting_owner_my_phone_number'}"%></h5>
-    <%= f.input :phone, label: false, as: :string, placeholder: "#{t 'postings_contact_posting_owner_phone_number_placeholder'}", input_html: { value: current_user.phone, required: true, pattern: '\d{11}', title: "11 hane (Orn. 05551111111)" } %>
-    <%= f.button :submit, "#{t 'postings_contact_posting_owner_send'}", class: "btn btn-primary" %>
+    <%= f.input :content, label: false, as: :text, placeholder: "#{t 'postings.contact_posting_owner.extra_notes'}", input_html: { cols: 150, rows: 5, style: "resize: none" } %>
+    <h5><%= "#{t 'postings.contact_posting_owner.my_phone_number'}"%></h5>
+    <%= f.input :phone, label: false, as: :string, placeholder: "#{t 'postings.contact_posting_owner.phone_number_placeholder'}", input_html: { value: current_user.phone, required: true, pattern: '\d{11}', title: "11 hane (Orn. 05551111111)" } %>
+    <%= f.button :submit, "#{t 'postings.contact_posting_owner.send'}", class: "btn btn-primary" %>
   <% end %>
 </div>

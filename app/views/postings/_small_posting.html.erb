@@ -1,7 +1,7 @@
 <div class="posting-details">
   <p><%= "<i class='fa fa-user        fa-lg  blue'></i>  #{posting.user.name}".html_safe %></p>
-  <p><%= "<i class='fa fa-map-marker  fa-2x green' ></i>  #{t 'postings_small_postings_from_address'}: #{truncate(Posting.format(posting.from_address), length: 30)}".html_safe %></p>
-  <p><%= "<i class='fa fa-map-marker  fa-2x red'></i>  #{t 'postings_small_postings_to_address'}: #{truncate(Posting.format(posting.to_address), length: 30)}".html_safe %></p>
+  <p><%= "<i class='fa fa-map-marker  fa-2x green' ></i>  #{t 'postings.small_postings.from_address'}: #{truncate(Posting.format(posting.from_address), length: 30)}".html_safe %></p>
+  <p><%= "<i class='fa fa-map-marker  fa-2x red'></i>  #{t 'postings.small_postings.to_address'}: #{truncate(Posting.format(posting.to_address), length: 30)}".html_safe %></p>
   <p><%= "<i class='fa fa-clock-o     fa-lg orange'></i>  #{posting.starting_time.strftime("%H:%M")}".html_safe %></p>
   <p><%= "<i class='fa fa-calendar    fa-lg midnight'></i>  #{l posting.date, format: :short}".html_safe %></p>
 </div>

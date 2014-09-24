@@ -135,111 +135,111 @@ tr:
       click_link_sentence: "Linke tıklayıp ona cevap verebilir, daha keyifli ve çevreci bir yolculuk yapabilirsiniz."
   posting_response_mailer:
     accepted_to_owner:
-      posting_response_mailer_accepted_to_owner_dear: "Sevgili "
-      posting_response_mailer_accepted_to_owner_post_link: #Fix the html code
-      posting_response_mailer_accepted_to_owner_first_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
-      posting_response_mailer_accepted_to_owner_offtrafik_share_sentence: "Yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
-      posting_response_mailer_accepted_to_owner_safe_ride: "İyi yolculuklar,"
-    accepted_responder: #Still need fixes
-      posting_response_mailer_accepted_responder_dear: "Sevgili "
-      posting_response_mailer_accepted_responder_positive_response: #Fix the html code
-      posting_response_mailer_accepted_responder_congratulations_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
-      posting_response_mailer_accepted_responder_offtrafik_share_sentence: "Yolculukla ilgili anılarınızı sosyal medyada #offtrafik ile paylaşmayı unutmayın." 
-      posting_response_mailer_accepted_responder_safe_ride: "İyi yolculuklar," 
+      dear: "Sevgili "
+      post_link: #Fix the html code
+      first_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
+      offtrafik_share_sentence: "Yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
+      safe_ride: "İyi yolculuklar,"
+    accepted_to_responder: #Still need fixes
+      dear: "Sevgili "
+      positive_response: #Fix the html code
+      congratulations_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
+      offtrafik_share_sentence: "Yolculukla ilgili anılarınızı sosyal medyada #offtrafik ile paylaşmayı unutmayın." 
+      safe_ride: "İyi yolculuklar," 
     journey_happened: #Still need fixes
-      posting_response_mailer_journey_happened_congratulations: "Tebrikler!"
-      posting_response_mailer_journey_happened_paragraph_one: "Senin gibi düşünüp doğru tercihler yapanların arttığı bir gelecek hayal ediyoruz. Böylelikle hem çevreye verdiğimiz zararı azaltacak; hem de yakıtı, araçları ve yolları daha zekice kullanıyor olacağız."
-      posting_response_mailer_journey_happened_paragraph_two: "Biz bu hedefimizle gurur duyuyoruz ve sizler sayesinde başaracağız. Daha çevreci ve zeki bu ulaşım alışkanlığını yaymak için bizi sosyal medyada arkadaşlarına duyurabilirsin!"
-      posting_response_mailer_journey_happened_paragraph_profile_link:
+      congratulations: "Tebrikler!"
+      paragraph_one: "Senin gibi düşünüp doğru tercihler yapanların arttığı bir gelecek hayal ediyoruz. Böylelikle hem çevreye verdiğimiz zararı azaltacak; hem de yakıtı, araçları ve yolları daha zekice kullanıyor olacağız."
+      paragraph_two: "Biz bu hedefimizle gurur duyuyoruz ve sizler sayesinde başaracağız. Daha çevreci ve zeki bu ulaşım alışkanlığını yaymak için bizi sosyal medyada arkadaşlarına duyurabilirsin!"
+      paragraph_profile_link:
       #Make the @offtrafik word as a link to the instagram account (below)
-      posting_response_mailer_journey_happened_offtrafik_link_sentence: "birbirinizin profiline yorumlar yazmayı ve yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
-      posting_response_mailer_journey_happened__mail_link_sentence: #Fix the html code for a single key			
+      offtrafik_link_sentence: "birbirinizin profiline yorumlar yazmayı ve yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
+      mail_link_sentence: #Fix the html code for a single key			
     rejected_to_responder:
-      posting_response_mailer_rejected_to_responder_dear: "Sevgili"
-      posting_response_mailer_rejected_to_responder_negative_message: "yolculuğuna yaptığın başvuru için olumlu yanıt alamadık."
-      posting_response_mailer_rejected_to_responder_other_link_text: "Yolculuğuna uygun diğer ilanlarla iletişime geçmek için"
-      posting_response_mailer_rejected_to_responder_click_here: "buraya tıklayabilirsin."
+      dear: "Sevgili"
+      negative_message: "yolculuğuna yaptığın başvuru için olumlu yanıt alamadık."
+      other_link_text: "Yolculuğuna uygun diğer ilanlarla iletişime geçmek için"
+      click_here: "buraya tıklayabilirsin."
   posting_response: #Some javascript files are not fixed
     enter_phone:
-      posting_response_enter_phone_enter_phone_number: "Telefon Numaranı Gir"
-      posting_response_enter_phone_placeholder: "İletişim için telefon numaranızı ekleyin (11 hane. Örnek: 05xxxxxxxxx)"
+      enter_phone_number: "Telefon Numaranı Gir"
+      placeholder: "İletişim için telefon numaranızı ekleyin (11 hane. Örnek: 05xxxxxxxxx)"
       #One title to fix
-      posting_response_enter_phone_send: "Yolla"
+      send: "Yolla"
     response_for_posting: #No String
     past_responses:
-      posting_response_past_responses_have_you_meet: "Bu kişilerle buluştunuz mu?"
-      posting_response_past_response_from_address: "Nereden"
-      posting_response_past_response_to_address: "Nereye"
-      posting_response_past_response_notes: "Notlar"
-      posting_response_past_response_yes: "Evet"
-      posting_response_past_response_no: "Hayır"
+      have_you_meet: "Bu kişilerle buluştunuz mu?"
+      from_address: "Nereden"
+      to_address: "Nereye"
+      notes: "Notlar"
+      yes: "Evet"
+      no: "Hayır"
   postings:
     contact_posting_owner:
-      postings_contact_posting_owner_contact: "İletişime Geç"
-      postings_contact_posting_owner_extra_notes: "Mailinize ekstra bir not eklemek isterseniz (örnek: telefon numaraniz) lütfen buraya yazın. İletişim emailinde yazan standart yazılar yine de gönderilecektir."
-      postings_contact_posting_owner_my_phone_number: "Telefon Numaram"
-      postings_contact_posting_owner_phone_number_placeholder: "İletişim için telefon numaranızı ekleyin (11 hane. Ornek: 05xxxxxxxxx)"
+      contact: "İletişime Geç"
+      extra_notes: "Mailinize ekstra bir not eklemek isterseniz (örnek: telefon numaraniz) lütfen buraya yazın. İletişim emailinde yazan standart yazılar yine de gönderilecektir."
+      my_phone_number: "Telefon Numaram"
+      phone_number_placeholder: "İletişim için telefon numaranızı ekleyin (11 hane. Ornek: 05xxxxxxxxx)"
       #Check the file for the last title
-      postings_contact_posting_owner_send: "Yolla"
+      send: "Yolla"
     filter_postings:
-      postings_filter_postings_from_address: "Nereden:"
-      postings_filter_postings_to_address: "Nereye:"
-      postings_filter_posting_all: "Hepsi"
-      posting_filter_posting_date: "Tarih"
+      from_address: "Nereden:"
+      to_address: "Nereye:"
+      all: "Hepsi"
+      date: "Tarih"
     find_postings: #No String
     header_notification: #No String
     posting_details_card:
-      postings_posting_details_card_from_address: "Nereden"
-      postings_posting_details_card_to_address: "Nereye"
-      postings_posting_details_card_notes: "Notlar"
+      from_address: "Nereden"
+      to_address: "Nereye"
+      notes: "Notlar"
     posting:
-      postings_posting_from_address: "Nereden"
-      postings_posting_from_address: "Nereye"
+      from_address: "Nereden"
+      from_address: "Nereye"
     sidebar_notification:
-      postings_sidebar_notification_from_address: "Nereden"
-      postings_sidebar_notification_to_address: "Nereye"
+      from_address: "Nereden"
+      to_address: "Nereye"
     small_posting:
-      postings_small_postings_from_address: "Nereden"
-      postings_small_postings_to_address: "Nereye"
+      from_address: "Nereden"
+      to_address: "Nereye"
     edit:
-      postings_edit_change_posting: "İlan Değiştir"
-      postings_edit_from_address: "Nereden"
-      postings_edit_date: "Tarih"
-      postings_edit_starting_time: "Çıkış Zamanı"
-      postings_edit_ending_time: "Varış Zamanı"
-      postings_edit_to_address: "Nereye"
-      postings_edit_looking_for: "Ne Ariyorum"
-      postings_edit_smoking: "Sigara"
-      postings_edit_extra: "Ekstra"
-      postings_edit_extra_placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)"
-      postings_edit_submit_posting: "İlan Ver"
+      change_posting: "İlan Değiştir"
+      from_address: "Nereden"
+      date: "Tarih"
+      starting_time: "Çıkış Zamanı"
+      ending_time: "Varış Zamanı"
+      to_address: "Nereye"
+      looking_for: "Ne Ariyorum"
+      smoking: "Sigara"
+      extra: "Ekstra"
+      extra_placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)"
+      submit_posting: "İlan Ver"
     find_from_home_page:
-      postings_find_from_home_page_search_postings: "İlan Ara"
+      search_postings: "İlan Ara"
     find:
-      postings_find_search_postings: "İlan Ara"
+      search_postings: "İlan Ara"
     new:
-      postings_new_new_posting: "Yeni İlan"
-      postings_new_frequent_posting: "Rutin İlan"
-      postings_new_from_address: "Nereye"
-      postings_new_to_address: "Nereden"
+      new_posting: "Yeni İlan"
+      frequent_posting: "Rutin İlan"
+      from_address: "Nereye"
+      to_address: "Nereden"
       #Fix day names
-      postings_new_last_posting_date: "Son İlan Tarihi"
-      postings_new_starting_time: "Çıkış Zamanı"
-      postings_new_ending_time: "Varış Zamanı"
-      postings_new_role: "Rolünüz"
-      postings_new_smoking: "Sigara"
-      postings_new_extra: "Ekstra"
-      postings_new_extra_placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)"
-      postings_new_submit_posting: "İlan Ver"
-      postings_new_standard: "Günlük İlan"
-      postings_new_standard_post_date: "Tarih"
+      last_posting_date: "Son İlan Tarihi"
+      starting_time: "Çıkış Zamanı"
+      ending_time: "Varış Zamanı"
+      role: "Rolünüz"
+      smoking: "Sigara"
+      extra: "Ekstra"
+      extra_placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)"
+      submit_posting: "İlan Ver"
+      standard: "Günlük İlan"
+      standard_post_date: "Tarih"
     preview: #No String
     respond: #No String (nothing actually)
     share_posting:
       #In-link fixes required.
-      postings_share_posting_back_to_postings: "İlanlara Dön"
+      back_to_postings: "İlanlara Dön"
     show:	
-    postings_show_replied_users: "Cevap Verenler"
+    	replied_users: "Cevap Verenler"
   shared:
     error_message:
       shared_error_message_contains_error: "Formda bir hata oluştu:"

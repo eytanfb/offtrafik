@@ -1,7 +1,7 @@
 <%= simple_form_for posting, method: "get", html: { id: "filter-posting-search" }, url: { controller: "postings", action: "find" } do |f| %>
-  <%= f.input :from_address, label: false, placeholder: "#{t 'postings_filter_postings_from_address'}", input_html: { id: "from_address", class: "posting-filter-search" }  %>
-  <%= f.input :to_address, label: false, placeholder: "#{t 'postings_filter_postings_to_address'}", input_html: { id: "to_address", class: "posting-filter-search" } %>
-  <%= f.input :driving, label: false, include_blank: "#{t 'postings_filter_posting_all'}", collection: driving_options, input_html: { id: "driving" } %>
-  <%= f.input :date, label: false, as: :string, placeholder: "#{t 'posting_filter_posting_date'}", input_html: { id: "date" } %>
+  <%= f.input :from_address, label: false, placeholder: "#{t 'postings.filter_postings.from_address'}", input_html: { id: "from_address", class: "posting-filter-search" }  %>
+  <%= f.input :to_address, label: false, placeholder: "#{t 'postings.filter_postings.to_address'}", input_html: { id: "to_address", class: "posting-filter-search" } %>
+  <%= f.input :driving, label: false, include_blank: "#{t 'postings.filter_posting.all'}", collection: driving_options, input_html: { id: "driving" } %>
+  <%= f.input :date, label: false, as: :string, placeholder: "#{t 'postings.filter_posting.date'}", input_html: { id: "date" } %>
 <% end %>
 <% logger.info "filter postings" %>

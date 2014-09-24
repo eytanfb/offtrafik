@@ -2,13 +2,13 @@
 <div class="row float-fixer" id="posting">
     <div class="span6 center" id ="posting-selection">
        <div id="frequent-posting"><em></em>
-         <p><%= link_to "#{t 'postings_new_frequent_posting'}", "#", class: "btn btn-primary btn-large posting-button btn-skype" %></p>
+         <p><%= link_to "#{t 'postings.new.frequent_posting'}", "#", class: "btn btn-primary btn-large posting-button btn-skype" %></p>
          <div class="items hidden">
            <%= simple_form_for @frequent_posting, html: { class: "form-horizontal" } do |f| %>
              <%= f.error_notification %>
     			  <div class = "place-input">  			 
-               <%= f.input :from_address, label: false, placeholder: "#{t 'postings_new_from_address'}", id: "frequent_posting_from_address", class: "address-input", input_html: { onblur: "calcRouteForFrequent()" } %>
-               <%= f.input :to_address, label: false, placeholder: "#{t 'postings_new_to_address'}", id: "frequent_posting_to_address", class: "address-input", input_html: { onblur: "calcRouteForFrequent()" } %>
+               <%= f.input :from_address, label: false, placeholder: "#{t 'postings.new.from_address'}", id: "frequent_posting_from_address", class: "address-input", input_html: { onblur: "calcRouteForFrequent()" } %>
+               <%= f.input :to_address, label: false, placeholder: "#{t 'postings.new.to_address'}", id: "frequent_posting_to_address", class: "address-input", input_html: { onblur: "calcRouteForFrequent()" } %>
  			    </div><!--place-input-->
            <div id="frequency-days">
              <%= f.fields_for :days do |field| %>
@@ -17,32 +17,32 @@
                <% end %>
              <% end %>
            </div>
-             <%= f.input :last_date, label: "#{t 'postings_new_last_posting_date'}", as: :string, default: Date.today + 2.weeks, input_html: { class: "frequent-datepicker" } %>
-             <%= f.input :starting_time, label: "#{t 'postings_new_starting_time'}", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
-             <%= f.input :ending_time, label: "#{t 'postings_new_starting_time'}", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
-             <%= f.input :driving, label: "#{t 'postings_new_role'}", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
-             <%= f.input :smoking, label: "#{t 'postings_new_smoking'}", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
-             <%= f.input :comments, label: "#{t 'postings_new_extra'}", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "#{t 'postings_new_extra_placeholder'}" %>
-             <%= f.submit "#{t 'postings_new_submit_posting'}", class: "btn btn-primary posting-submit btn-google-plus" %>           
+             <%= f.input :last_date, label: "#{t 'postings.new.last_posting_date'}", as: :string, default: Date.today + 2.weeks, input_html: { class: "frequent-datepicker" } %>
+             <%= f.input :starting_time, label: "#{t 'postings.new.starting_time'}", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
+             <%= f.input :ending_time, label: "#{t 'postings.new.starting_time'}", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
+             <%= f.input :driving, label: "#{t 'postings.new.role'}", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
+             <%= f.input :smoking, label: "#{t 'postings.new.smoking'}", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
+             <%= f.input :comments, label: "#{t 'postings.new.extra'}", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "#{t 'postings_new_extra_placeholder'}" %>
+             <%= f.submit "#{t 'postings.new.submit_posting'}", class: "btn btn-primary posting-submit btn-google-plus" %>           
            <% end %>
          </div>
        </div><!--frequent-posting-->
       <div id="standard-posting">
-        <p><%= link_to "#{t 'postings_new_standard'}", "#", class: "btn btn-primary btn-large posting-button btn-renren" %></p>
+        <p><%= link_to "#{t 'postings.new.standard'}", "#", class: "btn btn-primary btn-large posting-button btn-renren" %></p>
         <div class="items hidden">
           <%= simple_form_for @posting, html: { class: "form-horizontal" } do |f| %>
             <%= f.error_notification %>
    			 <div class = "place-input">
-   				  <%= f.input :from_address, label: false, placeholder: "#{t 'postings_new_from_address'}", id: "posting_from_address", class: "address-input", input_html: { style: "float: left", onblur: "calcRoute()" } %>
-   				  <%= f.input :to_address, label: false, placeholder: "#{t 'postings_new_to_address'}", id: "posting_to_address", class: "address-input ", input_html: { style: "float: left", onblur: "calcRoute()" } %>
+   				  <%= f.input :from_address, label: false, placeholder: "#{t 'postings.new.from_address'}", id: "posting_from_address", class: "address-input", input_html: { style: "float: left", onblur: "calcRoute()" } %>
+   				  <%= f.input :to_address, label: false, placeholder: "#{t 'postings.new.to_address'}", id: "posting_to_address", class: "address-input ", input_html: { style: "float: left", onblur: "calcRoute()" } %>
    			 </div><!--place-input-->
-            <%= f.input :date, label: "#{t 'postings_new_standard_post_date'}", as: :string, default: Date.today, item_wrapper_class: "inline", input_html: { class: "standard-datepicker" } %>
-            <%= f.input :starting_time, label: "#{t 'postings_new_starting_time'}", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
-            <%= f.input :ending_time, label: "#{t 'postings_new_ending_time'}", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
-            <%= f.input :driving, label: "#{t 'postings_new_role'}", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
-            <%= f.input :smoking, label: "#{t 'postings_new_smoking'}", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
-            <%= f.input :comments, label: "#{t 'postings_new_extra'}", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "#{t 'postings_new_extra_placeholder'}"%>
-            <%= f.submit "#{t 'postings_new_submit_posting'}", class: "btn btn-primary posting-submit btn-google-plus" %>
+            <%= f.input :date, label: "#{t 'postings.new.standard_post_date'}", as: :string, default: Date.today, item_wrapper_class: "inline", input_html: { class: "standard-datepicker" } %>
+            <%= f.input :starting_time, label: "#{t 'postings.new.starting_time'}", as: :string, input_html: { id: "starting_time", value: "#{Time.now.strftime('%H:%M')}", class: "timepicker" } %>
+            <%= f.input :ending_time, label: "#{t 'postings.new.ending_time'}", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
+            <%= f.input :driving, label: "#{t 'postings.new.role'}", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
+            <%= f.input :smoking, label: "#{t 'postings.new.smoking'}", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
+            <%= f.input :comments, label: "#{t 'postings.new.extra'}", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "#{t 'postings.new.extra_placeholder'}"%>
+            <%= f.submit "#{t 'postings.new.submit_posting'}", class: "btn btn-primary posting-submit btn-google-plus" %>
           <% end %>
         </div>
       </div><!--standard-posting-->
