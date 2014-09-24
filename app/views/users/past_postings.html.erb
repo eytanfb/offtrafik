@@ -1,14 +1,14 @@
 <div class="row">
   <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <section class="span12 postings-list">
-    <h3><%= "#{t 'users_past_postings_title'}" %></h3>
+    <h3><%= "#{t 'users.past_postings.title'}" %></h3>
     <% if @past_postings %>
       <%= render 'shared/posting_table', posting_list: @past_postings, param_name: "page" %>
     <% else %>
-      <h5><%= "#{t 'users_past_postings_no_post_found'}" %></h5>
+      <h5><%= "#{t 'users.past_postings.no_post_found'}" %></h5>
       <a class="btn btn-primary btn-large" href="<%= new_posting_path %>" style="color:white">
         <i class="icon-edit icon-white"></i>
-        <%= "#{t 'users_past_postings_create_posting'}" %>
+        <%= "#{t 'users.past_postings.create_posting'}" %>
       </a>
     <% end %>
   </section>

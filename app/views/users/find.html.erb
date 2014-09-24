@@ -1,4 +1,4 @@
-<%= provide(:title, "#{t 'users_find_find_user'})" %>
+<%= provide(:title, "#{t 'users.find.find_user'})" %>
 <div class="row">
   <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <section>
@@ -7,9 +7,9 @@
     </h3>
     <table class="table table-hover">
       <tr>
-        <td><%= "#{t 'users_find_find_name'}" %></td>
-        <td><%= "#{t 'users_find_find_contact_choice'}" %></td>
-        <td><%= "#{t 'users_find_find_contact_information'}" %></td>
+        <td><%= "#{t 'users.find.find_name'}" %></td>
+        <td><%= "#{t 'users.find.find_contact_choice'}" %></td>
+        <td><%= "#{t 'users.find.find_contact_information'}" %></td>
       </tr>
       <tbody>
         <% @users.each do |user| %>
