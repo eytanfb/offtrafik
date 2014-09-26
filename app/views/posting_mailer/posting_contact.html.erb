@@ -1,7 +1,7 @@
 <meta content="text/html" http-equiv="Content-Type"/>
-<p><%="#{t 'posting_mailer.posting_contact.dear'}" @owner.name %>,</p>
+<p><%= t('posting_mailer.posting_contact.dear') %> <%= @owner.name %>,</p>
 
-<p><%= @responder.name %> seninle <%= link_to "#{@to_from}", posting_url(@posting) %> yolculuğunu paylaşmak istiyor.</p>
+<p><%= @responder.name %> seninle <%= link_to "#{@to_from}", posting_url(I18n.locale, @posting) %> yolculuğunu paylaşmak istiyor.</p>
 
 <% unless @text.blank? %>
   <h4 style="text-decoration: underline; margin-bottom: 0px"><%= "#{@responder.name} #{t 'posting_mailer.posting_contact.sent_message'}" %></h4>
