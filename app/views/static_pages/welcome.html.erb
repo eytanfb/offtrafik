@@ -32,7 +32,7 @@
           <%= f.button :submit, "#{t 'static_pages.welcome.login'}", id: "login-submit" %>
         <% end %>
       <% else %>
-       <span class="pull-right" id="no-header-logged-in-user"><%= "#{t 'static_pages.welcome.welcome'} #{current_user.name}" %> <span><%= link_to "#{t 'static_pages.welcome.goto_offtrafik'}", user_past_responses_path(current_user.id) %></span><%= link_to "#{current_user.name} değilim", destroy_user_session_path, method: "delete"  %></span>
+       <span class="pull-right" id="no-header-logged-in-user"><%= "#{t 'static_pages.welcome.welcome'} #{current_user.name}" %> <span><%= link_to "#{t 'static_pages.welcome.goto_offtrafik'}", user_path(current_user) %></span><%= link_to "#{current_user.name} değilim", destroy_user_session_path, method: "delete"  %></span>
       <% end %>
      </ul>
   </nav>
@@ -48,7 +48,7 @@
           <%= f.button :submit, "#{t 'static_pages.welcome.login'}", id: "login-submit" %>
         <% end %>
     	<% else %>
-       <span class="pull-right" id="header-logged-in-user"><%="#{t 'static_pages.welcome.welcome'} #{current_user.name}" %> <span><%= link_to "Offtrafik'e Git", user_past_responses_path(current_user.id) %></span> <%= link_to "#{current_user.name} degilim", destroy_user_session_path, method: "delete"  %></span>
+       <span class="pull-right" id="header-logged-in-user"><%="#{t 'static_pages.welcome.welcome'} #{current_user.name}" %> <span><%= link_to "Offtrafik'e Git", user_path(current_user.id) %></span> <%= link_to "#{current_user.name} degilim", destroy_user_session_path, method: "delete"  %></span>
       <% end %>
       </div>
         <div class="twelve columns centered" style="margin-top: 0px">
