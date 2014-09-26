@@ -1,4 +1,4 @@
-<h3 class="center" id ="new-title"><%= "#{t 'postings_new_new_posting'}"%></h3>
+<h3 class="center" id ="new-title"><%= "#{t 'postings.new.new_posting'}"%></h3>
 <div class="row float-fixer" id="posting">
     <div class="span6 center" id ="posting-selection">
        <div id="frequent-posting"><em></em>
@@ -22,7 +22,7 @@
              <%= f.input :ending_time, label: "#{t 'postings.new.starting_time'}", as: :string, input_html: { id: "ending_time", value: "#{(Time.now + 30.minutes).strftime('%H:%M')}", class: "timepicker" } %>
              <%= f.input :driving, label: "#{t 'postings.new.role'}", as: :select, collection: @driving_options, include_blank: false, item_wrapper_class: "inline" %>
              <%= f.input :smoking, label: "#{t 'postings.new.smoking'}", as: :radio_buttons, collection: yes_no, item_wrapper_class: "inline" %>
-             <%= f.input :comments, label: "#{t 'postings.new.extra'}", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "#{t 'postings_new_extra_placeholder'}" %>
+             <%= f.input :comments, label: "#{t 'postings.new.extra'}", as: :text, input_html:{ cols: 30, rows: 5, resizable: false }, placeholder: "#{t 'postings.new.extra_placeholder'}" %>
              <%= f.submit "#{t 'postings.new.submit_posting'}", class: "btn btn-primary posting-submit btn-google-plus" %>           
            <% end %>
          </div>
