@@ -87,17 +87,17 @@ tr:
 #------------------------------------------NEW TAGS-----------------------------------------
   comments:
     comment:
-      see_comment: "Yorumu Gör"
+      see_comment: "See Comment"
     form:
-      rating: "Puan"
-      comment: "Yorum"
-      submit_comment: "Yorumu Kaydet"
+      rating: "Rating"
+      comment: "Comment"
+      submit_comment: "Submit comment"
     new:
-      new_comment: "Yeni Yorum"
+      new_comment: "New Comment"
     show:
-      from_whom: "Kimden: "
-      rating: "Puan: "
-      comment: "Yorumu"
+      from_whom: "By: "
+      rating: "Rating: "
+      comment: "Comment"
 #----------Devise---------		
   devise:
     confirmations:
@@ -115,42 +115,42 @@ tr:
 #----------Devise---------		
   layouts:
     footer:
-      terms_and_conditions: "Kullanıcı Kullanım Şartları"
-      contact_us: "Bize Ulaşın"
-      about: "Hakkımızda"
+      terms_and_conditions: "Terms and Conditions"
+      contact_us: "Contact Us"
+      about: "About"
     header:
-      main_page: "Ana Sayfa"
-      profile: "Profil"
-      settings: "Ayarlar"
-      logout: "Çıkış"
+      main_page: "Home"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Logout"
     shim: #No Strings
     application: #No Strings
   posting_mailer:
     new_one_time_posting_given:
-      dear: "Sevgili "
-      thanks: "Teşekkürler!"
+      dear: "Dear, "
+      thanks: "Thank You!"
       post_succes_sentence: "yönünde yapacağınız ilan başarıyla kaydedildi."
       mail_link: #Fix html code
     posting_contact:
-      dear: "Sevgili "
+      dear: "Dear, "
       post_share_sentence: #Fix html code
-      sent_message: " size ozel bir mesaj yolladı."
-      click_link_sentence: "Linke tıklayıp ona cevap verebilir, daha keyifli ve çevreci bir yolculuk yapabilirsiniz."
+      sent_message: " sent you a message."
+      click_link_sentence: "You can click on the link to reply and make your rides more environmental and fun."
   posting_response_mailer:
     accepted_to_owner:
-      dear: "Sevgili "
+      dear: "Dear, "
       post_link: #Fix the html code
       first_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
-      offtrafik_share_sentence: "Yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
-      safe_ride: "İyi yolculuklar,"
+      offtrafik_share_sentence: "Don't forget to share your adventures on social media with #offtrafik."
+      safe_ride: "Have nice ride,"
     accepted_to_responder: #Still need fixes
-      dear: "Sevgili "
+      dear: "Dear "
       positive_response: #Fix the html code
       congratulations_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
       offtrafik_share_sentence: "Yolculukla ilgili anılarınızı sosyal medyada #offtrafik ile paylaşmayı unutmayın." 
-      safe_ride: "İyi yolculuklar," 
+      safe_ride: "Have a nice ride," 
     journey_happened: #Still need fixes
-      congratulations: "Tebrikler!"
+      congratulations: "Congratulations!"
       paragraph_one: "Senin gibi düşünüp doğru tercihler yapanların arttığı bir gelecek hayal ediyoruz. Böylelikle hem çevreye verdiğimiz zararı azaltacak; hem de yakıtı, araçları ve yolları daha zekice kullanıyor olacağız."
       paragraph_two: "Biz bu hedefimizle gurur duyuyoruz ve sizler sayesinde başaracağız. Daha çevreci ve zeki bu ulaşım alışkanlığını yaymak için bizi sosyal medyada arkadaşlarına duyurabilirsin!"
       paragraph_profile_link:
@@ -158,105 +158,105 @@ tr:
       offtrafik_link_sentence: "birbirinizin profiline yorumlar yazmayı ve yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
       mail_link_sentence: #Fix the html code for a single key			
     rejected_to_responder:
-      dear: "Sevgili"
+      dear: "Dear, "
       negative_message: "yolculuğuna yaptığın başvuru için olumlu yanıt alamadık."
       other_link_text: "Yolculuğuna uygun diğer ilanlarla iletişime geçmek için"
       click_here: "buraya tıklayabilirsin."
   posting_response: #Some javascript files are not fixed
     enter_phone:
-      enter_phone_number: "Telefon Numaranı Gir"
-      placeholder: "İletişim için telefon numaranızı ekleyin (11 hane. Örnek: 05xxxxxxxxx)"
+      enter_phone_number: "Enter phone number"
+      placeholder: "Please add your phone number.(11 digits, Ex: 05xxxxxxxxx)"
       #One title to fix
-      send: "Yolla"
+      send: "Send"
     response_for_posting: #No String
     past_responses:
-      have_you_meet: "Bu kişilerle buluştunuz mu?"
-      from_address: "Nereden"
-      to_address: "Nereye"
-      notes: "Notlar"
-      yes: "Evet"
-      no: "Hayır"
+      have_you_meet: "Have you met with these people?"
+      from_address: "From"
+      to_address: "To"
+      notes: "Notes"
+      yes: "Yes"
+      no: "No"
   postings:
     contact_posting_owner:
-      contact: "İletişime Geç"
-      extra_notes: "Mailinize ekstra bir not eklemek isterseniz (örnek: telefon numaraniz) lütfen buraya yazın. İletişim emailinde yazan standart yazılar yine de gönderilecektir."
-      my_phone_number: "Telefon Numaram"
-      phone_number_placeholder: "İletişim için telefon numaranızı ekleyin (11 hane. Ornek: 05xxxxxxxxx)"
+      contact: "Get In Touch"
+      extra_notes: "Please write any extra notes that you want to add to your e-mail."
+      my_phone_number: "My Phone Number"
+      phone_number_placeholder: "Please add your phone number.(11 digits, Ex: 05xxxxxxxxx)"
       #Check the file for the last title
-      send: "Yolla"
+      send: "Send"
     filter_postings:
-      from_address: "Nereden:"
-      to_address: "Nereye:"
-      all: "Hepsi"
-      date: "Tarih"
+      from_address: "From:"
+      to_address: "To:"
+      all: "All"
+      date: "Date"
     find_postings: #No String
     header_notification: #No String
     posting_details_card:
-      from_address: "Nereden"
-      to_address: "Nereye"
-      notes: "Notlar"
+      from_address: "From"
+      to_address: "To"
+      notes: "Notes"
     posting:
-      from_address: "Nereden"
-      from_address: "Nereye"
+      from_address: "From"
+      from_address: "To"
     sidebar_notification:
-      from_address: "Nereden"
-      to_address: "Nereye"
+      from_address: "From"
+      to_address: "To"
     small_posting:
-      from_address: "Nereden"
-      to_address: "Nereye"
+      from_address: "From"
+      to_address: "To"
     edit:
-      change_posting: "İlan Değiştir"
-      from_address: "Nereden"
-      date: "Tarih"
-      starting_time: "Çıkış Zamanı"
-      ending_time: "Varış Zamanı"
-      to_address: "Nereye"
-      looking_for: "Ne Ariyorum"
-      smoking: "Sigara"
-      extra: "Ekstra"
-      extra_placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)"
-      submit_posting: "İlan Ver"
+      change_posting: "Edit Posting Details"
+      from_address: "From"
+      date: "Date"
+      starting_time: "Depart Time"
+      ending_time: "Arrive Time"
+      to_address: "From"
+      looking_for: "Looking For"
+      smoking: "Smoking"
+      extra: "Notes"
+      extra_placeholder: "Enter your route plans and requests." 
+      submit_posting: "Create Posting"
     find_from_home_page:
-      search_postings: "İlan Ara"
+      search_postings: "Search Postings"
     find:
-      search_postings: "İlan Ara"
+      search_postings: "Search Postings"
     new:
-      new_posting: "Yeni İlan"
-      frequent_posting: "Rutin İlan"
-      from_address: "Nereye"
-      to_address: "Nereden"
+      new_posting: "New Postings"
+      frequent_posting: "Frequent Posting"
+      from_address: "From"
+      to_address: "To"
       #Fix day names
-      last_posting_date: "Son İlan Tarihi"
-      starting_time: "Çıkış Zamanı"
-      ending_time: "Varış Zamanı"
-      role: "Rolünüz"
-      smoking: "Sigara"
-      extra: "Ekstra"
-      extra_placeholder: "Yolculuk planınızı ve taleplerinizi yazınız (Örn. Reşitpaşa'dan gideceğim. Yolculuk karşılığında bir kahve getirirseniz sevinirim.)"
-      submit_posting: "İlan Ver"
-      standard: "Günlük İlan"
-      standard_post_date: "Tarih"
+      last_posting_date: "Last Date of Ride"
+      starting_time: "Depart Time"
+      ending_time: "Arrive Time"
+      role: "Role"
+      smoking: "Smoking"
+      extra: "Notes"
+      extra_placeholder: "Enter your route plans and requests."
+      submit_posting: "Create Posting"
+      standard: "Daily Posting"
+      standard_post_date: "Date"
     preview: #No String
     respond: #No String (nothing actually)
     share_posting:
       #In-link fixes required.
-      back_to_postings: "İlanlara Dön"
+      back_to_postings: "Back to Postings"
     show:	
-      replied_users: "Cevap Verenler"
+      replied_users: "Responded Users"
   shared:
     error_message:
-      contains_error: "Formda bir hata oluştu:"
+      contains_error: "An error occured:"
     posting_table: #No String
     sidebar:
-      notifications: "Bildirimler:"
-      unapproved_postings: "Onaylamadiginiz gecmis yolculuklariniz var"
+      notifications: "Notifications:"
+      unapproved_postings: "You have unapproved past rides."
     user_info:
-      create_posting: "İlan Oluştur"
-      search_posting: "İlan Ara"
-      my_postings: "İlanlarım"
+      create_posting: "Create Posting"
+      search_posting: "Search Post"
+      my_postings: "My Postings"
   static_pages:
     about:
-      title: "Hakkımızda"
+      title: "About"
       first_paragraph: "Biz ders sıralarında kopya çekiştiğin arkadaşlarından başkası değiliz."
       second_paragraph: "Biz İstanbul trafiğinin yeni köprülerle sürdürülemeyeceğini düşünen mezun ve öğrencileriz. Okul yollarinda geçirdiğimiz zamani yeni insanlar ile tanışarak, sohbet ederek daha eğlenceli hale getirmek istiyoruz."
       third_paragraph: "Sen de yolculuklarını paylaşarak daha ekonomik, daha zeki bir şekilde ulaşım sağlayabilirsin."
@@ -267,42 +267,42 @@ tr:
       total_number_of_live_postings: "Canlı İlan Sayısı:"
       total_number_of_posting_user: "Ilan veren Kullanıcı Sayısı:"	
     contact:
-      contact_us: "Bize Ulasşın"
+      contact_us: "Contact Us"
     help:
-      help: "Yardım"
+      help: "Help"
     welcome:
-      email_placeholder: "Email"
-      enter_email: "Lütfen emailinizi girin"
-      login_password: "Şifre"
-      password_requirement: "En az 8 karakter olmalıdır."
-      login: "Giriş"
-      welcome: "Hoşgeldin "
-      goto_offtrafik: "Offtrafik'e Git"
+      email_placeholder: "E-mail"
+      enter_email: "Please enter your e-mail"
+      login_password: "Password"
+      password_requirement: "At least 8 characters."
+      login: "Login"
+      welcome: "Welcome "
+      goto_offtrafik: "Go to Offtrafik"
       not_current_user: #Fix the html code
       tagline: "Hey Koçlu, yolculuk nereye?"
-      about_link: "OFFTRAFİK NEDİR?"
-      join_us: "BİZE KATIL"
-      welcome_title: "Offtrafik'e Hoşgeldin"
+      about_link: "WHAT IS OFFTRAFIK?"
+      join_us: "JOIN US"
+      welcome_title: "Welcome to Offtrafik"
       subtitle_part_one: "Koç üniversiteli öğrencilerle yolculuk paylaşabileceğin ve yeni insanlarla tanışabileceğin bir platform."
       subtitle_part_two: "İster rutin, ister tek seferlik yolculuklarını KU’lularla paylaş; hem masrafları, hem çevre kirliliğini, hem de trafiği azalt."
-      featurette_one_title: "KU Mailinle Üye Ol"
+      featurette_one_title: "Sign up with your KU e-mail."
       featurette_one_text: "Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl." 
-      featurette_two_title: "İlan Ver/Ara"
+      featurette_two_title: "Create and Search Posts"
       featurette_two_text: "Offtrafik'te yolculuk ilanlarını oluştur ve ilan sahipleriyle iletişime geç."
-      featurette_three_title: "Paylaş"
+      featurette_three_title: "Share"
       featurette_three_text: "Yolculuklarını paylaşarak bu ulaşım ve çevre hareketinin kahramanlarından ol." 
-      part_one_title: "Yolculuk Paylaş" 
+      part_one_title: "Share your rides." 
       part_one_paragraph_one: "ile ister yolcu, ister sürücü olarak ilanlarını oluşturabilir, başka ilanlara başvurabilirsin. "
       part_one_paragraph_two: "Havaalanına ya da içmeye mi gideceksin? Arabaları evde bırakmakta fayda var, o zaman da taksini paylaş!"
-      part_two_title: "Yol Arkadaşlarını Seç" 
+      part_two_title: "Choose your ride mates." 
       part_two_paragraph: "Yolculuklarını paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın."
       join_us_text: "Sen de gel bize katıl ve <div class='font-titi-semib'> Offtrafik\'le</div> neler yapabileceğini gör!"
-      join_us_button: "Bize Katıl"
-      footer_join_us_link: "Bize Katıl"
-      footer_whats_offtrafik_link: "Offtrafik Nedir?"
+      join_us_button: "Join Us"
+      footer_join_us_link: "Join Us"
+      footer_whats_offtrafik_link: "What is Offtrafik?"
       footer_welcome_link: "Hoşgeldin"
     why:
-      title: "Neden"
+      title: "From"
       first_paragraph: "Dikkat edersen yolların, içinde yalnız sürücüsü olan arabalarla dolu olduğunu farkedeceksin."
       second_paragraph: "Aynı yöne giden sürücüleri ve toplu taşıma kullanıcılarını buluşturarak daha verimli ve sürdürülebilir bir ulaşım alışkanlığı kazandırmayı hedefliyoruz."
       third_paragraph: "Burada sadece KU’lular var! Yalnızca ku.edu.tr mail adresleriyle hesap oluşturarak bizbize bir ortam yaratıyoruz, güvenlik endişesini ortadan kaldırıyoruz."
@@ -311,36 +311,36 @@ tr:
       sixth_paragraph: "Bunları yaparken yeni insanlar tanıma fırsatı bulacaksın."
   user_mailer:
     welcome:
-      greeting: "Sevgili"
-      welcome: "Aramıza hoş geldin."
+      greeting: "Dear"
+      welcome: "Welcome."
       first_paragraph: "Offtrafik'te yapacağın yolculuklar için ilan verebilir, başkalarının verdiği ilanlara cevap verip onlarla yolculuklarını paylaşabilirsin. Yolculuklarını sosyal medyada paylaşabilir, insanlarla yaptığın yolculuklar sonunda onları puanlayabilirsin ve yorumlarını gelecekteki yolculara iletebilirsin."
       second_paragraph: "Offtrafik olarak bilinçli tercihler yapan bir topluluk yaratmaya çalışıyoruz ve seni aramızda görmek bize güç veriyor. Yola çıkarken sizlerin varlığından haberdardık; sadece bir araya gelmemiz gerekiyordu. Daha bilinçli tercihler yapan insanlar olarak güzel şeyler yapacağımız günler var önümüzde."
       third_paragraph: "Bize katıldığın için mutluyuz!"
   users:
     agreed_journey_card:
-      from_address: "Nereden"
-      to_address:	"Nereye"
-      alone_journey: "Yanlız"
+      from_address: "From"
+      to_address:	"To"
+      alone_journey: "Alone"
     display_acomments: #No String 
     user: #No string
     find:
-      find_user: "Kullanıcı Ara"
-      find_name: "İsim"
+      find_user: "Find User"
+      find_name: "Name"
       find_contact_choice: "İletişim Tercihi"
       find_contact_information: "İletişim Bilgisi"
     not_activated:
-      user_warning: "Üyeliğiniz şu anda aktif değil. Eğer aktivasyon maili gelmemişse, veya aktivasyon mailini yeniden istiyorsaniz lütfen aşağıdaki butona tıklayın."
-      activation_mail_link: "Aktivasyon Mailini Tekrar Gönder" 		
+      user_warning: "Your membership is not activated. If you did not receive the activation e-mail or want to receive the activarion e-mail again, please click the link below."
+      activation_mail_link: "Resend Activation E-mail." 		
     past_postings:
-      title: "Geçmiş İlanlar"
-      no_post_found: "Yolculuk bulunmamaktadır."
-      create_posting: "İlan Oluştur"
+      title: "Past Postings"
+      no_post_found: "No postings found."
+      create_posting: "Create Posting"
     postings:
-      my_postings: "İlanlarım"
-      past_postings: "Geçmiş İlanlar"
+      my_postings: "My Postings"
+      past_postings: "Past postings"
     show:
-      neighborhood: "Semt"
-      trip_rating: "Yolculuk Puanım"
-      total_journeys: "Toplam Yolculuklar"
-      comments: "Yorumlar"
-      past_journeys: "Geçmiş Yolculuklar"
+      neighborhood: "Neghbourhood"
+      trip_rating: "Rating"
+      total_journeys: "Total rides"
+      comments: "Comments"
+      past_journeys: "Past rides"
