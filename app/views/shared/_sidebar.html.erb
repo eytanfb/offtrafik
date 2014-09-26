@@ -3,10 +3,11 @@
     <%= render 'shared/user_info' %>
   </section>
   <section id="notifications">
-    <h2 style="color: black; margin-bottom: 10px"><%= "#{t 'shared.sidebar.notifications'}" @notifications_count %></h2>
+    <h2 style="color: black; margin-bottom: 10px"><%= t('shared.sidebar.notifications') %> <%= @notifications_count %></h2>
     <% if @postings_with_past_responses.present? %>
-      <p id="waiting-past-responses"><%= link_to "#{t 'shared.sidebar.unapproved_postings'}", user_past_responses_path(current_user)
- %></p>
+      <p id="waiting-past-responses">
+        <%= link_to t('shared.sidebar.unapproved_postings'), user_past_responses_path(current_user) %>
+      </p>
       <hr />
     <% end %>
     <% @notifications.each do |notification| %>
