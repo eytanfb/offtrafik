@@ -239,7 +239,7 @@ tr:
       #In-link fixes required.
       back_to_postings: "İlanlara Dön"
     show:	
-    	replied_users: "Cevap Verenler"
+      replied_users: "Cevap Verenler"
   shared:
     error_message:
       contains_error: "Formda bir hata oluştu:"
@@ -328,7 +328,6 @@ tr:
     not_activated:
       user_warning: "Üyeliğiniz şu anda aktif değil. Eğer aktivasyon maili gelmemişse, veya aktivasyon mailini yeniden istiyorsaniz lütfen aşağıdaki butona tıklayın."
       activation_mail_link: "Aktivasyon Mailini Tekrar Gönder" 		
-			#Problem detected !!
     past_postings:
       title: "Geçmiş İlanlar"
       no_post_found: "Yolculuk bulunmamaktadır."

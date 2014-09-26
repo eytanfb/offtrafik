@@ -74,6 +74,7 @@ class PostingsController < ApplicationController
       format.json { render :json => @postings.to_json }
       format.js
     end
+  end
   
   def all_postings
     @postings = Posting.live_postings
