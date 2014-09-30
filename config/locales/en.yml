@@ -140,19 +140,19 @@ tr:
     accepted_to_owner:
       dear: "Dear, "
       post_link: #Fix the html code
-      first_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
+      first_paragraph: "You must be proud of yourself! Think for a second, every Istanbulite sharing their journeys with each other; imagine half of the cars disappearing from the traffic and its positive impact on the environment. Congratulations for leading this dream! "
       offtrafik_share_sentence: "Don't forget to share your adventures on social media with #offtrafik."
       safe_ride: "Have nice ride,"
     accepted_to_responder: #Still need fixes
       dear: "Dear "
       positive_response: #Fix the html code
-      congratulations_paragraph: "Yolculuğunuzu paylaştığınız için kendinizle gurur duymalısınız. İstanbul’daki her sürücünün paylaştığını hayal edin, trafiğin ve çevre kirliliğinin ne kadar azalacağını.. Buna öncülük ettiğiniz için sizi tebrik ederiz!"
-      offtrafik_share_sentence: "Yolculukla ilgili anılarınızı sosyal medyada #offtrafik ile paylaşmayı unutmayın." 
+      congratulations_paragraph: "You must be proud of yourself! Think for a second, every Istanbulite sharing their journeys with each other; imagine half of the cars disappearing from the traffic and its positive impact on the environment. Congratulations for leading this dream! "
+      offtrafik_share_sentence: "Don't forget to share your adventures on social media with #offtrafik." 
       safe_ride: "Have a nice ride," 
     journey_happened: #Still need fixes
       congratulations: "Congratulations!"
-      paragraph_one: "Senin gibi düşünüp doğru tercihler yapanların arttığı bir gelecek hayal ediyoruz. Böylelikle hem çevreye verdiğimiz zararı azaltacak; hem de yakıtı, araçları ve yolları daha zekice kullanıyor olacağız."
-      paragraph_two: "Biz bu hedefimizle gurur duyuyoruz ve sizler sayesinde başaracağız. Daha çevreci ve zeki bu ulaşım alışkanlığını yaymak için bizi sosyal medyada arkadaşlarına duyurabilirsin!"
+      paragraph_one: "We dream of a future with people making right decisions, like you do. As we gather the crowd here, we’ll be saving the environment, be more energy efficient and smart!"
+      paragraph_two: "We are proud of our goals and will achieve together with you! To help this smart movement reach out, invite your friends, follow and share us on social media."
       paragraph_profile_link:
       #Make the @offtrafik word as a link to the instagram account (below)
       offtrafik_link_sentence: "birbirinizin profiline yorumlar yazmayı ve yolculukla ilgili anılarınızı sosyal medyada @offtrafik ile paylaşmayı unutmayın."
@@ -257,9 +257,9 @@ tr:
   static_pages:
     about:
       title: "About"
-      first_paragraph: "Biz ders sıralarında kopya çekiştiğin arkadaşlarından başkası değiliz."
-      second_paragraph: "Biz İstanbul trafiğinin yeni köprülerle sürdürülemeyeceğini düşünen mezun ve öğrencileriz. Okul yollarinda geçirdiğimiz zamani yeni insanlar ile tanışarak, sohbet ederek daha eğlenceli hale getirmek istiyoruz."
-      third_paragraph: "Sen de yolculuklarını paylaşarak daha ekonomik, daha zeki bir şekilde ulaşım sağlayabilirsin."
+      first_paragraph: "We are no one but your classmates."
+      second_paragraph: "We are KU students and graduates who believe that Istanbul’s traffic cannot be sustained by building new bridges. Our goal is to initiate the new wave of transportation, ride sharing in Istanbul. By doing so, you will turn your everyday commutes into social activities where you meet others from KU network, save money and protect the nature."
+      third_paragraph: "You too are welcomed to join us and start smart, fun and conscious commutes."
       fourth_paragraph: "Bizimkisi tüketim kültürüne, doğaya zarar veren petrol şirketlerine, hep daha fazla satmaya çalışan otomobil şirketlerine bir meydan okuma! Bu siteyle yakıt masraflarından tasarruf sağlanması, şehir trafiğinin rahatlaması ve çevre kirliliğinin azalmasını sağlayabiliriz. İstanbullular’a bu yeni ulaşım alışkanlığını kazandırmak için sen de bize katıl, geleceğin sürdürülebilir, çevreci ve ekonomik ulaşımını birlikte şekillendirelim."
     admin:
       total_number_of_users: "Toplam Kullanıcı Sayısı:"
@@ -283,24 +283,24 @@ tr:
       about_link: "WHAT IS OFFTRAFIK?"
       join_us: "JOIN US"
       welcome_title: "Welcome to Offtrafik"
-      subtitle_part_one: "Koç üniversiteli öğrencilerle yolculuk paylaşabileceğin ve yeni insanlarla tanışabileceğin bir platform."
-      subtitle_part_two: "İster rutin, ister tek seferlik yolculuklarını KU’lularla paylaş; hem masrafları, hem çevre kirliliğini, hem de trafiği azalt."
+      subtitle_part_one: "An online platform that you can share rides and more with KU members."
+      subtitle_part_two: "You can share your routine or daily rides with other KU members, save your money, our planet and city’s traffic doing so."
       featurette_one_title: "Sign up with your KU e-mail."
-      featurette_one_text: "Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl." 
-      featurette_two_title: "Create and Search Posts"
-      featurette_two_text: "Offtrafik'te yolculuk ilanlarını oluştur ve ilan sahipleriyle iletişime geç."
+      featurette_one_text: "Join Offtrafik with your KU e-mail" 
+      featurette_two_title: "Create and Search Journeys"
+      featurette_two_text: "You can both create journeys, and contact others"
       featurette_three_title: "Share"
-      featurette_three_text: "Yolculuklarını paylaşarak bu ulaşım ve çevre hareketinin kahramanlarından ol." 
+      featurette_three_text: "Become one of the heroes of this movement by sharing your rides!" 
       part_one_title: "Share your rides." 
-      part_one_paragraph_one: "ile ister yolcu, ister sürücü olarak ilanlarını oluşturabilir, başka ilanlara başvurabilirsin. "
-      part_one_paragraph_two: "Havaalanına ya da içmeye mi gideceksin? Arabaları evde bırakmakta fayda var, o zaman da taksini paylaş!"
+      part_one_paragraph_one: "Create rides as a driver or passenger, contact others’ and start sharing!"
+      part_one_paragraph_two: "Heading to the airport or to a party? Better go without your car, instead share your taxi ride!"
       part_two_title: "Choose your ride mates." 
-      part_two_paragraph: "Yolculuklarını paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın."
-      join_us_text: "Sen de gel bize katıl ve <div class='font-titi-semib'> Offtrafik\'le</div> neler yapabileceğini gör!"
+      part_two_paragraph: "One last step before sharing your rides: Contacting others. You’ll be notified via email and online once somebody contacts you, the rest is simple and fun! "
+      join_us_text: "Join us and realize the power of sharing with <div class='font-titi-semib'>Offtrafik</div>!"
       join_us_button: "Join Us"
       footer_join_us_link: "Join Us"
       footer_whats_offtrafik_link: "What is Offtrafik?"
-      footer_welcome_link: "Hoşgeldin"
+      footer_welcome_link: "Welcome"
     why:
       title: "From"
       first_paragraph: "Dikkat edersen yolların, içinde yalnız sürücüsü olan arabalarla dolu olduğunu farkedeceksin."
