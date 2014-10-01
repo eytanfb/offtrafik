@@ -35,16 +35,16 @@ class FrequentPostingsController < ApplicationController
         today += 1
       end
       if first_posting.present?
-        flash[:success] = "Ilan verildi"
+        flash[:success] = "İlan verildi"
         redirect_to share_posting_path(posting_id: first_posting.id) and return
       else
-        flash[:warning] = "Ilan verilemedi."
+        flash[:warning] = "İSlan verilemedi."
         driving_options
         @posting = current_user.postings.new params[:posting]
         render "postings/new"
       end
     else
-      flash[:warning] = "Ilan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
+      flash[:warning] = "İlan verirken bir sorun olustu. Lutfen hatalari kontrol edip tekrar deneyin."
       driving_options
       @posting = current_user.postings.new params[:posting]
       render "postings/new"
