@@ -7,7 +7,7 @@ class MobileController < ApplicationController
       sign_in user 
       logger.info "Signed user in"
       respond_to do |format|
-        format.json { render json: { user: user, token: user.confirmation_token, all_postings: Posting.live_postings.to_json(include: :user) } }
+        format.json { render json: { user: user, my_postings: user.postings, token: user.confirmation_token, all_postings: Posting.live_postings.to_json(include: :user) } }
       end
     else
       logger.info "Not signed in"
