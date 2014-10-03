@@ -35,8 +35,9 @@ Offtrafik::Application.routes.draw do
   end
   
   post '/api/sign_in' => 'api#remote_sign_in', as: :remote_sign_in
-  get '/api/user_info_request' => 'api#user_info_request', as: :user_info_request
+  get '/api/user_info' => 'api#user_info', as: :user_info
   get '/api/all_postings' => 'api#all_postings', as: :all_postings
+  post '/api/create_daily_posting' => 'api#create_daily_posting', as: :create_daily_posting
   
   resources :frequent_postings, only: [:create]
   resources :comments, only: [:show, :new, :create]
