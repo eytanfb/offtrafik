@@ -68,10 +68,10 @@ Offtrafik::Application.configure do
   config.log_level = :debug
   config.logger = Logger.new(STDOUT)
   
-  config.middleware.use ExceptionNotification::Rack,
-    email: {
-      sender_address: %{"staging-hata" <hata@offtrafik-staging.com>},
-      :exception_recipients => %w{eytanfb@gmail.com}
-    }
+  #config.middleware.use ExceptionNotification::Rack,
+    #email: {
+      #sender_address: %{"staging-hata" <hata@offtrafik-staging.com>},
+      #:exception_recipients => %w{eytanfb@gmail.com}
+    #}
   
 end

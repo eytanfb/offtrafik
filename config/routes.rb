@@ -35,8 +35,8 @@ Offtrafik::Application.routes.draw do
     get 'preview', as: :preview
   end
   
-  post '/mobile/sign_in' => 'mobile#mobile_sign_in', as: :mobile_sign_in
-  resources :mobile, only: [] do
+  post '/api/sign_in' => 'api#remote_sign_in', as: :remote_sign_in
+  resources :api, only: [] do
     get 'user_request', as: :user_request
   end
   
