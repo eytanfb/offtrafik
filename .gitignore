@@ -40,3 +40,6 @@ extra_stuff.txt
 *.swo
 rails_best_practices_output.html
 .powenv
+*.iml
+.idea
+
