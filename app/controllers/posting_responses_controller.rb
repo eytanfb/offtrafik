@@ -1,4 +1,6 @@
 class PostingResponsesController < ApplicationController
+  before_filter :authenticate_user!, except: [:past_responses]
+  before_filter :check_user, except: [:past_responses]
   before_filter :notifications, only: [:past_responses]
   
   def accept

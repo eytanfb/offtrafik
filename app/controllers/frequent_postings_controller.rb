@@ -2,6 +2,8 @@
 
 class FrequentPostingsController < ApplicationController
   
+  before_filter :authenticate_user!, only: [:create]
+  before_filter :check_user, only: [:create]
   def index
     
   end

@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_filter :authenticate_user!, only: [:create]
+  before_filter :authenticate_user!, except: [:show]
+  before_filter :check_user, except: [:show]
   before_filter :notifications, except: [:create]
   
   def new

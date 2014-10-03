@@ -31,6 +31,10 @@ class ApplicationController < ActionController::Base
         find_posting_path
       end
   end
+
+  def check_user
+    redirect_to new_user_session_path unless user_signed_in?
+  end
 end
 
 private

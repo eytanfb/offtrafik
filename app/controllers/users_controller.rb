@@ -2,9 +2,10 @@
 # encoding: utf-8
 
 class UsersController < Devise::RegistrationsController
-  before_filter :authenticate_user!, only: [:index, :edit, :update, :show]
+  before_filter :authenticate_user!, only: [:postings, :past_postings, :edit, :update]
   before_filter :notifications, except: [:enter_phone]
   before_filter :get_past_responses, except: [:enter_phone]
+  before_filter :check_user, only: [:postings, :past_postings, :edit, :update]
   
   def postings
     @live_postings = current_user.postings.live_postings.includes(:user).paginate(page: params[:page], per_page: 9)

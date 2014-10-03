@@ -1,7 +1,8 @@
 # encoding: utf-8
 
 class PostingsController < ApplicationController
-  before_filter :authenticate_user!, only: [:show, :share_posting, :full, :respond, :create, :new]
+  before_filter :authenticate_user!, only: [:show, :share_posting, :full, :respond, :create, :new, :destroy, :respond]
+  before_filter :check_user, only: [:show, :share_posting, :full, :respond, :create, :new, :destroy, :respond]
   before_filter :driving_options, only: [:new, :find, :find_from_home_page]
   before_filter :notifications, only: [:share_posting, :find, :show]
   before_filter :get_past_responses, only: [:share_posting, :find, :show]
