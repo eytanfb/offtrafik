@@ -26,7 +26,6 @@ Offtrafik::Application.routes.draw do
   match '/find_from_home', to: 'postings#find_from_home_page'
   match '/find_user', to: 'users#find'
   match '/share_posting', to: 'postings#share_posting'
-  match '/all_postings', to: 'postings#all_postings'
 
   resources :postings, except: [:update, :index] do
     post 'respond', as: :respond
@@ -36,9 +35,8 @@ Offtrafik::Application.routes.draw do
   end
   
   post '/api/sign_in' => 'api#remote_sign_in', as: :remote_sign_in
-  resources :api, only: [] do
-    get 'user_request', as: :user_request
-  end
+  get '/api/user_info_request' => 'api#user_info_request', as: :user_info_request
+  get '/api/all_postings' => 'api#all_postings', as: :all_postings
   
   resources :frequent_postings, only: [:create]
   resources :comments, only: [:show, :new, :create]

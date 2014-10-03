@@ -77,14 +77,6 @@ class PostingsController < ApplicationController
     logger.info "end find in controller"
   end
   
-  def all_postings
-    @postings = Posting.live_postings
-    
-    respond_to do |format|
-      format.json { render json: @postings.to_json(include: :user) }
-    end
-  end
-  
   def share_posting
     @posting = Posting.find params[:posting_id]
   end

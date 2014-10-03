@@ -17,10 +17,18 @@ class ApiController < ApplicationController
     end
   end
 
-  def user_request
-    user = User.find params[:mobile_id]
+  def user_info_request
+    user = User.find params[:id]
     respond_to do |format|
       format.json { render json: user.to_json(include: :postings)  }
+    end
+  end
+  
+  def all_postings
+    @postings = Posting.live_postings
+    
+    respond_to do |format|
+      format.json { render json: @postings.to_json(include: :user) }
     end
   end
   
