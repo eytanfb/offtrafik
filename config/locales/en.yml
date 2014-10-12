@@ -260,7 +260,7 @@ tr:
       first_paragraph: "We are no one but your classmates."
       second_paragraph: "We are KU students and graduates who believe that Istanbul’s traffic cannot be sustained by building new bridges. Our goal is to initiate the new wave of transportation, ride sharing in Istanbul. By doing so, you will turn your everyday commutes into social activities where you meet others from KU network, save money and protect the nature."
       third_paragraph: "You too are welcomed to join us and start smart, fun and conscious commutes."
-      fourth_paragraph: "Bizimkisi tüketim kültürüne, doğaya zarar veren petrol şirketlerine, hep daha fazla satmaya çalışan otomobil şirketlerine bir meydan okuma! Bu siteyle yakıt masraflarından tasarruf sağlanması, şehir trafiğinin rahatlaması ve çevre kirliliğinin azalmasını sağlayabiliriz. İstanbullular’a bu yeni ulaşım alışkanlığını kazandırmak için sen de bize katıl, geleceğin sürdürülebilir, çevreci ve ekonomik ulaşımını birlikte şekillendirelim."
+      fourth_paragraph: "Ours is a dare to consumer culture, environment damaging oil companies and car companies that only care about selling more! With Offtrafik, we can save commute money, reduce urban traffic and our carbon footprint. Join us to establish a new transportation habit for citizens of Istanbul and we’ll shape future’s smart, eco-friendly and sustainable transportation together!"
     admin:
       total_number_of_users: "Toplam Kullanıcı Sayısı:"
       total_number_of_postings: "Toplam Ilan Sayısı:"
@@ -303,19 +303,19 @@ tr:
       footer_welcome_link: "Welcome"
     why:
       title: "From"
-      first_paragraph: "Dikkat edersen yolların, içinde yalnız sürücüsü olan arabalarla dolu olduğunu farkedeceksin."
-      second_paragraph: "Aynı yöne giden sürücüleri ve toplu taşıma kullanıcılarını buluşturarak daha verimli ve sürdürülebilir bir ulaşım alışkanlığı kazandırmayı hedefliyoruz."
-      third_paragraph: "Burada sadece KU’lular var! Yalnızca ku.edu.tr mail adresleriyle hesap oluşturarak bizbize bir ortam yaratıyoruz, güvenlik endişesini ortadan kaldırıyoruz."
-      fourth_paragraph: "240 KU öğrencisi kampüslere nereden ulaştıklarını söyledi. Tüm okulda, senin geldiğin yerden de gelen başkaları kesin vardır!"
-      fifth_paragraph: "Yolculuk paylaşarak ulaşım masraflarından tasarruf edecek, karbon salınımını azaltıp çevreyi koruyacaksın."
-      sixth_paragraph: "Bunları yaparken yeni insanlar tanıma fırsatı bulacaksın."
+      first_paragraph: "Look closer and you’ll realize roads are full of cars with only the drivers inside and three (usually) empty seats."
+      second_paragraph: "Our aim is to bring together these drivers and public transporters to establish a more efficient and sustainable transportation habit."
+      third_paragraph: "Here, we are all from KU! By signing up with your @ku.edu.tr mail address, we maintain Offtrafik exclusive and provide a secure environment"
+      fourth_paragraph: #NO NEED
+      fifth_paragraph: "By sharing rides, you’ll save commute money, reduce your carbon footprint and protect our planet."
+      sixth_paragraph: "And will meet new people in the meantime."
   user_mailer:
     welcome:
       greeting: "Dear"
       welcome: "Welcome."
-      first_paragraph: "Offtrafik'te yapacağın yolculuklar için ilan verebilir, başkalarının verdiği ilanlara cevap verip onlarla yolculuklarını paylaşabilirsin. Yolculuklarını sosyal medyada paylaşabilir, insanlarla yaptığın yolculuklar sonunda onları puanlayabilirsin ve yorumlarını gelecekteki yolculara iletebilirsin."
-      second_paragraph: "Offtrafik olarak bilinçli tercihler yapan bir topluluk yaratmaya çalışıyoruz ve seni aramızda görmek bize güç veriyor. Yola çıkarken sizlerin varlığından haberdardık; sadece bir araya gelmemiz gerekiyordu. Daha bilinçli tercihler yapan insanlar olarak güzel şeyler yapacağımız günler var önümüzde."
-      third_paragraph: "Bize katıldığın için mutluyuz!"
+      first_paragraph: "You can create your journeys to share, or apply to others’ journeys. Please don’t forget to share your journeys on social media and comment on your ride mates’ profiles."
+      second_paragraph: "As Offtrafik, we aim to create a more conscious population and having you by our side gives us strength. We were well aware of your existence, just needed to come together with you! As a group more aware and conscious group we have better and peaceful days ahead."
+      third_paragraph: "We are delighted to welcome you among us!"
   users:
     agreed_journey_card:
       from_address: "From"
