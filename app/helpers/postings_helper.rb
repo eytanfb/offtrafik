@@ -31,14 +31,14 @@ module PostingsHelper
 
   def display_respondable_button(respondable)
     if respondable
-      link_to 'Iletişime Geç', posting_contact_posting_owner_path(@posting.id), class: 'btn btn-primary btn-warning', id: 'respond-button', data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true
+      link_to "#{t 'posting_helper.contact_owner'}", posting_contact_posting_owner_path(@posting.id), class: 'btn btn-primary btn-warning', id: 'respond-button', data: { toggle: 'modal', target: '#contact-posting-owner-modal-window' }, remote: true
     else
-      link_to 'İletişime Geçildi', '#', class: 'btn disabled', id: 'respond-button'
+      link_to "#{t 'posting_helper.already_contacted_owner'}", '#', class: 'btn disabled', id: 'respond-button'
     end
   end
 
   def delete_posting_button
-    link_to 'İlanı Sil', '#', method: :delete, confirm: 'Emin Misiniz?', class: 'btn btn-primary btn-danger', id: 'respond-button'
+    link_to "#{t 'posting_helper.delete_posting'}", '#', method: :delete, confirm: "#{t 'posting_helper.confirmation'}", class: 'btn btn-primary btn-danger', id: 'respond-button'
   end
 
 end

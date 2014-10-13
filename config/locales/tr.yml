@@ -82,6 +82,23 @@ tr:
       about_link_at_bottom: "Offtrafik Nedir?"
       welcome_link_at_bottom: "Hoşgeldin"
 #------------------------------------------NEW TAGS-----------------------------------------
+#----------------------------helpers----------------------------
+	application_helper: #No strings
+	comments_helper: #No strings
+	frequent_postings_helper: #No String
+	posting_responses_helper:
+		accepted: "Geliyor"
+		not_accepted:"Gelmiyor"
+	posting_helper:
+		cantact_owner: "İletişime Geç"
+		already_contacted_owner: "İletişime Geçildi"
+		delete_posting: "İlanı Sil" 
+		confirmation: "Emin misin"
+	session_helper: #No String
+	static_pages_helper: #No String
+	users_helper:
+		add_comment: "Yorum Yaz"
+#----------------------------views----------------------------
   comments:
     comment:
       see_comment: "Yorumu Gör"
