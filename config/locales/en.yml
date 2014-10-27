@@ -1,10 +1,10 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-tr:
+en:
   date:
-    month_names: [~, Ocak, Şubat, Mart, Nisan, Mayıs, Haziran, Temmuz, Ağustos, Eylül, Ekim, Kasım, Aralık]
-    abbr_month_names: [~, Oca, Şub, Mar, Nis, May, Haz, Tem, Ağu, Eyl, Eki, Kas, Ara]
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
     formats:
       default: ! '%d/%B/%Y'
       short: ! '%b %e'
@@ -14,93 +14,58 @@ tr:
         user:
           attributes:
             first_name:
-              blank: "Ad alanı boş olamaz"
+              blank: "First name can't be blank"
             last_name:
-              blank: "Soyad alanı boş olamaz"						
+              blank: "Last name can't be blank"						
             email:
-              blank: "Email alanı boş olamaz"
-              uniqueness: "Bu email daha once alınmıştır"
-              invalid: "Email ******@ku.edu.tr formatını taşımamaktadır"
+              blank: "Email can't be blank"
+              uniqueness: "This email is already being used"
+              invalid: "Email doesn't match the ******@ku.edu.tr pattern"
             password:
-              blank: "Şifre boş olamaz"
-              too_short: "Şifre en az 8 karakter olmalı"
+              blank: "Password can't be blank"
+              too_short: "Password has to be at least 8 characters"
             password_confirmation:
-              blank: "Şifre doğrulama boş olamaz"
+              blank: "Password confirmation can't be blank"
             agreed_to_terms_and_conditions:
-              inclusion: "Kullanım Koşuları ve Şartları'nı kabul etmeniz gerekmektedir"
+              inclusion: "You have to accept the Terms and Conditions"
         posting:
           attributes:
             from_address:
-              blank: "Nereden alanı boş olamaz"
+              blank: "From address can't be blank"
             to_address:
-              blank: "Nereye alanı boş olamaz"
+              blank: "To address can't be blank"
             date:
-              blank: "Tarih alanı boş olamaz"
+              blank: "Date can't be blank"
         frequent_posting:
           attributes:
             from_address:
-              blank: "Nereden alanı boş olamaz"
+              blank: "From address can't be blank"
             to_address:
-              blank: "Nereye alanı boş olamaz"
+              blank: "To address can't be blank"
             last_date:
-              blank: "Son Ilan Tarihi boş olamaz"
+              blank: "Last ride date can't be blank"
         comment:
           attributes:
             text:
-              blank: "Yorum alanı boş"
-              too_long: "Yorum 140 karakterden fazla olamaz"
-  static_pages:
-    welcome:
-      tagline: "Hey Koçlu, yolculuk nereye?"
-      about_link: "OFFTRAFİK NEDİR?"
-      join_us_link: "BİZE KATIL"
-      user_greeting: "Hoşgeldin" 
-      enter_link: "Offtrafik'e Git"
-      login-form:
-        password: "Şifre" 
-        submit: "Giriş"
-      about:
-        title: "Offtrafik'e Hoşgeldin"
-        subtitle_part_one: "Koç üniversiteli öğrencilerle yolculuk paylaşabileceğin ve yeni insanlarla tanışabileceğin bir platform."
-        subtitle_part_two: "İster rutin, ister tek seferlik yolculuklarını KU’lularla paylaş; hem masrafları, hem çevre kirliliğini, hem de trafiği azalt."
-        featurette_one:
-          title: "KU Mailinle Üye Ol"
-          text: "Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl." 
-        featurette_two:
-          title: "İlan Ver/Ara"
-          text: "Offtrafik'te yolculuk ilanlarını oluştur ve ilan sahipleriyle iletişime geç." 
-        featurette_three:
-          title: "Paylaş"
-          text: "Yolculuklarını paylaşarak bu ulaşım ve çevre hareketinin kahramanlarından ol." 
-      aboutus:
-        title: "Yolculuk Paylaş" 
-        text_part_one: "ile ister yolcu, ister sürücü olarak ilanlarını oluşturabilir, başka ilanlara başvurabilirsin. "
-        text_part_two: "Havaalanına ya da içmeye mi gideceksin? Arabaları evde bırakmakta fayda var, o zaman da taksini paylaş!"
-      control:
-        title: "Yol Arkadaşlarını Seç" 
-        text: "Yolculuklarını paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın."
-      joinus_html: "Sen de gel bize katıl ve <div class='font-titi-semib'> Offtrafik\'le</div> neler yapabileceğini gör!"
-      joinus_button: "Bize Katıl"
-      joinus_link_at_bottom: "Bize Katıl"
-      about_link_at_bottom: "Offtrafik Nedir?"
-      welcome_link_at_bottom: "Hoşgeldin"
+              blank: "Comment text can't be blank"
+              too_long: "Comment can't be more than 140 characters"
 #------------------------------------------NEW TAGS-----------------------------------------
 #----------------------------helpers----------------------------
-	application_helper: #No strings
-	comments_helper: #No strings
-	frequent_postings_helper: #No String
-	posting_responses_helper:
-		accepted: "Accepted"
-		not_accepted:"Not Accepted"
-	posting_helper:
-		cantact_owner: "Contact"
-		already_contacted_owner: "Already Contacted"
-		delete_posting: "Delete" 
-		confirmation: "Are you sure?"
-	session_helper: #No String
-	static_pages_helper: #No String
-	users_helper:
-		add_comment: "Add Comment"
+  application_helper: #No strings
+  comments_helper: #No strings
+  frequent_postings_helper: #No String
+  posting_responses_helper:
+    accepted: "Accepted"
+    not_accepted: "Not Accepted"
+  posting_helper:
+    cantact_owner: "Contact"
+    already_contacted_owner: "Already Contacted"
+    delete_posting: "Delete" 
+    confirmation: "Are you sure?"
+  session_helper: #No String
+  static_pages_helper: #No String
+  users_helper:
+    add_comment: "Add Comment"
 #----------------------------views----------------------------
   comments:
     comment:
@@ -296,42 +261,42 @@ tr:
       welcome: "Welcome "
       goto_offtrafik: "Go to Offtrafik"
       not_current_user: #Fix the html code
-      tagline: "Hey Koçlu, yolculuk nereye?"
+      tagline: "Where are you off to?"
       about_link: "WHAT IS OFFTRAFIK?"
       join_us: "JOIN US"
       welcome_title: "Welcome to Offtrafik"
       subtitle_part_one: "An online platform that you can share rides and more with KU members."
-      subtitle_part_two: "You can share your routine or daily rides with other KU members, save your money, our planet and city’s traffic doing so."
+      subtitle_part_two: "You can share your routine or daily rides with other KU members, save money, save our planet and mitigate Istanbul’s traffic doing so."
       featurette_one_title: "Sign up with your KU e-mail."
       featurette_one_text: "Join Offtrafik with your KU e-mail" 
       featurette_two_title: "Create and Search Journeys"
-      featurette_two_text: "You can both create journeys, and contact others"
+      featurette_two_text: "You can both create journeys, and contact others to share their's"
       featurette_three_title: "Share"
       featurette_three_text: "Become one of the heroes of this movement by sharing your rides!" 
       part_one_title: "Share your rides." 
       part_one_paragraph_one: "Create rides as a driver or passenger, contact others’ and start sharing!"
-      part_one_paragraph_two: "Heading to the airport or to a party? Better go without your car, instead share your taxi ride!"
-      part_two_title: "Choose your ride mates." 
-      part_two_paragraph: "One last step before sharing your rides: Contacting others. You’ll be notified via email and online once somebody contacts you, the rest is simple and fun! "
-      join_us_text: "Join us and realize the power of sharing with <div class='font-titi-semib'>Offtrafik</div>!"
+      part_one_paragraph_two: "Heading to the airport or to a party? Better go without your car, instead share a cab!"
+      part_two_title: "Choose your ride mates" 
+      part_two_paragraph: "One last step before sharing your rides: Contacting others. You’ll be notified via email and online once somebody contacts you, the rest is simple and fun! We're going to let you know when you're matched with fellow KU members."
+      join_us_text_html: "Join us and realize the power of sharing with <div class='font-titi-semib'>Offtrafik!</div>"
       join_us_button: "Join Us"
       footer_join_us_link: "Join Us"
       footer_whats_offtrafik_link: "What is Offtrafik?"
       footer_welcome_link: "Welcome"
     why:
-      title: "From"
-      first_paragraph: "Look closer and you’ll realize roads are full of cars with only the drivers inside and three (usually) empty seats."
-      second_paragraph: "Our aim is to bring together these drivers and public transporters to establish a more efficient and sustainable transportation habit."
-      third_paragraph: "Here, we are all from KU! By signing up with your @ku.edu.tr mail address, we maintain Offtrafik exclusive and provide a secure environment"
+      title: "Why"
+      first_paragraph: "If you look closer, you’ll realize that the roads are full of cars with just drivers inside and three empty seats."
+      second_paragraph: "Our goal is to bring together these drivers and public transporters to establish a more efficient and sustainable transportation habit."
+      third_paragraph: "Here, everyone is from KU! By signing up with your @ku.edu.tr email address, we maintain Offtrafik exclusive and provide a secure environment"
       fourth_paragraph: #NO NEED
-      fifth_paragraph: "By sharing rides, you’ll save commute money, reduce your carbon footprint and protect our planet."
-      sixth_paragraph: "And will meet new people in the meantime."
+      fifth_paragraph: "By sharing rides, you’ll save money, reduce your carbon footprint and protect our planet."
+      sixth_paragraph: "And will meet new people while doing it."
   user_mailer:
     welcome:
       greeting: "Dear"
-      welcome: "Welcome."
+      welcome: "Welcome to Offtrafik."
       first_paragraph: "You can create your journeys to share, or apply to others’ journeys. Please don’t forget to share your journeys on social media and comment on your ride mates’ profiles."
-      second_paragraph: "As Offtrafik, we aim to create a more conscious population and having you by our side gives us strength. We were well aware of your existence, just needed to come together with you! As a group more aware and conscious group we have better and peaceful days ahead."
+      second_paragraph: "As Offtrafik, we are trying to create a more conscious population and having you by our side gives us strength. We were well aware of your existence when we started this movement. All we needed to do was come together."
       third_paragraph: "We are delighted to welcome you among us!"
   users:
     agreed_journey_card:
@@ -343,11 +308,11 @@ tr:
     find:
       find_user: "Find User"
       find_name: "Name"
-      find_contact_choice: "İletişim Tercihi"
-      find_contact_information: "İletişim Bilgisi"
+      find_contact_choice: "Contact Preference"
+      find_contact_information: "Contact Info"
     not_activated:
-      user_warning: "Your membership is not activated. If you did not receive the activation e-mail or want to receive the activarion e-mail again, please click the link below."
-      activation_mail_link: "Resend Activation E-mail." 		
+      user_warning: "Your membership is not yet activated. If you did not receive the activation e-mail or want to receive the activarion e-mail again, please click the link below."
+      activation_mail_link: "Resend Activation E-mail."
     past_postings:
       title: "Past Postings"
       no_post_found: "No postings found."
@@ -356,7 +321,7 @@ tr:
       my_postings: "My Postings"
       past_postings: "Past postings"
     show:
-      neighborhood: "Neghbourhood"
+      neighborhood: "Neighborhood"
       trip_rating: "Rating"
       total_journeys: "Total rides"
       comments: "Comments"

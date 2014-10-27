@@ -46,58 +46,23 @@ tr:
             text:
               blank: "Yorum alanı boş"
               too_long: "Yorum 140 karakterden fazla olamaz"
-  static_pages:
-    welcome:
-      tagline: "Hey Koçlu, yolculuk nereye?"
-      about_link: "OFFTRAFİK NEDİR?"
-      join_us_link: "BİZE KATIL"
-      user_greeting: "Hoşgeldin" 
-      enter_link: "Offtrafik'e Git"
-      login-form:
-        password: "Şifre" 
-        submit: "Giriş"
-      about:
-        title: "Offtrafik'e Hoşgeldin"
-        subtitle_part_one: "Koç üniversiteli öğrencilerle yolculuk paylaşabileceğin ve yeni insanlarla tanışabileceğin bir platform."
-        subtitle_part_two: "İster rutin, ister tek seferlik yolculuklarını KU’lularla paylaş; hem masrafları, hem çevre kirliliğini, hem de trafiği azalt."
-        featurette_one:
-          title: "KU Mailinle Üye Ol"
-          text: "Offtrafik'e Koç Üniversitesi mail adresinle kayıt ol ve bu özel gruba katıl." 
-        featurette_two:
-          title: "İlan Ver/Ara"
-          text: "Offtrafik'te yolculuk ilanlarını oluştur ve ilan sahipleriyle iletişime geç." 
-        featurette_three:
-          title: "Paylaş"
-          text: "Yolculuklarını paylaşarak bu ulaşım ve çevre hareketinin kahramanlarından ol." 
-      aboutus:
-        title: "Yolculuk Paylaş" 
-        text_part_one: "ile ister yolcu, ister sürücü olarak ilanlarını oluşturabilir, başka ilanlara başvurabilirsin. "
-        text_part_two: "Havaalanına ya da içmeye mi gideceksin? Arabaları evde bırakmakta fayda var, o zaman da taksini paylaş!"
-      control:
-        title: "Yol Arkadaşlarını Seç" 
-        text: "Yolculuklarını paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın."
-      joinus_html: "Sen de gel bize katıl ve <div class='font-titi-semib'> Offtrafik\'le</div> neler yapabileceğini gör!"
-      joinus_button: "Bize Katıl"
-      joinus_link_at_bottom: "Bize Katıl"
-      about_link_at_bottom: "Offtrafik Nedir?"
-      welcome_link_at_bottom: "Hoşgeldin"
-#------------------------------------------NEW TAGS-----------------------------------------
+  #------------------------------------------NEW TAGS-----------------------------------------
 #----------------------------helpers----------------------------
-	application_helper: #No strings
-	comments_helper: #No strings
-	frequent_postings_helper: #No String
-	posting_responses_helper:
-		accepted: "Geliyor"
-		not_accepted:"Gelmiyor"
-	posting_helper:
-		cantact_owner: "İletişime Geç"
-		already_contacted_owner: "İletişime Geçildi"
-		delete_posting: "İlanı Sil" 
-		confirmation: "Emin misin"
-	session_helper: #No String
-	static_pages_helper: #No String
-	users_helper:
-		add_comment: "Yorum Yaz"
+  application_helper: #No strings
+  comments_helper: #No strings
+  frequent_postings_helper: #No String
+  posting_responses_helper:
+    accepted: "Geliyor"
+    not_accepted: "Gelmiyor"
+  posting_helper:
+    cantact_owner: "İletişime Geç"
+    already_contacted_owner: "İletişime Geçildi"
+    delete_posting: "İlanı Sil" 
+    confirmation: "Emin misin"
+  session_helper: #No String
+  static_pages_helper: #No String
+  users_helper:
+    add_comment: "Yorum Yaz"
 #----------------------------views----------------------------
   comments:
     comment:
@@ -310,7 +275,7 @@ tr:
       part_one_paragraph_two: "Havaalanına ya da içmeye mi gideceksin? Arabaları evde bırakmakta fayda var, o zaman da taksini paylaş!"
       part_two_title: "Yol Arkadaşlarını Seç" 
       part_two_paragraph: "Yolculuklarını paylaşmak için geriye tek bir aşama kaldı: başvurulara cevap vermek. İlanına gelen başvuruları sana hem email ile hem de site üzerinden bildireceğiz. Sen de yolculuklarını keyifle paylaşacaksın."
-      join_us_text: "Sen de gel bize katıl ve <div class='font-titi-semib'> Offtrafik\'le</div> neler yapabileceğini gör!"
+      join_us_text_html: "Sen de gel bize katıl ve <div class='font-titi-semib'> Offtrafik\'le</div> neler yapabileceğini gör!"
       join_us_button: "Bize Katıl"
       footer_join_us_link: "Bize Katıl"
       footer_whats_offtrafik_link: "Offtrafik Nedir?"

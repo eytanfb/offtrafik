@@ -53,7 +53,7 @@
       </div>
         <div class="twelve columns centered" style="margin-top: 0px">
 	          <div class="fade1 font-titi-semib" style="font-size: 110px;"><%= image_tag "offtrafik-no-background-logo.png" %></div>     
-	          <h2 class="fade2"><%= "#{t 'static_pages.welcome.static_pages.welcome.tagline'}" %></h2>
+	          <h2 class="fade2"><%= "#{t 'static_pages.welcome.tagline'}" %></h2>
             <%= link_to  "#{ t 'static_pages.welcome.about_link'} ", "#about", class: "scroll-button fade3" %>
             <br />
             <%= link_to "#{ t 'static_pages.welcome.join_us'}", new_user_registration_path, class: "button fade3" %>
@@ -130,7 +130,7 @@
 <section id="joinus">
 	<div class="row">
 		<div class="eight columns centered">	
-			<h2><%= t "static_pages.welcome.join_us_text" %></h2>
+			<h2><%= t "static_pages.welcome.join_us_text_html" %></h2>
 		</div>
 	</div>
 </section>
