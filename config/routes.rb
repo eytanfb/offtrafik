@@ -1,4 +1,6 @@
 Offtrafik::Application.routes.draw do
+  # handles /
+  match '', to: redirect("/#{I18n.locale}")
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
     
     devise_for :users, controllers: { registrations: 'users' }

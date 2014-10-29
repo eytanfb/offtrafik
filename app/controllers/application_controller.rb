@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :notifications
+  helper_method :change_locale
   
   before_filter :set_locale
 
@@ -32,6 +33,10 @@ class ApplicationController < ActionController::Base
     else
       find_posting_path
     end
+  end
+
+  def change_locale(lang)
+    params[:locale] = lang
   end
 
   private
