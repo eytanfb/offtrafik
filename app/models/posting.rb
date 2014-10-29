@@ -63,7 +63,11 @@ class Posting < ActiveRecord::Base
   end
   
   def controllable_by?(user)
-    self.user_id == user.id && self.posting_responses.count > 0 && self.date >= Date.today 
+    self.user_id == user.id 
+  end
+
+  def has_unanswered_responses_by_owner?(user)
+    controllable_by?(user) && self.posting_responses.count > 0 && self.date >= Date.today 
   end
 
   def formatted_date

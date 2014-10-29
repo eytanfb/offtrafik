@@ -1,9 +1,7 @@
 module UsersHelper
-  
-  def gravatar_for(user, options = { size: 52 })
-    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
-    size = options[:size]
-    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-    image_tag(gravatar_url, alt: user.name, class: "gravatar")
+
+  def add_comment_about(user)
+    link_to "Yorum Yaz", new_comment_path(is_about: user.id), class: "btn btn-small", id: "write_comment"
   end
+
 end

@@ -26,7 +26,6 @@ Offtrafik::Application.routes.draw do
   match '/find_from_home', to: 'postings#find_from_home_page'
   match '/find_user', to: 'users#find'
   match '/share_posting', to: 'postings#share_posting'
-  match '/all_postings', to: 'postings#all_postings'
 
   resources :postings, except: [:update, :index] do
     post 'respond', as: :respond
@@ -35,10 +34,10 @@ Offtrafik::Application.routes.draw do
     get 'preview', as: :preview
   end
   
-  post '/mobile/sign_in' => 'mobile#mobile_sign_in', as: :mobile_sign_in
-  resources :mobile, only: [] do
-    get 'user_request', as: :user_request
-  end
+  post '/api/sign_in' => 'api#remote_sign_in', as: :remote_sign_in
+  get '/api/user_info' => 'api#user_info', as: :user_info
+  get '/api/all_postings' => 'api#all_postings', as: :all_postings
+  post '/api/create_daily_posting' => 'api#create_daily_posting', as: :create_daily_posting
   
   resources :frequent_postings, only: [:create]
   resources :comments, only: [:show, :new, :create]

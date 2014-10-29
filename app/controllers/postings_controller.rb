@@ -4,7 +4,7 @@ class PostingsController < ApplicationController
   before_filter :authenticate_user!, only: [:show, :share_posting, :full, :respond, :create, :new]
   before_filter :driving_options, only: [:new, :find, :find_from_home_page]
   before_filter :notifications, only: [:share_posting, :find, :show]
-#  before_filter :get_past_responses, only: [:share_posting, :find, :show]
+  before_filter :get_past_responses, only: [:share_posting, :find, :show]
   
   def new
     @posting = current_user.postings.new params[:posting]
@@ -27,11 +27,10 @@ class PostingsController < ApplicationController
   
   def show
     @posting = Posting.find(params[:id])
-    fresh_when etag: [@posting, @posting.user]
-      @user = User.find @posting.user_id
-      to_address = Posting.format(@posting.to_address)
-      from_address = Posting.format(@posting.from_address)
-      @respondable = !@posting.posting_responses.includes(:user).collect(&:responder_id).include?(current_user.id)
+    @user = User.find @posting.user_id
+    to_address = Posting.format(@posting.to_address)
+    from_address = Posting.format(@posting.from_address)
+    @respondable = !@posting.posting_responses.includes(:user).collect(&:responder_id).include?(current_user.id)
   end
   
   def preview
@@ -55,6 +54,7 @@ class PostingsController < ApplicationController
   end
   
   def find
+    logger.info "find in controller"
     @posting = Posting.new params[:posting]
     if params[:posting].present?
       driving = params[:posting][:driving]
@@ -64,21 +64,15 @@ class PostingsController < ApplicationController
       date = params[:posting][:date].present? ? Date.parse(params[:posting][:date]) : Date.today
    end
     
-      @postings = params[:posting].present? ? Posting.live_postings.with_from_address(Posting.format(from_address)).with_to_address(Posting.format(to_address)).with_driving(driving).with_date(date) : Posting.live_postings
-      @postings = @postings.includes(:user).paginate(page: params[:page], per_page: 9, order: "date asc")
-      respond_to do |format|
-        format.html
-        format.json { render :json => @postings.to_json }
-        format.js
-      end
-  end
-  
-  def all_postings
-    @postings = Posting.live_postings
-    
+    @postings = if params[:posting].present? 
+                  Posting.live_postings.includes(:user).with_from_address(Posting.format(from_address)).with_to_address(Posting.format(to_address)).with_driving(driving).with_date(date).paginate(page: params[:page], per_page: 9, order: "date asc")
+                else
+                   Posting.live_postings.includes(:user).paginate(page: params[:page], per_page: 9, order: "date asc")
+                end
     respond_to do |format|
       format.json { render json: @postings.to_json(include: :user) }
     end
+    logger.info "end find in controller"
   end
   
   def share_posting

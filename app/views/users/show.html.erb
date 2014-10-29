@@ -1,17 +1,19 @@
 <%= provide(:title, @user.name) %>
 <div class="row">
-  <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
-  <section id="user-show" style="margin-top: 25px">
-    <div style="min-height: 100px; margin-bottom: 10px" id="profile-photo"><%= image_tag @user.avatar.url(:thumb), style: "float:left" %>
-        <div style="float:left; margin-left: 5px">
-          <h1 id="user-name-heading">
-            <%= @user.name %>
-          </h1>
-          <p style="font-size: 14px; margin-bottom: 10px;"> <%= @user.summary %></p>
-        </div></div>
+  <aside>
+    <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
+  </aside>
+  <section id="user-show">
+    <div id="profile-photo">
+      <%= image_tag @user.avatar.url(:thumb), style: "float:left" %>
+        <div id="name-and-summary" style="float:left; margin-left: 5px">
+          <h1 id="user-name-heading"><%= @user.name %></h1>
+          <p id="summary"> <%= @user.summary %></p>
+        </div>
+    </div>
     <div id="map"></div>
-    <section style="margin-left: 10px">
-      <h4 style="display: none">Semt: <span id="neighborhood"><%= @user.neighborhood %></span></h4>
+    <section id="user-details">
+      <h4 style="display:none">Semt: <span id="neighborhood"><%= @user.neighborhood %></span></h4>
       <div class="row">
         <div class="span6">
           <h4>Yolculuk Puanım: <span id="user-trip-rating" data-score="<%= @user.trip_rating %>"></span></h4>
@@ -23,26 +25,25 @@
     <div class="row">
       <div class="span5">
         <h3>Yorumlar</h3>
-        <% if @user != current_user %>
-          <%= link_to "Yorum Yaz", new_comment_path(is_about: @user.id), class: "btn btn-small", id: "write_comment" %>
-        <% end %>
+        <%= add_comment_about(current_user) unless @user == current_user %>
         <%= render 'display_comments', comments: @comments %>
       </div>
       <% if @user == current_user %>
-      <div class="span6">
-        <h3 id="past-journeys-title">Geçmiş Yolculuklar</h3>
-        <div id="past-journeys">                           
-          <% @agreed_journeys.each do |journey| %>
-            <%= render "agreed_journey_card", journey: journey %>
-          <% end %>
-          <%= will_paginate @agreed_journeys, param_name: "journey_page" %>
-        </div> 
-      </div>
+        <div class="span6">
+          <h3 id="past-journeys-title">Geçmiş Yolculuklar</h3>
+           <div id="past-journeys">
+             <% @agreed_journeys.each do |journey| %>
+               <%= render "agreed_journey_card", journey: journey %>
+             <% end %>
+             <%= will_paginate @agreed_journeys, param_name: "journey_page" %>
+           </div>
+        </div>
       <% end %>
     </div>
     </section>
   </section>
 </div>
+
 <% content_for :javascripts do %>
   <%= javascript_include_tag "users.js" %>
 <% end %>

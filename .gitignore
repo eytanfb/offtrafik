@@ -38,6 +38,7 @@ extra_stuff.txt
 .DS_Store#
 *.swp
 *.swo
+*.swn
 rails_best_practices_output.html
 .powenv
 *.iml

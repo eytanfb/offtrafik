@@ -1,6 +1,5 @@
 class PostingResponsesController < ApplicationController
   before_filter :notifications, only: [:past_responses]
-  before_filter :get_past_responses, only: [:past_responses]
   
   def accept
     if params[:enter_phone][:phone].present?
