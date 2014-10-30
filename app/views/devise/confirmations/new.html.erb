@@ -1,5 +1,5 @@
 <div id = "confirmation-page">
-	<h2><%= "#{t 'devise_confirmations_new_activation_confirmation'}"%></h2>
+	<h2><%= "#{t 'devise.confirmations.new.activation_confirmation'}"%></h2>
 	<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
 	  <%= f.error_notification %>
 	  <%= f.full_error :confirmation_token %>
@@ -9,7 +9,7 @@
 	  </div>
 
 	  <div class="form-actions">
-	    <%= f.button :submit, "#{t 'devise_confirmations_new_send_activation_email_again'}" %>
+	    <%= f.button :submit, "#{t 'devise.confirmations.new.send_activation_email_again'}" %>
 	  </div>
 	<% end %>
 
