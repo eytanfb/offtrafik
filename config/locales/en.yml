@@ -89,8 +89,40 @@ en:
     mailer:
       confirmation_instructions:
         devise_mailer_confirmation_instructions:
+				devise_mailer_confirmation_instructions_activate_link:	
     passwords:
+			edit:
+				new_password: "New password"
+				confirm_new_password: "Confirm your ne password"
+				change_password: "Change my password"
+			new:
+				send_instructions: "Send me reset password instructions"
     registrations:
+			edit:
+				update_profile: "Update Profilee"
+				firstname: "Name"
+				lastname: "Lastname"
+				neighbourhood: "Which neighbourhood are you living in?"
+				neighbourhood_placeholder:"Your Neighbourhood"
+				about_yourself: "Introduce yourself with one sentence."
+				own_a_car: "Do you drive to campus with your own car?"
+				profile_picture: "Profile Picture"
+				change_password: "Change Password"
+				new_password: "New Password"
+				new_password_hint: "Leave empty if you do not want to change."
+				password_confirmation: "Confirm password"
+				recent_password: "Recent Password"
+				recent_password_hint: "We need your recent password to confirm updates."
+				update: "Update"
+				back: "Back"
+			new: 
+				sign_up:
+				firstname: "Name"
+				lastname: "Lastname"
+				password:
+				confirm_password:
+				own_a_car: "Do you drive to campus with your own car?"
+				
     sessions:
     shared:
     unlocks:

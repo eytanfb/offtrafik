@@ -1,32 +1,32 @@
 <div class="row">
   <%= render partial: "shared/sidebar", locals: { notifications: @notifications, postings_with_past_responses: @postings_with_past_responses } %>
   <section class="span8" id="edit-user">
-    <h2>Profilinizi Guncelleyin</h2>
+    <h2><%= "#{t 'devise.registration.edit.update_profile'}"%></h2>
 
     <%= simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal" } do |f| %>
 
       <div class="form-inputs">
-        <%= f.input :first_name, label: "Ad", required: true, autofocus: true %>
-        <%= f.input :last_name, label: "Soyad", required: true %>
-        <%= f.input :neighborhood, label: "Hangi Semttensiniz", collection: DISTRICTS, input_html: { id: "user-neighborhood", data: { placeholder: "Semtiniz" } } %>
-        <%= f.input :summary, label: "Kendinizi Tek Cumleyle Ozetleyin", as: :text, input_html: { cols: 30, rows: 2 } %>
-        <%= f.input :driver, label: "Kampuse kendi arabanizla mi geliyorsunuz?", required: false, collection: yes_no, as: :radio_buttons, item_wrapper_class: "inline" %>
+        <%= f.input :first_name, label: "#{t 'devise.registration.edit.firstname'}", required: true, autofocus: true %>
+        <%= f.input :last_name, label: "#{t 'devise.registration.edit.lastname'}", required: true %>
+        <%= f.input :neighborhood, label: "#{t 'devise.registration.edit.neighbourhood'}", collection: DISTRICTS, input_html: { id: "user-neighborhood", data: { placeholder: "#{t 'devise.registration.edit.neighbourhood_placeholder'}" } } %>
+        <%= f.input :summary, label: "#{t 'devise.registration.edit.about_yourself'}"}, as: :text, input_html: { cols: 30, rows: 2 } %>
+        <%= f.input :driver, label: "#{t 'devise.registration.edit.own_a_car'}", required: false, collection: yes_no, as: :radio_buttons, item_wrapper_class: "inline" %>
         <%= f.input :phone, label: false, as: :string %>
         <%= f.input :email, disabled: true, required: false %>
-        <%= f.input :avatar, label: "Profil Resmi" %>
+        <%= f.input :avatar, label: "#{t 'devise.registration.edit.profile_picture'}" %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
         
-        <h4>Şifre Değiştir</h4>
-        <%= f.input :password, required: false, label: "Yeni Şifre", autocomplete: "off", hint: "degistirmek istemiyorsaniz bos birakin" %>
-        <%= f.input :password_confirmation, required: false, label: "Şifre Onaylama" %>
-        <%= f.input :current_password, label: "Güncel Şifre", hint: "değişiklikleri onaylamamiz için şifrenize ihtiyacımız var" %>
+        <h4><%= "#{t 'devise.registration.edit.change_password'}"%></h4>
+        <%= f.input :password, required: false, label: "#{t 'devise.registration.edit.new_password'}", autocomplete: "off", hint: "#{t 'devise.registration.edit.new_password_hint'}" %>
+        <%= f.input :password_confirmation, required: false, label: "#{t 'devise.registration.edit.password_confirmation'}" %>
+        <%= f.input :current_password, label: "#{t 'devise.registration.edit.recent_password'}", hint: "#{t 'devise.registration.edit.recent_password_hint'}" %>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Güncelle" %>
+        <%= f.button :submit, "#{t 'devise.registration.edit.update'}" %>
       </div>
     <% end %>
 
@@ -34,7 +34,7 @@
 
     <!-- <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p> -->
 
-    <%= link_to "Geri", :back, class: "btn btn-primary back-button", style: "color: white" %>
+    <%= link_to "#{t 'devise.registration.edit.back'}", :back, class: "btn btn-primary back-button", style: "color: white" %>
   </section>
 </div>
 
