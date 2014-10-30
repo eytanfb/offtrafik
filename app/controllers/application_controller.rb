@@ -35,10 +35,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def change_locale(lang)
-    params[:locale] = lang
-  end
-
   private
 
   def set_locale

@@ -30,7 +30,7 @@
           <%= f.input_field :email, label: false, placeholder: "#{t 'static_pages.welcome.email_placeholder'}", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "#{t 'static_pages.welcome.enter_email'}" %>
           <%= f.input_field :password, label: false, placeholder: "#{ t 'static_pages.welcome.login_password'}", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "#{t 'static_pages.welcome.password_requirement'}" %>
           <%= f.button :submit, "#{t 'static_pages.welcome.login'}", id: "login-submit" %>
-      <%= link_to "tr", change_locale("tr"), style: "color:white" %> / <%= link_to "en", change_locale("en"), style: "color:white" %>
+      <%= link_to "tr", locale: "tr", style: "color:white" %> / <%= link_to "en", locale: "en", style: "color:white" %>
         <% end %>
       <% else %>
        <span class="pull-right" id="no-header-logged-in-user"><%= "#{t 'static_pages.welcome.welcome'} #{current_user.name}" %> <span><%= link_to "#{t 'static_pages.welcome.goto_offtrafik'}", user_path(current_user) %></span><%= link_to "#{current_user.name} değilim", destroy_user_session_path, method: "delete"  %><%= link_to "tr", change_locale("tr"), style: "color:white" %> / <%= link_to "en", change_locale("en"), style: "color:white" %>
@@ -48,7 +48,7 @@
           <%= f.input_field :email, label: false, placeholder: "#{t 'static_pages.welcome.email_placeholder'}", required: true, class: "search-query input-large", pattern: "[^@\s]+@ku.edu.tr", title: "Lütfen emailinizi girin" %>
           <%= f.input_field :password, label: false, placeholder: "#{ t 'static_pages.welcome.login_password'}", required: true, class: "search-query input-large", pattern: '\S{8,}', title: "En az 8 karakter olmalıdır" %>
           <%= f.button :submit, "#{t 'static_pages.welcome.login'}", id: "login-submit" %>
-      <%= link_to "tr", change_locale("tr"), style: "color:white" %> / <%= link_to "en", change_locale("en"), style: "color:white" %>
+      <%= link_to "tr", locale: "tr", style: "color:white" %> / <%= link_to "en", locale: "en", style: "color:white" %>
         <% end %>
     	<% else %>
        <span class="pull-right" id="header-logged-in-user"><%="#{t 'static_pages.welcome.welcome'} #{current_user.name}" %> <span><%= link_to "Offtrafik'e Git", user_path(current_user.id) %></span> <%= link_to "#{current_user.name} degilim", destroy_user_session_path, method: "delete"  %>  <%= link_to "tr", change_locale("tr"), style: "color:white" %> / <%= link_to "en", change_locale("en"), style: "color:white" %>
