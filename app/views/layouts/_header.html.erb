@@ -2,6 +2,7 @@
   <div class="navbar-inner" id="header-content">
     <div class="container">
       <%= link_to (image_tag "offtrafik-no-background-logo.png", id: "logo"), find_posting_path %>
+      <div class="center"><%= link_to "tr / ", locale: "tr", style: "color:white" %><%= link_to "en", locale: "en", style: "color:white" %></div>
       <nav>
         <ul class="nav pull-right" style="margin-top: 10px">
           <% if signed_in? %>
