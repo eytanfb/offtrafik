@@ -1,17 +1,17 @@
 <%= provide(:title, 'Üye Ol') %>
-<h1 style:"margin:auto;">Üye Ol</h1>
+<h1 style:"margin:auto;"><%="#{t 'devise.registration.new.sign_up'}"%></h1>
 <div class="row">
   <div class="span6" style="float:none" id="user-registration-form">
 
 <%= simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f| %>
 
   <div class="form-inputs">
-    <%= f.input :first_name, label: "Ad", required: true, autofocus: true %>
-    <%= f.input :last_name, label: "Soyad", required: true %>
+    <%= f.input :first_name, label: "#{t 'devise.registration.new.firstname'}", required: true, autofocus: true %>
+    <%= f.input :last_name, label: "#{t 'devise.registration.new.lastname'}", required: true %>
     <%= f.input :email, required: true %>
-    <%= f.input :password, label: "Şifre", required: true %>
-    <%= f.input :password_confirmation, label: "Şifre Onaylama", required: true %>
-    <%= f.input :driver, label: "Kampuse kendi arabanizla mi geliyorsunuz?", required: false, collection: yes_no, as: :radio_buttons, item_wrapper_class: "inline" %>
+    <%= f.input :password, label: "#{t 'devise.registration.new.password'}", required: true %>
+    <%= f.input :password_confirmation, label: "#{t 'devise.registration.new.confirm_password'}", required: true %>
+    <%= f.input :driver, label: "#{t 'devise.registration.new.own_a_car'}", required: false, collection: yes_no, as: :radio_buttons, item_wrapper_class: "inline" %>
   </div>
   
   <div id="terms_and_conditions">
@@ -20,7 +20,7 @@
   </div>
   
   <div class="form-actions">
-    <%= f.button :submit, "Kayıt Ol", class: "btn btn-primary" %>
+    <%= f.button :submit, "#{t 'devise.registration.new.sign_up_button'}", class: "btn btn-primary" %>
   </div>
 <% end %>
 

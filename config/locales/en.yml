@@ -99,7 +99,7 @@ en:
 				send_instructions: "Send me reset password instructions"
     registrations:
 			edit:
-				update_profile: "Update Profilee"
+				update_profile: "Update Profile"
 				firstname: "Name"
 				lastname: "Lastname"
 				neighbourhood: "Which neighbourhood are you living in?"
@@ -116,16 +116,31 @@ en:
 				update: "Update"
 				back: "Back"
 			new: 
-				sign_up:
+				sign_up: "Sign Up"
 				firstname: "Name"
 				lastname: "Lastname"
-				password:
-				confirm_password:
+				password: "Password"
+				confirm_password: "Confirm Password"
 				own_a_car: "Do you drive to campus with your own car?"
-				
+				agree_terms_and_conditions: #Fix Link
+				sign_up_button: " Sign Up"
     sessions:
+			new:
+				login: "Login"
+				password: "Password"
+				remember: "Remember"
+				login_button: "Login"		
     shared:
+			links:
+				login: "Login"
+				sign_up: "Sign Up"
+				forget_password: "Forget my password"
+				not_received_activation_email: "If you did not receive the activation e-mail"
+				unlock_instructions: #What is this?
+				sign_in_with: #What is this?
     unlocks:
+			new:
+				resend_unlock_instructions: "Resend unlock instructions"
 #----------Devise---------		
   layouts:
     footer:
